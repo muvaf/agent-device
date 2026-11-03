@@ -1,0 +1,50 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-android-regression
+
+···············xx
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/platform-android/src/deployment/runtime.test.ts > a hosted path install preserves provider metadata and falls back to materialized identity
+AssertionError: expected {} to deeply equal { appName: 'Provider app', …(2) }
+
+- Expected
++ Received
+
+- {
+-   "appName": "Provider app",
+-   "launchTarget": "com.example.materialized/.MainActivity",
+-   "packageName": "com.example.materialized",
+- }
++ {}
+
+ ❯ packages/platform-android/src/deployment/runtime.test.ts:401:20
+    399|           })
+    400|         : await operations.deployMaterializedApp!({ artifact });
+    401|     expect(result).toEqual({ ...providerResult, packageName: artifact.…
+       |                    ^
+    402|   },
+    403| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |unit-core| packages/platform-android/src/deployment/runtime.test.ts > a hosted prepared install preserves provider metadata and falls back to materialized identity
+Error: Installed Android app identity could not be resolved from the artifact or device state
+ ❯ deployPreparedAndroidApp packages/platform-android/src/deployment/runtime.ts:182:11
+    180|       );
+    181|   if (!packageName) {
+    182|     throw new AppError(
+       |           ^
+    183|       'COMMAND_FAILED',
+    184|       'Installed Android app identity could not be resolved from the a…
+ ❯ Object.deployMaterializedApp packages/platform-android/src/deployment/runtime.ts:61:7
+ ❯ packages/platform-android/src/deployment/runtime.test.ts:400:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 15 passed (17)
+   Start at  20:38:19
+   Duration  227ms (transform 51%, tests 19%, setup 15%, import 11%, worker 4%)
+

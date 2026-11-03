@@ -1,0 +1,24 @@
+{
+  "kind": "sdk",
+  "method": "apps.installFromSource",
+  "options": {
+    "platform": "android",
+    "serial": "emulator-5588",
+    "source": {
+      "kind": "path",
+      "path": "/private/tmp/agent-device-review2/android-live/fixtures/source-v3.zip"
+    }
+  },
+  "durationMs": 3134,
+  "result": {
+    "appName": "Installerreview",
+    "appId": "com.agentdevice.installerreview",
+    "packageName": "com.agentdevice.installerreview",
+    "launchTarget": "com.agentdevice.installerreview",
+    "identifiers": {
+      "session": "android-installer-review4194",
+      "appId": "com.agentdevice.installerreview",
+      "package": "com.agentdevice.installerreview"
+    }
+  }
+}

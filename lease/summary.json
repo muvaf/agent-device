@@ -1,0 +1,894 @@
+{
+  "root": "/private/tmp/agent-device-review2-lease",
+  "expectedSha": "94a4db632d927807c6588823e6a42bafdcdf6a05",
+  "label": "review2-publish",
+  "output": "/private/tmp/agent-device-review2/lease-live-publish",
+  "stateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+  "derived": "/private/tmp/agent-device-review2/lease-live-publish/derived",
+  "runnerLeaseDir": "/private/tmp/agent-device-review2/lease-live-publish/runner-leases",
+  "session": "lifecycle-review2-publish-700694fe",
+  "simulatorName": "agent-device-lifecycle-review2-publish",
+  "developerDir": "/Applications/Xcode-27.1.app/Contents/Developer",
+  "runtimeId": "com.apple.CoreSimulator.SimRuntime.iOS-26-4",
+  "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+  "runtime": {
+    "identifier": "com.apple.CoreSimulator.SimRuntime.iOS-26-4",
+    "version": "26.4",
+    "buildversion": "23E244"
+  },
+  "xcode": "Xcode 27.1\nBuild version 27A9269",
+  "udid": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+  "passed": true,
+  "observations": [
+    {
+      "mode": "release",
+      "servedRequestId": "c100a225f16fa241",
+      "servedEvents": [
+        {
+          "ts": "2026-11-03T17:57:08.056Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c100a225f16fa241",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51650:1793728620628",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "6d17676dead9c4734e88464ee2e919c3",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-release",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:08.058Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c100a225f16fa241",
+          "command": "swipe",
+          "durationMs": 2,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-fc4e0047-18b3-4e4f-b3e0-75dc129a39b4",
+            "reason": "conservative_command",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:08.259Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c100a225f16fa241",
+          "command": "swipe",
+          "durationMs": 200,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-fc4e0047-18b3-4e4f-b3e0-75dc129a39b4",
+            "readOnly": true,
+            "sessionReady": true,
+            "timeoutMs": 44997
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:08.262Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c100a225f16fa241",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51650:1793728620628",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "6d17676dead9c4734e88464ee2e919c3",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-release",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:08.263Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c100a225f16fa241",
+          "command": "swipe",
+          "durationMs": 1,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-9b461cf2-2d5c-4b23-93f5-f3e61456e1b7",
+            "reason": "no_recent_healthy_mutation",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:08.968Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c100a225f16fa241",
+          "command": "swipe",
+          "durationMs": 705,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-9b461cf2-2d5c-4b23-93f5-f3e61456e1b7"
+          }
+        }
+      ],
+      "generation": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51650:1793728620628",
+        "runnerPid": 5701,
+        "runnerStartTime": "Tue Nov  3 20:57:00 2026",
+        "port": 51650,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51650.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51650.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728620637,
+        "deviceClaimProtocol": 1
+      }
+    },
+    {
+      "phase": "release:retained-after-close",
+      "at": "2026-11-03T17:57:09.010Z",
+      "lease": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51650:1793728620628",
+        "runnerPid": 5701,
+        "runnerStartTime": "Tue Nov  3 20:57:00 2026",
+        "port": 51650,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51650.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51650.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728620637,
+        "deviceClaimProtocol": 1
+      },
+      "listening": true,
+      "runnerProcessAlive": true,
+      "daemonAlive": true
+    },
+    {
+      "mode": "reopened",
+      "servedRequestId": "e459c72af4b05d0a",
+      "servedEvents": [
+        {
+          "ts": "2026-11-03T17:57:09.724Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "e459c72af4b05d0a",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51650:1793728620628",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "6d17676dead9c4734e88464ee2e919c3",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-release",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:09.727Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "e459c72af4b05d0a",
+          "command": "swipe",
+          "durationMs": 3,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-bb0f5472-edbd-49ca-8a68-9c35192914e6",
+            "reason": "conservative_command",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:09.835Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "e459c72af4b05d0a",
+          "command": "swipe",
+          "durationMs": 108,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-bb0f5472-edbd-49ca-8a68-9c35192914e6",
+            "readOnly": true,
+            "sessionReady": true,
+            "timeoutMs": 44997
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:09.838Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "e459c72af4b05d0a",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51650:1793728620628",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "6d17676dead9c4734e88464ee2e919c3",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-release",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:09.838Z",
+          "level": "debug",
+          "phase": "ios_runner_readiness_preflight_skipped",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "e459c72af4b05d0a",
+          "command": "swipe",
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-659fff65-9ffb-4649-96f8-eb7194936eaf",
+            "reason": "recent_healthy_mutation",
+            "lastHealthyMutationAgeMs": 869,
+            "sessionReady": true
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:10.385Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "e459c72af4b05d0a",
+          "command": "swipe",
+          "durationMs": 547,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-659fff65-9ffb-4649-96f8-eb7194936eaf"
+          }
+        }
+      ],
+      "generation": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51650:1793728620628",
+        "runnerPid": 5701,
+        "runnerStartTime": "Tue Nov  3 20:57:00 2026",
+        "port": 51650,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51650.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51650.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728620637,
+        "deviceClaimProtocol": 1
+      }
+    },
+    {
+      "phase": "release:daemon-stays-running",
+      "at": "2026-11-03T17:57:11.063Z",
+      "listening": false,
+      "runnerProcessAlive": false,
+      "daemonAlive": true
+    },
+    {
+      "mode": "expiry",
+      "servedRequestId": "f3c0a90e23e74091",
+      "servedEvents": [
+        {
+          "ts": "2026-11-03T17:57:13.719Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "f3c0a90e23e74091",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51903:1793728631606",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "6631b09226fbc57643cc65cf2c9953b0",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-expiry",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:13.721Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "f3c0a90e23e74091",
+          "command": "swipe",
+          "durationMs": 2,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-af65cc6d-77ec-40f7-a191-bb24ed27ca12",
+            "reason": "conservative_command",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:13.858Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "f3c0a90e23e74091",
+          "command": "swipe",
+          "durationMs": 137,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-af65cc6d-77ec-40f7-a191-bb24ed27ca12",
+            "readOnly": true,
+            "sessionReady": true,
+            "timeoutMs": 44998
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:13.860Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "f3c0a90e23e74091",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51903:1793728631606",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "6631b09226fbc57643cc65cf2c9953b0",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-expiry",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:13.863Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "f3c0a90e23e74091",
+          "command": "swipe",
+          "durationMs": 2,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-9dda70e4-a48a-4954-a1ca-a7c73bbd5902",
+            "reason": "no_recent_healthy_mutation",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:14.541Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "f3c0a90e23e74091",
+          "command": "swipe",
+          "durationMs": 678,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-9dda70e4-a48a-4954-a1ca-a7c73bbd5902"
+          }
+        }
+      ],
+      "generation": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51903:1793728631606",
+        "runnerPid": 6772,
+        "runnerStartTime": "Tue Nov  3 20:57:11 2026",
+        "port": 51903,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51903.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51903.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728631611,
+        "deviceClaimProtocol": 1
+      }
+    },
+    {
+      "phase": "expiry:retained-after-close",
+      "at": "2026-11-03T17:57:14.576Z",
+      "lease": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:51903:1793728631606",
+        "runnerPid": 6772,
+        "runnerStartTime": "Tue Nov  3 20:57:11 2026",
+        "port": 51903,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51903.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-51903.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728631611,
+        "deviceClaimProtocol": 1
+      },
+      "listening": true,
+      "runnerProcessAlive": true,
+      "daemonAlive": true
+    },
+    {
+      "phase": "expiry:daemon-stays-running",
+      "at": "2026-11-03T17:57:17.609Z",
+      "listening": false,
+      "runnerProcessAlive": false,
+      "daemonAlive": true
+    },
+    {
+      "mode": "shutdown",
+      "servedRequestId": "c40887798c24c8b7",
+      "servedEvents": [
+        {
+          "ts": "2026-11-03T17:57:21.463Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c40887798c24c8b7",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52051:1793728638566",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "7a1059aca3266e5965e0075a1c91805c",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-shutdown",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:21.465Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c40887798c24c8b7",
+          "command": "swipe",
+          "durationMs": 1,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-0d22bacf-7124-4548-91cc-84c394228654",
+            "reason": "conservative_command",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:21.609Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c40887798c24c8b7",
+          "command": "swipe",
+          "durationMs": 143,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-0d22bacf-7124-4548-91cc-84c394228654",
+            "readOnly": true,
+            "sessionReady": true,
+            "timeoutMs": 44998
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:21.611Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c40887798c24c8b7",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52051:1793728638566",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "7a1059aca3266e5965e0075a1c91805c",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-shutdown",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:21.614Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c40887798c24c8b7",
+          "command": "swipe",
+          "durationMs": 2,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-c7db209c-381c-4102-b2f8-5d21a00ff2be",
+            "reason": "no_recent_healthy_mutation",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:22.301Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "c40887798c24c8b7",
+          "command": "swipe",
+          "durationMs": 687,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-c7db209c-381c-4102-b2f8-5d21a00ff2be"
+          }
+        }
+      ],
+      "generation": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52051:1793728638566",
+        "runnerPid": 7434,
+        "runnerStartTime": "Tue Nov  3 20:57:18 2026",
+        "port": 52051,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52051.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52051.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728638575,
+        "deviceClaimProtocol": 1
+      }
+    },
+    {
+      "phase": "shutdown:after-close",
+      "at": "2026-11-03T17:57:26.246Z",
+      "listening": false,
+      "runnerProcessAlive": false,
+      "daemonAlive": true
+    },
+    {
+      "mode": "nonretained",
+      "servedRequestId": "74837584d817dd05",
+      "servedEvents": [
+        {
+          "ts": "2026-11-03T17:57:43.679Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "74837584d817dd05",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52358:1793728656751",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "7f06a0ff74df2c9a3c271db4f7d05855",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-nonretained",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:43.682Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "74837584d817dd05",
+          "command": "swipe",
+          "durationMs": 2,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-87769554-f1bf-41e1-a480-0cacc0ed97c2",
+            "reason": "conservative_command",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:43.965Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "74837584d817dd05",
+          "command": "swipe",
+          "durationMs": 283,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-87769554-f1bf-41e1-a480-0cacc0ed97c2",
+            "readOnly": true,
+            "sessionReady": true,
+            "timeoutMs": 44998
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:43.973Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "74837584d817dd05",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52358:1793728656751",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "7f06a0ff74df2c9a3c271db4f7d05855",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-nonretained",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:43.980Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "74837584d817dd05",
+          "command": "swipe",
+          "durationMs": 4,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-56bb348d-9823-4ce1-8d0d-99ff95fca692",
+            "reason": "no_recent_healthy_mutation",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:44.771Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "74837584d817dd05",
+          "command": "swipe",
+          "durationMs": 790,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-56bb348d-9823-4ce1-8d0d-99ff95fca692"
+          }
+        }
+      ],
+      "generation": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52358:1793728656751",
+        "runnerPid": 9131,
+        "runnerStartTime": "Tue Nov  3 20:57:36 2026",
+        "port": 52358,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52358.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52358.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728656760,
+        "deviceClaimProtocol": 1
+      }
+    },
+    {
+      "phase": "nonretained:after-close",
+      "at": "2026-11-03T17:57:45.576Z",
+      "listening": false,
+      "runnerProcessAlive": false,
+      "daemonAlive": true
+    },
+    {
+      "mode": "daemon-shutdown",
+      "servedRequestId": "485c936c5f079aae",
+      "servedEvents": [
+        {
+          "ts": "2026-11-03T17:57:50.127Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "485c936c5f079aae",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52682:1793728666852",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "932cc237ca83872949e0dfd8d9fca3b6",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-daemon-shutdown",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:50.130Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "485c936c5f079aae",
+          "command": "swipe",
+          "durationMs": 3,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-1db50940-01d7-4d52-84d3-f531758d8c57",
+            "reason": "conservative_command",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:50.285Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "485c936c5f079aae",
+          "command": "swipe",
+          "durationMs": 155,
+          "data": {
+            "command": "gestureViewport",
+            "commandId": "runner-1db50940-01d7-4d52-84d3-f531758d8c57",
+            "readOnly": true,
+            "sessionReady": true,
+            "timeoutMs": 44997
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:50.288Z",
+          "level": "debug",
+          "phase": "ios_runner_session_reuse",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "485c936c5f079aae",
+          "command": "swipe",
+          "data": {
+            "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+            "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52682:1793728666852",
+            "ready": true,
+            "logicalLeaseContext": {
+              "leaseId": "932cc237ca83872949e0dfd8d9fca3b6",
+              "clientId": "proof-review2-publish",
+              "tenantId": "proof-review2-publish",
+              "runId": "review2-publish-daemon-shutdown",
+              "deviceKey": "ios:mobile:CCFCF079-7956-4845-9EE1-5540F978AE13"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:50.293Z",
+          "level": "info",
+          "phase": "ios_runner_readiness_preflight",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "485c936c5f079aae",
+          "command": "swipe",
+          "durationMs": 4,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-25c5e2ef-7b6f-4dd1-a2ce-cd8bc8d6f10b",
+            "reason": "no_recent_healthy_mutation",
+            "sessionReady": true,
+            "timeoutMs": 1000
+          }
+        },
+        {
+          "ts": "2026-11-03T17:57:51.042Z",
+          "level": "info",
+          "phase": "ios_runner_command_send",
+          "session": "lifecycle-review2-publish-700694fe",
+          "requestId": "485c936c5f079aae",
+          "command": "swipe",
+          "durationMs": 749,
+          "data": {
+            "command": "gesture",
+            "commandId": "runner-25c5e2ef-7b6f-4dd1-a2ce-cd8bc8d6f10b"
+          }
+        }
+      ],
+      "generation": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52682:1793728666852",
+        "runnerPid": 10263,
+        "runnerStartTime": "Tue Nov  3 20:57:46 2026",
+        "port": 52682,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52682.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52682.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728666859,
+        "deviceClaimProtocol": 1
+      }
+    },
+    {
+      "phase": "daemon-shutdown:retained-after-close",
+      "at": "2026-11-03T17:57:51.091Z",
+      "lease": {
+        "schemaVersion": 1,
+        "deviceId": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+        "ownerToken": "owner-2867-1e4d5296",
+        "ownerPid": 2867,
+        "ownerStartTime": "Tue Nov  3 20:56:40 2026",
+        "ownerStateDir": "/private/tmp/agent-device-review2/lease-live-publish/state",
+        "sessionId": "CCFCF079-7956-4845-9EE1-5540F978AE13:52682:1793728666852",
+        "runnerPid": 10263,
+        "runnerStartTime": "Tue Nov  3 20:57:46 2026",
+        "port": 52682,
+        "xctestrunPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52682.xctestrun",
+        "cacheKey": "cache-b8cf2807fc887e31",
+        "jsonPath": "/private/tmp/agent-device-review2/lease-live-publish/derived/Build/Products/AgentDeviceRunner.env.session-CCFCF079-7956-4845-9EE1-5540F978AE13-owner-2867-1e4d5296-52682.json",
+        "runnerLogPath": "/private/tmp/agent-device-review2/lease-live-publish/state/sessions/lifecycle-review2-publish-700694fe/runner.log",
+        "createdAtMs": 1793728666859,
+        "deviceClaimProtocol": 1
+      },
+      "listening": true,
+      "runnerProcessAlive": true,
+      "daemonAlive": true
+    },
+    {
+      "phase": "graceful-daemon-shutdown",
+      "at": "2026-11-03T17:57:51.782Z",
+      "listening": false,
+      "runnerProcessAlive": false,
+      "daemonAlive": false
+    }
+  ],
+  "cleanup": [
+    {
+      "action": "daemon-stop-clean",
+      "ok": true
+    },
+    {
+      "action": "simulator-delete",
+      "udid": "CCFCF079-7956-4845-9EE1-5540F978AE13",
+      "ok": true
+    }
+  ]
+}

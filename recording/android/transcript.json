@@ -1,0 +1,906 @@
+{
+  "sourceSha": "ad71d0391615ee336f0157941f473e204cfd0be8",
+  "base": "a2c169fa5",
+  "platform": "android",
+  "instanceId": "android_euna_01m6h7s87mf878054h753zm8w0",
+  "instanceSpec": {
+    "hardTimeout": "45m0s",
+    "inactivityTimeout": "15m0s",
+    "region": "eu-north1",
+    "role": {
+      "permissions": []
+    }
+  },
+  "instanceState": "ready",
+  "sourceUnchanged": true,
+  "transcript": [
+    {
+      "at": "2026-11-03T17:37:19.265Z",
+      "instanceCreated": {
+        "id": "android_euna_01m6h7s87mf878054h753zm8w0",
+        "spec": {
+          "hardTimeout": "45m0s",
+          "inactivityTimeout": "15m0s",
+          "region": "eu-north1",
+          "role": {
+            "permissions": []
+          }
+        },
+        "state": "ready"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:19.318Z",
+      "transportInstrumentation": {
+        "proxyUrl": "http://127.0.0.1:52960/api",
+        "purpose": "Transparent recording control and download forwarding; inject one503 only when explicitly armed; no repository source changes."
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:20.095Z",
+      "actualRuntime": {
+        "ro.build.version.release": "15",
+        "ro.build.version.sdk": "35",
+        "ro.product.model": "limdroid_x86_64_only",
+        "ro.build.fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:20.243Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "connect",
+        "limrun",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:20.155Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"connected\": true,\n    \"session\": \"review2-recording-android\",\n    \"tenant\": \"limrun\",\n    \"runId\": \"cli-mw0z06sl\",\n    \"leaseAllocated\": false,\n    \"leaseBackend\": \"android-instance\",\n    \"leaseProvider\": \"limrun\",\n    \"platform\": \"android\",\n    \"target\": \"mobile\",\n    \"remoteConfig\": \"/private/tmp/agent-device-review2/recording-live/android/state/remote-connections/generated/limrun-81bdc32ce6f4bbfc.json\",\n    \"remoteConfigHash\": \"6a07c6d29f0190b39db71aec0d5da8eaf99a8ddd6c93fae9bff5f0ba5aacecb9\",\n    \"liveSession\": {\n      \"status\": \"not-created\"\n    },\n    \"verification\": {\n      \"status\": \"verified\",\n      \"service\": \"Limrun\",\n      \"message\": \"Existing Android instance access verified. A daemon started with these variables drives it without creating or deleting it.\"\n    },\n    \"device\": {\n      \"status\": \"verified\",\n      \"name\": \"Existing Android emulator\",\n      \"platform\": \"android\"\n    },\n    \"app\": {\n      \"status\": \"missing\",\n      \"message\": \"Run open <bundle-or-package-id> to use an app installed on the instance.\"\n    },\n    \"nextSteps\": [\n      \"agent-device apps --session review2-recording-android\",\n      \"agent-device open <uploaded-asset-name> --session review2-recording-android\"\n    ],\n    \"metro\": {\n      \"prepared\": false\n    },\n    \"leasePreparation\": {\n      \"status\": \"deferred\",\n      \"nextSteps\": [\n        \"agent-device apps --session review2-recording-android\",\n        \"agent-device open <uploaded-asset-name> --session review2-recording-android\"\n      ],\n      \"message\": \"No live device session has been created. Run apps to inspect uploaded assets without allocating; open <uploaded-asset-name> creates the instance.\"\n    },\n    \"connectedAt\": \"2026-11-03T17:37:20.239Z\",\n    \"updatedAt\": \"2026-11-03T17:37:20.239Z\"\n  }\n}\n",
+      "stderr": "",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:21.228Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "open",
+        "com.android.settings",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:20.276Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"session\": \"review2-recording-android\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android\",\n    \"runnerLogPath\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android/runner.log\",\n    \"requestLogPath\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android/requests/41aca1332d9534ee.ndjson\",\n    \"eventLogPath\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android/events.ndjson\",\n    \"appName\": \"com.android.settings\",\n    \"appBundleId\": \"com.android.settings\",\n    \"selection\": {\n      \"reason\": \"single-provider-device\",\n      \"source\": \"provider\",\n      \"candidateCount\": 1,\n      \"bootOccurred\": false\n    },\n    \"startup\": {\n      \"durationMs\": 627,\n      \"measuredAt\": \"2026-11-03T17:37:21.216Z\",\n      \"method\": \"open-command-roundtrip\",\n      \"appTarget\": \"com.android.settings\",\n      \"appBundleId\": \"com.android.settings\"\n    },\n    \"platform\": \"android\",\n    \"target\": \"mobile\",\n    \"device\": \"Limrun android attached\",\n    \"id\": \"limrun:android:3222b6560eb791d8c01e3cbf89fe4de1\",\n    \"serial\": \"limrun:android:3222b6560eb791d8c01e3cbf89fe4de1\",\n    \"message\": \"Opened: com.android.settings\"\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:20.543Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\",\"durationMs\":9,\"data\":{\"requestId\":\"41aca1332d9534ee\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:20.550Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\",\"data\":{\"requestId\":\"41aca1332d9534ee\",\"command\":\"lease_allocate\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:20.566Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\",\"durationMs\":15,\"data\":{\"requestId\":\"41aca1332d9534ee\",\"command\":\"lease_allocate\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:20.574Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\",\"durationMs\":5,\"data\":{\"requestId\":\"41aca1332d9534ee\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:20.575Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\",\"data\":{\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:21.219Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\",\"durationMs\":644,\"data\":{\"requestId\":\"41aca1332d9534ee\",\"command\":\"open\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:22.201Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/android/initial.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:21.267Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/android/initial.png\",\n    \"width\": 720,\n    \"height\": 1616\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:21.336Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"f7d646162c710d83\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:21.337Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"f7d646162c710d83\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:21.339Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\",\"durationMs\":2,\"data\":{\"requestId\":\"f7d646162c710d83\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:21.345Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"f7d646162c710d83\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:21.345Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:22.191Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\",\"durationMs\":845,\"data\":{\"requestId\":\"f7d646162c710d83\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:22.470Z",
+      "sdk": "startRecordingSession",
+      "recordingId": "external-android-1793727442253",
+      "quality": 5
+    },
+    {
+      "at": "2026-11-03T17:37:22.818Z",
+      "externalActive": {
+        "label": "before daemon recording",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:22.904Z",
+      "externalActive": {
+        "label": "before daemon recording",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727442818-5c34cb",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:23.248Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "start",
+        "/private/tmp/agent-device-review2/recording-live/android/normal.mp4",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:22.963Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"started\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/android/normal.mp4\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android\",\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.android.settings\",\n      \"name\": \"com.android.settings\"\n    },\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.032Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"19e51b3cb079c0b4\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.033Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\",\"data\":{\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.035Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.042Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"19e51b3cb079c0b4\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.042Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\",\"data\":{\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.241Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\",\"durationMs\":199,\"data\":{\"requestId\":\"19e51b3cb079c0b4\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:23.432Z",
+      "externalActive": {
+        "label": "after daemon record start",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:23.525Z",
+      "externalActive": {
+        "label": "after daemon record start",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727443432-936c17",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:24.533Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/android/during-normal.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:23.583Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/android/during-normal.png\",\n    \"width\": 720,\n    \"height\": 1616\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.652Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"e773d9f8c022a31e\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.653Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"e773d9f8c022a31e\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.655Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\",\"durationMs\":2,\"data\":{\"requestId\":\"e773d9f8c022a31e\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.661Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"e773d9f8c022a31e\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:23.661Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:24.525Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\",\"durationMs\":863,\"data\":{\"requestId\":\"e773d9f8c022a31e\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:25.497Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "stop",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:24.582Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"stopped\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/android/normal.mp4\",\n    \"telemetryPath\": \"/private/tmp/agent-device-review2/recording-live/android/normal.gesture-telemetry.json\",\n    \"artifacts\": [\n      {\n        \"field\": \"outPath\",\n        \"artifactType\": \"screen-recording\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/android/normal.mp4\",\n        \"fileName\": \"normal.mp4\"\n      },\n      {\n        \"field\": \"telemetryPath\",\n        \"artifactType\": \"screen-recording-telemetry\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/android/normal.gesture-telemetry.json\",\n        \"fileName\": \"normal.gesture-telemetry.json\"\n      }\n    ],\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.android.settings\",\n      \"name\": \"com.android.settings\"\n    },\n    \"durationMs\": 2253,\n    \"recorder\": \"confirmed\",\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:24.650Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"9310c1b7fced9fd4\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:24.651Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\",\"data\":{\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:24.653Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:24.659Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"9310c1b7fced9fd4\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:24.660Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\",\"data\":{\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:25.492Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\",\"durationMs\":832,\"data\":{\"requestId\":\"9310c1b7fced9fd4\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:25.635Z",
+      "externalActive": {
+        "label": "after daemon record stop",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:25.722Z",
+      "externalActive": {
+        "label": "after daemon record stop",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727445636-631e13",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:25.840Z",
+      "file": "normal.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 360,
+            "height": 808
+          }
+        ],
+        "format": {
+          "duration": "1.608222",
+          "size": "27003"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:26.107Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "start",
+        "/private/tmp/agent-device-review2/recording-live/android/retry.mp4",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:25.841Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"started\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/android/retry.mp4\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android\",\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.android.settings\",\n      \"name\": \"com.android.settings\"\n    },\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:25.906Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"fecbed6a70b9e714\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:25.907Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\",\"data\":{\"requestId\":\"fecbed6a70b9e714\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:25.909Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"fecbed6a70b9e714\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:25.916Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"fecbed6a70b9e714\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:25.916Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\",\"data\":{\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:26.098Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\",\"durationMs\":182,\"data\":{\"requestId\":\"fecbed6a70b9e714\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:27.158Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/android/during-retry.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:26.161Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/android/during-retry.png\",\n    \"width\": 720,\n    \"height\": 1616\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:26.227Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"f450405c563eac1f\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:26.228Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"f450405c563eac1f\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:26.230Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\",\"durationMs\":2,\"data\":{\"requestId\":\"f450405c563eac1f\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:26.236Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"f450405c563eac1f\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:26.236Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.147Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\",\"durationMs\":911,\"data\":{\"requestId\":\"f450405c563eac1f\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:27.503Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "stop",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:27.211Z",
+      "code": 1,
+      "signal": null,
+      "stdout": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"COMMAND_FAILED\",\n    \"message\": \"Limrun download failed with HTTP 503\",\n    \"hint\": \"Retry with --debug and inspect diagnostics log for details.\",\n    \"diagnosticId\": \"mw0z0c8q-e301d1b1\",\n    \"logPath\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android/requests/107e62259e1be33c.ndjson\",\n    \"diagnosticsRecord\": {\n      \"session\": \"limrun:review2-recording-android\",\n      \"requestId\": \"107e62259e1be33c\"\n    },\n    \"details\": {\n      \"url\": \"http://127.0.0.1:52960/api/files?REDACTED\",\n      \"statusCode\": 503,\n      \"body\": \"Injected one-shot download failure for PR4196 retry verification\",\n      \"dispatched\": \"no\"\n    }\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.279Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"107e62259e1be33c\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"107e62259e1be33c\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.280Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"107e62259e1be33c\",\"command\":\"record\",\"data\":{\"requestId\":\"107e62259e1be33c\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.282Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"107e62259e1be33c\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"107e62259e1be33c\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.289Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"107e62259e1be33c\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"107e62259e1be33c\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.289Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"107e62259e1be33c\",\"command\":\"record\",\"data\":{\"requestId\":\"107e62259e1be33c\",\"command\":\"record\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.497Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"107e62259e1be33c\",\"command\":\"record\",\"durationMs\":208,\"data\":{\"requestId\":\"107e62259e1be33c\",\"command\":\"record\"}}\n",
+      "expectedFailure": true
+    },
+    {
+      "at": "2026-11-03T17:37:27.643Z",
+      "externalActive": {
+        "label": "after failed download",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:27.729Z",
+      "externalActive": {
+        "label": "after failed download",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727447643-378713",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:28.451Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "stop",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:27.781Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"stopped\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/android/retry.mp4\",\n    \"telemetryPath\": \"/private/tmp/agent-device-review2/recording-live/android/retry.gesture-telemetry.json\",\n    \"artifacts\": [\n      {\n        \"field\": \"outPath\",\n        \"artifactType\": \"screen-recording\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/android/retry.mp4\",\n        \"fileName\": \"retry.mp4\"\n      },\n      {\n        \"field\": \"telemetryPath\",\n        \"artifactType\": \"screen-recording-telemetry\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/android/retry.gesture-telemetry.json\",\n        \"fileName\": \"retry.gesture-telemetry.json\"\n      }\n    ],\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.android.settings\",\n      \"name\": \"com.android.settings\"\n    },\n    \"durationMs\": 2350,\n    \"recorder\": \"confirmed\",\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.852Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"8d0b07c616b7a133\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.853Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\",\"data\":{\"requestId\":\"8d0b07c616b7a133\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.855Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"8d0b07c616b7a133\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.862Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"8d0b07c616b7a133\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:27.862Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\",\"data\":{\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:28.446Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\",\"durationMs\":584,\"data\":{\"requestId\":\"8d0b07c616b7a133\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:28.585Z",
+      "externalActive": {
+        "label": "after record stop retry",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:28.671Z",
+      "externalActive": {
+        "label": "after record stop retry",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727448585-42b54f",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:28.740Z",
+      "file": "retry.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 360,
+            "height": 808
+          }
+        ],
+        "format": {
+          "duration": "1.382322",
+          "size": "28114"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:29.025Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "start",
+        "/private/tmp/agent-device-review2/recording-live/android/close.mp4",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:28.740Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"started\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/android/close.mp4\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/android/state/sessions/limrun_review2-recording-android\",\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.android.settings\",\n      \"name\": \"com.android.settings\"\n    },\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:28.807Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"bb9497a0fd8089a4\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:28.809Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\",\"data\":{\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:28.810Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\",\"durationMs\":1,\"data\":{\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:28.817Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"bb9497a0fd8089a4\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:28.817Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\",\"data\":{\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:29.016Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\",\"durationMs\":199,\"data\":{\"requestId\":\"bb9497a0fd8089a4\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:29.170Z",
+      "externalActive": {
+        "label": "after cleanup recording start",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:29.257Z",
+      "externalActive": {
+        "label": "after cleanup recording start",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727449170-3114b0",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:30.305Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/android/during-close.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:29.316Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/android/during-close.png\",\n    \"width\": 720,\n    \"height\": 1616\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:29.385Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"e8d28d4fef6d56e8\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:29.386Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:29.388Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\",\"durationMs\":2,\"data\":{\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:29.394Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"e8d28d4fef6d56e8\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:29.394Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:30.294Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\",\"durationMs\":900,\"data\":{\"requestId\":\"e8d28d4fef6d56e8\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:31.570Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--session",
+        "review2-recording-android",
+        "--platform",
+        "android",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:30.356Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"session\": \"review2-recording-android\",\n    \"provider\": {\n      \"limrunInstanceId\": \"attached-04d14b0ed636\"\n    },\n    \"message\": \"Closed: review2-recording-android\"\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:30.422Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-android\",\"requestId\":\"be81033bfee0c583\",\"command\":\"close\",\"durationMs\":5,\"data\":{\"requestId\":\"be81033bfee0c583\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:30.424Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-android\",\"requestId\":\"be81033bfee0c583\",\"command\":\"close\",\"data\":{\"requestId\":\"be81033bfee0c583\",\"command\":\"close\",\"session\":\"review2-recording-android\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:31.562Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-android\",\"requestId\":\"be81033bfee0c583\",\"command\":\"close\",\"durationMs\":1138,\"data\":{\"requestId\":\"be81033bfee0c583\",\"command\":\"close\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:31.709Z",
+      "externalActive": {
+        "label": "after session close cleanup",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:31.798Z",
+      "externalActive": {
+        "label": "after session close cleanup",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727451709-f98de8",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:31.875Z",
+      "file": "close.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 360,
+            "height": 808
+          }
+        ],
+        "format": {
+          "duration": "1.621644",
+          "size": "45177"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:31.980Z",
+      "observableChange": "after-close",
+      "sdk": "adbShell",
+      "result": {
+        "stdout": "Starting: Intent { act=android.settings.DISPLAY_SETTINGS }\n",
+        "stderr": "",
+        "exitCode": 0,
+        "truncated": false
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:32.144Z",
+      "externalActive": {
+        "label": "after post-close visual change",
+        "recordingId": "external-android-1793727442253",
+        "method": "GET active recording file",
+        "status": 403,
+        "body": "open failed: Permission denied"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:32.230Z",
+      "externalActive": {
+        "label": "after post-close visual change",
+        "recordingId": "external-android-1793727442253",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727452144-0ba651",
+        "rejected": true,
+        "error": "Concurrent recordings must use the same quality: 5"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:32.390Z",
+      "sdk": "stopRecordingSession",
+      "recordingId": "external-android-1793727442253",
+      "after": "all daemon start/stop/retry/close operations",
+      "downloadUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_external-android-1793727442253.mp4"
+    },
+    {
+      "at": "2026-11-03T17:37:32.888Z",
+      "file": "external.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 360,
+            "height": 808
+          }
+        ],
+        "format": {
+          "duration": "10.003322",
+          "size": "283172"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:32.888Z",
+      "verification": "passed"
+    },
+    {
+      "at": "2026-11-03T17:37:33.112Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/android/state",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:32.931Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"stopped\": true,\n    \"mode\": \"graceful\",\n    \"cleanupConfidence\": \"known\",\n    \"claimsReleased\": [],\n    \"claimsOrphaned\": [],\n    \"claimsSuperseded\": [],\n    \"claimsUnattributable\": [],\n    \"providerReleases\": {\n      \"status\": \"completed\",\n      \"released\": [],\n      \"pending\": []\n    },\n    \"warnings\": [],\n    \"clean\": true\n  }\n}\n",
+      "stderr": "",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:33.152Z",
+      "daemonCleanup": "stopped"
+    },
+    {
+      "at": "2026-11-03T17:37:33.810Z",
+      "instanceCleanup": {
+        "id": "android_euna_01m6h7s87mf878054h753zm8w0",
+        "state": "terminated"
+      }
+    }
+  ],
+  "wire": [
+    {
+      "at": "2026-11-03T17:37:20.243Z",
+      "transport": "proxy-error",
+      "message": "WebSocket was closed before the connection was established"
+    },
+    {
+      "at": "2026-11-03T17:37:23.044Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "startRecordingSession",
+        "id": "ts-client-1793727443044-1",
+        "quality": 5,
+        "recordingId": "a87478dc-7be1-44d0-b24c-8d38d24be889",
+        "payload": {
+          "quality": 5,
+          "recordingId": "a87478dc-7be1-44d0-b24c-8d38d24be889"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:23.228Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "startRecordingSessionResult",
+        "id": "ts-client-1793727443044-1",
+        "payload": {
+          "recordingId": "a87478dc-7be1-44d0-b24c-8d38d24be889"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:24.669Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "stopRecordingSession",
+        "id": "ts-client-1793727444669-2",
+        "recordingId": "a87478dc-7be1-44d0-b24c-8d38d24be889",
+        "payload": {
+          "recordingId": "a87478dc-7be1-44d0-b24c-8d38d24be889"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:24.802Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "stopRecordingSessionResult",
+        "id": "ts-client-1793727444669-2",
+        "payload": {
+          "recordingId": "a87478dc-7be1-44d0-b24c-8d38d24be889"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:24.811Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_a87478dc-7be1-44d0-b24c-8d38d24be889.mp4",
+      "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_a87478dc-7be1-44d0-b24c-8d38d24be889.mp4",
+      "status": 200
+    },
+    {
+      "at": "2026-11-03T17:37:25.918Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "startRecordingSession",
+        "id": "ts-client-1793727445917-3",
+        "quality": 5,
+        "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310",
+        "payload": {
+          "quality": 5,
+          "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:26.084Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "startRecordingSessionResult",
+        "id": "ts-client-1793727445917-3",
+        "payload": {
+          "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:27.301Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "stopRecordingSession",
+        "id": "ts-client-1793727447301-4",
+        "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310",
+        "payload": {
+          "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:27.491Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "stopRecordingSessionResult",
+        "id": "ts-client-1793727447301-4",
+        "payload": {
+          "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:27.494Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+      "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+      "injected": true,
+      "status": 503
+    },
+    {
+      "at": "2026-11-03T17:37:27.875Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+      "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+      "status": 200
+    },
+    {
+      "at": "2026-11-03T17:37:28.819Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "startRecordingSession",
+        "id": "ts-client-1793727448818-5",
+        "quality": 5,
+        "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db",
+        "payload": {
+          "quality": 5,
+          "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:29.003Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "startRecordingSessionResult",
+        "id": "ts-client-1793727448818-5",
+        "payload": {
+          "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:30.440Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "stopRecordingSession",
+        "id": "ts-client-1793727450440-6",
+        "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db",
+        "payload": {
+          "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:30.813Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "stopRecordingSessionResult",
+        "id": "ts-client-1793727450440-6",
+        "payload": {
+          "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:30.816Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_645fcdaf-fa5c-4b87-be36-9f7cc398b2db.mp4",
+      "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_645fcdaf-fa5c-4b87-be36-9f7cc398b2db.mp4",
+      "status": 200
+    }
+  ],
+  "proofs": [
+    {
+      "kind": "failed-download-retry",
+      "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310",
+      "stopRequestsBeforeRetry": 1,
+      "stopRequestsAfterRetry": 1,
+      "downloadAttempts": [
+        {
+          "at": "2026-11-03T17:37:27.494Z",
+          "transport": "http",
+          "method": "GET",
+          "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+          "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+          "injected": true,
+          "status": 503
+        },
+        {
+          "at": "2026-11-03T17:37:27.875Z",
+          "transport": "http",
+          "method": "GET",
+          "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+          "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+          "status": 200
+        }
+      ],
+      "sameDownloadUrl": true,
+      "externalStillActive": true
+    },
+    {
+      "kind": "close-cleanup",
+      "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db",
+      "remoteStops": 1,
+      "externalStillActive": true
+    },
+    {
+      "kind": "external-recording-isolation",
+      "recordingId": "external-android-1793727442253",
+      "explicitStopSucceeded": true,
+      "downloadStatus": 200,
+      "validMp4": true,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 360,
+            "height": 808
+          }
+        ],
+        "format": {
+          "duration": "10.003322",
+          "size": "283172"
+        }
+      }
+    }
+  ]
+}

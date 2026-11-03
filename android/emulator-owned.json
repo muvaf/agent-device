@@ -1,0 +1,20 @@
+{
+  "pid": 2562,
+  "serial": "emulator-5588",
+  "avd": "/private/tmp/agent-device-review2/android-live/avd/AgentDeviceReview4194.avd",
+  "avdHome": "/private/tmp/agent-device-review2/android-live/avd",
+  "command": [
+    "/Users/muvaf/Library/Android/sdk/emulator/emulator",
+    "-avd",
+    "AgentDeviceReview4194",
+    "-port",
+    "5588",
+    "-wipe-data",
+    "-no-window",
+    "-no-audio",
+    "-no-boot-anim",
+    "-no-snapshot",
+    "-gpu",
+    "swiftshader_indirect"
+  ]
+}

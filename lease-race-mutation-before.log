@@ -1,0 +1,28 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lease-regression.CqPkPS
+
+-----x----------
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts > release ends a same-lease reopen published at a new address while cleanup waits for its device
+AssertionError: expected "vi.fn()" to be called once with arguments: [ ObjectContaining{…} ]
+
+Number of calls: 0
+
+ ❯ packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts:211:20
+    209|
+    210|   expect(cleanup).not.toHaveBeenCalled();
+    211|   expect(teardown).toHaveBeenCalledExactlyOnceWith(
+       |                    ^
+    212|     expect.objectContaining({ address: 'reopened' }),
+    213|   );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 15 skipped (16)
+   Start at  20:50:26
+   Duration  367ms (transform 58%, import 37%, setup 2%, tests 2%, worker 1%)
+

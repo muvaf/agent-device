@@ -1,0 +1,797 @@
+{
+  "sourceSha": "ad71d0391615ee336f0157941f473e204cfd0be8",
+  "base": "a2c169fa5",
+  "platform": "ios",
+  "instanceId": "ios_euna_01m6h7t5h8f87b4z7zyrcw5c85",
+  "instanceSpec": {
+    "hardTimeout": "45m0s",
+    "inactivityTimeout": "15m0s",
+    "region": "eu-north1",
+    "role": {
+      "permissions": []
+    }
+  },
+  "instanceState": "ready",
+  "sourceUnchanged": true,
+  "transcript": [
+    {
+      "at": "2026-11-03T17:37:49.248Z",
+      "instanceCreated": {
+        "id": "ios_euna_01m6h7t5h8f87b4z7zyrcw5c85",
+        "spec": {
+          "hardTimeout": "45m0s",
+          "inactivityTimeout": "15m0s",
+          "region": "eu-north1",
+          "role": {
+            "permissions": []
+          }
+        },
+        "state": "ready"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:49.299Z",
+      "transportInstrumentation": {
+        "proxyUrl": "http://127.0.0.1:53082/api",
+        "purpose": "Transparent recording control and download forwarding; inject one503 only when explicitly armed; no repository source changes."
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:50.407Z",
+      "actualRuntime": {
+        "devices": {
+          "com.apple.CoreSimulator.SimRuntime.iOS-26-4": [
+            {
+              "dataPath": "/Users/limrun/work/_eph/4f75bb10-55c2-4665-bea7-ac1c66ee7b1d/main/state/device-set-84c0b165-3a94-4788-ba15-d26e2536b2d6/402F533A-A024-4E50-84D8-1B7F8F67F974/data",
+              "logPath": "/Users/limrun/work/_eph/4f75bb10-55c2-4665-bea7-ac1c66ee7b1d/Library/Logs/CoreSimulator/402F533A-A024-4E50-84D8-1B7F8F67F974",
+              "udid": "402F533A-A024-4E50-84D8-1B7F8F67F974",
+              "lastUsedAt": "2026-11-03T17:14:22Z",
+              "isAvailable": true,
+              "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro",
+              "state": "Booted",
+              "name": "limclone"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:51.032Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "connect",
+        "limrun",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:50.469Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"connected\": true,\n    \"session\": \"review2-recording-ios\",\n    \"tenant\": \"limrun\",\n    \"runId\": \"cli-mw0z0u6o\",\n    \"leaseAllocated\": false,\n    \"leaseBackend\": \"ios-instance\",\n    \"leaseProvider\": \"limrun\",\n    \"platform\": \"ios\",\n    \"target\": \"mobile\",\n    \"remoteConfig\": \"/private/tmp/agent-device-review2/recording-live/ios/state/remote-connections/generated/limrun-c0f70fa3df71303c.json\",\n    \"remoteConfigHash\": \"53228eaae689ea485a5093e93d6e90b36430e76204bf9203f1705db01f0c7345\",\n    \"liveSession\": {\n      \"status\": \"not-created\"\n    },\n    \"verification\": {\n      \"status\": \"verified\",\n      \"service\": \"Limrun\",\n      \"message\": \"Existing iOS instance access verified. A daemon started with these variables drives it without creating or deleting it.\"\n    },\n    \"device\": {\n      \"status\": \"verified\",\n      \"name\": \"Existing iOS simulator\",\n      \"platform\": \"ios\"\n    },\n    \"app\": {\n      \"status\": \"missing\",\n      \"message\": \"Run open <bundle-or-package-id> to use an app installed on the instance.\"\n    },\n    \"nextSteps\": [\n      \"agent-device apps --session review2-recording-ios\",\n      \"agent-device open <uploaded-asset-name> --session review2-recording-ios\"\n    ],\n    \"metro\": {\n      \"prepared\": false\n    },\n    \"leasePreparation\": {\n      \"status\": \"deferred\",\n      \"nextSteps\": [\n        \"agent-device apps --session review2-recording-ios\",\n        \"agent-device open <uploaded-asset-name> --session review2-recording-ios\"\n      ],\n      \"message\": \"No live device session has been created. Run apps to inspect uploaded assets without allocating; open <uploaded-asset-name> creates the instance.\"\n    },\n    \"connectedAt\": \"2026-11-03T17:37:51.019Z\",\n    \"updatedAt\": \"2026-11-03T17:37:51.019Z\"\n  }\n}\n",
+      "stderr": "",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:52.333Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "open",
+        "com.apple.Preferences",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:51.082Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"session\": \"review2-recording-ios\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios\",\n    \"runnerLogPath\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios/runner.log\",\n    \"requestLogPath\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios/requests/cdd70c8976bc0e30.ndjson\",\n    \"eventLogPath\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios/events.ndjson\",\n    \"appName\": \"com.apple.Preferences\",\n    \"appBundleId\": \"com.apple.Preferences\",\n    \"selection\": {\n      \"reason\": \"single-provider-device\",\n      \"source\": \"provider\",\n      \"candidateCount\": 1,\n      \"bootOccurred\": false\n    },\n    \"startup\": {\n      \"durationMs\": 401,\n      \"measuredAt\": \"2026-11-03T17:37:52.314Z\",\n      \"method\": \"open-command-roundtrip\",\n      \"appTarget\": \"com.apple.Preferences\",\n      \"appBundleId\": \"com.apple.Preferences\"\n    },\n    \"platform\": \"ios\",\n    \"target\": \"mobile\",\n    \"device\": \"Limrun ios attached\",\n    \"id\": \"limrun:ios:2c31652b2ef5bc4f17e3cd6438d3106d\",\n    \"device_udid\": \"limrun:ios:2c31652b2ef5bc4f17e3cd6438d3106d\",\n    \"ios_simulator_device_set\": null,\n    \"message\": \"Opened: com.apple.Preferences\"\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:51.351Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\",\"durationMs\":8,\"data\":{\"requestId\":\"cdd70c8976bc0e30\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:51.359Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\",\"data\":{\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"lease_allocate\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:51.871Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\",\"durationMs\":512,\"data\":{\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"lease_allocate\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:51.890Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\",\"durationMs\":12,\"data\":{\"requestId\":\"cdd70c8976bc0e30\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:51.891Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\",\"data\":{\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:52.319Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\",\"durationMs\":428,\"data\":{\"requestId\":\"cdd70c8976bc0e30\",\"command\":\"open\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:52.772Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/ios/initial.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:52.381Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/initial.png\",\n    \"width\": 402,\n    \"height\": 874,\n    \"logicalWidth\": 402,\n    \"logicalHeight\": 874,\n    \"pixelDensity\": 1\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:52.448Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"1a480f39386e9625\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:52.450Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"1a480f39386e9625\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:52.452Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\",\"durationMs\":2,\"data\":{\"requestId\":\"1a480f39386e9625\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:52.458Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"1a480f39386e9625\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:52.458Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:52.767Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\",\"durationMs\":309,\"data\":{\"requestId\":\"1a480f39386e9625\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:53.023Z",
+      "sdk": "startRecordingSession",
+      "recordingId": "external-ios-1793727472809",
+      "quality": 5
+    },
+    {
+      "at": "2026-11-03T17:37:53.236Z",
+      "externalActive": {
+        "label": "before daemon recording",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727473081-df0638",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:53.519Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "start",
+        "/private/tmp/agent-device-review2/recording-live/ios/normal.mp4",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:53.298Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"started\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/ios/normal.mp4\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios\",\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.apple.Preferences\",\n      \"name\": \"com.apple.Preferences\"\n    },\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.366Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"d9609ede528cfa2e\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.368Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\",\"data\":{\"requestId\":\"d9609ede528cfa2e\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.369Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\",\"durationMs\":1,\"data\":{\"requestId\":\"d9609ede528cfa2e\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.376Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"d9609ede528cfa2e\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.376Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\",\"data\":{\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.514Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\",\"durationMs\":138,\"data\":{\"requestId\":\"d9609ede528cfa2e\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:53.688Z",
+      "externalActive": {
+        "label": "after daemon record start",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727473561-17c092",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:54.128Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/ios/during-normal.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:53.742Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/during-normal.png\",\n    \"width\": 402,\n    \"height\": 874,\n    \"logicalWidth\": 402,\n    \"logicalHeight\": 874,\n    \"pixelDensity\": 1\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.811Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"47602b88d89e8df6\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.812Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"47602b88d89e8df6\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.814Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\",\"durationMs\":2,\"data\":{\"requestId\":\"47602b88d89e8df6\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.820Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"47602b88d89e8df6\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:53.820Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:54.122Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\",\"durationMs\":302,\"data\":{\"requestId\":\"47602b88d89e8df6\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:55.424Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "stop",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:54.166Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"stopped\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/ios/normal.mp4\",\n    \"telemetryPath\": \"/private/tmp/agent-device-review2/recording-live/ios/normal.gesture-telemetry.json\",\n    \"artifacts\": [\n      {\n        \"field\": \"outPath\",\n        \"artifactType\": \"screen-recording\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/normal.mp4\",\n        \"fileName\": \"normal.mp4\"\n      },\n      {\n        \"field\": \"telemetryPath\",\n        \"artifactType\": \"screen-recording-telemetry\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/normal.gesture-telemetry.json\",\n        \"fileName\": \"normal.gesture-telemetry.json\"\n      }\n    ],\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.apple.Preferences\",\n      \"name\": \"com.apple.Preferences\"\n    },\n    \"durationMs\": 1903,\n    \"recorder\": \"confirmed\",\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:54.232Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"ede0cae20b0e63ae\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:54.233Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\",\"data\":{\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:54.235Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:54.241Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"ede0cae20b0e63ae\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:54.242Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\",\"data\":{\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.416Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\",\"durationMs\":1174,\"data\":{\"requestId\":\"ede0cae20b0e63ae\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:55.592Z",
+      "externalActive": {
+        "label": "after daemon record stop",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727475465-111d16",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:55.659Z",
+      "file": "normal.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 602,
+            "height": 1310
+          }
+        ],
+        "format": {
+          "duration": "0.871667",
+          "size": "174695"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:55.874Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "start",
+        "/private/tmp/agent-device-review2/recording-live/ios/retry.mp4",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:55.659Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"started\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/ios/retry.mp4\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios\",\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.apple.Preferences\",\n      \"name\": \"com.apple.Preferences\"\n    },\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.724Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"813063ee257a8793\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"813063ee257a8793\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.725Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"813063ee257a8793\",\"command\":\"record\",\"data\":{\"requestId\":\"813063ee257a8793\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.727Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"813063ee257a8793\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"813063ee257a8793\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.733Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"813063ee257a8793\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"813063ee257a8793\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.733Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"813063ee257a8793\",\"command\":\"record\",\"data\":{\"requestId\":\"813063ee257a8793\",\"command\":\"record\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.867Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"813063ee257a8793\",\"command\":\"record\",\"durationMs\":134,\"data\":{\"requestId\":\"813063ee257a8793\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:56.372Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/ios/during-retry.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:55.919Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/during-retry.png\",\n    \"width\": 402,\n    \"height\": 874,\n    \"logicalWidth\": 402,\n    \"logicalHeight\": 874,\n    \"pixelDensity\": 1\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.987Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"567ed7b720c35aa2\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.988Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"567ed7b720c35aa2\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.990Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\",\"durationMs\":1,\"data\":{\"requestId\":\"567ed7b720c35aa2\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.997Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\",\"durationMs\":6,\"data\":{\"requestId\":\"567ed7b720c35aa2\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:55.997Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:56.368Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\",\"durationMs\":371,\"data\":{\"requestId\":\"567ed7b720c35aa2\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:56.647Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "stop",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:56.408Z",
+      "code": 1,
+      "signal": null,
+      "stdout": "{\n  \"success\": false,\n  \"error\": {\n    \"code\": \"COMMAND_FAILED\",\n    \"message\": \"Limrun download failed with HTTP 503\",\n    \"hint\": \"Retry with --debug and inspect diagnostics log for details.\",\n    \"diagnosticId\": \"mw0z0yrl-b1c3c39c\",\n    \"logPath\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios/requests/0054fbe9f1425f48.ndjson\",\n    \"diagnosticsRecord\": {\n      \"session\": \"limrun:review2-recording-ios\",\n      \"requestId\": \"0054fbe9f1425f48\"\n    },\n    \"details\": {\n      \"url\": \"http://127.0.0.1:53082/api/files?REDACTED\",\n      \"statusCode\": 503,\n      \"body\": \"Injected one-shot download failure for PR4196 retry verification\",\n      \"dispatched\": \"no\"\n    }\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:56.471Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"0054fbe9f1425f48\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:56.473Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\",\"data\":{\"requestId\":\"0054fbe9f1425f48\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:56.474Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\",\"durationMs\":1,\"data\":{\"requestId\":\"0054fbe9f1425f48\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:56.481Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\",\"durationMs\":5,\"data\":{\"requestId\":\"0054fbe9f1425f48\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:56.481Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\",\"data\":{\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:56.637Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\",\"durationMs\":156,\"data\":{\"requestId\":\"0054fbe9f1425f48\",\"command\":\"record\"}}\n",
+      "expectedFailure": true
+    },
+    {
+      "at": "2026-11-03T17:37:56.905Z",
+      "externalActive": {
+        "label": "after failed download",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727476762-0bff62",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:57.646Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "stop",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:56.942Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"stopped\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/ios/retry.mp4\",\n    \"telemetryPath\": \"/private/tmp/agent-device-review2/recording-live/ios/retry.gesture-telemetry.json\",\n    \"artifacts\": [\n      {\n        \"field\": \"outPath\",\n        \"artifactType\": \"screen-recording\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/retry.mp4\",\n        \"fileName\": \"retry.mp4\"\n      },\n      {\n        \"field\": \"telemetryPath\",\n        \"artifactType\": \"screen-recording-telemetry\",\n        \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/retry.gesture-telemetry.json\",\n        \"fileName\": \"retry.gesture-telemetry.json\"\n      }\n    ],\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.apple.Preferences\",\n      \"name\": \"com.apple.Preferences\"\n    },\n    \"durationMs\": 1777,\n    \"recorder\": \"confirmed\",\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.015Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"95a6213a1c426b64\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.016Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\",\"data\":{\"requestId\":\"95a6213a1c426b64\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.018Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"95a6213a1c426b64\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.026Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"95a6213a1c426b64\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.026Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\",\"data\":{\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.641Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\",\"durationMs\":615,\"data\":{\"requestId\":\"95a6213a1c426b64\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:57.830Z",
+      "externalActive": {
+        "label": "after record stop retry",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727477683-63519d",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:57.889Z",
+      "file": "retry.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 602,
+            "height": 1310
+          }
+        ],
+        "format": {
+          "duration": "0.758333",
+          "size": "51092"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:58.109Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "record",
+        "start",
+        "/private/tmp/agent-device-review2/recording-live/ios/close.mp4",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:57.889Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"recording\": \"started\",\n    \"outPath\": \"/private/tmp/agent-device-review2/recording-live/ios/close.mp4\",\n    \"sessionStateDir\": \"/private/tmp/agent-device-review2/recording-live/ios/state/sessions/limrun_review2-recording-ios\",\n    \"recordingBackend\": \"limrun-recorder\",\n    \"recordingScope\": \"app\",\n    \"recordOnlySession\": false,\n    \"activeSessionApp\": {\n      \"bundleId\": \"com.apple.Preferences\",\n      \"name\": \"com.apple.Preferences\"\n    },\n    \"showTouches\": false\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.960Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"fe83df892a05c7cb\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.961Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\",\"data\":{\"requestId\":\"fe83df892a05c7cb\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.963Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\",\"durationMs\":2,\"data\":{\"requestId\":\"fe83df892a05c7cb\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.971Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\",\"durationMs\":6,\"data\":{\"requestId\":\"fe83df892a05c7cb\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:57.971Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\",\"data\":{\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.104Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\",\"durationMs\":133,\"data\":{\"requestId\":\"fe83df892a05c7cb\",\"command\":\"record\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:58.271Z",
+      "externalActive": {
+        "label": "after cleanup recording start",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727478145-9879c1",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:58.709Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/agent-device-review2/recording-live/ios/during-close.png",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:58.320Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/agent-device-review2/recording-live/ios/during-close.png\",\n    \"width\": 402,\n    \"height\": 874,\n    \"logicalWidth\": 402,\n    \"logicalHeight\": 874,\n    \"pixelDensity\": 1\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.390Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"ec16530ceb84426f\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.391Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"ec16530ceb84426f\",\"command\":\"lease_heartbeat\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.393Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\",\"durationMs\":2,\"data\":{\"requestId\":\"ec16530ceb84426f\",\"command\":\"lease_heartbeat\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.399Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\",\"durationMs\":5,\"data\":{\"requestId\":\"ec16530ceb84426f\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.399Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\",\"data\":{\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.704Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\",\"durationMs\":305,\"data\":{\"requestId\":\"ec16530ceb84426f\",\"command\":\"screenshot\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:59.605Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--session",
+        "review2-recording-ios",
+        "--platform",
+        "ios",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:37:58.747Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"session\": \"review2-recording-ios\",\n    \"provider\": {\n      \"limrunInstanceId\": \"attached-b9e9a40407b8\"\n    },\n    \"message\": \"Closed: review2-recording-ios\"\n  }\n}\n",
+      "stderr": "[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.824Z\",\"level\":\"info\",\"phase\":\"daemon_startup\",\"session\":\"review2-recording-ios\",\"requestId\":\"3643ebed789f5024\",\"command\":\"close\",\"durationMs\":8,\"data\":{\"requestId\":\"3643ebed789f5024\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:58.826Z\",\"level\":\"info\",\"phase\":\"daemon_request_prepare\",\"session\":\"review2-recording-ios\",\"requestId\":\"3643ebed789f5024\",\"command\":\"close\",\"data\":{\"requestId\":\"3643ebed789f5024\",\"command\":\"close\",\"session\":\"review2-recording-ios\"}}\n[agent-device][diag] {\"ts\":\"2026-11-03T17:37:59.597Z\",\"level\":\"info\",\"phase\":\"daemon_request\",\"session\":\"review2-recording-ios\",\"requestId\":\"3643ebed789f5024\",\"command\":\"close\",\"durationMs\":771,\"data\":{\"requestId\":\"3643ebed789f5024\",\"command\":\"close\"}}\n",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:37:59.770Z",
+      "externalActive": {
+        "label": "after session close cleanup",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727479644-73501f",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:59.837Z",
+      "file": "close.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 602,
+            "height": 1310
+          }
+        ],
+        "format": {
+          "duration": "0.901667",
+          "size": "53925"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:38:00.187Z",
+      "observableChange": "after-close",
+      "sdk": "simctl",
+      "result": {
+        "code": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "at": "2026-11-03T17:38:00.363Z",
+      "externalActive": {
+        "label": "after post-close visual change",
+        "recordingId": "external-ios-1793727472809",
+        "method": "incompatible quality probe",
+        "probeId": "probe-1793727480238-9437b8",
+        "rejected": true,
+        "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+      }
+    },
+    {
+      "at": "2026-11-03T17:38:00.583Z",
+      "sdk": "stopRecordingSession",
+      "recordingId": "external-ios-1793727472809",
+      "after": "all daemon start/stop/retry/close operations",
+      "downloadUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_external-ios-1793727472809.mp4"
+    },
+    {
+      "at": "2026-11-03T17:38:01.264Z",
+      "file": "external.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 602,
+            "height": 1310
+          }
+        ],
+        "format": {
+          "duration": "7.638333",
+          "size": "753478"
+        }
+      }
+    },
+    {
+      "at": "2026-11-03T17:38:01.264Z",
+      "verification": "passed"
+    },
+    {
+      "at": "2026-11-03T17:38:01.484Z",
+      "command": [
+        "node",
+        "/private/tmp/agent-device-review2-recording/bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/agent-device-review2/recording-live/ios/state",
+        "--json",
+        "--debug"
+      ],
+      "startedAt": "2026-11-03T17:38:01.302Z",
+      "code": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"stopped\": true,\n    \"mode\": \"graceful\",\n    \"cleanupConfidence\": \"known\",\n    \"claimsReleased\": [],\n    \"claimsOrphaned\": [],\n    \"claimsSuperseded\": [],\n    \"claimsUnattributable\": [],\n    \"providerReleases\": {\n      \"status\": \"completed\",\n      \"released\": [],\n      \"pending\": []\n    },\n    \"warnings\": [],\n    \"clean\": true\n  }\n}\n",
+      "stderr": "",
+      "expectedFailure": false
+    },
+    {
+      "at": "2026-11-03T17:38:01.525Z",
+      "daemonCleanup": "stopped"
+    },
+    {
+      "at": "2026-11-03T17:38:02.028Z",
+      "instanceCleanup": {
+        "id": "ios_euna_01m6h7t5h8f87b4z7zyrcw5c85",
+        "state": "terminated"
+      }
+    }
+  ],
+  "wire": [
+    {
+      "at": "2026-11-03T17:37:53.379Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "startVideoRecordingSession",
+        "id": "ts-client-1793727473379-ryr3h",
+        "quality": 5,
+        "recordingId": "fce2984f-afcb-41d5-8912-a393dc4c7851"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:53.502Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "id": "ts-client-1793727473379-ryr3h",
+        "type": "startVideoRecordingSessionResult",
+        "recordingId": "fce2984f-afcb-41d5-8912-a393dc4c7851"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:54.252Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "stopVideoRecordingSession",
+        "id": "ts-client-1793727474252-i5sik",
+        "recordingId": "fce2984f-afcb-41d5-8912-a393dc4c7851"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:54.492Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "stopVideoRecordingSessionResult",
+        "recordingId": "fce2984f-afcb-41d5-8912-a393dc4c7851",
+        "id": "ts-client-1793727474252-i5sik"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:54.505Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:53082/api/files?name=recording_fce2984f-afcb-41d5-8912-a393dc4c7851.mp4",
+      "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_fce2984f-afcb-41d5-8912-a393dc4c7851.mp4",
+      "status": 200
+    },
+    {
+      "at": "2026-11-03T17:37:55.734Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "startVideoRecordingSession",
+        "id": "ts-client-1793727475734-b59f746",
+        "quality": 5,
+        "recordingId": "cdf239bb-a154-49a8-8496-06b34f01894c"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:55.856Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "recordingId": "cdf239bb-a154-49a8-8496-06b34f01894c",
+        "type": "startVideoRecordingSessionResult",
+        "id": "ts-client-1793727475734-b59f746"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:56.495Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "stopVideoRecordingSession",
+        "id": "ts-client-1793727476495-tptwx9",
+        "recordingId": "cdf239bb-a154-49a8-8496-06b34f01894c"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:56.618Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "stopVideoRecordingSessionResult",
+        "id": "ts-client-1793727476495-tptwx9",
+        "recordingId": "cdf239bb-a154-49a8-8496-06b34f01894c"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:56.631Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:53082/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+      "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+      "injected": true,
+      "status": 503
+    },
+    {
+      "at": "2026-11-03T17:37:57.042Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:53082/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+      "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+      "status": 200
+    },
+    {
+      "at": "2026-11-03T17:37:57.973Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "startVideoRecordingSession",
+        "id": "ts-client-1793727477973-8ktcic",
+        "quality": 5,
+        "recordingId": "56a2284c-bdc4-419a-a0ad-bc9ef092cbea"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:58.093Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "type": "startVideoRecordingSessionResult",
+        "id": "ts-client-1793727477973-8ktcic",
+        "recordingId": "56a2284c-bdc4-419a-a0ad-bc9ef092cbea"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:58.836Z",
+      "transport": "websocket",
+      "direction": "client-to-server",
+      "message": {
+        "type": "stopVideoRecordingSession",
+        "id": "ts-client-1793727478836-tc79yl",
+        "recordingId": "56a2284c-bdc4-419a-a0ad-bc9ef092cbea"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:58.996Z",
+      "transport": "websocket",
+      "direction": "server-to-client",
+      "message": {
+        "recordingId": "56a2284c-bdc4-419a-a0ad-bc9ef092cbea",
+        "type": "stopVideoRecordingSessionResult",
+        "id": "ts-client-1793727478836-tc79yl"
+      }
+    },
+    {
+      "at": "2026-11-03T17:37:58.999Z",
+      "transport": "http",
+      "method": "GET",
+      "url": "http://127.0.0.1:53082/api/files?name=recording_56a2284c-bdc4-419a-a0ad-bc9ef092cbea.mp4",
+      "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_56a2284c-bdc4-419a-a0ad-bc9ef092cbea.mp4",
+      "status": 200
+    }
+  ],
+  "proofs": [
+    {
+      "kind": "failed-download-retry",
+      "recordingId": "cdf239bb-a154-49a8-8496-06b34f01894c",
+      "stopRequestsBeforeRetry": 1,
+      "stopRequestsAfterRetry": 1,
+      "downloadAttempts": [
+        {
+          "at": "2026-11-03T17:37:56.631Z",
+          "transport": "http",
+          "method": "GET",
+          "url": "http://127.0.0.1:53082/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+          "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+          "injected": true,
+          "status": 503
+        },
+        {
+          "at": "2026-11-03T17:37:57.042Z",
+          "transport": "http",
+          "method": "GET",
+          "url": "http://127.0.0.1:53082/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+          "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+          "status": 200
+        }
+      ],
+      "sameDownloadUrl": true,
+      "externalStillActive": true
+    },
+    {
+      "kind": "close-cleanup",
+      "recordingId": "56a2284c-bdc4-419a-a0ad-bc9ef092cbea",
+      "remoteStops": 1,
+      "externalStillActive": true
+    },
+    {
+      "kind": "external-recording-isolation",
+      "recordingId": "external-ios-1793727472809",
+      "explicitStopSucceeded": true,
+      "downloadStatus": 200,
+      "validMp4": true,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 602,
+            "height": 1310
+          }
+        ],
+        "format": {
+          "duration": "7.638333",
+          "size": "753478"
+        }
+      }
+    }
+  ]
+}

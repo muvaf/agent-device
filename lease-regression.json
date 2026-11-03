@@ -1,0 +1,48 @@
+{
+  "base": "e7de7e961a1db35364c4d5f77a9f26a330ef61bd",
+  "head": "c7be97e9e92acbbfb68d9f67cf5b5fa491dac526",
+  "experiment": "/private/tmp/agent-device-lease-regression.CqPkPS",
+  "testPatch": "/private/tmp/agent-device-review2/lease-regression-test.patch",
+  "fixPatch": "/private/tmp/agent-device-review2/lease-regression-fix.patch",
+  "testPatchSha256": "a400ec6c0d1a5e876f0cac34aa6bf319da0f9dcdc4826f3a47baf2eb476694e8",
+  "fixPatchSha256": "433e5241a4a4ed4f01637f0f45816f692202b66a1852865a00c960d6a33b1223",
+  "command": "PATH=/private/tmp/agent-device-pnpm-bin:$PATH AGENT_DEVICE_VITEST_MAX_WORKERS=1 pnpm exec vitest run --project unit-core packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.test.ts -t 'releasing a retained client lease stops the host after close retired its session'",
+  "note": "Boundary test copied with two imports; omitted only final retained-store inspection so old source fails on missing cleanup, not missing API. Exact same isolated test used before and after applying production fix.",
+  "prepared": true,
+  "boundary": {
+    "before": {
+      "exit": 1,
+      "failed": 1,
+      "skipped": 9,
+      "reason": "cleanupSessionlessExecutionHost was not called after real close and lease release",
+      "log": "/private/tmp/agent-device-review2/lease-regression-before.log"
+    },
+    "after": {
+      "exit": 0,
+      "passed": 1,
+      "skipped": 9,
+      "log": "/private/tmp/agent-device-review2/lease-regression-after.log"
+    }
+  },
+  "sameLeaseReopenMutation": {
+    "command": "PATH=/private/tmp/agent-device-pnpm-bin:$PATH AGENT_DEVICE_VITEST_MAX_WORKERS=1 pnpm exec vitest run --project unit-core packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts -t 'release ends a same-lease reopen published at a new address while cleanup waits for its device'",
+    "mutationPatch": "/private/tmp/agent-device-review2/lease-race-mutation.diff",
+    "before": {
+      "exit": 1,
+      "failed": 1,
+      "skipped": 15,
+      "reason": "new same-lease session teardown was not called after reopening during release",
+      "log": "/private/tmp/agent-device-review2/lease-race-mutation-before.log"
+    },
+    "after": {
+      "exit": 0,
+      "passed": 1,
+      "skipped": 15,
+      "log": "/private/tmp/agent-device-review2/lease-race-mutation-after.log"
+    }
+  },
+  "reviewedHeadAfter": "c7be97e9e92acbbfb68d9f67cf5b5fa491dac526",
+  "reviewedStatusAfter": "",
+  "serialIsolation": "Parent confirmed all broad gates and live runs finished before first regression; four test commands ran sequentially in one disposable worktree.",
+  "cleanup": "disposable worktree removed; implementation head and clean status unchanged; no devices or live services started"
+}

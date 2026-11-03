@@ -1,0 +1,40 @@
+diff --git a/packages/platform-android/src/deployment/runtime.test.ts b/packages/platform-android/src/deployment/runtime.test.ts
+index ec285f02c..f64c74f72 100644
+--- a/packages/platform-android/src/deployment/runtime.test.ts
++++ b/packages/platform-android/src/deployment/runtime.test.ts
+@@ -369,3 +369,35 @@ test.each(['path', 'prepared'] as const)(
+     expect(cleanup).toHaveBeenCalledTimes(source === 'path' ? 1 : 0);
+   },
+ );
++
++test.each(['path', 'prepared'] as const)(
++  'a hosted %s install preserves provider metadata and falls back to materialized identity',
++  async (source) => {
++    const artifact = {
++      installablePath: '/tmp/app.apk',
++      packageName: 'com.example.materialized',
++      appName: 'Materialized app',
++      cleanup: vi.fn(async () => {}),
++    };
++    const providerResult = {
++      appName: 'Provider app',
++      launchTarget: 'com.example.materialized/.MainActivity',
++    };
++    const install = vi.fn(async () => providerResult);
++    const operations = createAndroidAppDeploymentOperations({
++      host: hostFixture({ prepareArtifact: async () => artifact }),
++      device,
++      signal: new AbortController().signal,
++      install,
++    });
++    const result =
++      source === 'path'
++        ? await operations.deployApp!({
++            app: '',
++            appPath: artifact.installablePath,
++            replaceExisting: false,
++          })
++        : await operations.deployMaterializedApp!({ artifact });
++    expect(result).toEqual({ ...providerResult, packageName: artifact.packageName });
++  },
++);

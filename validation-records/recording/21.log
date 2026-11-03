@@ -1,0 +1,14 @@
+$ vitest run --project provider-integration
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-recording
+
+·····················································································································································································································································
+
+ Test Files  68 passed (68)
+      Tests  245 passed (245)
+   Start at  20:47:38
+   Duration  47.83s (tests 82%, import 12%, transform 6%)
+
+
+Slow-test gate: 1 test(s) over budget (within the 2x load-variance band, not failing):
+  19.19s (budget 15s)  test/integration/provider-scenarios/apple-platform-output-guard.test.ts :: iOS-simulator Apple session never emits the internal apple platform on the wire

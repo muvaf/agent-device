@@ -1,0 +1,273 @@
+{
+  "expectedSha": "4d65affa7cddbb7ad0a3340a4dc36c12b9c13aea",
+  "serial": "emulator-5588",
+  "session": "android-installer-review4194",
+  "stateDir": "/private/tmp/agent-device-review2/android-live/state",
+  "steps": [
+    {
+      "kind": "sdk",
+      "method": "apps.install",
+      "options": {
+        "platform": "android",
+        "serial": "emulator-5588",
+        "appPath": "/private/tmp/agent-device-review2/android-live/fixtures/v1/installer-review.apk"
+      },
+      "durationMs": 6480,
+      "result": {
+        "app": "com.agentdevice.installerreview",
+        "appPath": "/private/tmp/agent-device-review2/android-live/fixtures/v1/installer-review.apk",
+        "platform": "android",
+        "appId": "com.agentdevice.installerreview",
+        "package": "com.agentdevice.installerreview",
+        "identifiers": {
+          "session": "android-installer-review4194",
+          "appId": "com.agentdevice.installerreview",
+          "package": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "kind": "sdk",
+      "method": "apps.open",
+      "options": {
+        "platform": "android",
+        "serial": "emulator-5588",
+        "app": "com.agentdevice.installerreview"
+      },
+      "durationMs": 5121,
+      "result": {
+        "session": "android-installer-review4194",
+        "sessionStateDir": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194",
+        "runnerLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/runner.log",
+        "requestLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/requests/f780fac4f4be6593.ndjson",
+        "eventLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/events.ndjson",
+        "appName": "com.agentdevice.installerreview",
+        "appBundleId": "com.agentdevice.installerreview",
+        "appId": "com.agentdevice.installerreview",
+        "selection": {
+          "reason": "explicit-selector",
+          "source": "local",
+          "candidateCount": 1,
+          "bootOccurred": false
+        },
+        "startup": {
+          "durationMs": 4802,
+          "measuredAt": "2026-11-03T17:44:20.700Z",
+          "method": "open-command-roundtrip",
+          "appTarget": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        },
+        "device": {
+          "platform": "android",
+          "target": "mobile",
+          "id": "emulator-5588",
+          "name": "AgentDeviceReview4194",
+          "identifiers": {
+            "deviceId": "emulator-5588",
+            "deviceName": "AgentDeviceReview4194",
+            "serial": "emulator-5588"
+          },
+          "android": {
+            "serial": "emulator-5588"
+          }
+        },
+        "identifiers": {
+          "session": "android-installer-review4194",
+          "deviceId": "emulator-5588",
+          "deviceName": "AgentDeviceReview4194",
+          "serial": "emulator-5588",
+          "appId": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "kind": "snapshot",
+      "version": 1,
+      "backend": "android-helper",
+      "helperVersion": "0.21.37-dev"
+    },
+    {
+      "kind": "sdk",
+      "method": "apps.reinstall",
+      "options": {
+        "platform": "android",
+        "serial": "emulator-5588",
+        "app": "com.agentdevice.installerreview",
+        "appPath": "/private/tmp/agent-device-review2/android-live/fixtures/v2/installer-review.apk"
+      },
+      "durationMs": 2328,
+      "result": {
+        "app": "com.agentdevice.installerreview",
+        "appPath": "/private/tmp/agent-device-review2/android-live/fixtures/v2/installer-review.apk",
+        "platform": "android",
+        "appId": "com.agentdevice.installerreview",
+        "package": "com.agentdevice.installerreview",
+        "identifiers": {
+          "session": "android-installer-review4194",
+          "appId": "com.agentdevice.installerreview",
+          "package": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "kind": "sdk",
+      "method": "apps.open",
+      "options": {
+        "platform": "android",
+        "serial": "emulator-5588",
+        "app": "com.agentdevice.installerreview"
+      },
+      "durationMs": 1535,
+      "result": {
+        "session": "android-installer-review4194",
+        "sessionStateDir": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194",
+        "runnerLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/runner.log",
+        "requestLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/requests/56ef15b8f2706388.ndjson",
+        "eventLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/events.ndjson",
+        "appName": "com.agentdevice.installerreview",
+        "appBundleId": "com.agentdevice.installerreview",
+        "appId": "com.agentdevice.installerreview",
+        "selection": {
+          "reason": "existing-session",
+          "source": "session",
+          "candidateCount": 1,
+          "bootOccurred": false
+        },
+        "startup": {
+          "durationMs": 1509,
+          "measuredAt": "2026-11-03T17:44:27.468Z",
+          "method": "open-command-roundtrip",
+          "appTarget": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        },
+        "device": {
+          "platform": "android",
+          "target": "mobile",
+          "id": "emulator-5588",
+          "name": "AgentDeviceReview4194",
+          "identifiers": {
+            "deviceId": "emulator-5588",
+            "deviceName": "AgentDeviceReview4194",
+            "serial": "emulator-5588"
+          },
+          "android": {
+            "serial": "emulator-5588"
+          }
+        },
+        "identifiers": {
+          "session": "android-installer-review4194",
+          "deviceId": "emulator-5588",
+          "deviceName": "AgentDeviceReview4194",
+          "serial": "emulator-5588",
+          "appId": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "kind": "snapshot",
+      "version": 2,
+      "backend": "android-helper",
+      "helperVersion": "0.21.37-dev"
+    },
+    {
+      "kind": "sdk",
+      "method": "apps.installFromSource",
+      "options": {
+        "platform": "android",
+        "serial": "emulator-5588",
+        "source": {
+          "kind": "path",
+          "path": "/private/tmp/agent-device-review2/android-live/fixtures/source-v3.zip"
+        }
+      },
+      "durationMs": 3134,
+      "result": {
+        "appName": "Installerreview",
+        "appId": "com.agentdevice.installerreview",
+        "packageName": "com.agentdevice.installerreview",
+        "launchTarget": "com.agentdevice.installerreview",
+        "identifiers": {
+          "session": "android-installer-review4194",
+          "appId": "com.agentdevice.installerreview",
+          "package": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "kind": "sdk",
+      "method": "apps.open",
+      "options": {
+        "platform": "android",
+        "serial": "emulator-5588",
+        "app": "com.agentdevice.installerreview"
+      },
+      "durationMs": 6220,
+      "result": {
+        "session": "android-installer-review4194",
+        "sessionStateDir": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194",
+        "runnerLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/runner.log",
+        "requestLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/requests/fa906fe6a1c3e135.ndjson",
+        "eventLogPath": "/private/tmp/agent-device-review2/android-live/state/sessions/android-installer-review4194/events.ndjson",
+        "appName": "com.agentdevice.installerreview",
+        "appBundleId": "com.agentdevice.installerreview",
+        "appId": "com.agentdevice.installerreview",
+        "selection": {
+          "reason": "existing-session",
+          "source": "session",
+          "candidateCount": 1,
+          "bootOccurred": false
+        },
+        "startup": {
+          "durationMs": 6163,
+          "measuredAt": "2026-11-03T17:44:37.751Z",
+          "method": "open-command-roundtrip",
+          "appTarget": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        },
+        "device": {
+          "platform": "android",
+          "target": "mobile",
+          "id": "emulator-5588",
+          "name": "AgentDeviceReview4194",
+          "identifiers": {
+            "deviceId": "emulator-5588",
+            "deviceName": "AgentDeviceReview4194",
+            "serial": "emulator-5588"
+          },
+          "android": {
+            "serial": "emulator-5588"
+          }
+        },
+        "identifiers": {
+          "session": "android-installer-review4194",
+          "deviceId": "emulator-5588",
+          "deviceName": "AgentDeviceReview4194",
+          "serial": "emulator-5588",
+          "appId": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "kind": "snapshot",
+      "version": 3,
+      "backend": "android-helper",
+      "helperVersion": "0.21.37-dev"
+    }
+  ],
+  "artifactsObserved": [
+    {
+      "path": "/private/tmp/agent-device-review2/android-live/tmp/agent-device-archive-Zq97Su",
+      "seenAt": "2026-11-03T17:44:28.201Z",
+      "removedAfterInstall": true
+    }
+  ],
+  "actualSha": "4d65affa7cddbb7ad0a3340a4dc36c12b9c13aea",
+  "packageVersion": "0.21.37-dev",
+  "reinstallDataRemoved": true,
+  "sourceArchivePreserved": true,
+  "passed": true,
+  "ownedEmulatorStopped": true
+}

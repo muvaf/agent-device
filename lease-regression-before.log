@@ -1,0 +1,28 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lease-regression.CqPkPS
+
+---------x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.test.ts > releasing a retained client lease stops the host after close retired its session
+AssertionError: expected "vi.fn()" to be called once with arguments: [ { platform: 'apple', …(5) } ]
+
+Number of calls: 0
+
+ ❯ packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.test.ts:427:19
+    425|   expect(leaseRegistry.listActiveLeases()).toEqual([]);
+    426|   expect(teardown).not.toHaveBeenCalled();
+    427|   expect(cleanup).toHaveBeenCalledExactlyOnceWith(IOS_SIMULATOR);
+       |                   ^
+    428| });
+    429|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 skipped (10)
+   Start at  20:50:13
+   Duration  1.21s (transform 84%, import 15%, tests 1%, setup 1%)
+

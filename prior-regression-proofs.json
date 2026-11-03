@@ -1,0 +1,87 @@
+{
+  "completedAt": "2026-11-03T16:05:41.744394+00:00",
+  "base": "0e9a0da6166e967300165979d34ffb449fd16c91",
+  "execution": "Sequential focused comparisons, maxWorkers=1, no competing test or device runs. Own frozen pnpm install and pnpm build on each revision.",
+  "runtime": {
+    "node": "v26.5.0",
+    "pnpm": "11.17.0",
+    "platform": "Darwin arm64"
+  },
+  "experiments": [
+    {
+      "name": "recording",
+      "head": "159c1b0b41810e2c8967bf8e1e424b5652d69074",
+      "command": "pnpm exec vitest run --project unit-core packages/provider-limrun/src/recording-runtime.test.ts -t 'finishing or cleaning one recording leaves other recordings on the instance active' --maxWorkers=1",
+      "environment": {
+        "PATHPrefix": "/private/tmp/agent-device-pnpm-bin"
+      },
+      "base": {
+        "sha": "0e9a0da6166e967300165979d34ffb449fd16c91",
+        "testOnlyPatch": "/private/tmp/agent-device-next-prs/recording-regression/head-test.patch",
+        "patchSha256": "97f7081f12523c2c3ed5f2e9a0326fa7ae4113ef187b3fd2d2875ba9cd8b5696",
+        "exactCommit": false,
+        "exitCode": 1,
+        "passed": 0,
+        "failed": 1,
+        "skipped": 10,
+        "log": "/private/tmp/agent-device-next-prs/recording-regression/base.log"
+      },
+      "headResult": {
+        "sha": "159c1b0b41810e2c8967bf8e1e424b5652d69074",
+        "checkout": "unmodified",
+        "exitCode": 0,
+        "passed": 1,
+        "failed": 0,
+        "skipped": 10,
+        "log": "/private/tmp/agent-device-next-prs/recording-regression/head.log"
+      },
+      "detection": "Base omits recordingId. Both starts use undefined; the second start throws Recording ID already exists. Head assigns independent IDs and preserves the external recording through finish/cleanup.",
+      "setupLogs": [
+        "/private/tmp/agent-device-next-prs/recording-regression/install-base.log",
+        "/private/tmp/agent-device-next-prs/recording-regression/build-base.log",
+        "/private/tmp/agent-device-next-prs/recording-regression/install-head.log",
+        "/private/tmp/agent-device-next-prs/recording-regression/build-head.log"
+      ]
+    },
+    {
+      "name": "android",
+      "head": "fa67e6963e301e5b677f3f19837a6b4229d0ad11",
+      "command": "pnpm exec vitest run --project unit-core packages/platform-android/src/deployment/runtime.test.ts --maxWorkers=1",
+      "environment": {
+        "PATHPrefix": "/private/tmp/agent-device-pnpm-bin"
+      },
+      "base": {
+        "sha": "0e9a0da6166e967300165979d34ffb449fd16c91",
+        "testOnlyPatch": "/private/tmp/agent-device-next-prs/android-regression/head-test.patch",
+        "patchSha256": "96649e5fbb963d2672584ef1093163e193b90815c548e5934b440107cb2e592d",
+        "exactCommit": false,
+        "exitCode": 1,
+        "passed": 12,
+        "failed": 3,
+        "skipped": 0,
+        "log": "/private/tmp/agent-device-next-prs/android-regression/base.log"
+      },
+      "headResult": {
+        "sha": "fa67e6963e301e5b677f3f19837a6b4229d0ad11",
+        "checkout": "unmodified",
+        "exitCode": 0,
+        "passed": 15,
+        "failed": 0,
+        "skipped": 0,
+        "log": "/private/tmp/agent-device-next-prs/android-regression/head.log"
+      },
+      "detection": "Base ignores the hosted installer. Reinstall callback has zero calls; plain/prepared installs return native com.example.app instead of provider com.example.hosted. Head routes all three paths through the supplied hook.",
+      "setupLogs": [
+        "/private/tmp/agent-device-next-prs/android-regression/install-base.log",
+        "/private/tmp/agent-device-next-prs/android-regression/build-base.log",
+        "/private/tmp/agent-device-next-prs/android-regression/install-head.log",
+        "/private/tmp/agent-device-next-prs/android-regression/build-head.log"
+      ]
+    }
+  ],
+  "cleanup": {
+    "experimentRoot": "/private/tmp/agent-device-next-regression",
+    "removed": true,
+    "reviewedCheckoutsUnchanged": true
+  }
+}

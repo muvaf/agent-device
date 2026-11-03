@@ -1,0 +1,32 @@
+$ fallow audit --base a2c169fa502a53f1f2a1da25b1cd16b9c731af39
+loaded config: /private/tmp/agent-device-review2-recording/.fallowrc.json
+   1.826444125s  WARN Skipped 2 package.json entry points outside project root or containing parent directory traversal: ./node_modules/oxfmt/bin/oxfmt (2x)
+Comparing against health baseline: /private/tmp/agent-device-review2-recording/fallow-baselines/health.json
+
+Audit scope: 7 changed files vs a2c169fa502a53f1f2a1da25b1cd16b9c731af39 (ad71d0391..HEAD)
+
+── Dead Code ──────────────────────────────────────
+
+■ Metrics: dead code 7 · complexity 0 · duplication 0
+⚠ 6 dev/optional dependencies · 1 dev dependency in production (2.21s)
+  7 issues · 7 suppressed · 0 stale suppressions
+
+── Styling ────────────────────────────────────────
+✓ No issues in 7 changed files (3.25s)
+  audit gate excluded 7 inherited findings (run with --gate all to enforce)
+── Dependencies ─────────────────────────────────────
+
+● Unused devDependencies (6)
+  @types/json-schema
+  ipaddr.js (package.json; declared and imported in packages/provision-kit)
+  jpeg-js (package.json; declared and imported in packages/capture-kit)
+  pngjs (package.json; declared and imported in packages/capture-kit)
+  undici (package.json; declared and imported in packages/maestro +1 more)
+  yauzl (package.json; declared and imported in packages/host-kit)
+  Listed in devDependencies but never imported or referenced
+  https://fallow.tools/docs/explanations/dead-code/#unused-dependencies
+
+● Dev dependencies used in production (consider moving to dependencies) (1)
+  oxc-parser
+
+  31 styling candidates (run `fallow health --css` for detail)

@@ -1,0 +1,11 @@
+--- a/packages/daemon/src/server/request-execution-scope.ts
++++ b/packages/daemon/src/server/request-execution-scope.ts
+@@ -886,8 +886,6 @@
+         }
+       }),
+     );
+-    // A reopen can publish its same-lease session while retained-host cleanup waits for the device.
+-    await endLiveSessions(leaseId, reason);
+   };
+ 
+   const run = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {

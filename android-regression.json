@@ -1,0 +1,15 @@
+{
+  "base": "39cfd2d060786a8f04e1ff27d20c2c114d67b2eb",
+  "command": [
+    "pnpm",
+    "exec",
+    "vitest",
+    "run",
+    "--project",
+    "unit-core",
+    "packages/platform-android/src/deployment/runtime.test.ts"
+  ],
+  "before": 1,
+  "after": 0,
+  "head": "uncommitted patch, to be verified at final SHA"
+}

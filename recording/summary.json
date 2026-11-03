@@ -1,0 +1,666 @@
+{
+  "completedAt": "2026-11-03T17:38:21.067906+00:00",
+  "sourceSha": "ad71d0391615ee336f0157941f473e204cfd0be8",
+  "command": [
+    "node",
+    "/private/tmp/agent-device-review2/recording-live/verify.mjs",
+    "<android|ios>"
+  ],
+  "script": "verify.mjs",
+  "platforms": [
+    {
+      "platform": "android",
+      "sourceSha": "ad71d0391615ee336f0157941f473e204cfd0be8",
+      "instanceId": "android_euna_01m6h7s87mf878054h753zm8w0",
+      "actualRuntime": {
+        "ro.build.version.release": "15",
+        "ro.build.version.sdk": "35",
+        "ro.product.model": "limdroid_x86_64_only",
+        "ro.build.fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys"
+      },
+      "commandsPassed": 13,
+      "expectedInjectedFailures": 1,
+      "commandFailuresUnexpected": 0,
+      "externalActiveObservations": [
+        {
+          "label": "before daemon recording",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "before daemon recording",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727442818-5c34cb",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        },
+        {
+          "label": "after daemon record start",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "after daemon record start",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727443432-936c17",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        },
+        {
+          "label": "after daemon record stop",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "after daemon record stop",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727445636-631e13",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        },
+        {
+          "label": "after failed download",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "after failed download",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727447643-378713",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        },
+        {
+          "label": "after record stop retry",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "after record stop retry",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727448585-42b54f",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        },
+        {
+          "label": "after cleanup recording start",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "after cleanup recording start",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727449170-3114b0",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        },
+        {
+          "label": "after session close cleanup",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "after session close cleanup",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727451709-f98de8",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        },
+        {
+          "label": "after post-close visual change",
+          "recordingId": "external-android-1793727442253",
+          "method": "GET active recording file",
+          "status": 403,
+          "body": "open failed: Permission denied"
+        },
+        {
+          "label": "after post-close visual change",
+          "recordingId": "external-android-1793727442253",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727452144-0ba651",
+          "rejected": true,
+          "error": "Concurrent recordings must use the same quality: 5"
+        }
+      ],
+      "proofs": [
+        {
+          "kind": "failed-download-retry",
+          "recordingId": "81af1b8e-02ac-4030-a5bf-5a84a8862310",
+          "stopRequestsBeforeRetry": 1,
+          "stopRequestsAfterRetry": 1,
+          "downloadAttempts": [
+            {
+              "at": "2026-11-03T17:37:27.494Z",
+              "transport": "http",
+              "method": "GET",
+              "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+              "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+              "injected": true,
+              "status": 503
+            },
+            {
+              "at": "2026-11-03T17:37:27.875Z",
+              "transport": "http",
+              "method": "GET",
+              "url": "http://127.0.0.1:52960/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+              "upstreamUrl": "https://eu-hel1-44-2903238.limrun.net/v1/android_euna_01m6h7s87mf878054h753zm8w0/api/files?path=%2Fdata%2Flocal%2Ftmp%2Frecordings%2Frecording_81af1b8e-02ac-4030-a5bf-5a84a8862310.mp4",
+              "status": 200
+            }
+          ],
+          "sameDownloadUrl": true,
+          "externalStillActive": true
+        },
+        {
+          "kind": "close-cleanup",
+          "recordingId": "645fcdaf-fa5c-4b87-be36-9f7cc398b2db",
+          "remoteStops": 1,
+          "externalStillActive": true
+        },
+        {
+          "kind": "external-recording-isolation",
+          "recordingId": "external-android-1793727442253",
+          "explicitStopSucceeded": true,
+          "downloadStatus": 200,
+          "validMp4": true,
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 360,
+                "height": 808
+              }
+            ],
+            "format": {
+              "duration": "10.003322",
+              "size": "283172"
+            }
+          }
+        }
+      ],
+      "videos": [
+        {
+          "at": "2026-11-03T17:37:25.840Z",
+          "file": "normal.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 360,
+                "height": 808
+              }
+            ],
+            "format": {
+              "duration": "1.608222",
+              "size": "27003"
+            }
+          }
+        },
+        {
+          "at": "2026-11-03T17:37:28.740Z",
+          "file": "retry.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 360,
+                "height": 808
+              }
+            ],
+            "format": {
+              "duration": "1.382322",
+              "size": "28114"
+            }
+          }
+        },
+        {
+          "at": "2026-11-03T17:37:31.875Z",
+          "file": "close.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 360,
+                "height": 808
+              }
+            ],
+            "format": {
+              "duration": "1.621644",
+              "size": "45177"
+            }
+          }
+        },
+        {
+          "at": "2026-11-03T17:37:32.888Z",
+          "file": "external.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 360,
+                "height": 808
+              }
+            ],
+            "format": {
+              "duration": "10.003322",
+              "size": "283172"
+            }
+          }
+        }
+      ],
+      "decode": [
+        {
+          "file": "normal.mp4",
+          "sha256": "929ce0819ebaace9f71df93fa3ba7497a0553497ec9236cb6be6cd4a19061f83",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/android/normal.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": ""
+        },
+        {
+          "file": "retry.mp4",
+          "sha256": "570d7d8c633037f352912a9329fe268b0cb49c9027e74da6d1a04900ff0084c5",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/android/retry.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": ""
+        },
+        {
+          "file": "close.mp4",
+          "sha256": "409b18ab45fbba12153a832618d5ed1182bcd7c6304e2553366cfec338fcf1fb",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/android/close.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": ""
+        },
+        {
+          "file": "external.mp4",
+          "sha256": "40d5f1f96384c111c555ad5af54930b54ace33b41f32283c9a86d2a2cb690896",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/android/external.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": ""
+        }
+      ],
+      "cleanup": [
+        {
+          "at": "2026-11-03T17:37:33.152Z",
+          "daemonCleanup": "stopped"
+        },
+        {
+          "at": "2026-11-03T17:37:33.810Z",
+          "instanceCleanup": {
+            "id": "android_euna_01m6h7s87mf878054h753zm8w0",
+            "state": "terminated"
+          }
+        }
+      ]
+    },
+    {
+      "platform": "ios",
+      "sourceSha": "ad71d0391615ee336f0157941f473e204cfd0be8",
+      "instanceId": "ios_euna_01m6h7t5h8f87b4z7zyrcw5c85",
+      "actualRuntime": {
+        "com.apple.CoreSimulator.SimRuntime.iOS-26-4": [
+          {
+            "dataPath": "/Users/limrun/work/_eph/4f75bb10-55c2-4665-bea7-ac1c66ee7b1d/main/state/device-set-84c0b165-3a94-4788-ba15-d26e2536b2d6/402F533A-A024-4E50-84D8-1B7F8F67F974/data",
+            "logPath": "/Users/limrun/work/_eph/4f75bb10-55c2-4665-bea7-ac1c66ee7b1d/Library/Logs/CoreSimulator/402F533A-A024-4E50-84D8-1B7F8F67F974",
+            "udid": "402F533A-A024-4E50-84D8-1B7F8F67F974",
+            "lastUsedAt": "2026-11-03T17:14:22Z",
+            "isAvailable": true,
+            "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro",
+            "state": "Booted",
+            "name": "limclone"
+          }
+        ]
+      },
+      "commandsPassed": 13,
+      "expectedInjectedFailures": 1,
+      "commandFailuresUnexpected": 0,
+      "externalActiveObservations": [
+        {
+          "label": "before daemon recording",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727473081-df0638",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        },
+        {
+          "label": "after daemon record start",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727473561-17c092",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        },
+        {
+          "label": "after daemon record stop",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727475465-111d16",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        },
+        {
+          "label": "after failed download",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727476762-0bff62",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        },
+        {
+          "label": "after record stop retry",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727477683-63519d",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        },
+        {
+          "label": "after cleanup recording start",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727478145-9879c1",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        },
+        {
+          "label": "after session close cleanup",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727479644-73501f",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        },
+        {
+          "label": "after post-close visual change",
+          "recordingId": "external-ios-1793727472809",
+          "method": "incompatible quality probe",
+          "probeId": "probe-1793727480238-9437b8",
+          "rejected": true,
+          "error": "failedToStartWriter(\"Concurrent recordings must use the same quality, display, and touchIndicators.\")"
+        }
+      ],
+      "proofs": [
+        {
+          "kind": "failed-download-retry",
+          "recordingId": "cdf239bb-a154-49a8-8496-06b34f01894c",
+          "stopRequestsBeforeRetry": 1,
+          "stopRequestsAfterRetry": 1,
+          "downloadAttempts": [
+            {
+              "at": "2026-11-03T17:37:56.631Z",
+              "transport": "http",
+              "method": "GET",
+              "url": "http://127.0.0.1:53082/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+              "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+              "injected": true,
+              "status": 503
+            },
+            {
+              "at": "2026-11-03T17:37:57.042Z",
+              "transport": "http",
+              "method": "GET",
+              "url": "http://127.0.0.1:53082/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+              "upstreamUrl": "https://eu-oh1-m1-236b.limrun.net/v1/ios_euna_01m6h7t5h8f87b4z7zyrcw5c85/api/files?name=recording_cdf239bb-a154-49a8-8496-06b34f01894c.mp4",
+              "status": 200
+            }
+          ],
+          "sameDownloadUrl": true,
+          "externalStillActive": true
+        },
+        {
+          "kind": "close-cleanup",
+          "recordingId": "56a2284c-bdc4-419a-a0ad-bc9ef092cbea",
+          "remoteStops": 1,
+          "externalStillActive": true
+        },
+        {
+          "kind": "external-recording-isolation",
+          "recordingId": "external-ios-1793727472809",
+          "explicitStopSucceeded": true,
+          "downloadStatus": 200,
+          "validMp4": true,
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 602,
+                "height": 1310
+              }
+            ],
+            "format": {
+              "duration": "7.638333",
+              "size": "753478"
+            }
+          }
+        }
+      ],
+      "videos": [
+        {
+          "at": "2026-11-03T17:37:55.659Z",
+          "file": "normal.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 602,
+                "height": 1310
+              }
+            ],
+            "format": {
+              "duration": "0.871667",
+              "size": "174695"
+            }
+          }
+        },
+        {
+          "at": "2026-11-03T17:37:57.889Z",
+          "file": "retry.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 602,
+                "height": 1310
+              }
+            ],
+            "format": {
+              "duration": "0.758333",
+              "size": "51092"
+            }
+          }
+        },
+        {
+          "at": "2026-11-03T17:37:59.837Z",
+          "file": "close.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 602,
+                "height": 1310
+              }
+            ],
+            "format": {
+              "duration": "0.901667",
+              "size": "53925"
+            }
+          }
+        },
+        {
+          "at": "2026-11-03T17:38:01.264Z",
+          "file": "external.mp4",
+          "probe": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 602,
+                "height": 1310
+              }
+            ],
+            "format": {
+              "duration": "7.638333",
+              "size": "753478"
+            }
+          }
+        }
+      ],
+      "decode": [
+        {
+          "file": "normal.mp4",
+          "sha256": "3387f28014c5a0cf90fa04f2ebffa7f90c81347d788d83b7848099c913057369",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/ios/normal.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": ""
+        },
+        {
+          "file": "retry.mp4",
+          "sha256": "2feb94c1c63d7640cea4ece65b443183515377baabe93b03fa11e6521806ade2",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/ios/retry.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": ""
+        },
+        {
+          "file": "close.mp4",
+          "sha256": "e09bcb96e6b481141a686071728cbc82a511b979e58fc75feb3be53630c91725",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/ios/close.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": ""
+        },
+        {
+          "file": "external.mp4",
+          "sha256": "7341b9e3de6ab125826434dbeac9388d0458a7e701d6a83cf726abde20a75277",
+          "decodeCommand": [
+            "ffmpeg",
+            "-v",
+            "error",
+            "-i",
+            "/private/tmp/agent-device-review2/recording-live/ios/external.mp4",
+            "-f",
+            "null",
+            "-"
+          ],
+          "exitCode": 0,
+          "stderr": "[null @ 0xbcac1c500] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 8 >= 8\n"
+        }
+      ],
+      "cleanup": [
+        {
+          "at": "2026-11-03T17:38:01.525Z",
+          "daemonCleanup": "stopped"
+        },
+        {
+          "at": "2026-11-03T17:38:02.028Z",
+          "instanceCleanup": {
+            "id": "ios_euna_01m6h7t5h8f87b4z7zyrcw5c85",
+            "state": "terminated"
+          }
+        }
+      ]
+    }
+  ],
+  "sourceEdits": false,
+  "initialSetupFailure": "The first script launch could not resolve ws from the root package. No instance was created. The script now resolves ws through SDK0.68.1 own installed dependencies."
+}

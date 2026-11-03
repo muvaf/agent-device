@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "data": {
+    "session": "android-installer-review4194",
+    "shutdown": {
+      "success": true,
+      "exitCode": 0,
+      "stdout": "OK: killing emulator, bye bye\r\nOK\r\n",
+      "stderr": ""
+    },
+    "message": "Closed: android-installer-review4194"
+  }
+}

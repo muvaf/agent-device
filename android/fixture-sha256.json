@@ -1,0 +1,18 @@
+{
+  "fixtures/source-v3.zip": "5b8af6c93c086015528ad5228127e62d7346ca65fdf1abee1d33846229ee9045",
+  "fixtures/v1/unsigned.apk": "8fd643b8948c89a896493e04cc0a315e8cb71c673074a2adddce6c620194a40d",
+  "fixtures/v1/installer-review.apk": "aaf165f5336eb30d7018b08ebbaa66d4e022f370280e6074ef4e1c022783f3c8",
+  "fixtures/v1/MainActivity.java": "f4ac667565e5dd4f356214e35d5b8f99c5bef6eef4b7f8dec67b2e9a608b6405",
+  "fixtures/v1/AndroidManifest.xml": "291c3c880584a7493cbb60844385bcaa606fad3d1c8df974c73c953d78783ce3",
+  "fixtures/v1/aligned.apk": "8fd643b8948c89a896493e04cc0a315e8cb71c673074a2adddce6c620194a40d",
+  "fixtures/v2/unsigned.apk": "86ecf5a9d541af42de4baadfa1f4abb36862bc928cb61dff9c000a9d040d9ddf",
+  "fixtures/v2/installer-review.apk": "45b20ad5d593b2c29c073f8bca5acd0ba50b43cada28d6c56d3b7ee1e7c0d80a",
+  "fixtures/v2/MainActivity.java": "5415013a3119f810efe3cc67771aadd4b27235c02713b745c076d03b65ece217",
+  "fixtures/v2/AndroidManifest.xml": "291c3c880584a7493cbb60844385bcaa606fad3d1c8df974c73c953d78783ce3",
+  "fixtures/v2/aligned.apk": "86ecf5a9d541af42de4baadfa1f4abb36862bc928cb61dff9c000a9d040d9ddf",
+  "fixtures/v3/unsigned.apk": "c7e99f5b8039381d4ae943cc94f84cd193647c0e32a45ff70618749b9e1092d0",
+  "fixtures/v3/installer-review.apk": "1a5c02c9d51f40527185f2a8b1ccba769016b6b2f871d5649d33ad2c4d8571a1",
+  "fixtures/v3/MainActivity.java": "90a74af4811bd49e070f87474fb9b4d4176989dc4d04c9b8b9c8163a39626ca1",
+  "fixtures/v3/AndroidManifest.xml": "291c3c880584a7493cbb60844385bcaa606fad3d1c8df974c73c953d78783ce3",
+  "fixtures/v3/aligned.apk": "c7e99f5b8039381d4ae943cc94f84cd193647c0e32a45ff70618749b9e1092d0"
+}

@@ -1,0 +1,305 @@
+[
+  {
+    "command": [
+      "/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/javac",
+      "--release",
+      "11",
+      "-classpath",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "-d",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/classes",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/MainActivity.java"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/d8",
+      "--min-api",
+      "23",
+      "--classpath",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "--output",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/dex",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/classes/com/agentdevice/installerreview/MainActivity.class"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/aapt2",
+      "link",
+      "-o",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/unsigned.apk",
+      "-I",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "--manifest",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/AndroidManifest.xml",
+      "--min-sdk-version",
+      "23",
+      "--target-sdk-version",
+      "36",
+      "--version-code",
+      "1",
+      "--version-name",
+      "1"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/zipalign",
+      "-f",
+      "4",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/unsigned.apk",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/aligned.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/apksigner",
+      "sign",
+      "--ks",
+      "/Users/muvaf/github.com/callstack/agent-device/android/snapshot-helper/debug.keystore",
+      "--ks-key-alias",
+      "androiddebugkey",
+      "--ks-pass",
+      "pass:android",
+      "--key-pass",
+      "pass:android",
+      "--out",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/installer-review.apk",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/aligned.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/apksigner",
+      "verify",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v1/installer-review.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/javac",
+      "--release",
+      "11",
+      "-classpath",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "-d",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/classes",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/MainActivity.java"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/d8",
+      "--min-api",
+      "23",
+      "--classpath",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "--output",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/dex",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/classes/com/agentdevice/installerreview/MainActivity.class"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/aapt2",
+      "link",
+      "-o",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/unsigned.apk",
+      "-I",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "--manifest",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/AndroidManifest.xml",
+      "--min-sdk-version",
+      "23",
+      "--target-sdk-version",
+      "36",
+      "--version-code",
+      "2",
+      "--version-name",
+      "2"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/zipalign",
+      "-f",
+      "4",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/unsigned.apk",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/aligned.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/apksigner",
+      "sign",
+      "--ks",
+      "/Users/muvaf/github.com/callstack/agent-device/android/snapshot-helper/debug.keystore",
+      "--ks-key-alias",
+      "androiddebugkey",
+      "--ks-pass",
+      "pass:android",
+      "--key-pass",
+      "pass:android",
+      "--out",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/installer-review.apk",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/aligned.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/apksigner",
+      "verify",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v2/installer-review.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/javac",
+      "--release",
+      "11",
+      "-classpath",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "-d",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/classes",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/MainActivity.java"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/d8",
+      "--min-api",
+      "23",
+      "--classpath",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "--output",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/dex",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/classes/com/agentdevice/installerreview/MainActivity.class"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/aapt2",
+      "link",
+      "-o",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/unsigned.apk",
+      "-I",
+      "/Users/muvaf/Library/Android/sdk/platforms/android-36/android.jar",
+      "--manifest",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/AndroidManifest.xml",
+      "--min-sdk-version",
+      "23",
+      "--target-sdk-version",
+      "36",
+      "--version-code",
+      "3",
+      "--version-name",
+      "3"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/zipalign",
+      "-f",
+      "4",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/unsigned.apk",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/aligned.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/apksigner",
+      "sign",
+      "--ks",
+      "/Users/muvaf/github.com/callstack/agent-device/android/snapshot-helper/debug.keystore",
+      "--ks-key-alias",
+      "androiddebugkey",
+      "--ks-pass",
+      "pass:android",
+      "--key-pass",
+      "pass:android",
+      "--out",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/installer-review.apk",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/aligned.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Users/muvaf/Library/Android/sdk/build-tools/36.1.0/apksigner",
+      "verify",
+      "/private/tmp/agent-device-review2/android-live/fixtures/v3/installer-review.apk"
+    ],
+    "cwd": null,
+    "status": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

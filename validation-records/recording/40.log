@@ -1,0 +1,2 @@
+$ node --experimental-strip-types scripts/check-bundle-owner-files.ts
+Verified the ownerFiles key and 52 owner-file paths are absent from 601 production bundles.

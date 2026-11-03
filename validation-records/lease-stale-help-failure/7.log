@@ -1,0 +1,322 @@
+$ pnpm test:unit && pnpm check:tmpdir-leaks && pnpm test:smoke
+$ vitest run --project unit-core --project fuzz-worker
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-lease
+
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.856Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":0}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.857Z","level":"info","phase":"android_snapshot_helper_install","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":1,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installPolicy":"missing-or-outdated"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.857Z","level":"info","phase":"android_snapshot_helper_install_decision","session":"snapshot-helper","requestId":"req-1","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installedVersionCode":13004,"artifactSha256":"a5f6a2fba1163bba2f13026bd3a192f52ba2816524b7cfa83c6b7ca568f6710a","installed":false,"reason":"current"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.857Z","level":"info","phase":"android_snapshot_helper_session_capture","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"transport":"persistent-session","answered":false}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.857Z","level":"info","phase":"android_snapshot_helper_capture","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"commandTimeoutMs":30000,"transport":"instrumentation"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.905Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":0}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.905Z","level":"info","phase":"android_snapshot_helper_install","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installPolicy":"missing-or-outdated"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.905Z","level":"info","phase":"android_snapshot_helper_install_decision","session":"snapshot-failure","requestId":"req-2","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installedVersionCode":13004,"artifactSha256":"a5f6a2fba1163bba2f13026bd3a192f52ba2816524b7cfa83c6b7ca568f6710a","installed":false,"reason":"current"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.905Z","level":"info","phase":"android_snapshot_helper_session_capture","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"transport":"persistent-session","answered":false}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.906Z","level":"error","phase":"android_snapshot_helper_capture","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":1,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"commandTimeoutMs":30000,"transport":"instrumentation","error":"Android snapshot helper failed before returning parseable output"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.906Z","level":"error","phase":"android_snapshot_helper_failed","session":"snapshot-failure","requestId":"req-2","command":"snapshot","data":{"reason":"Android snapshot helper failed before returning parseable output: helper unavailable","instrumentation":{"exitCode":1}}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.906Z","level":"debug","phase":"android_snapshot_helper_runtime_reset","session":"snapshot-failure","requestId":"req-2","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.907Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-helper-missing","requestId":"req-missing","command":"snapshot","durationMs":1}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.907Z","level":"error","phase":"android_snapshot_helper_unavailable","session":"snapshot-helper-missing","requestId":"req-missing","command":"snapshot","data":{"reason":"artifact_not_found"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.910Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.910Z","level":"info","phase":"android_snapshot_helper_install","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installPolicy":"missing-or-outdated"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.910Z","level":"info","phase":"android_snapshot_helper_install_decision","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installedVersionCode":13004,"artifactSha256":"a5f6a2fba1163bba2f13026bd3a192f52ba2816524b7cfa83c6b7ca568f6710a","installed":false,"reason":"current"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.910Z","level":"info","phase":"android_snapshot_helper_session_capture","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"transport":"persistent-session","answered":false}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.910Z","level":"error","phase":"android_snapshot_helper_capture","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"commandTimeoutMs":30000,"transport":"instrumentation","error":"helper capture timed out"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.910Z","level":"error","phase":"android_snapshot_helper_failed","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","data":{"reason":"helper capture timed out"}}
+[agent-device][diag] {"ts":"2026-11-03T17:52:25.910Z","level":"debug","phase":"android_snapshot_helper_runtime_reset","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper"}}
+···················································································································{
+  "success": true,
+  "data": {
+    "connected": true,
+    "session": "adc-status-metro",
+    "tenant": "acme",
+    "runId": "run-123",
+    "leaseAllocated": false,
+    "leaseBackend": "android-instance",
+    "platform": "android",
+    "remoteConfig": "/tmp/agent-device-test-run-76439-85dhrI/agent-device-connection-status-metro-mhSQz5/remote.json",
+    "remoteConfigHash": "77632ad36bdd9d19beb42d20f7dff559cb880fd4597afc3bfaf57d2f4f0b967d",
+    "daemonBaseUrlFingerprint": "cd7ab9656667",
+    "liveSession": {
+      "status": "not-created"
+    },
+    "verification": {
+      "status": "configured",
+      "service": "remote provider",
+      "message": "Remote connection profile loaded. Access is checked by the first remote command."
+    },
+    "nextSteps": [
+      "agent-device open <package-id> --relaunch --session adc-status-metro"
+    ],
+    "metro": {
+      "prepared": false
+    },
+    "leasePreparation": {
+      "status": "deferred",
+      "nextSteps": [
+        "agent-device install-from-source <artifact-url> --platform ios|android --session adc-status-metro",
+        "agent-device open <app-id> --relaunch --session adc-status-metro",
+        "agent-device snapshot -i --session adc-status-metro",
+        "agent-device devices --session adc-status-metro"
+      ],
+      "message": "No live device session has been created. Run a device command when ready to allocate or refresh the lease."
+    },
+    "runtimePreparation": {
+      "status": "deferred",
+      "nextStep": "agent-device metro prepare --remote-config /tmp/agent-device-test-run-76439-85dhrI/agent-device-connection-status-metro-mhSQz5/remote.json --session adc-status-metro",
+      "message": "Metro runtime is not prepared yet; it will be prepared automatically on first open, or run \"agent-device metro prepare --remote-config /tmp/agent-device-test-run-76439-85dhrI/agent-device-connection-status-metro-mhSQz5/remote.json --session adc-status-metro\" to inspect it before launch."
+    },
+    "connectedAt": "2026-11-03T17:52:26.146Z",
+    "updatedAt": "2026-11-03T17:52:26.146Z"
+  }
+}
+·························································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································Installed: com.example.demo
+Installed: com.example.demo
+Installed: com.example.demo
+Installed: com.example.demo
+·/tmp/screenshot.png
+······Opened: MenuBarApp
+Opened: Agent Device Tester
+·················································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································stderr | packages/react-native/src/companion/client-companion-tunnel-worker.test.ts > metro companion worker exits after non-retryable registration failure
+Failed to register companion (401): {"ok":false,"error":{"code":"UNAUTHORIZED","message":"Invalid token"}}
+
+stderr | packages/react-native/src/companion/client-companion-tunnel-worker.test.ts > metro companion worker retries registration failures with retry-after delay
+Failed to register companion (429): {"ok":false,"error":{"code":"RATE_LIMITED","message":"Try again later"}}
+
+··························································································································································································································································································································································································································································································································································································{
+  "success": true,
+  "data": {
+    "connected": true,
+    "session": "adc-apple-reuse",
+    "tenant": "acme",
+    "runId": "run-9",
+    "leaseAllocated": true,
+    "leaseId": "apple-lease-1",
+    "leaseBackend": "ios-instance",
+    "platform": "ios",
+    "remoteConfig": "/tmp/agent-device-test-run-76439-85dhrI/agent-device-connect-apple-reuse-HsWAeN/remote.json",
+    "remoteConfigHash": "a7b968615f248de94cdf0356bcc6c0fb7919e8940c2c3d00171c22d5fcc52814",
+    "daemonBaseUrlFingerprint": "b4706a0a54aa",
+    "liveSession": {
+      "status": "created",
+      "leaseId": "apple-lease-1"
+    },
+    "verification": {
+      "status": "configured",
+      "service": "remote provider",
+      "message": "Remote connection profile loaded. Access is checked by the first remote command."
+    },
+    "nextSteps": [
+      "agent-device open <bundle-id> --relaunch --session adc-apple-reuse"
+    ],
+    "metro": {
+      "prepared": false
+    },
+    "connectedAt": "2026-11-03T17:52:44.175Z",
+    "updatedAt": "2026-11-03T17:52:44.176Z"
+  }
+}
+{
+  "success": true,
+  "data": {
+    "connected": true,
+    "session": "adc-redeclare",
+    "tenant": "acme",
+    "runId": "run-9",
+    "leaseAllocated": true,
+    "leaseId": "ios-lease-1",
+    "leaseBackend": "ios-instance",
+    "platform": "ios",
+    "remoteConfig": "/tmp/agent-device-test-run-76439-85dhrI/agent-device-connect-apple-redeclare-UW2rOd/remote.json",
+    "remoteConfigHash": "a7b968615f248de94cdf0356bcc6c0fb7919e8940c2c3d00171c22d5fcc52814",
+    "daemonBaseUrlFingerprint": "b4706a0a54aa",
+    "liveSession": {
+      "status": "created",
+      "leaseId": "ios-lease-1"
+    },
+    "verification": {
+      "status": "configured",
+      "service": "remote provider",
+      "message": "Remote connection profile loaded. Access is checked by the first remote command."
+    },
+    "nextSteps": [
+      "agent-device open <bundle-id> --relaunch --session adc-redeclare"
+    ],
+    "metro": {
+      "prepared": false
+    },
+    "connectedAt": "2026-11-03T17:52:44.179Z",
+    "updatedAt": "2026-11-03T17:52:44.180Z"
+  }
+}
+··························································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································Replacing daemon (pid 82907, v0.0.0-stale) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-explicit-lifecycle-q5CtxS: version mismatch (client v0.21.37-dev)
+·······················Replacing daemon (pid 82918, v0.0.0-stale) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-explicit-lifecycle-kglnJ7: version mismatch (client v0.21.37-dev)
+·····Replacing daemon (pid 82989, v0.0.0-stale) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-explicit-lifecycle-ghv9rE: version mismatch (client v0.21.37-dev)
+········Replacing daemon (pid 83111, v0.0.0-stale) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-explicit-lifecycle-asS0KG: version mismatch (client v0.21.37-dev)
+···Replacing daemon (pid 83155, v0.0.0-stale) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-explicit-lifecycle-VSTkGj: version mismatch (client v0.21.37-dev)
+·····Replacing daemon (pid 83250, v0.0.0-stale) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-explicit-lifecycle-0VADVr: version mismatch (client v0.21.37-dev)
+····························································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································x·············································································································································································································································································································································································································································································································································································(node:85710) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+·················································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································Replacing daemon (pid 90195, v0.21.37-dev) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-dead-probe-NtSPkR: unreachable
+Replacing daemon (pid 90202, v999.0.0) in /tmp/agent-device-test-run-76439-85dhrI/agent-device-dead-probe-PXjxae: version mismatch (client v0.21.37-dev)
+································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································Error: --iterations must be a positive integer (got lots).
+Envelope: /tmp/agent-device-test-run-76439-85dhrI/fuzz-envelope-4ajFbM/run-envelope.json
+··································TypeError [ERR_PARSE_ARGS_UNKNOWN_OPTION]: Unknown option '--not-a-flag'
+Envelope: /tmp/agent-device-test-run-76439-85dhrI/fuzz-envelope-ZW9Dlj/run-envelope.json
+············································································································································································································································································································································································································································································································agent-device: building macOS helper (first run or helper update)
+agent-device: building macOS helper (first run or helper update)
+agent-device: building macOS helper (first run or helper update)
+agent-device: building macOS helper (first run or helper update)
+·····························································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································{
+  "success": true,
+  "data": {
+    "connected": false,
+    "session": "harmony-proxy",
+    "released": true
+  }
+}
+···············································································································································································································································································································································································································································································································································································[perf] finalize: close failed: 
+[perf] finalize: daemon stop --clean failed: 
+[perf] round 1/1
+·········[perf]  scenario heavy-feed
+·············[perf] round 1/1
+········[perf]  scenario heavy-feed
+·······················[perf]  ✗ session failed: open: claimed
+··································································································································································································································································································································································································-··················································································································································································································································································································································································································································································································································································································································································································Automatic merge went well; stopped before committing as requested
+····················································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································Error: Benchmark state directory is not benchmark-owned: /tmp/agent-device-test-run-76439-85dhrI/agent-device-ios-benchmark-cli-UikvnQ
+    at readPaths (file:///private/tmp/agent-device-review2-lease/scripts/ios-snapshot-benchmark/benchmark-config.ts:170:11)
+    at parseConfig (file:///private/tmp/agent-device-review2-lease/scripts/ios-snapshot-benchmark/benchmark-config.ts:61:17)
+    at main (file:///private/tmp/agent-device-review2-lease/scripts/ios-snapshot-benchmark/run.ts:66:18)
+    at file:///private/tmp/agent-device-review2-lease/scripts/ios-snapshot-benchmark/run.ts:56:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+    at async node:internal/modules/esm/loader:650:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+··········································································································································································································································································································································································································································································································································································································
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| src/__tests__/cli-help.test.ts > help physical-device documents the runner/daemon lifecycle detail moved out of workflow (#1051)
+AssertionError: The input did not match the regular expression /the session held a device lease/. Input:
+
+'agent-device 0.21.37-dev — physical-device\n' +
+  '\n' +
+  'Use this when the target is connected hardware instead of a simulator/emulator.\n' +
+  'For simulator/emulator flows, use help manual-qa for routine QA or help workflow for the full reference.\n' +
+  '\n' +
+  'Discovery:\n' +
+  '  agent-device devices --platform ios\n' +
+  '  agent-device devices --platform android\n' +
+  '  With multiple devices present, select one: --device <name>, or --udid <udid> (iOS) / --serial <serial> (Android) when names collide.\n' +
+  '\n' +
+  'iOS physical-device prerequisites:\n' +
+  '  Xcode, xcrun xcdevice, and xcrun xctrace must be available from the selected Xcode.\n' +
+  '  The device must be paired/trusted, connected, unlocked when needed, and have Developer Mode enabled.\n' +
+  '  Modern devices visible to devicectl use CoreDevice. Older devices visible only to xctrace use the XCTest backend automatically.\n' +
+  '  XCTest-backed devices must already have the target app installed and should be opened by bundle ID; app inventory, install/reinstall, logs, performance sampling, recording, deep links, and launch arguments require CoreDevice.\n' +
+  '  XCTest-backed runner commands travel through macOS usbmuxd; keep the trusted device connected by cable.\n' +
+  '  The AgentDeviceRunner XCTest host must be signed before commands can run on a physical device.\n' +
+  '  Start with Automatic Signing and only these env vars:\n' +
+  '    AGENT_DEVICE_IOS_TEAM_ID=ABCDE12345\n' +
+  '    AGENT_DEVICE_IOS_BUNDLE_ID=com.yourname.agentdevice.runner\n' +
+  '  Find team ids and Apple Development signing certificates with:\n' +
+  '    security find-identity -v -p codesigning\n' +
+  '  If Xcode cannot choose a profile, set AGENT_DEVICE_IOS_PROVISIONING_PROFILE to the profile name/specifier, not a file path.\n' +
+  '  AGENT_DEVICE_IOS_SIGNING_IDENTITY is optional; omit it unless xcodebuild asks for a specific identity.\n' +
+  '  The profile/team must allow AGENT_DEVICE_IOS_BUNDLE_ID and <id>.uitests.\n' +
+  "  A runner startup failure names its class in error details.reason rather than only in prose: signing_no_development_team, signing_provisioning_profile_missing, bundle_identifier_already_registered, signing_unspecified, devtools_security_developer_mode_disabled (the Mac's DevToolsSecurity setting, which says nothing about the device's Developer Mode toggle), simulator_service_hub_unavailable (an Xcode too old for the host macOS: macOS refuses to load its DTServiceHub, so every runner launch fails; the command stops as soon as the refusal reaches runner.log, and selecting an Xcode that supports this macOS on the daemon host is the fix), simulator_set_destination_not_found (a --ios-simulator-device-set simulator the selected Xcode cannot resolve; names the set), device_developer_mode_disabled (read from an iPhone's own report before the runner builds, and the only device state that stops a run up front), device_developer_disk_image_unavailable (also read from the device, and published on a startup failure that named no cause of its own, since iOS 17+ mounts the developer disk image on demand during build and launch rather than gating the build), or build_failed_unclassified when nothing proved a cause. The two device reasons are never inferred from tool output or from each other. Branch on details.reason and follow hint; the message is for humans.\n" +
+  '  First-run XCTest setup/build can take longer than normal commands; keep the device connected and use --debug to inspect signing/build diagnostics if setup times out.\n' +
+  '\n' +
+  'Android physical-device prerequisites:\n' +
+  '  Enable USB debugging and confirm the device appears in agent-device devices --platform android.\n' +
+  '  Android does not need the iOS runner signing setup. For React Native/Expo Metro reachability, read help react-native.\n' +
+  '\n' +
+  'Runner and daemon lifecycle (applies to simulators too):\n' +
+  '  open without --relaunch is idempotent-foreground for an already-running app, except native macOS app opens keep it in the background (help macos); neither restarts the process. open --relaunch restarts the app; on iOS simulators this collapses to one simctl launch --terminate-running-process call instead of a separate terminate-then-launch.\n' +
+  "  No runner read launches a session app that is not running: snapshot, wait, is, get, a reading find, and an interaction's leading reads (a gesture's viewport read, the capture that resolves a selector click/fill) answer the retriable APP_NOT_RUNNING instead of bare-launching over a launch SpringBoard still holds behind its deep-link confirmation. Only open, activate, and a command that mutates without a leading read bring a stopped app up.\n" +
+  '  close keeps a healthy iOS simulator XCTest runner warm by default so the next open on that simulator (same udid in the same simulator set) skips the runner build, unless --shutdown was requested, the session was recording, or its device lease ends on close. A lease allocated with retainOnClose can keep the runner between sessions; releasing or expiring that lease stops the runner even after the session closes. A retained runner auto-stops after an idle window (default 5 minutes); set AGENT_DEVICE_IOS_RUNNER_IDLE_STOP_MS to override, or 0 to disable idle stop and retain until daemon exit. Only a ready runner with an observed listener is retained; close retires unfinished prewarm recovery. Losing the retained listener stops that generation, and daemon shutdown stops idle retained runners rather than handing them off without supervision.\n' +
+  '  Each AGENT_DEVICE_STATE_DIR runs its own daemon. It self-exits after an idle window (default 5 minutes, matching the runner idle-stop default) once it has no open sessions, no in-flight requests, and no active recording; set AGENT_DEVICE_DAEMON_IDLE_TIMEOUT_MS to override, or 0 to disable idle reap.\n' +
+  "  A client starting a local daemon waits while the daemon process stays alive and keeps publishing startup progress, so an overloaded host makes startup slower, not failed. It stops at a ceiling (default 120 s; set AGENT_DEVICE_DAEMON_STARTUP_TIMEOUT_MS to a positive integer number of milliseconds to override) and names the outcome in error details.reason: startup-exited (the process ended before registering), startup-stalled (alive, no startup progress for a fixed 60 s window the ceiling variable does not change), or startup-ceiling (a startup was still live when the ceiling passed — this client's daemon or another client's; the client stops its own launch and never signals another client's live daemon. Only a progressing own launch outlasts the 60 s stall window, so a ceiling set below 60 s also ends a silent own launch this way). details.phases carries the startup phase timings it observed and details.startupTimeoutMs the effective ceiling. Branch on details.reason, never on the message. The variable is read only when a client must start a daemon: a value that is not a positive integer fails with INVALID_ARGS before the daemon spawns, and a client that only attaches to or reuses a running daemon never reads it.\n" +
+  "  A command that needs the shared local daemon starts it for its state dir when none runs (device status and device release --stale never contact one). When the running daemon comes from another version or build, the command replaces it only if the daemon reports no work: no in-flight request, session, repair session, or live lease (a streaming resumable upload and a host human-control hold that names no lease are not counted); otherwise it fails with details.reason daemon-busy and leaves the daemon alone. A daemon that agreed to leave is waited for up to 60 s and never signaled while it drains; one still running then fails with details.reason daemon-drain-timeout unless it answers nothing and is provably a daemon process, which is force-retired. A daemon from a release that predates this check is never replaced and fails with daemon-incompatible. End a busy or older daemon deliberately with agent-device daemon stop --state-dir <path>. Node clients pick daemonLifecycle 'attach' (never starts or replaces a daemon; fails with daemon-not-running or daemon-incompatible) or 'managed' (the default until 0.22), and ensureDaemon() starts or replaces one explicitly.\n" +
+  "  daemon stop --state-dir <path> stops a detached daemon with process signals after verifying its identity. For a live embedded runtime, stop refuses with details.reason daemon-owner-embedded and a hint naming the host PID. Close that runtime in its host process with the handle returned by startAgentDevice(). Stop refuses live unrecognized ownership with daemon-owner-unrecognized and sends no request or signal. Stop retires an embedded or unrecognized registration when its recorded host lifetime has provably exited. Without --clean, an unreadable daemon.json fails with daemon-record-unreadable. daemon status shows host-owned or owner-not-recognized. Managed clients reuse a matching embedded runtime. Takeover, drain, and timeout recovery refuse a live embedded or unrecognized owner without a signal; a provably exited owner is retired so the state directory stays usable. Detached stop and cleanup use the lifetime and ownership from one registration read. --clean requires proven detached ownership; embedded, unrecognized and unreadable records fail with daemon-clean-not-detached because that cleanup walks the owner's whole process tree.\n" +
+  '  On a machine shared by several agents, set AGENT_DEVICE_SESSION_IDLE_TIMEOUT_MS to also expire an individual session that has taken a host-global device claim and then received no commands for that long; the claim is released and the next command on that session answers SESSION_NOT_FOUND with details.reason SESSION_IDLE_EXPIRED naming the window and the device. Off by default, because on a shared host "idle" and "thinking" are indistinguishable: only set it where an abandoned claim blocking every other agent is the worse failure. Sessions holding a remote lease or any active capture (recording, logs, audio, performance, or trace) are never expired this way.\n' +
+  '  A stale iOS runner lease — its owner process dead, or its AGENT_DEVICE_STATE_DIR deleted — is reclaimed automatically instead of failing with "is already own'... 667 more characters
+
+
+- Expected:
+/the session held a device lease/
+
++ Received:
+"agent-device 0.21.37-dev — physical-device
+
+Use this when the target is connected hardware instead of a simulator/emulator.
+For simulator/emulator flows, use help manual-qa for routine QA or help workflow for the full reference.
+
+Discovery:
+  agent-device devices --platform ios
+  agent-device devices --platform android
+  With multiple devices present, select one: --device <name>, or --udid <udid> (iOS) / --serial <serial> (Android) when names collide.
+
+iOS physical-device prerequisites:
+  Xcode, xcrun xcdevice, and xcrun xctrace must be available from the selected Xcode.
+  The device must be paired/trusted, connected, unlocked when needed, and have Developer Mode enabled.
+  Modern devices visible to devicectl use CoreDevice. Older devices visible only to xctrace use the XCTest backend automatically.
+  XCTest-backed devices must already have the target app installed and should be opened by bundle ID; app inventory, install/reinstall, logs, performance sampling, recording, deep links, and launch arguments require CoreDevice.
+  XCTest-backed runner commands travel through macOS usbmuxd; keep the trusted device connected by cable.
+  The AgentDeviceRunner XCTest host must be signed before commands can run on a physical device.
+  Start with Automatic Signing and only these env vars:
+    AGENT_DEVICE_IOS_TEAM_ID=ABCDE12345
+    AGENT_DEVICE_IOS_BUNDLE_ID=com.yourname.agentdevice.runner
+  Find team ids and Apple Development signing certificates with:
+    security find-identity -v -p codesigning
+  If Xcode cannot choose a profile, set AGENT_DEVICE_IOS_PROVISIONING_PROFILE to the profile name/specifier, not a file path.
+  AGENT_DEVICE_IOS_SIGNING_IDENTITY is optional; omit it unless xcodebuild asks for a specific identity.
+  The profile/team must allow AGENT_DEVICE_IOS_BUNDLE_ID and <id>.uitests.
+  A runner startup failure names its class in error details.reason rather than only in prose: signing_no_development_team, signing_provisioning_profile_missing, bundle_identifier_already_registered, signing_unspecified, devtools_security_developer_mode_disabled (the Mac's DevToolsSecurity setting, which says nothing about the device's Developer Mode toggle), simulator_service_hub_unavailable (an Xcode too old for the host macOS: macOS refuses to load its DTServiceHub, so every runner launch fails; the command stops as soon as the refusal reaches runner.log, and selecting an Xcode that supports this macOS on the daemon host is the fix), simulator_set_destination_not_found (a --ios-simulator-device-set simulator the selected Xcode cannot resolve; names the set), device_developer_mode_disabled (read from an iPhone's own report before the runner builds, and the only device state that stops a run up front), device_developer_disk_image_unavailable (also read from the device, and published on a startup failure that named no cause of its own, since iOS 17+ mounts the developer disk image on demand during build and launch rather than gating the build), or build_failed_unclassified when nothing proved a cause. The two device reasons are never inferred from tool output or from each other. Branch on details.reason and follow hint; the message is for humans.
+  First-run XCTest setup/build can take longer than normal commands; keep the device connected and use --debug to inspect signing/build diagnostics if setup times out.
+
+Android physical-device prerequisites:
+  Enable USB debugging and confirm the device appears in agent-device devices --platform android.
+  Android does not need the iOS runner signing setup. For React Native/Expo Metro reachability, read help react-native.
+
+Runner and daemon lifecycle (applies to simulators too):
+  open without --relaunch is idempotent-foreground for an already-running app, except native macOS app opens keep it in the background (help macos); neither restarts the process. open --relaunch restarts the app; on iOS simulators this collapses to one simctl launch --terminate-running-process call instead of a separate terminate-then-launch.
+  No runner read launches a session app that is not running: snapshot, wait, is, get, a reading find, and an interaction's leading reads (a gesture's viewport read, the capture that resolves a selector click/fill) answer the retriable APP_NOT_RUNNING instead of bare-launching over a launch SpringBoard still holds behind its deep-link confirmation. Only open, activate, and a command that mutates without a leading read bring a stopped app up.
+  close keeps a healthy iOS simulator XCTest runner warm by default so the next open on that simulator (same udid in the same simulator set) skips the runner build, unless --shutdown was requested, the session was recording, or its device lease ends on close. A lease allocated with retainOnClose can keep the runner between sessions; releasing or expiring that lease stops the runner even after the session closes. A retained runner auto-stops after an idle window (default 5 minutes); set AGENT_DEVICE_IOS_RUNNER_IDLE_STOP_MS to override, or 0 to disable idle stop and retain until daemon exit. Only a ready runner with an observed listener is retained; close retires unfinished prewarm recovery. Losing the retained listener stops that generation, and daemon shutdown stops idle retained runners rather than handing them off without supervision.
+  Each AGENT_DEVICE_STATE_DIR runs its own daemon. It self-exits after an idle window (default 5 minutes, matching the runner idle-stop default) once it has no open sessions, no in-flight requests, and no active recording; set AGENT_DEVICE_DAEMON_IDLE_TIMEOUT_MS to override, or 0 to disable idle reap.
+  A client starting a local daemon waits while the daemon process stays alive and keeps publishing startup progress, so an overloaded host makes startup slower, not failed. It stops at a ceiling (default 120 s; set AGENT_DEVICE_DAEMON_STARTUP_TIMEOUT_MS to a positive integer number of milliseconds to override) and names the outcome in error details.reason: startup-exited (the process ended before registering), startup-stalled (alive, no startup progress for a fixed 60 s window the ceiling variable does not change), or startup-ceiling (a startup was still live when the ceiling passed — this client's daemon or another client's; the client stops its own launch and never signals another client's live daemon. Only a progressing own launch outlasts the 60 s stall window, so a ceiling set below 60 s also ends a silent own launch this way). details.phases carries the startup phase timings it observed and details.startupTimeoutMs the effective ceiling. Branch on details.reason, never on the message. The variable is read only when a client must start a daemon: a value that is not a positive integer fails with INVALID_ARGS before the daemon spawns, and a client that only attaches to or reuses a running daemon never reads it.
+  A command that needs the shared local daemon starts it for its state dir when none runs (device status and device release --stale never contact one). When the running daemon comes from another version or build, the command replaces it only if the daemon reports no work: no in-flight request, session, repair session, or live lease (a streaming resumable upload and a host human-control hold that names no lease are not counted); otherwise it fails with details.reason daemon-busy and leaves the daemon alone. A daemon that agreed to leave is waited for up to 60 s and never signaled while it drains; one still running then fails with details.reason daemon-drain-timeout unless it answers nothing and is provably a daemon process, which is force-retired. A daemon from a release that predates this check is never replaced and fails with daemon-incompatible. End a busy or older daemon deliberately with agent-device daemon stop --state-dir <path>. Node clients pick daemonLifecycle 'attach' (never starts or replaces a daemon; fails with daemon-not-running or daemon-incompatible) or 'managed' (the default until 0.22), and ensureDaemon() starts or replaces one explicitly.
+  daemon stop --state-dir <path> stops a detached daemon with process signals after verifying its identity. For a live embedded runtime, stop refuses with details.reason daemon-owner-embedded and a hint naming the host PID. Close that runtime in its host process with the handle returned by startAgentDevice(). Stop refuses live unrecognized ownership with daemon-owner-unrecognized and sends no request or signal. Stop retires an embedded or unrecognized registration when its recorded host lifetime has provably exited. Without --clean, an unreadable daemon.json fails with daemon-record-unreadable. daemon status shows host-owned or owner-not-recognized. Managed clients reuse a matching embedded runtime. Takeover, drain, and timeout recovery refuse a live embedded or unrecognized owner without a signal; a provably exited owner is retired so the state directory stays usable. Detached stop and cleanup use the lifetime and ownership from one registration read. --clean requires proven detached ownership; embedded, unrecognized and unreadable records fail with daemon-clean-not-detached because that cleanup walks the owner's whole process tree.
+  On a machine shared by several agents, set AGENT_DEVICE_SESSION_IDLE_TIMEOUT_MS to also expire an individual session that has taken a host-global device claim and then received no commands for that long; the claim is released and the next command on that session answers SESSION_NOT_FOUND with details.reason SESSION_IDLE_EXPIRED naming the window and the device. Off by default, because on a shared host \"idle\" and \"thinking\" are indistinguishable: only set it where an abandoned claim blocking every other agent is the worse failure. Sessions holding a remote lease or any active capture (recording, logs, audio, performance, or trace) are never expired this way.
+  A stale iOS runner lease — its owner process dead, or its AGENT_DEVICE_STATE_DIR deleted — is reclaimed automatically instead of failing with \"is already owned by another agent-device daemon\". A live owner's runner is also reclaimed when the requesting daemon holds the host-global device claim for that device: claims are exclusive, so holding one proves the runner's owner released the device and merely kept the runner warm. The error remains only for owners outside claim arbitration (a pre-claims build, or daemons pointed at different claim stores).
+
+For iOS SpringBoard, widget, or other system-UI surfaces, read agent-device help ios-system-ui.
+
+Related:
+  agent-device help <command>   command-specific flags
+  agent-device help manual-qa   routine QA loop
+  agent-device help workflow    full automation reference
+"
+
+ ❯ src/__tests__/cli-help.test.ts:168:10
+    166|     /keeps a healthy iOS simulator XCTest runner warm by default so th…
+    167|   );
+    168|   assert.match(result.stdout, /the session held a device lease/);
+       |          ^
+    169|   assert.match(result.stdout, /AGENT_DEVICE_IOS_RUNNER_IDLE_STOP_MS/);
+    170|   assert.match(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1917 passed (1918)
+      Tests  1 failed | 17151 passed | 1 skipped (17153)
+   Start at  20:52:25
+   Duration  130.79s (tests 68%, import 23%, transform 6%, setup 2%, worker 1%)
+
+
+Slow-test gate: 3 test(s) over budget (within the 2x load-variance band, not failing):
+  4.43s (budget 2.5s)  packages/platform-android/src/__tests__/snapshot-helper-exit-result.test.ts :: a sensitive value never reaches the instrumentation detail or the log wherever the helper printed it
+  4.03s (budget 2.5s)  packages/provider-revyl/src/runtime.test.ts :: Revyl answers health with 503 until the worker attaches, and the start keeps polling
+  3.04s (budget 2.5s)  packages/daemon-client/src/__tests__/daemon-client-startup-budget.test.ts :: a child gone at the deadline without an observed exit and no live startup fails exited
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.

@@ -1,0 +1,1194 @@
+{
+  "version": 1,
+  "cwd": "/private/tmp/agent-device-review2-recording",
+  "startedAt": "2026-11-03T17:39:19.448Z",
+  "status": "passed",
+  "exitCode": 0,
+  "refs": {
+    "base": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39",
+    "head": "HEAD",
+    "resolvedBase": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39",
+    "resolvedHead": "ad71d0391615ee336f0157941f473e204cfd0be8",
+    "mergeBase": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39"
+  },
+  "checkoutChanged": false,
+  "exactCommit": true,
+  "results": [
+    {
+      "id": "format",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "format:check"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/0.log",
+      "exitCode": 0,
+      "durationMs": 850,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "lint",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "lint"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/1.log",
+      "exitCode": 0,
+      "durationMs": 2583,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "typecheck",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "typecheck"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/2.log",
+      "exitCode": 0,
+      "durationMs": 10902,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "test-app-typecheck",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)"
+    },
+    {
+      "id": "test-app-security",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)"
+    },
+    {
+      "id": "layering",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:layering"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/5.log",
+      "exitCode": 0,
+      "durationMs": 21152,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "di-seams",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:di-seams"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/6.log",
+      "exitCode": 0,
+      "durationMs": 1007,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "fallow",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:fallow",
+        "--base",
+        "a2c169fa502a53f1f2a1da25b1cd16b9c731af39"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/7.log",
+      "exitCode": 0,
+      "durationMs": 4414,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "native-dupes",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:native-dupes"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/8.log",
+      "exitCode": 0,
+      "durationMs": 1390,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "native-dupes-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:native-dupes:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/9.log",
+      "exitCode": 0,
+      "durationMs": 1844,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "mcp-metadata",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:mcp-metadata"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/10.log",
+      "exitCode": 0,
+      "durationMs": 272,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "build",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "build"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/11.log",
+      "exitCode": 0,
+      "durationMs": 3919,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "package",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:package"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/12.log",
+      "exitCode": 0,
+      "durationMs": 5841,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "integration-node",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:node"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/13.log",
+      "exitCode": 0,
+      "durationMs": 20488,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "macos-coverage",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:macos-coverage"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/14.log",
+      "exitCode": 0,
+      "durationMs": 648,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "ios-snapshot-differential",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "vitest-related",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "related",
+        "--run",
+        "--passWithNoTests",
+        "--project=!unit-core",
+        "--project=!fuzz-worker",
+        "package.json",
+        "packages/provider-limrun/package.json",
+        "packages/provider-limrun/src/device-session.test.ts",
+        "packages/provider-limrun/src/device-session.ts",
+        "packages/provider-limrun/src/recording-runtime.test.ts",
+        "packages/provider-limrun/src/recording-runtime.ts",
+        "pnpm-lock.yaml"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/16.log",
+      "exitCode": 0,
+      "durationMs": 64684,
+      "testReportPaths": [
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/16.tests.2292.json"
+      ],
+      "tests": [
+        {
+          "passed": 1271,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "unit",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:unit"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/17.log",
+      "exitCode": 0,
+      "durationMs": 175340,
+      "testReportPaths": [
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/17.tests.8867.json"
+      ],
+      "tests": [
+        {
+          "passed": 17139,
+          "failed": 0,
+          "skipped": 1,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "unit-ci",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Coverage, Integration Tests)"
+    },
+    {
+      "id": "coverage",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Coverage)"
+    },
+    {
+      "id": "coverage-crap",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Coverage)"
+    },
+    {
+      "id": "provider-integration",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:provider"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/21.log",
+      "exitCode": 0,
+      "durationMs": 48901,
+      "testReportPaths": [
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/21.tests.32706.json"
+      ],
+      "tests": [
+        {
+          "passed": 245,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "integration-progress",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:progress:check"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/22.log",
+      "exitCode": 0,
+      "durationMs": 898,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "swift-runner-ios",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests, Conformance Differential / iOS Conformance Differential, Perf Nightly / iOS Command Perf, XCTest Nightly / iOS Runner Full XCTest Suite (${{ matrix.leg.name }}))"
+    },
+    {
+      "id": "swift-runner-macos",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "android-helpers",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Android / Smoke Tests, Perf Nightly / Android Command Perf)"
+    },
+    {
+      "id": "macos-helper",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "web-smoke",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests, Integration Tests, Lint, Typecheck & Package, Perf Nightly / Android Command Perf, Perf Nightly / iOS Command Perf)"
+    },
+    {
+      "id": "replay-compat",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:replay-compat"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/28.log",
+      "exitCode": 0,
+      "durationMs": 529,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "daemon-wire-compat",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:daemon-wire-compat"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/29.log",
+      "exitCode": 0,
+      "durationMs": 2630,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "affected-selector",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:affected:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/30.log",
+      "exitCode": 0,
+      "durationMs": 10868,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "gate-manifest",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:gate-manifest"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/31.log",
+      "exitCode": 0,
+      "durationMs": 570,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "gate-manifest-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:gate-manifest:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/32.log",
+      "exitCode": 0,
+      "durationMs": 2162,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "depgraph",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "depgraph:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/33.log",
+      "exitCode": 0,
+      "durationMs": 8195,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "tmpdir-leaks",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:tmpdir-leaks"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/34.log",
+      "exitCode": 0,
+      "durationMs": 386,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "tmpdir-leaks-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:tmpdir-leaks:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/35.log",
+      "exitCode": 0,
+      "durationMs": 6222,
+      "testReportPaths": [
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/35.tests.46745.json",
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/35.tests.46779.json",
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/35.tests.46851.json"
+      ],
+      "tests": [
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "coverage-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:coverage-changed:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/36.log",
+      "exitCode": 0,
+      "durationMs": 1809,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "coverage-crap-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:coverage-crap:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/37.log",
+      "exitCode": 0,
+      "durationMs": 9307,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "wire-compat-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:daemon-wire-compat:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/38.log",
+      "exitCode": 0,
+      "durationMs": 535,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "production-exports",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:production-exports"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/39.log",
+      "exitCode": 0,
+      "durationMs": 1182,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "bundle-owner-files",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:bundle-owner-files"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/40.log",
+      "exitCode": 0,
+      "durationMs": 420,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "freerange",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Repo Guards & Compatibility)"
+    },
+    {
+      "id": "fixture-cache",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:fixture-cache"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/42.log",
+      "exitCode": 0,
+      "durationMs": 3261,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "fixture-fallback",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:fixture-fallback"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/43.log",
+      "exitCode": 0,
+      "durationMs": 6508,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "command-docs",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:command-docs"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/44.log",
+      "exitCode": 0,
+      "durationMs": 865,
+      "testReportPaths": [
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/44.tests.65233.json"
+      ],
+      "tests": [
+        {
+          "passed": 12,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "capabilities-matrix",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:capabilities-matrix"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/45.log",
+      "exitCode": 0,
+      "durationMs": 1506,
+      "testReportPaths": [
+        "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/45.tests.65295.json"
+      ],
+      "tests": [
+        {
+          "passed": 12,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "docs-links",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:doc-links"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/46.log",
+      "exitCode": 0,
+      "durationMs": 9033,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "docs-prose",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:doc-prose"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/47.log",
+      "exitCode": 0,
+      "durationMs": 586,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "agent-guidance",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:agent-guidance"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/48.log",
+      "exitCode": 0,
+      "durationMs": 539,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "xctest-selection",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:xctest-selection"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/49.log",
+      "exitCode": 0,
+      "durationMs": 416,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "packaged-runner-swift",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:packaged-runner-swift"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/50.log",
+      "exitCode": 0,
+      "durationMs": 4314,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "maestro-conformance",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "maestro:conformance"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/51.log",
+      "exitCode": 0,
+      "durationMs": 740,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "maestro-differential",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Conformance Differential / iOS Conformance Differential)"
+    },
+    {
+      "id": "maestro-regenerate",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Conformance Regenerate Verify / Regenerate & Verify Fixtures)"
+    },
+    {
+      "id": "fuzz-parsers",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Replay Nightly / Parser Fuzz Lane)"
+    },
+    {
+      "id": "mutation",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Mutation Harness Canary / Mutants (${{ matrix.name }}), Mutation Weekly / Mutants (${{ matrix.name }}))"
+    },
+    {
+      "id": "mutation-affected",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Mutation Harness Canary / Select harness validation kernels)"
+    },
+    {
+      "id": "mutation-check",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Mutation Weekly / Mutation score report)"
+    },
+    {
+      "id": "mutation-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "mutation:test"
+      ],
+      "logPath": "/private/tmp/agent-device-review2-recording/.tmp/validation/run-czTeDJ/58.log",
+      "exitCode": 0,
+      "durationMs": 7786,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "concurrency-torture",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Concurrency Torture Nightly / Session/lease/lock torture sweep, Integration Tests)"
+    },
+    {
+      "id": "replay-ios",
+      "status": "skipped",
+      "reason": "parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)"
+    },
+    {
+      "id": "replay-ios-device",
+      "status": "skipped",
+      "reason": "parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)"
+    },
+    {
+      "id": "replay-macos",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "replay-linux",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Linux / Smoke Tests)"
+    },
+    {
+      "id": "linux-command-evidence",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Linux / Smoke Tests)"
+    },
+    {
+      "id": "replay-android",
+      "status": "skipped",
+      "reason": "parked, workflow_dispatch only (Replay Manual / Android Full Emulator Suite)"
+    }
+  ],
+  "initial": {
+    "head": "ad71d0391615ee336f0157941f473e204cfd0be8",
+    "status": "",
+    "fingerprint": "db454ecf3f8012d1080be4a6e18c2eff82031d24ebb91867872dca08cf172d3f"
+  },
+  "changedFiles": [
+    "package.json",
+    "packages/provider-limrun/package.json",
+    "packages/provider-limrun/src/device-session.test.ts",
+    "packages/provider-limrun/src/device-session.ts",
+    "packages/provider-limrun/src/recording-runtime.test.ts",
+    "packages/provider-limrun/src/recording-runtime.ts",
+    "pnpm-lock.yaml"
+  ],
+  "plan": {
+    "failOpen": true,
+    "checks": [
+      "format",
+      "lint",
+      "typecheck",
+      "test-app-typecheck",
+      "test-app-security",
+      "layering",
+      "di-seams",
+      "fallow",
+      "native-dupes",
+      "native-dupes-model",
+      "mcp-metadata",
+      "build",
+      "package",
+      "integration-node",
+      "macos-coverage",
+      "ios-snapshot-differential",
+      "vitest-related",
+      "unit",
+      "unit-ci",
+      "coverage",
+      "coverage-crap",
+      "provider-integration",
+      "integration-progress",
+      "swift-runner-ios",
+      "swift-runner-macos",
+      "android-helpers",
+      "macos-helper",
+      "web-smoke",
+      "replay-compat",
+      "daemon-wire-compat",
+      "affected-selector",
+      "gate-manifest",
+      "gate-manifest-model",
+      "depgraph",
+      "tmpdir-leaks",
+      "tmpdir-leaks-model",
+      "coverage-model",
+      "coverage-crap-model",
+      "wire-compat-model",
+      "production-exports",
+      "bundle-owner-files",
+      "freerange",
+      "fixture-cache",
+      "fixture-fallback",
+      "command-docs",
+      "capabilities-matrix",
+      "docs-links",
+      "docs-prose",
+      "agent-guidance",
+      "xctest-selection",
+      "packaged-runner-swift",
+      "maestro-conformance",
+      "maestro-differential",
+      "maestro-regenerate",
+      "fuzz-parsers",
+      "mutation",
+      "mutation-affected",
+      "mutation-check",
+      "mutation-model",
+      "concurrency-torture",
+      "replay-ios",
+      "replay-ios-device",
+      "replay-macos",
+      "replay-linux",
+      "linux-command-evidence",
+      "replay-android"
+    ],
+    "reasons": [
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/device-session.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/device-session.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/device-session.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/device-session.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/device-session.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/device-session.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/device-session.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/recording-runtime.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/recording-runtime.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/recording-runtime.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/recording-runtime.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/recording-runtime.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/recording-runtime.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/recording-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      }
+    ],
+    "failOpenReasons": [
+      {
+        "path": "package.json",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "packages/provider-limrun/package.json",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      }
+    ],
+    "docsOnlyPaths": []
+  },
+  "final": {
+    "head": "ad71d0391615ee336f0157941f473e204cfd0be8",
+    "status": "",
+    "fingerprint": "db454ecf3f8012d1080be4a6e18c2eff82031d24ebb91867872dca08cf172d3f"
+  },
+  "finishedAt": "2026-11-03T17:49:47.910Z"
+}

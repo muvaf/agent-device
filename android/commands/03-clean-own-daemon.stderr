@@ -1,0 +1,1 @@
+$ node --experimental-strip-types scripts/clean-daemon.ts

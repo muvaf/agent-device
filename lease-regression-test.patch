@@ -1,0 +1,75 @@
+diff --git a/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.test.ts b/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.test.ts
+index 3038c9e4f..58d20b80e 100644
+--- a/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.test.ts
++++ b/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.test.ts
+@@ -1,3 +1,5 @@
++import { createLeaseSessionEnd } from '../../../server/request-execution-scope.ts';
++import { handleLeaseCommands } from '../../handlers/lease.ts';
+ import path from 'node:path';
+ import { beforeEach, expect, test, vi } from 'vitest';
+ import type { DaemonResponse } from '@agent-device/kernel/contracts';
+@@ -363,3 +365,64 @@ test('close --shutdown tells the platform that shutdown was requested', async ()
+   );
+   expect(finalizations).toEqual([expect.objectContaining({ shutdownTarget: true })]);
+ });
++
++test('releasing a retained client lease stops the host after close retired its session', async () => {
++  const sessionStore = makeSessionStore();
++  const sessionName = 'retained-host-release';
++  const leaseRegistry = new LeaseRegistry();
++  const lease = leaseRegistry.allocateLease({
++    tenantId: 'tenant-a',
++    runId: 'run-1',
++    leaseBackend: 'ios-simulator',
++    deviceKey: 'ios:sim-1',
++    clientId: 'client-a',
++    retainOnClose: true,
++  });
++  const leaseScope = {
++    leaseId: lease.leaseId,
++    tenantId: lease.tenantId,
++    runId: lease.runId,
++    leaseBackend: lease.backend,
++    deviceKey: lease.deviceKey,
++    clientId: lease.clientId,
++  };
++  publishSession(sessionStore, sessionName, IOS_SIMULATOR, { lease: leaseScope });
++  const closed = await closeSession({
++    sessionStore,
++    sessionName,
++    retainExecutionHost: true,
++    leaseRegistry,
++  });
++  expect(closed.response?.ok).toBe(true);
++  expect(sessionStore.get(sessionName)).toBeUndefined();
++  expect(leaseRegistry.listActiveLeases()).toHaveLength(1);
++  const cleanup = vi.fn(async () => {});
++  const teardown = vi.fn(async () => {});
++  const ender = createLeaseSessionEnd({
++    env: sessionStore.host.env,
++    sessionStore,
++    executionLocks: new Map(),
++    teardownSession: teardown,
++    cleanupSessionlessExecutionHost: cleanup,
++  });
++
++  const released = await handleLeaseCommands({
++    host: sessionStore.host,
++    req: {
++      token: 't',
++      command: 'lease_release',
++      session: sessionName,
++      positionals: [],
++      meta: leaseScope,
++    },
++    sessionName,
++    sessionStore,
++    leaseRegistry,
++    endSessionsForLease: async (leaseId) => await ender.end(leaseId, 'LEASE_RELEASED'),
++  });
++
++  expect(released?.ok).toBe(true);
++  expect(leaseRegistry.listActiveLeases()).toEqual([]);
++  expect(teardown).not.toHaveBeenCalled();
++  expect(cleanup).toHaveBeenCalledExactlyOnceWith(IOS_SIMULATOR);
++});

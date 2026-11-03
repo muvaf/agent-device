@@ -1,0 +1,13 @@
+$ vitest run --project unit-core test/repo-guards/capability-matrix.test.ts
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-recording
+
+(node:65315) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+············
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  20:49:23
+   Duration  928ms (import 48%, tests 47%, transform 4%, setup 1%)
+

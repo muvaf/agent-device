@@ -1,0 +1,91 @@
+Scope: all 42 workspace projects
+[WARN] There are cyclic workspace dependencies: /private/tmp/agent-device-lease-regression.CqPkPS, /private/tmp/agent-device-lease-regression.CqPkPS/packages/provider-testmu
+✓ Lockfile passes supply-chain policies (verified 5h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +782
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 782, reused 777, downloaded 0, added 280
+Progress: resolved 782, reused 777, downloaded 0, added 603
+Progress: resolved 782, reused 777, downloaded 0, added 782, done
+
+devDependencies:
++ @agent-device/ad-replay 0.0.0 <- packages/ad-replay
++ @agent-device/ad-script 0.0.0 <- packages/ad-script
++ @agent-device/apple-runner 0.0.0 <- packages/apple-runner
++ @agent-device/capture-kit 0.0.0 <- packages/capture-kit
++ @agent-device/client 0.0.0 <- packages/client
++ @agent-device/command-output 0.0.0 <- packages/command-output
++ @agent-device/command-registry 0.0.0 <- packages/command-registry
++ @agent-device/command-runtime 0.0.0 <- packages/command-runtime
++ @agent-device/command-surface 0.0.0 <- packages/command-surface
++ @agent-device/contracts 0.0.0 <- packages/contracts
++ @agent-device/daemon 0.0.0 <- packages/daemon
++ @agent-device/daemon-client 0.0.0 <- packages/daemon-client
++ @agent-device/daemon-contracts 0.0.0 <- packages/daemon-contracts
++ @agent-device/device-selection 0.0.0 <- packages/device-selection
++ @agent-device/host-kit 0.0.0 <- packages/host-kit
++ @agent-device/kernel 0.0.0 <- packages/kernel
++ @agent-device/maestro 0.0.0 <- packages/maestro
++ @agent-device/platform-android 0.0.0 <- packages/platform-android
++ @agent-device/platform-apple 0.0.0 <- packages/platform-apple
++ @agent-device/platform-harmonyos 0.0.0 <- packages/platform-harmonyos
++ @agent-device/platform-linux 0.0.0 <- packages/platform-linux
++ @agent-device/platform-vega 0.0.0 <- packages/platform-vega
++ @agent-device/platform-web 0.0.0 <- packages/platform-web
++ @agent-device/plugins 0.0.0 <- packages/plugins
++ @agent-device/provider-limrun 0.0.0 <- packages/provider-limrun
++ @agent-device/provider-webdriver 0.0.0 <- packages/provider-webdriver
++ @agent-device/provision-kit 0.0.0 <- packages/provision-kit
++ @agent-device/proxy 0.21.37-dev <- packages/proxy
++ @agent-device/react-native 0.0.0 <- packages/react-native
++ @agent-device/remote 0.0.0 <- packages/remote
++ @agent-device/replay-port 0.0.0 <- packages/replay-port
++ @agent-device/replay-test 0.0.0 <- packages/replay-test
++ @agent-device/revyl 0.21.37-dev <- packages/provider-revyl
++ @agent-device/selectors 0.0.0 <- packages/selectors
++ @agent-device/session-journal 0.0.0 <- packages/session-journal
++ @agent-device/test-kit 0.0.0 <- packages/test-kit
++ @agent-device/testmu 0.21.37-dev <- packages/provider-testmu
++ @agent-device/tv-cdp 0.0.0 <- packages/tv-cdp
++ @agent-device/webos 0.21.36-dev <- packages/provider-webos
++ @agent-device/xml 0.0.0 <- packages/xml
++ @arethetypeswrong/cli 0.18.5
++ @chenglou/freerange 0.0.4
++ @limrun/api 0.64.1
++ @nkzw/eslint-plugin 2.0.0
++ @nkzw/oxlint-config 1.3.0
++ @statelyai/graph 2.4.0
++ @stryker-mutator/api 10.0.0
++ @stryker-mutator/core 10.0.0
++ @stryker-mutator/instrumenter 10.0.0
++ @stryker-mutator/vitest-runner 10.0.0
++ @types/json-schema 7.0.15
++ @types/node 22.20.1
++ @types/pngjs 6.0.5
++ @types/tar-stream 3.1.4
++ @types/yauzl 3.4.0
++ @vitest/coverage-v8 5.0.4
++ ai 7.0.68
++ eslint-plugin-no-only-tests 3.4.0
++ eslint-plugin-perfectionist 5.10.1
++ fallow 3.34.0
++ fast-check 4.9.0
++ ipaddr.js 2.5.0
++ jpeg-js 0.4.4
++ jscpd 5.4.2
++ oxc-parser 0.146.0
++ oxfmt 0.67.0
++ oxlint 1.79.0
++ pngjs 7.0.0
++ publint 0.3.24
++ tar-stream 3.2.0
++ tsdown 0.22.14
++ typescript 7.0.2
++ undici 7.30.1
++ vite 8.3.5
++ vitest 5.0.4
++ yaml 2.9.0
++ yauzl 3.4.0
+
+Done in 3.2s using pnpm v11.17.0

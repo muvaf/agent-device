@@ -1,0 +1,22 @@
+{
+  "kind": "sdk",
+  "method": "apps.install",
+  "options": {
+    "platform": "android",
+    "serial": "emulator-5588",
+    "appPath": "/private/tmp/agent-device-review2/android-live/fixtures/v1/installer-review.apk"
+  },
+  "durationMs": 6480,
+  "result": {
+    "app": "com.agentdevice.installerreview",
+    "appPath": "/private/tmp/agent-device-review2/android-live/fixtures/v1/installer-review.apk",
+    "platform": "android",
+    "appId": "com.agentdevice.installerreview",
+    "package": "com.agentdevice.installerreview",
+    "identifiers": {
+      "session": "android-installer-review4194",
+      "appId": "com.agentdevice.installerreview",
+      "package": "com.agentdevice.installerreview"
+    }
+  }
+}

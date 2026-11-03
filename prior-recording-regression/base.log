@@ -1,0 +1,30 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-next-regression
+
+----------x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/recording-runtime.test.ts > finishing or cleaning one recording leaves other recordings on the instance active
+Error: Recording ID already exists
+ ❯ Object.startRecording packages/provider-limrun/src/recording-runtime.test.ts:270:42
+    268|   const session: LimrunScreenRecordingSession = {
+    269|     startRecording: async ({ recordingId }) => {
+    270|       if (active.has(recordingId)) throw new Error('Recording ID alrea…
+       |                                          ^
+    271|       active.add(recordingId);
+    272|     },
+ ❯ Object.start packages/provider-limrun/src/recording-runtime.ts:80:23
+ ❯ startTransportScreenRecording packages/capture-kit/src/screen-recording-transport.ts:106:21
+ ❯ startLimrunRecording packages/provider-limrun/src/recording-runtime.ts:70:10
+ ❯ Object.screenRecordingStart packages/provider-limrun/src/recording-runtime.ts:46:44
+ ❯ packages/provider-limrun/src/recording-runtime.test.ts:288:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 skipped (11)
+   Start at  19:00:43
+   Duration  333ms (transform 79%, import 13%, setup 4%, tests 3%, worker 1%)
+

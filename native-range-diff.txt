@@ -1,0 +1,136 @@
+1:  fa67e6963 ! 1:  4d65affa7 refactor(android): allow providers to install prepared app artifacts
+    @@ packages/platform-android/src/deployment/runtime.test.ts: test('uninstall resolv
+     +    expect(prepareArtifact).toHaveBeenCalledTimes(source === 'path' ? 1 : 0);
+     +    expect(cleanup).toHaveBeenCalledTimes(source === 'path' ? 1 : 0);
+     +  },
+    ++);
+    ++
+    ++test.each(['path', 'prepared'] as const)(
+    ++  'a hosted %s install preserves provider metadata and falls back to materialized identity',
+    ++  async (source) => {
+    ++    const artifact = {
+    ++      installablePath: '/tmp/app.apk',
+    ++      packageName: 'com.example.materialized',
+    ++      appName: 'Materialized app',
+    ++      cleanup: vi.fn(async () => {}),
+    ++    };
+    ++    const providerResult = {
+    ++      appName: 'Provider app',
+    ++      launchTarget: 'com.example.materialized/.MainActivity',
+    ++    };
+    ++    const install = vi.fn(async () => providerResult);
+    ++    const operations = createAndroidAppDeploymentOperations({
+    ++      host: hostFixture({ prepareArtifact: async () => artifact }),
+    ++      device,
+    ++      signal: new AbortController().signal,
+    ++      install,
+    ++    });
+    ++    const result =
+    ++      source === 'path'
+    ++        ? await operations.deployApp!({
+    ++            app: '',
+    ++            appPath: artifact.installablePath,
+    ++            replaceExisting: false,
+    ++          })
+    ++        : await operations.deployMaterializedApp!({ artifact });
+    ++    expect(result).toEqual({ ...providerResult, packageName: artifact.packageName });
+    ++  },
+     +);
+     
+      ## packages/platform-android/src/deployment/runtime.ts ##
+    @@ packages/platform-android/src/deployment/runtime.ts: async function deployAndroi
+     -      artifact.packageName,
+     -      signal,
+     -    );
+    -+    const packageName = install
+    -+      ? (await install(artifact, signal)).packageName
+    -+      : await installAndroidArtifact(
+    -+          host,
+    -+          device,
+    -+          artifact.installablePath,
+    -+          artifact.packageName,
+    -+          signal,
+    -+        );
+    -     // Plain install has historically succeeded even when the device cannot report the
+    -     // installed package identity. Source installation is stricter because its response
+    -     // contract promises an identity after materialization.
+    +-    // Plain install has historically succeeded even when the device cannot report the
+    +-    // installed package identity. Source installation is stricter because its response
+    +-    // contract promises an identity after materialization.
+    +-    if (!packageName) return {};
+    +-    return {
+    +-      packageName,
+    +-      appName: inferAndroidAppName(packageName),
+    +-      launchTarget: packageName,
+    +-    };
+    ++    // Plain install permits an unknown identity; source install promises one.
+    ++    return await installAndroidApp(host, device, artifact, signal, install);
+    +   } finally {
+    +     await artifact?.cleanup();
+    +   }
+     @@ packages/platform-android/src/deployment/runtime.ts: async function deployPreparedAndroidApp(
+        device: DeviceInfo,
+        input: DeployMaterializedAppInput,
+    @@ packages/platform-android/src/deployment/runtime.ts: async function deployPrepar
+     -    input.artifact.packageName,
+     -    signal,
+     -  );
+    -+  const packageName = install
+    -+    ? (await install(input.artifact, signal)).packageName
+    -+    : await installAndroidArtifact(
+    -+        host,
+    -+        device,
+    -+        input.artifact.installablePath,
+    -+        input.artifact.packageName,
+    -+        signal,
+    -+      );
+    -   if (!packageName) {
+    +-  if (!packageName) {
+    ++  const result = await installAndroidApp(host, device, input.artifact, signal, install);
+    ++  if (!result.packageName) {
+          throw new AppError(
+            'COMMAND_FAILED',
+    +       'Installed Android app identity could not be resolved from the artifact or device state',
+    +     );
+    +   }
+    ++  return result;
+    ++}
+    ++
+    ++async function installAndroidApp(
+    ++  host: PlatformRuntimeHost,
+    ++  device: DeviceInfo,
+    ++  artifact: MaterializedAppSource,
+    ++  signal: AbortSignal,
+    ++  install?: AppDeploymentInstaller,
+    ++): Promise<AppDeploymentResult> {
+    ++  const result = install
+    ++    ? await install(artifact, signal)
+    ++    : {
+    ++        packageName: await installAndroidArtifact(
+    ++          host,
+    ++          device,
+    ++          artifact.installablePath,
+    ++          artifact.packageName,
+    ++          signal,
+    ++        ),
+    ++      };
+    ++  const packageName = result.packageName ?? artifact.packageName;
+    ++  if (!packageName) return result;
+    +   return {
+    ++    ...result,
+    +     packageName,
+    +-    appName: inferAndroidAppName(packageName),
+    +-    launchTarget: packageName,
+    ++    appName: result.appName ?? artifact.appName ?? inferAndroidAppName(packageName),
+    ++    launchTarget: result.launchTarget ?? packageName,
+    +   };
+    + }
+    + 
+     
+      ## packages/platform-android/src/mechanics.ts ##
+     @@ packages/platform-android/src/mechanics.ts: export {
+2:  526a6c336 = 2:  acf6cfb85 refactor(apple): share simulator files apps and runner operations
+3:  04f3cb37e < -:  --------- fix(daemon): retain Apple runners for leases kept on close
+-:  --------- > 3:  8bc38beac fix(daemon): retain Apple runners for leases kept on close
+4:  bd8fb5dbf = 4:  695467f78 fix(limrun): isolate recordings with recording session IDs
+5:  47c528ae6 = 5:  3a2e80721 feat(limrun): replace iOS AX automation with the shared XCTest runner

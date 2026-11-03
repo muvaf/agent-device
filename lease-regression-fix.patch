@@ -1,0 +1,320 @@
+diff --git a/packages/daemon/src/core/platform-resource-cleanup.ts b/packages/daemon/src/core/platform-resource-cleanup.ts
+index da82a6d91..d2632ceb6 100644
+--- a/packages/daemon/src/core/platform-resource-cleanup.ts
++++ b/packages/daemon/src/core/platform-resource-cleanup.ts
+@@ -16,6 +16,7 @@ export type PlatformResourceCleanup = Readonly<{
+     device: DeviceInfo;
+     shutdownRequested: boolean;
+     hasScreenRecording: boolean;
++    /** True when the lease is not kept on close, or when its close decision could not be inspected. */
+     leaseWillEnd: boolean;
+   }): boolean;
+ }>;
+diff --git a/packages/daemon/src/core/session-store.ts b/packages/daemon/src/core/session-store.ts
+index 7536405cd..e3f40e0a7 100644
+--- a/packages/daemon/src/core/session-store.ts
++++ b/packages/daemon/src/core/session-store.ts
+@@ -49,9 +49,15 @@ import {
+ const REPAIR_TOMBSTONE_TTL_MS = 60 * 60_000;
+ type SessionEntry = { current: SessionState };
+ type SessionPatch = Partial<SessionState> | ((current: SessionState) => Partial<SessionState>);
++export type RetainedExecutionHost = Readonly<{
++  address: string;
++  device: SessionState['device'];
++  lease: NonNullable<SessionState['lease']>;
++}>;
+ 
+ export class SessionStore {
+   private readonly sessions = new Map<string, SessionEntry>();
++  private readonly retainedExecutionHosts = new Map<string, RetainedExecutionHost>();
+   private acceptingSessions = true;
+   private readonly runtimeHints = new Map<string, SessionRuntimeHints>();
+   private readonly sessionsDir: string;
+@@ -105,6 +111,11 @@ export class SessionStore {
+     this.assertPublishable(address);
+     const entry = { current: session };
+     this.sessions.set(address, entry);
++    for (const retained of this.retainedExecutionHosts.values()) {
++      if (devicesOverlap(retained.device.id, session.device.id)) {
++        this.releaseRetainedExecutionHost(retained);
++      }
++    }
+     this.clearIdleExpiryTombstone(address);
+     return this.captureRef(address, entry);
+   }
+@@ -141,12 +152,35 @@ export class SessionStore {
+     return next;
+   }
+ 
+-  retire(ref: SessionRef): boolean {
+-    if (!this.resolveCurrent(ref)) return false;
++  retire(ref: SessionRef, options: { retainExecutionHost?: boolean } = {}): boolean {
++    const session = this.resolveCurrent(ref);
++    if (!session) return false;
++    if (options.retainExecutionHost && session.lease) {
++      this.retainedExecutionHosts.set(session.device.id, {
++        address: ref.address,
++        device: session.device,
++        lease: { ...session.lease },
++      });
++    }
+     this.runtimeHints.delete(ref.address);
+     return this.sessions.delete(ref.address);
+   }
+ 
++  listRetainedExecutionHosts(leaseId: string): RetainedExecutionHost[] {
++    return Array.from(this.retainedExecutionHosts.values()).filter(
++      (host) => host.lease.leaseId === leaseId,
++    );
++  }
++
++  ownsRetainedExecutionHost(host: RetainedExecutionHost): boolean {
++    return this.retainedExecutionHosts.get(host.device.id) === host;
++  }
++
++  releaseRetainedExecutionHost(host: RetainedExecutionHost): boolean {
++    if (!this.ownsRetainedExecutionHost(host)) return false;
++    return this.retainedExecutionHosts.delete(host.device.id);
++  }
++
+   private captureRef(address: string, entry: SessionEntry): SessionRef {
+     return Object.freeze({ address, session: entry.current, lifetime: entry });
+   }
+diff --git a/packages/daemon/src/server/http/daemon-runtime.ts b/packages/daemon/src/server/http/daemon-runtime.ts
+index ed14188bf..ff57c9b12 100644
+--- a/packages/daemon/src/server/http/daemon-runtime.ts
++++ b/packages/daemon/src/server/http/daemon-runtime.ts
+@@ -300,10 +300,10 @@ async function startDaemonRuntimeOnHost(
+   });
+   // The registry only notices an expired lease when something calls it; this sweep ends an
+   // abandoned lease (and, through `onLeaseExpired`, its session and claim) without a later request.
+-  const leaseExpirySweep = setInterval(
+-    () => leaseRegistry.consumeExpiredLeases(),
+-    LEASE_EXPIRY_SWEEP_INTERVAL_MS,
+-  );
++  const leaseExpirySweep = setInterval(() => {
++    leaseRegistry.consumeExpiredLeases();
++    void leaseSessionEnd.retryPending();
++  }, LEASE_EXPIRY_SWEEP_INTERVAL_MS);
+   leaseExpirySweep.unref();
+   rollback.onRollback(() => clearInterval(leaseExpirySweep));
+   const dispatchRequest = createRequestHandler({
+@@ -420,6 +420,7 @@ async function startDaemonRuntimeOnHost(
+     sessionStore,
+     executionLocks: getLeaseRegistryExecutionLocks(leaseRegistry),
+     teardownSession: settleIdleExpiredSession,
++    cleanupSessionlessExecutionHost: deps.platformResourceCleanup.cleanupSessionlessExecutionHost,
+     withinDiagnosticsScope: async (run) => await withDaemonDiagnosticsScope({ logPath }, run),
+   });
+ 
+diff --git a/packages/daemon/src/server/request-execution-scope.ts b/packages/daemon/src/server/request-execution-scope.ts
+index 86f758e32..c7e7386a7 100644
+--- a/packages/daemon/src/server/request-execution-scope.ts
++++ b/packages/daemon/src/server/request-execution-scope.ts
+@@ -806,10 +806,12 @@ export function getLeaseRegistryExecutionLocks(
+ 
+ export type LeaseSessionEnd = Readonly<{
+   /**
+-   * Ends every session opened under `leaseId` and clears its device claim, each inside that
+-   * session's execution lock pair so a command still running on it finishes first. Never rejects.
++   * Ends sessions and retained execution hosts owned by `leaseId` under their execution locks.
++   * Clears live sessions' device claims after teardown. Never rejects.
+    */
+   end: (leaseId: string, reason: LeaseEndReason) => Promise<void>;
++  /** Retries retained-host cleanup that failed after the registry removed its lease. */
++  retryPending: () => Promise<void>;
+   /**
+    * Called when the daemon begins to leave. Shutdown tears every session down without taking an
+    * execution lock, so no lease end may start a teardown after this, including one already queued
+@@ -825,13 +827,15 @@ export function createLeaseSessionEnd(params: {
+   sessionStore: SessionStore;
+   executionLocks: Map<string, Promise<unknown>>;
+   teardownSession: SessionTeardown;
++  cleanupSessionlessExecutionHost: PlatformResourceCleanup['cleanupSessionlessExecutionHost'];
+   withinDiagnosticsScope?: (run: () => Promise<void>) => Promise<void>;
+ }): LeaseSessionEnd {
+   const { sessionStore, executionLocks, teardownSession } = params;
+   let closing = false;
+-  const inFlight = new Set<Promise<void>>();
++  const inFlight = new Map<string, Set<Promise<void>>>();
++  const pending = new Map<string, LeaseEndReason>();
+ 
+-  const endUnderLocks = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {
++  const endLiveSessions = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {
+     const refs = sessionStore.listRefs().filter((ref) => ref.session.lease?.leaseId === leaseId);
+     await Promise.all(
+       refs.map(
+@@ -855,6 +859,37 @@ export function createLeaseSessionEnd(params: {
+     );
+   };
+ 
++  const endUnderLocks = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {
++    await endLiveSessions(leaseId, reason);
++    // A close queued before this lease end can retire its session while we wait for its locks.
++    const retainedHosts = sessionStore.listRetainedExecutionHosts(leaseId);
++    await Promise.all(
++      retainedHosts.map(async (host) => {
++        try {
++          await withRequestExecutionLockKeys(
++            executionLocks,
++            existingSessionExecutionLockKeys(host.address, host.device.id),
++            async () => {
++              if (closing || !sessionStore.ownsRetainedExecutionHost(host)) return;
++              if (!sessionStore.findByDevice(host.device.id)) {
++                await params.cleanupSessionlessExecutionHost(host.device);
++              }
++              sessionStore.releaseRetainedExecutionHost(host);
++            },
++          );
++        } catch (error) {
++          emitDiagnostic({
++            level: 'warn',
++            phase: 'retained_execution_host_cleanup_failed',
++            data: { leaseId, reason, deviceId: host.device.id, error: errorMessage(error) },
++          });
++        }
++      }),
++    );
++    // A reopen can publish its same-lease session while retained-host cleanup waits for the device.
++    await endLiveSessions(leaseId, reason);
++  };
++
+   const run = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {
+     try {
+       await endUnderLocks(leaseId, reason);
+@@ -864,27 +899,48 @@ export function createLeaseSessionEnd(params: {
+         phase: 'leased_session_end_failed',
+         data: { leaseId, reason, error: errorMessage(error) },
+       });
++    } finally {
++      if (
++        !closing &&
++        sessionStore.listRetainedExecutionHosts(leaseId).length === 0 &&
++        !sessionStore.listRefs().some((ref) => ref.session.lease?.leaseId === leaseId)
++      ) {
++        pending.delete(leaseId);
++      }
++    }
++  };
++
++  const end = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {
++    if (closing) return;
++    pending.set(leaseId, reason);
++    const ending = params.withinDiagnosticsScope
++      ? params.withinDiagnosticsScope(async () => await run(leaseId, reason))
++      : run(leaseId, reason);
++    const running = inFlight.get(leaseId) ?? new Set<Promise<void>>();
++    running.add(ending);
++    inFlight.set(leaseId, running);
++    try {
++      await ending;
++    } finally {
++      running.delete(ending);
++      if (running.size === 0) inFlight.delete(leaseId);
+     }
+   };
+ 
+   return {
+-    end: async (leaseId, reason) => {
+-      if (closing) return;
+-      const ending = params.withinDiagnosticsScope
+-        ? params.withinDiagnosticsScope(async () => await run(leaseId, reason))
+-        : run(leaseId, reason);
+-      inFlight.add(ending);
+-      try {
+-        await ending;
+-      } finally {
+-        inFlight.delete(ending);
+-      }
++    end,
++    retryPending: async () => {
++      await Promise.all(
++        Array.from(pending, async ([leaseId, reason]) => {
++          if (!inFlight.has(leaseId)) await end(leaseId, reason);
++        }),
++      );
+     },
+     cancel: () => {
+       closing = true;
+     },
+     drain: async () => {
+-      await Promise.allSettled(inFlight);
++      await Promise.allSettled(Array.from(inFlight.values()).flatMap((running) => [...running]));
+     },
+   };
+ }
+diff --git a/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.ts b/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.ts
+index eb11f201d..f277ec44e 100644
+--- a/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.ts
++++ b/packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.ts
+@@ -28,6 +28,7 @@ export type PlatformCloseDispatcher = (params: {
+ 
+ export type SessionCloseTeardownResult = Readonly<{
+   platformCloseError: unknown;
++  retainExecutionHost: boolean;
+   saveScriptError?: Error;
+   shutdownResult?: TargetShutdownResult;
+ }>;
+@@ -128,7 +129,12 @@ export async function runSessionCloseTeardown(params: {
+   await attemptCleanup('materialized_paths', () =>
+     cleanupRetainedMaterializedPathsForSession(sessionName),
+   );
+-  return { platformCloseError, saveScriptError, shutdownResult: finalization?.shutdown };
++  return {
++    platformCloseError,
++    retainExecutionHost,
++    saveScriptError,
++    shutdownResult: finalization?.shutdown,
++  };
+ }
+ 
+ export function closeCleanupError(
+diff --git a/packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts b/packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts
+index 807e0e196..193128751 100644
+--- a/packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts
++++ b/packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts
+@@ -362,20 +362,21 @@ async function runCloseTeardownAndRelease(params: {
+   } = params;
+   const { address: sessionName } = ref;
+   const cleanupFailures: SessionCleanupFailure[] = [];
+-  const { platformCloseError, saveScriptError, shutdownResult } = await runSessionCloseTeardown({
+-    leaseRegistry,
+-    req,
+-    ref,
+-    logPath,
+-    sessionStore,
+-    lifecycle,
+-    clearRuntimeHints,
+-    cleanupFailures,
+-    repairArmed: params.repairArmed,
+-    dispatchTargetedPlatformClose,
+-    finalizeOrdinaryCloseScript,
+-    platformResourceCleanup: params.platformResourceCleanup,
+-  });
++  const { platformCloseError, retainExecutionHost, saveScriptError, shutdownResult } =
++    await runSessionCloseTeardown({
++      leaseRegistry,
++      req,
++      ref,
++      logPath,
++      sessionStore,
++      lifecycle,
++      clearRuntimeHints,
++      cleanupFailures,
++      repairArmed: params.repairArmed,
++      dispatchTargetedPlatformClose,
++      finalizeOrdinaryCloseScript,
++      platformResourceCleanup: params.platformResourceCleanup,
++    });
+   let session = sessionStore.requireCurrent(ref);
+   const leaseRelease = await releaseProviderLeaseForClose({
+     req,
+@@ -401,7 +402,7 @@ async function runCloseTeardownAndRelease(params: {
+   } else {
+     await clearDeviceClaim(session.deviceClaim, params.env);
+   }
+-  sessionStore.retire(ref);
++  sessionStore.retire(ref, { retainExecutionHost });
+   if (deviceClaimBlockingError) throw deviceClaimBlockingError;
+   if (saveScriptError) throw saveScriptError;
+   return { kind: 'closed', providerData: leaseRelease.providerData, shutdownResult };

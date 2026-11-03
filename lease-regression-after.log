@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lease-regression.CqPkPS
+
+---------·
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 9 skipped (10)
+   Start at  20:50:18
+   Duration  471ms (transform 58%, import 38%, tests 2%, setup 1%)
+
