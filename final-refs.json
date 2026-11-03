@@ -1,0 +1,7 @@
+{
+  "codex/android-deployment-installer": "4d65affa7cddbb7ad0a3340a4dc36c12b9c13aea",
+  "codex/retain-client-lease-runner": "db876b93d5d5d25ae8f060bb562dbe8f20a8be88",
+  "codex/limrun-recording-sessions": "ad71d0391615ee336f0157941f473e204cfd0be8",
+  "codex/apple-tool-providers": "acf6cfb853a31b5458041b2224713ed15911cb06",
+  "codex/limrun-native-runner": "cf9f2c72c48340a7dfefe72cd2aa53fe09600101"
+}

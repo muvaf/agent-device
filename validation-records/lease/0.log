@@ -2,4 +2,4 @@ $ node ./node_modules/oxfmt/bin/oxfmt --check
 Checking formatting...
 
 All matched files use the correct format.
-Finished in 158ms on 5167 files using 18 threads.
+Finished in 161ms on 5167 files using 18 threads.

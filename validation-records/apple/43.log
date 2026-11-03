@@ -1,0 +1,37 @@
+$ sh ./test/scripts/setup-fixture-app-fallback-smoke.sh
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --test test/ci/trusted-fixture-artifact.test.mjs
+✔ producer, consumers, upload, and concurrency use the canonical platform-scoped artifact name (7.030542ms)
+✔ resolve-artifact-name.sh fingerprints examples/test-app, not the workspace root (252.181583ms)
+✔ Android smoke consumes the restored APK through catalog fixture E2E (57.608583ms)
+✔ Android APK locator emits an exact APK path and package id, and rejects collisions or malformed artifacts (247.997125ms)
+✔ Android APK repack signs the output and preserves its package id (600.008541ms)
+✔ producer maps each platform to its resolved lookup and matrix artifact name, and gates has-work when both are cached (263.512666ms)
+✔ artifact name resolver scopes both platforms and rejects invalid output (252.552792ms)
+✔ same-name artifact from an untrusted repository cannot suppress a trusted candidate (0.142792ms)
+✔ same-name artifact from another workflow falls back instead of being executed (0.059708ms)
+✔ same-repository artifact from an unrelated feature head is rejected (0.076ms)
+✔ default-branch producer artifacts remain reusable across native-equivalent heads (0.044291ms)
+✔ producer state is derived only from the trusted exact-head workflow run (0.1065ms)
+✔ a run that flickers to queued while its platform job is already running classifies as in_progress, not queued (0.0345ms)
+✔ a platform job that has not been scheduled yet classifies by the run instead of going absent (0.030958ms)
+✔ the iOS platform job is looked up by its own matrix name, independent of the Android job (0.025833ms)
+✔ an unrecognized fixture platform is rejected rather than silently matching no job (0.041209ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1726.732792
+--- ios fetch step output ---
+  ::warning::Could not query the build cache for fingerprint.deadbeefcafe.ios; building inline.
+  fingerprint.deadbeefcafe.ios not in the cache after the configured wait; building inline.
+--- exit code: 0 ---
+--- android fetch step output ---
+  ::warning::Could not query the build cache for fingerprint.deadbeefcafe.android; building inline.
+  fingerprint.deadbeefcafe.android not in the cache after the configured wait; building inline.
+--- exit code: 0 ---
+PASS: platform-scoped build-cache lookup failures degrade to inline builds.
+PASS: failed and absent producers exit the wait path early.
+PASS: a queued producer keeps waiting instead of bailing immediately.

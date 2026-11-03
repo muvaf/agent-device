@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-lease
+
+············································
+
+ Test Files  2 passed (2)
+      Tests  44 passed (44)
+   Start at  21:10:45
+   Duration  494ms (transform 42%, import 33%, tests 23%, setup 2%, worker 1%)
+

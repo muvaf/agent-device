@@ -1,0 +1,49 @@
+{
+  "base": "94a4db632d927807c6588823e6a42bafdcdf6a05",
+  "experiment": "/private/tmp/agent-device-lease-throttle-regression.PtaL24",
+  "command": "PATH=/private/tmp/agent-device-pnpm-bin:$PATH AGENT_DEVICE_VITEST_MAX_WORKERS=1 pnpm exec vitest run --project unit-core packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts -t 'failed retained-host cleanup stays owned and throttles retries without another release request'",
+  "patches": {
+    "lease-throttle-reviewed.patch": {
+      "path": "/private/tmp/agent-device-review2/lease-throttle-reviewed.patch",
+      "sha256": "d903b35a67fc768c48afb9884b9b40994844193f203f67cbe9bda3c043ffd50a"
+    },
+    "lease-throttle-test.patch": {
+      "path": "/private/tmp/agent-device-review2/lease-throttle-test.patch",
+      "sha256": "04db9ad3f76bf2db957c580da43ee3d8e8e25c16a30b6ae6a6a9feaa80bf5734"
+    },
+    "lease-throttle-fix.patch": {
+      "path": "/private/tmp/agent-device-review2/lease-throttle-fix.patch",
+      "sha256": "63ccf6f65b862791fc4debd5602536d2de1aad063801a512488cae6f270baf1a"
+    }
+  },
+  "prepared": true,
+  "comparisonRun": true,
+  "head": "db876b93d5d5d25ae8f060bb562dbe8f20a8be88",
+  "committedDeltaMatchesReviewedPatch": true,
+  "setup": {
+    "frozenInstall": {
+      "exit": 0,
+      "log": "/private/tmp/agent-device-review2/lease-throttle-install.log"
+    },
+    "build": {
+      "exit": 0,
+      "log": "/private/tmp/agent-device-review2/lease-throttle-build.log"
+    }
+  },
+  "before": {
+    "exit": 1,
+    "failed": 1,
+    "skipped": 15,
+    "reason": "cleanup called twice by first 1000ms sweep; expected one call until 10000ms",
+    "log": "/private/tmp/agent-device-review2/lease-throttle-before.log"
+  },
+  "after": {
+    "exit": 0,
+    "passed": 1,
+    "skipped": 15,
+    "log": "/private/tmp/agent-device-review2/lease-throttle-after.log"
+  },
+  "isolation": "Native gate reported all runnable checks passed and exactCommit=true before comparisons. Test commands ran sequentially in one disposable worktree.",
+  "reviewedStatusAfter": "",
+  "cleanup": "disposable worktree removed; implementation remains clean at db876b93d5d5d25ae8f060bb562dbe8f20a8be88; no services/devices created"
+}

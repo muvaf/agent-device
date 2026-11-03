@@ -38,9 +38,9 @@ Consider removing them to keep your configuration clean.
 ℹ dist/src/session2.js                                                  156.15 kB │ gzip:  45.41 kB
 ℹ dist/src/src3.js                                                      150.41 kB │ gzip:  48.99 kB
 ℹ dist/src/mechanics.js                                                 132.30 kB │ gzip:  42.04 kB
-ℹ dist/src/cli-help.js                                                  129.54 kB │ gzip:  45.38 kB
+ℹ dist/src/cli-help.js                                                  129.62 kB │ gzip:  45.41 kB
 ℹ dist/src/destination-tunnel-dialer.js                                 102.73 kB │ gzip:  31.98 kB
-ℹ dist/src/src2.js                                                       98.58 kB │ gzip:  30.64 kB
+ℹ dist/src/src2.js                                                       98.69 kB │ gzip:  30.69 kB
 ℹ dist/src/sdk-batch.js                                                  86.54 kB │ gzip:  21.97 kB
 ℹ dist/src/runtime-factory.js                                            83.16 kB │ gzip:  26.65 kB
 ℹ dist/src/runtime4.js                                                   81.36 kB │ gzip:  23.25 kB
@@ -662,4 +662,4 @@ Not measurable — 4 hooks whose calls overlap, so elapsed time covers work othe
   … and 1 more
 See https://rolldown.rs/reference/InputOptions.checks#plugintimings for more details.
 
-✔ Build complete in 3296ms
+✔ Build complete in 3324ms

@@ -1,0 +1,11 @@
+$ vitest run --project unit-core test/repo-guards/command-doc-coverage.test.ts
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-apple
+
+············
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  21:05:24
+   Duration  269ms (transform 50%, import 42%, setup 4%, tests 3%, worker 1%)
+

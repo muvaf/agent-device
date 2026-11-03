@@ -1,0 +1,59 @@
+diff --git a/packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts b/packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts
+index 281318f94..8f681c0a8 100644
+--- a/packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts
++++ b/packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts
+@@ -215,19 +215,41 @@ test('release ends a same-lease reopen published at a new address while cleanup
+   expect(sessionStore.listRetainedExecutionHosts('lease-1')).toEqual([]);
+ });
+ 
+-test('failed retained-host cleanup stays owned and retries without another release request', async () => {
+-  const sessionStore = makeSessionStore();
+-  retainExecutionHost(sessionStore);
+-  const cleanup = vi.fn(async () => {}).mockRejectedValueOnce(new Error('device unreachable'));
+-  const { ender } = leaseSessionEnd(sessionStore, async () => {}, cleanup);
+-
+-  await ender.end('lease-1', 'LEASE_RELEASED');
+-  expect(sessionStore.listRetainedExecutionHosts('lease-1')).toHaveLength(1);
+-  await ender.retryPending();
+-  expect(cleanup).toHaveBeenCalledTimes(2);
+-  expect(sessionStore.listRetainedExecutionHosts('lease-1')).toEqual([]);
+-  await ender.retryPending();
+-  expect(cleanup).toHaveBeenCalledTimes(2);
++test('failed retained-host cleanup stays owned and throttles retries without another release request', async () => {
++  const now = vi.spyOn(Date, 'now').mockReturnValue(0);
++  try {
++    const sessionStore = makeSessionStore();
++    retainExecutionHost(sessionStore);
++    const cleanup = vi
++      .fn(async () => {})
++      .mockRejectedValueOnce(new Error('device unreachable'))
++      .mockRejectedValueOnce(new Error('device still unreachable'));
++    const { ender } = leaseSessionEnd(sessionStore, async () => {}, cleanup);
++
++    await ender.end('lease-1', 'LEASE_RELEASED');
++    expect(sessionStore.listRetainedExecutionHosts('lease-1')).toHaveLength(1);
++    for (let elapsed = 1_000; elapsed < 10_000; elapsed += 1_000) {
++      now.mockReturnValue(elapsed);
++      await ender.retryPending();
++      expect(cleanup).toHaveBeenCalledTimes(1);
++    }
++    now.mockReturnValue(10_000);
++    await ender.retryPending();
++    expect(cleanup).toHaveBeenCalledTimes(2);
++    expect(sessionStore.listRetainedExecutionHosts('lease-1')).toHaveLength(1);
++    now.mockReturnValue(19_999);
++    await ender.retryPending();
++    expect(cleanup).toHaveBeenCalledTimes(2);
++    now.mockReturnValue(20_000);
++    await ender.retryPending();
++    expect(cleanup).toHaveBeenCalledTimes(3);
++    expect(sessionStore.listRetainedExecutionHosts('lease-1')).toEqual([]);
++    now.mockReturnValue(30_000);
++    await ender.retryPending();
++    expect(cleanup).toHaveBeenCalledTimes(3);
++  } finally {
++    now.mockRestore();
++  }
+ });
+ 
+ test('cancel preserves a retained host queued for cleanup for daemon shutdown', async () => {

@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lease-throttle-regression.PtaL24
+
+------·---------
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 15 skipped (16)
+   Start at  21:12:26
+   Duration  359ms (transform 55%, import 41%, setup 2%, tests 2%, worker 1%)
+

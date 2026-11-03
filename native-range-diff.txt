@@ -131,6 +131,6 @@
      @@ packages/platform-android/src/mechanics.ts: export {
 2:  526a6c336 = 2:  acf6cfb85 refactor(apple): share simulator files apps and runner operations
 3:  04f3cb37e < -:  --------- fix(daemon): retain Apple runners for leases kept on close
--:  --------- > 3:  8bc38beac fix(daemon): retain Apple runners for leases kept on close
-4:  bd8fb5dbf = 4:  695467f78 fix(limrun): isolate recordings with recording session IDs
-5:  47c528ae6 = 5:  3a2e80721 feat(limrun): replace iOS AX automation with the shared XCTest runner
+-:  --------- > 3:  3e35357a2 fix(daemon): retain Apple runners for leases kept on close
+4:  bd8fb5dbf = 4:  0f852ba2f fix(limrun): isolate recordings with recording session IDs
+5:  47c528ae6 = 5:  cf9f2c72c feat(limrun): replace iOS AX automation with the shared XCTest runner

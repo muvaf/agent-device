@@ -1,0 +1,50 @@
+diff --git a/packages/daemon/src/server/request-execution-scope.ts b/packages/daemon/src/server/request-execution-scope.ts
+index c7e7386a7..d65202126 100644
+--- a/packages/daemon/src/server/request-execution-scope.ts
++++ b/packages/daemon/src/server/request-execution-scope.ts
+@@ -822,6 +822,8 @@ export type LeaseSessionEnd = Readonly<{
+   drain: () => Promise<void>;
+ }>;
+ 
++const LEASE_END_RETRY_INTERVAL_MS = 10_000;
++
+ export function createLeaseSessionEnd(params: {
+   env: HostEnvironment['env'];
+   sessionStore: SessionStore;
+@@ -833,7 +835,7 @@ export function createLeaseSessionEnd(params: {
+   const { sessionStore, executionLocks, teardownSession } = params;
+   let closing = false;
+   const inFlight = new Map<string, Set<Promise<void>>>();
+-  const pending = new Map<string, LeaseEndReason>();
++  const pending = new Map<string, { reason: LeaseEndReason; nextRetryAt: number }>();
+ 
+   const endLiveSessions = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {
+     const refs = sessionStore.listRefs().filter((ref) => ref.session.lease?.leaseId === leaseId);
+@@ -906,13 +908,15 @@ export function createLeaseSessionEnd(params: {
+         !sessionStore.listRefs().some((ref) => ref.session.lease?.leaseId === leaseId)
+       ) {
+         pending.delete(leaseId);
++      } else if (!closing) {
++        pending.set(leaseId, { reason, nextRetryAt: Date.now() + LEASE_END_RETRY_INTERVAL_MS });
+       }
+     }
+   };
+ 
+   const end = async (leaseId: string, reason: LeaseEndReason): Promise<void> => {
+     if (closing) return;
+-    pending.set(leaseId, reason);
++    pending.set(leaseId, { reason, nextRetryAt: 0 });
+     const ending = params.withinDiagnosticsScope
+       ? params.withinDiagnosticsScope(async () => await run(leaseId, reason))
+       : run(leaseId, reason);
+@@ -931,8 +935,8 @@ export function createLeaseSessionEnd(params: {
+     end,
+     retryPending: async () => {
+       await Promise.all(
+-        Array.from(pending, async ([leaseId, reason]) => {
+-          if (!inFlight.has(leaseId)) await end(leaseId, reason);
++        Array.from(pending, async ([leaseId, { reason, nextRetryAt }]) => {
++          if (!inFlight.has(leaseId) && Date.now() >= nextRetryAt) await end(leaseId, reason);
+         }),
+       );
+     },

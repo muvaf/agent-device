@@ -1,14 +1,14 @@
 {
   "version": 1,
   "cwd": "/private/tmp/agent-device-review2-lease",
-  "startedAt": "2026-11-03T17:55:56.107Z",
+  "startedAt": "2026-11-03T18:13:11.439Z",
   "status": "passed",
   "exitCode": 0,
   "refs": {
     "base": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39",
-    "head": "94a4db632d927807c6588823e6a42bafdcdf6a05",
+    "head": "db876b93d5d5d25ae8f060bb562dbe8f20a8be88",
     "resolvedBase": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39",
-    "resolvedHead": "94a4db632d927807c6588823e6a42bafdcdf6a05",
+    "resolvedHead": "db876b93d5d5d25ae8f060bb562dbe8f20a8be88",
     "mergeBase": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39"
   },
   "checkoutChanged": false,
@@ -22,9 +22,9 @@
         "run",
         "format:check"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/0.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/0.log",
       "exitCode": 0,
-      "durationMs": 436,
+      "durationMs": 449,
       "testReportPaths": [],
       "tests": []
     },
@@ -36,9 +36,9 @@
         "run",
         "lint"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/1.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/1.log",
       "exitCode": 0,
-      "durationMs": 1854,
+      "durationMs": 1784,
       "testReportPaths": [],
       "tests": []
     },
@@ -50,9 +50,9 @@
         "run",
         "typecheck"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/2.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/2.log",
       "exitCode": 0,
-      "durationMs": 500,
+      "durationMs": 646,
       "testReportPaths": [],
       "tests": []
     },
@@ -64,9 +64,9 @@
         "run",
         "check:layering"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/3.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/3.log",
       "exitCode": 0,
-      "durationMs": 17971,
+      "durationMs": 18175,
       "testReportPaths": [],
       "tests": []
     },
@@ -80,9 +80,9 @@
         "--base",
         "a2c169fa502a53f1f2a1da25b1cd16b9c731af39"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/4.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/4.log",
       "exitCode": 0,
-      "durationMs": 3173,
+      "durationMs": 3159,
       "testReportPaths": [],
       "tests": []
     },
@@ -94,9 +94,9 @@
         "run",
         "build"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/5.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/5.log",
       "exitCode": 0,
-      "durationMs": 3653,
+      "durationMs": 3685,
       "testReportPaths": [],
       "tests": []
     },
@@ -129,11 +129,11 @@
         "src/platform-runtime-resource-cleanup.ts",
         "website/docs/docs/client-api.md"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/6.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/6.log",
       "exitCode": 0,
-      "durationMs": 43911,
+      "durationMs": 36506,
       "testReportPaths": [
-        "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/6.tests.1171.json"
+        "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/6.tests.61457.json"
       ],
       "tests": [
         {
@@ -156,11 +156,11 @@
         "run",
         "check:unit"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/7.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/7.log",
       "exitCode": 0,
-      "durationMs": 144783,
+      "durationMs": 157617,
       "testReportPaths": [
-        "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/7.tests.6474.json"
+        "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/7.tests.65701.json"
       ],
       "tests": [
         {
@@ -188,9 +188,9 @@
         "run",
         "check:doc-links"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/9.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/9.log",
       "exitCode": 0,
-      "durationMs": 8165,
+      "durationMs": 5931,
       "testReportPaths": [],
       "tests": []
     },
@@ -202,9 +202,9 @@
         "run",
         "check:doc-prose"
       ],
-      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-XrDBPe/10.log",
+      "logPath": "/private/tmp/agent-device-review2-lease/.tmp/validation/run-NrX2KA/10.log",
       "exitCode": 0,
-      "durationMs": 595,
+      "durationMs": 594,
       "testReportPaths": [],
       "tests": []
     },
@@ -240,9 +240,9 @@
     }
   ],
   "initial": {
-    "head": "94a4db632d927807c6588823e6a42bafdcdf6a05",
+    "head": "db876b93d5d5d25ae8f060bb562dbe8f20a8be88",
     "status": "",
-    "fingerprint": "f10f52db0dd83569c1acf9474cbe7fab409c367303c68c3ec04aba1e7c2e05f2"
+    "fingerprint": "0312aa958b3b7aea3d28071058f03ddfb9e8d4ddc5390f14f7967c415ac8f652"
   },
   "changedFiles": [
     "packages/daemon/src/core/__tests__/session-store-lifetime.test.ts",
@@ -1315,9 +1315,9 @@
     "docsOnlyPaths": []
   },
   "final": {
-    "head": "94a4db632d927807c6588823e6a42bafdcdf6a05",
+    "head": "db876b93d5d5d25ae8f060bb562dbe8f20a8be88",
     "status": "",
-    "fingerprint": "f10f52db0dd83569c1acf9474cbe7fab409c367303c68c3ec04aba1e7c2e05f2"
+    "fingerprint": "0312aa958b3b7aea3d28071058f03ddfb9e8d4ddc5390f14f7967c415ac8f652"
   },
-  "finishedAt": "2026-11-03T17:59:41.520Z"
+  "finishedAt": "2026-11-03T18:17:00.350Z"
 }

@@ -11,5 +11,8 @@
   ],
   "before": 1,
   "after": 0,
-  "head": "uncommitted patch, to be verified at final SHA"
+  "head": "uncommitted patch, to be verified at final SHA",
+  "publicPreFixCommit": "fa67e6963e301e5b677f3f19837a6b4229d0ad11",
+  "rebasedPreFixCommit": "39cfd2d060786a8f04e1ff27d20c2c114d67b2eb",
+  "publicPreFixEquivalence": "git diff --name-only publicPreFixCommit rebasedPreFixCommit lists only README.md and docs/assets/blacksmith-ci.png; all code is identical."
 }

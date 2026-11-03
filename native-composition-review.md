@@ -20,4 +20,10 @@ No further concrete findings. The second live-session sweep at `packages/daemon/
 
 The added regression uses the real execution-lock machinery and session-store publication to establish the reported ordering. Its mock teardown does not retire the session itself; the production lease-end path must do that for the final assertion to pass. This is an appropriate focused test for the race. No tests or gates were run by this reviewer; the reported 45-test receipt and final live run belong to the root agent. The prior shared-lease validation scope and stack-size caveat remain unchanged.
 
-Final published stack `3a2e80721ce9cf88b3be0414d67839cb506d3220` differs from reviewed `4af1d6b2e` only by the CLI help test assertion. [Independent delta review](lease-final-delta-review.md) confirms no runtime change.
+## Exact final-stack retry review
+
+Reviewed `cf9f2c72c48340a7dfefe72cd2aa53fe09600101` against the previously reviewed `4af1d6b2e3ea403ed6d81c09c5edc21d952979d1`. The delta is exactly the four lease retry/documentation files plus the corrected CLI-help assertion. Range comparison confirms the Android, Apple, recording, and native-runner patches remain equivalent; no provider implementation changed.
+
+No concrete findings. The existing pending-work record now stores a retry time ten seconds after an incomplete cleanup pass finishes. Only `retryPending()` consults that time; direct `end()` starts immediately and still uses the existing execution locks and in-flight accounting. Success removes pending work, failure retains ownership, and shutdown's closing guard remains authoritative. The second live-session sweep and replacement-owner checks from the prior fix remain intact.
+
+The changed test verifies both repeated failures and successful cleanup at the ten-second boundaries without sleeping. The help/docs accurately preserve outside-lease replacement ownership and distinguish disabling idle stop from disabling explicit release/expiry/shutdown cleanup. No tests, gates, source changes, or external actions were performed for this review. Final gate and live receipts remain the root agent's responsibility.

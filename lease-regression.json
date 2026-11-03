@@ -44,5 +44,8 @@
   "reviewedHeadAfter": "c7be97e9e92acbbfb68d9f67cf5b5fa491dac526",
   "reviewedStatusAfter": "",
   "serialIsolation": "Parent confirmed all broad gates and live runs finished before first regression; four test commands ran sequentially in one disposable worktree.",
-  "cleanup": "disposable worktree removed; implementation head and clean status unchanged; no devices or live services started"
+  "cleanup": "disposable worktree removed; implementation head and clean status unchanged; no devices or live services started",
+  "publicPreFixCommit": "6b3c13208303fca6c13a36c3c12d4e8b47d21e11",
+  "rebasedPreFixCommit": "e7de7e961a1db35364c4d5f77a9f26a330ef61bd",
+  "publicPreFixEquivalence": "git diff --name-only publicPreFixCommit rebasedPreFixCommit lists only README.md and docs/assets/blacksmith-ci.png; all code is identical."
 }

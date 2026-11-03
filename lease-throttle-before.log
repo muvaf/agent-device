@@ -1,0 +1,25 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lease-throttle-regression.PtaL24
+
+------x---------
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts > failed retained-host cleanup stays owned and throttles retries without another release request
+AssertionError: expected "vi.fn()" to be called 1 times, but got 2 times
+ ❯ packages/daemon/src/server/__tests__/request-execution-scope-lease-session-end.test.ts:234:23
+    232|       now.mockReturnValue(elapsed);
+    233|       await ender.retryPending();
+    234|       expect(cleanup).toHaveBeenCalledTimes(1);
+       |                       ^
+    235|     }
+    236|     now.mockReturnValue(10_000);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 15 skipped (16)
+   Start at  21:12:20
+   Duration  744ms (transform 81%, import 17%, setup 1%, tests 1%)
+
