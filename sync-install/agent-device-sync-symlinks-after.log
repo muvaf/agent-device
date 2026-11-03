@@ -1,0 +1,9 @@
+==> Running tests
+PASS tests/sync-app-launch-mode.test.ts
+PASS tests/folder-sync-symlink.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       22 passed, 22 total
+Snapshots:   0 total
+Time:        0.448 s, estimated 1 s
+Ran all test suites matching /tests\/sync-app-launch-mode.test.ts|tests\/folder-sync-symlink.test.ts/i.

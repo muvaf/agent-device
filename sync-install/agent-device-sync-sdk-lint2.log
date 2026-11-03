@@ -1,0 +1,15 @@
+==> Running prettier --check
+Checking formatting...
+All matched files use Prettier code style!
+==> Running eslint
+==> Building
+[mjs]: Found 0 errors.
+[js]: Found 0 errors.
+wrote dist/internal/types.d.ts
+wrote dist/internal/types.d.mts
+==> Checking types
+==> Running Are The Types Wrong?
+Types ok!
+==> Running publint
+@limrun/api lint results:
+All good!

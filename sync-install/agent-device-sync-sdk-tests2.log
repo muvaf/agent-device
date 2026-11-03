@@ -1,0 +1,92 @@
+==> Running tests
+PASS tests/tunnel-connector.test.ts (21.326 s)
+PASS tests/ios-input.test.ts
+PASS tests/cli-auth.test.ts
+PASS tests/exec-logs-integration.test.ts
+PASS tests/index.test.ts
+PASS tests/exec-client-sse.test.ts
+PASS tests/destination-tunnel-dialer.test.ts
+PASS tests/app-archive.test.ts
+PASS tests/build-pull-file.test.ts
+PASS tests/cli-rbe-auto-upload.test.ts
+PASS tests/cli-skills.test.ts
+PASS tests/reverse-tunnel.test.ts
+PASS tests/destination-tunnel-credit.test.ts
+PASS tests/session-stream.test.ts
+PASS tests/sync-app-launch-mode.test.ts
+PASS tests/cli-onboarding.test.ts
+PASS tests/xcode-rbe-tunnel.test.ts
+PASS tests/xcode-client-rbe.test.ts
+PASS tests/folder-sync-symlink.test.ts
+PASS tests/proxy-transport.test.ts
+PASS tests/xcode-cache.test.ts
+PASS tests/seed-reconstruct.test.ts
+PASS tests/android-launch-app.test.ts
+PASS tests/folder-sync-ignore.test.ts
+PASS tests/destination-tunnel.test.ts
+PASS tests/destination-tunnel-inspection-integration.test.ts
+PASS tests/folder-sync-xdelta3.test.ts
+PASS tests/android-basis-cache.test.ts
+PASS tests/workload-credentials.test.ts
+PASS tests/destination-tunnel-management.test.ts
+PASS tests/cli-rbe-workspace.test.ts
+PASS tests/path.test.ts
+PASS tests/destination-tunnel-inspection.test.ts
+PASS tests/gradle-client-build.test.ts
+PASS tests/cli-config.test.ts
+PASS tests/ios-recording.test.ts
+PASS tests/ios-files.test.ts
+PASS tests/http-proxy.test.ts
+PASS tests/xcode-client-xcode.test.ts
+PASS tests/xcode-client-signing.test.ts
+PASS tests/instance-client-recording.test.ts
+PASS tests/cli-rbe-session.test.ts
+PASS tests/xcode-client-webhook.test.ts
+PASS tests/ios-launch-app.test.ts
+PASS tests/snapshot-management.test.ts
+PASS tests/instance-permissions.test.ts
+PASS tests/exec-logs.test.ts
+PASS tests/uploads.test.ts
+PASS tests/gradle-client-webhook.test.ts
+PASS tests/cli-launch-app-detox.test.ts
+PASS tests/xcode-client-run.test.ts
+PASS tests/xcode-snapshot.test.ts
+PASS tests/xcode-client-simulator.test.ts
+PASS tests/ios-fold.test.ts
+PASS tests/exec-client-xctest.test.ts
+PASS tests/cli-scope.test.ts
+PASS tests/cli-reverse.test.ts
+PASS tests/trusted-ca.test.ts
+PASS tests/permission-api.test.ts
+PASS tests/instance-client-adb-tunnel.test.ts
+PASS tests/asset-upload-permissions.test.ts
+PASS tests/direct-instance-errors.test.ts
+PASS tests/client-user-agent.test.ts
+PASS tests/xcode-client-build-settings.test.ts
+PASS tests/session-artifacts.test.ts
+PASS tests/ios-keychain.test.ts
+PASS tests/destination-tunnel-har.test.ts
+PASS tests/build-settings.test.ts
+PASS tests/ios-device-info.test.ts
+PASS tests/form.test.ts
+PASS tests/instance-client-inspection.test.ts
+PASS tests/cli-gradle-build-options.test.ts
+PASS tests/access-tokens.test.ts
+PASS tests/ios-tunnel-inspection.test.ts
+PASS tests/ios-simctl-stdin.test.ts
+PASS tests/cli-cache.test.ts
+PASS tests/mise-tools.test.ts
+PASS tests/ios-shim.test.ts
+PASS tests/base64.test.ts
+PASS tests/destination-tunnel-url.test.ts
+PASS tests/cli-rbe-instance-cleanup.test.ts
+PASS tests/stringifyQuery.test.ts
+PASS tests/instance-token.test.ts
+PASS tests/ios-launch-environment.test.ts
+PASS tests/buildHeaders.test.ts
+
+Test Suites: 6 skipped, 85 passed, 85 of 91 total
+Tests:       28 skipped, 1057 passed, 1085 total
+Snapshots:   3 passed, 3 total
+Time:        41.417 s
+Ran all test suites.

@@ -1,0 +1,2 @@
+$ node --experimental-strip-types scripts/wire-compat/run.ts
+Daemon RPC wire surface checked against v0.21.35 (protocol unchanged): 192 declarations, 4 changed, 0 removed, 1 added, 3 moved.

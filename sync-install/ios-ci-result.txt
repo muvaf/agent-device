@@ -1,0 +1,4 @@
+Run 41708578913: success
+Commit: 83cf67db2
+test	Run limulator integration tests	2026-11-03T20:14:22.7622730Z === RUN   TestSyncInstallWithoutLaunching
+test	Run limulator integration tests	2026-11-03T20:14:28.8170740Z --- PASS: TestSyncInstallWithoutLaunching (6.05s)

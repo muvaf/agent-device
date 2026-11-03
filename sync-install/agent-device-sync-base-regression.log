@@ -1,0 +1,89 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-sync-validation
+
+-xx---xx---
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |provider-integration| test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts > Limrun android install syncs with instance credentials and leaves launch to open
+Error: Uploading an app requires a Limrun API key.
+ ❯ requireLimrunOrgClient packages/provider-limrun/src/client-options.ts:62:9
+     60| ): Limrun {
+     61|   if (limrun) return limrun;
+     62|   throw new AppError('UNSUPPORTED_OPERATION', `${operation} requires a…
+       |         ^
+     63| }
+     64|
+ ❯ LimrunRuntimeImplementation.orgClient packages/provider-limrun/src/runtime.ts:762:12
+ ❯ LimrunRuntimeImplementation.installInstallablePath packages/provider-limrun/src/runtime.ts:302:25
+ ❯ install packages/provider-limrun/src/runtime.ts:249:35
+ ❯ installAndroidApp packages/platform-android/src/deployment/runtime.ts:174:13
+ ❯ deployAndroidApp packages/platform-android/src/deployment/runtime.ts:143:18
+ ❯ Object.deployApp packages/platform-android/src/deployment/runtime.ts:57:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |provider-integration| test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts > Limrun android reinstall syncs with instance credentials and leaves launch to open
+Error: Uploading an app requires a Limrun API key.
+ ❯ requireLimrunOrgClient packages/provider-limrun/src/client-options.ts:62:9
+     60| ): Limrun {
+     61|   if (limrun) return limrun;
+     62|   throw new AppError('UNSUPPORTED_OPERATION', `${operation} requires a…
+       |         ^
+     63| }
+     64|
+ ❯ LimrunRuntimeImplementation.orgClient packages/provider-limrun/src/runtime.ts:762:12
+ ❯ LimrunRuntimeImplementation.installInstallablePath packages/provider-limrun/src/runtime.ts:302:25
+ ❯ install packages/provider-limrun/src/runtime.ts:249:35
+ ❯ packages/platform-android/src/deployment/runtime.ts:120:28
+ ❯ deployAndroidApp packages/platform-android/src/deployment/runtime.ts:108:12
+ ❯ Object.deployApp packages/platform-android/src/deployment/runtime.ts:57:7
+ ❯ Object.deploy test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts:125:7
+ ❯ test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts:116:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |provider-integration| test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts > Limrun ios install syncs with instance credentials and leaves launch to open
+Error: Uploading an app requires a Limrun API key.
+ ❯ requireLimrunOrgClient packages/provider-limrun/src/client-options.ts:62:9
+     60| ): Limrun {
+     61|   if (limrun) return limrun;
+     62|   throw new AppError('UNSUPPORTED_OPERATION', `${operation} requires a…
+       |         ^
+     63| }
+     64|
+ ❯ LimrunRuntimeImplementation.orgClient packages/provider-limrun/src/runtime.ts:762:12
+ ❯ LimrunRuntimeImplementation.installInstallablePath packages/provider-limrun/src/runtime.ts:302:25
+ ❯ install packages/provider-limrun/src/runtime.ts:249:35
+ ❯ deployPreparedAppleApp packages/platform-apple/src/deployment/runtime.ts:167:29
+ ❯ deployAppleApp packages/platform-apple/src/deployment/runtime.ts:131:18
+ ❯ Object.deployApp packages/platform-apple/src/deployment/runtime.ts:78:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |provider-integration| test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts > Limrun ios reinstall syncs with instance credentials and leaves launch to open
+Error: Uploading an app requires a Limrun API key.
+ ❯ requireLimrunOrgClient packages/provider-limrun/src/client-options.ts:62:9
+     60| ): Limrun {
+     61|   if (limrun) return limrun;
+     62|   throw new AppError('UNSUPPORTED_OPERATION', `${operation} requires a…
+       |         ^
+     63| }
+     64|
+ ❯ LimrunRuntimeImplementation.orgClient packages/provider-limrun/src/runtime.ts:762:12
+ ❯ LimrunRuntimeImplementation.installInstallablePath packages/provider-limrun/src/runtime.ts:302:25
+ ❯ install packages/provider-limrun/src/runtime.ts:249:35
+ ❯ packages/platform-apple/src/deployment/runtime.ts:117:28
+ ❯ deployAppleApp packages/platform-apple/src/deployment/runtime.ts:109:12
+ ❯ Object.deployApp packages/platform-apple/src/deployment/runtime.ts:78:13
+ ❯ Object.deploy test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts:125:7
+ ❯ test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts:116:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 7 skipped (11)
+   Start at  23:03:32
+   Duration  1.20s (tests 76%, transform 19%, import 5%, setup 1%)
+

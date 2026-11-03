@@ -1,0 +1,419 @@
+Calculating task graph as no cached configuration is available for tasks: :server:testDebugUnitTest :server:assembleDebug
+> Task :server:preBuild UP-TO-DATE
+> Task :server:generateDebugAssets UP-TO-DATE
+> Task :server:preDebugBuild UP-TO-DATE
+> Task :server:preDebugUnitTestBuild UP-TO-DATE
+> Task :server:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :server:writeDebugAppMetadata
+> Task :server:writeDebugSigningConfigVersions
+> Task :server:createDebugCompatibleScreenManifests
+> Task :server:mapDebugSourceSetPaths
+> Task :server:javaPreCompileDebug
+> Task :server:javaPreCompileDebugUnitTest
+> Task :server:validateSigningDebug
+> Task :server:extractDeepLinksDebug
+> Task :server:generateDebugResources
+> Task :server:generateDebugBuildConfig
+> Task :server:mergeDebugJniLibFolders
+> Task :server:packageDebugResources
+> Task :server:processDebugNavigationResources
+> Task :server:checkDebugAarMetadata
+> Task :server:mergeDebugAssets
+> Task :server:compileDebugNavigationResources
+> Task :server:mergeDebugResources
+> Task :server:compressDebugAssets
+
+> Task :server:processDebugMainManifest
+package="com.genymobile.scrcpy" found in source AndroidManifest.xml: /private/tmp/agent-device-sync-android-base/server/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.genymobile.scrcpy" from the source AndroidManifest.xml: /private/tmp/agent-device-sync-android-base/server/src/main/AndroidManifest.xml.
+
+> Task :server:checkDebugDuplicateClasses
+> Task :server:processDebugManifest
+> Task :server:processDebugManifestForPackage
+> Task :server:mergeLibDexDebug
+> Task :server:parseDebugLocalResources
+> Task :server:generateDebugRFile
+> Task :server:compileDebugAidl
+> Task :server:compileDebugKotlin NO-SOURCE
+> Task :server:processDebugJavaRes NO-SOURCE
+> Task :server:mergeDebugNativeLibs
+> Task :server:processDebugResources
+
+> Task :server:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libjingle_peerconnection_so.so. Run with --info option to learn more.
+
+> Task :server:mergeDebugJavaResource
+> Task :server:desugarDebugFileDependencies
+
+> Task :server:compileDebugJavaWithJavac FAILED
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:3: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.Format;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:4: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.IVirtualCameraCallback;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:5: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.IVirtualCameraService;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:6: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.LensFacing;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:7: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.SensorOrientation;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:8: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.SupportedStreamConfiguration;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:9: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.VirtualCameraConfiguration;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:66: error: cannot find symbol
+    private IVirtualCameraService service;
+            ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:266: error: cannot find symbol
+    private void registerCameras(IVirtualCameraService expectedService,
+                                 ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:300: error: cannot find symbol
+    private CameraRegistration registerCamera(IVirtualCameraService expectedService,
+                                              ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:400: error: cannot find symbol
+    private void onServiceDied(IBinder deadBinder, IVirtualCameraService deadService) {
+                                                   ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:411: error: cannot find symbol
+    private void clearService(IVirtualCameraService expectedService) {
+                              ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:450: error: cannot find symbol
+    private boolean unregisterAllCameras(IVirtualCameraService expectedService, boolean onlyIfIdle) {
+                                         ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:663: error: cannot find symbol
+        private final IVirtualCameraService registrationService;
+                      ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay.CameraRegistration
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:674: error: cannot find symbol
+        private final IVirtualCameraCallback callback = new VirtualCameraCallback(new StreamListener() {
+                      ^
+  symbol:   class IVirtualCameraCallback
+  location: class VirtualCameraRelay.CameraRegistration
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:692: error: cannot find symbol
+        private CameraRegistration(IVirtualCameraService registrationService, int lensFacing) {
+                                   ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay.CameraRegistration
+/private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:3: error: package android.companion.virtualcamera does not exist
+import android.companion.virtualcamera.IVirtualCameraCallback;
+                                      ^
+/private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:11: error: package IVirtualCameraCallback does not exist
+final class VirtualCameraCallback extends IVirtualCameraCallback.Stub {
+                                                                ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:233: error: cannot find symbol
+        IVirtualCameraService connected = null;
+        ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:235: error: cannot find symbol
+            IBinder binder = android.os.ServiceManager.waitForService(SERVICE_NAME);
+                                       ^
+  symbol:   class ServiceManager
+  location: package android.os
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:240: error: package IVirtualCameraService does not exist
+            connected = IVirtualCameraService.Stub.asInterface(binder);
+                                             ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:241: error: cannot find symbol
+            IVirtualCameraService connectedService = connected;
+            ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:268: error: cannot find symbol
+        CameraRegistration front = registerCamera(expectedService, LensFacing.FRONT,
+                                                                   ^
+  symbol:   variable LensFacing
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:275: error: cannot find symbol
+            back = registerCamera(expectedService, LensFacing.BACK,
+                                                   ^
+  symbol:   variable LensFacing
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:303: error: cannot find symbol
+        SupportedStreamConfiguration streamConfig = new SupportedStreamConfiguration();
+        ^
+  symbol:   class SupportedStreamConfiguration
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:303: error: cannot find symbol
+        SupportedStreamConfiguration streamConfig = new SupportedStreamConfiguration();
+                                                        ^
+  symbol:   class SupportedStreamConfiguration
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:306: error: cannot find symbol
+        streamConfig.pixelFormat = Format.RGBA_8888;
+                                   ^
+  symbol:   variable Format
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:308: error: cannot find symbol
+        VirtualCameraConfiguration configuration = new VirtualCameraConfiguration();
+        ^
+  symbol:   class VirtualCameraConfiguration
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:308: error: cannot find symbol
+        VirtualCameraConfiguration configuration = new VirtualCameraConfiguration();
+                                                       ^
+  symbol:   class VirtualCameraConfiguration
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:309: error: cannot find symbol
+        configuration.supportedStreamConfigs = new SupportedStreamConfiguration[]{streamConfig};
+                                                   ^
+  symbol:   class SupportedStreamConfiguration
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:311: error: cannot find symbol
+        configuration.sensorOrientation = SensorOrientation.ORIENTATION_0;
+                                          ^
+  symbol:   variable SensorOrientation
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:376: error: cannot find symbol
+        IVirtualCameraService expectedService;
+        ^
+  symbol:   class IVirtualCameraService
+  location: class VirtualCameraRelay
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:695: error: cannot find symbol
+            facingMode = lensFacing == LensFacing.FRONT ? "user" : "environment";
+                                       ^
+  symbol:   variable LensFacing
+  location: class VirtualCameraRelay.CameraRegistration
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MicDemandMonitor.java:67: error: constructor AudioManager in class AudioManager cannot be applied to given types;
+            AudioManager manager = new AudioManager(FakeContext.get());
+                                   ^
+  required: no arguments
+  found:    FakeContext
+  reason: actual and formal argument lists differ in length
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MicDemandMonitor.java:108: error: cannot find symbol
+            return config.getClientUid() != Process.myUid();
+                         ^
+  symbol:   method getClientUid()
+  location: variable config of type AudioRecordingConfiguration
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MediaCodecVideoPlayer.java:109: warning: [deprecation] INFO_OUTPUT_BUFFERS_CHANGED in MediaCodec has been deprecated
+                        || outputIndex == MediaCodec.INFO_OUTPUT_BUFFERS_CHANGED) {
+                                                    ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MediaCodecInfoLister.java:61: warning: [deprecation] COLOR_FormatYUV420Planar in CodecCapabilities has been deprecated
+            case MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Planar:
+                                                 ^
+/private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MediaCodecInfoLister.java:63: warning: [deprecation] COLOR_FormatYUV420SemiPlanar in CodecCapabilities has been deprecated
+            case MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar:
+                                                 ^
+/private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:18: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:24: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:29: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+38 errors
+3 warnings
+
+> Task :server:mergeExtDexDebug
+
+[Incubating] Problems report is available at: file:///private/tmp/agent-device-sync-android-base/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':server:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler output below.
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MicDemandMonitor.java:67: error: constructor AudioManager in class AudioManager cannot be applied to given types;
+              AudioManager manager = new AudioManager(FakeContext.get());
+                                     ^
+    required: no arguments
+    found:    FakeContext
+    reason: actual and formal argument lists differ in length
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MediaCodecVideoPlayer.java:109: warning: [deprecation] INFO_OUTPUT_BUFFERS_CHANGED in MediaCodec has been deprecated
+                          || outputIndex == MediaCodec.INFO_OUTPUT_BUFFERS_CHANGED) {
+                                                      ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MediaCodecInfoLister.java:61: warning: [deprecation] COLOR_FormatYUV420Planar in CodecCapabilities has been deprecated
+              case MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Planar:
+                                                   ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MediaCodecInfoLister.java:63: warning: [deprecation] COLOR_FormatYUV420SemiPlanar in CodecCapabilities has been deprecated
+              case MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar:
+                                                   ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:66: error: cannot find symbol
+      private IVirtualCameraService service;
+              ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:266: error: cannot find symbol
+      private void registerCameras(IVirtualCameraService expectedService,
+                                   ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:300: error: cannot find symbol
+      private CameraRegistration registerCamera(IVirtualCameraService expectedService,
+                                                ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:400: error: cannot find symbol
+      private void onServiceDied(IBinder deadBinder, IVirtualCameraService deadService) {
+                                                     ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:411: error: cannot find symbol
+      private void clearService(IVirtualCameraService expectedService) {
+                                ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:450: error: cannot find symbol
+      private boolean unregisterAllCameras(IVirtualCameraService expectedService, boolean onlyIfIdle) {
+                                           ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:663: error: cannot find symbol
+          private final IVirtualCameraService registrationService;
+                        ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay.CameraRegistration
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:674: error: cannot find symbol
+          private final IVirtualCameraCallback callback = new VirtualCameraCallback(new StreamListener() {
+                        ^
+    symbol:   class IVirtualCameraCallback
+    location: class VirtualCameraRelay.CameraRegistration
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:692: error: cannot find symbol
+          private CameraRegistration(IVirtualCameraService registrationService, int lensFacing) {
+                                     ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay.CameraRegistration
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:233: error: cannot find symbol
+          IVirtualCameraService connected = null;
+          ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:235: error: cannot find symbol
+              IBinder binder = android.os.ServiceManager.waitForService(SERVICE_NAME);
+                                         ^
+    symbol:   class ServiceManager
+    location: package android.os
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:241: error: cannot find symbol
+              IVirtualCameraService connectedService = connected;
+              ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:268: error: cannot find symbol
+          CameraRegistration front = registerCamera(expectedService, LensFacing.FRONT,
+                                                                     ^
+    symbol:   variable LensFacing
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:275: error: cannot find symbol
+              back = registerCamera(expectedService, LensFacing.BACK,
+                                                     ^
+    symbol:   variable LensFacing
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:303: error: cannot find symbol
+          SupportedStreamConfiguration streamConfig = new SupportedStreamConfiguration();
+          ^
+    symbol:   class SupportedStreamConfiguration
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:303: error: cannot find symbol
+          SupportedStreamConfiguration streamConfig = new SupportedStreamConfiguration();
+                                                          ^
+    symbol:   class SupportedStreamConfiguration
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:306: error: cannot find symbol
+          streamConfig.pixelFormat = Format.RGBA_8888;
+                                     ^
+    symbol:   variable Format
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:308: error: cannot find symbol
+          VirtualCameraConfiguration configuration = new VirtualCameraConfiguration();
+          ^
+    symbol:   class VirtualCameraConfiguration
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:308: error: cannot find symbol
+          VirtualCameraConfiguration configuration = new VirtualCameraConfiguration();
+                                                         ^
+    symbol:   class VirtualCameraConfiguration
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:309: error: cannot find symbol
+          configuration.supportedStreamConfigs = new SupportedStreamConfiguration[]{streamConfig};
+                                                     ^
+    symbol:   class SupportedStreamConfiguration
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:311: error: cannot find symbol
+          configuration.sensorOrientation = SensorOrientation.ORIENTATION_0;
+                                            ^
+    symbol:   variable SensorOrientation
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:376: error: cannot find symbol
+          IVirtualCameraService expectedService;
+          ^
+    symbol:   class IVirtualCameraService
+    location: class VirtualCameraRelay
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:695: error: cannot find symbol
+              facingMode = lensFacing == LensFacing.FRONT ? "user" : "environment";
+                                         ^
+    symbol:   variable LensFacing
+    location: class VirtualCameraRelay.CameraRegistration
+  /private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:18: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:24: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:29: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/MicDemandMonitor.java:108: error: cannot find symbol
+              return config.getClientUid() != Process.myUid();
+                           ^
+    symbol:   method getClientUid()
+    location: variable config of type AudioRecordingConfiguration
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:3: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.Format;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:4: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.IVirtualCameraCallback;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:5: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.IVirtualCameraService;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:6: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.LensFacing;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:7: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.SensorOrientation;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:8: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.SupportedStreamConfiguration;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:9: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.VirtualCameraConfiguration;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:3: error: package android.companion.virtualcamera does not exist
+  import android.companion.virtualcamera.IVirtualCameraCallback;
+                                        ^
+  /private/tmp/agent-device-sync-android-base/server/src/virtual_camera_legacy_api/java/com/genymobile/scrcpy/webrtc/VirtualCameraCallback.java:11: error: package IVirtualCameraCallback does not exist
+  final class VirtualCameraCallback extends IVirtualCameraCallback.Stub {
+                                                                  ^
+  /private/tmp/agent-device-sync-android-base/server/src/main/java/com/genymobile/scrcpy/webrtc/VirtualCameraRelay.java:240: error: package IVirtualCameraService does not exist
+              connected = IVirtualCameraService.Stub.asInterface(binder);
+                                               ^
+  38 errors
+  3 warnings
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 2s
+33 actionable tasks: 33 executed
+Configuration cache entry stored.

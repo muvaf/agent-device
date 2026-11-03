@@ -1,0 +1,2 @@
+$ node --experimental-strip-types scripts/check-packaged-runner-swift.ts
+packaged runner Swift: ok — 66 files keep the checkout's line numbering; all 66 parse under swiftc -parse.

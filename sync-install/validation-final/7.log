@@ -1,0 +1,52 @@
+$ fallow audit --base c3c281fb4c782fd19023f4bb3a43570d023a54c9
+loaded config: /private/tmp/agent-device-sync-validation/.fallowrc.json
+   0.724166375s  WARN Skipped 2 package.json entry points outside project root or containing parent directory traversal: ./node_modules/oxfmt/bin/oxfmt (2x)
+   0.748272750s  WARN Graph cache decoded but not reused: resolver, entry points, or plugins changed
+Comparing against health baseline: /private/tmp/agent-device-sync-validation/fallow-baselines/health.json
+
+Audit scope: 20 changed files vs c3c281fb4c782fd19023f4bb3a43570d023a54c9 (e95f827bc..HEAD)
+
+── Dead Code ──────────────────────────────────────
+
+■ Metrics: dead code 7 · complexity 0 · duplication 2
+── Dependencies ─────────────────────────────────────
+
+● Unused devDependencies (6)
+  @types/json-schema
+  ipaddr.js (package.json; declared and imported in packages/provision-kit)
+  jpeg-js (package.json; declared and imported in packages/capture-kit)
+  pngjs (package.json; declared and imported in packages/capture-kit)
+  undici (package.json; declared and imported in packages/maestro +1 more)
+  yauzl (package.json; declared and imported in packages/host-kit)
+  Listed in devDependencies but never imported or referenced
+  https://fallow.tools/docs/explanations/dead-code/#unused-dependencies
+
+● Dev dependencies used in production (consider moving to dependencies) (1)
+  oxc-parser
+
+⚠ 6 dev/optional dependencies · 1 dev dependency in production (1.93s)
+  7 issues · 7 suppressed · 0 stale suppressions
+
+── Duplication ────────────────────────────────────
+note: module wiring excluded from clones
+  (duplicates.ignoreImports: false to include it)
+
+⚠ 96 lines (0.0%) duplicated across 4 files (0.12s)
+
+── Styling ────────────────────────────────────────
+⚠ dead code: 7 issues · duplication: 2 clone groups (warn) · 20 changed files (2.96s)
+  audit gate excluded 8 inherited findings (run with --gate all to enforce)
+● Duplicates (2 clone groups)
+
+     45 lines  2 instances  spread 4  dup:1dd7c3c3
+    packages/provider-limrun/src/runtime-dependencies.fixtures.ts:28-66
+    src/platform-runtime-gateway.fixtures.ts:214-258
+
+      6 lines  2 instances  spread 4  dup:ce899a84
+    packages/provider-limrun/src/runtime.ts:841-846
+    packages/provider-revyl/src/runtime.ts:336-341
+
+  Duplicate code blocks
+  https://fallow.tools/docs/explanations/duplication/#clone-groups
+
+  31 styling candidates (run `fallow health --css` for detail)

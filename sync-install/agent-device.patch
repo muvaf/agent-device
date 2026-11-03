@@ -1,0 +1,1111 @@
+diff --git a/packages/provider-limrun/src/android.ts b/packages/provider-limrun/src/android.ts
+index e532f5e51..995aaa3e3 100644
+--- a/packages/provider-limrun/src/android.ts
++++ b/packages/provider-limrun/src/android.ts
+@@ -1,6 +1,4 @@
+-import path from 'node:path';
+ import { AsyncLocalStorage } from 'node:async_hooks';
+-import type Limrun from '@limrun/api';
+ import {
+   createInstanceClient as createAndroidInstanceClient,
+   type InstanceClient as LimrunAndroidClient,
+@@ -114,7 +112,6 @@ export function createLimrunAndroidInteractor(session: LimrunAndroidSession): In
+ }
+ 
+ export async function installLimrunAndroidApp(
+-  limrun: Limrun,
+   session: LimrunAndroidSession,
+   installablePath: string,
+   options?: ProviderDeviceInstallOptions,
+@@ -122,31 +119,19 @@ export async function installLimrunAndroidApp(
+   operationDrain?: LimrunRequestOperationDrain,
+ ): Promise<ProviderDeviceInstallResult> {
+   signal?.throwIfAborted();
+-  const packageName = normalizeOptionalString(options?.packageNameHint);
+-  if (options?.relaunch && packageName) {
+-    await session.dependencies.android.forceStopApp(
+-      async (adbArgs, adbOptions) => await runLimrunAndroidAdb(session, adbArgs, adbOptions),
+-      packageName,
+-      signal,
+-    );
+-  }
+-  const asset = await awaitLimrunDeploymentOperation(
+-    operationDrain,
+-    limrun.assets.getOrUpload(
+-      {
+-        path: installablePath,
+-        name: buildAndroidAssetName(packageName, installablePath),
+-      },
+-      { signal },
+-    ),
+-    signal,
+-  );
+-  await awaitLimrunDeploymentOperation(
++  // The shared deployment owner must retain the artifact until sync finishes reading it.
++  const result = await awaitLimrunDeploymentOperation(
+     operationDrain,
+-    session.client.sendAsset(asset.signedDownloadUrl),
+-    signal,
++    session.client.syncApp(installablePath, {
++      install: true,
++      watch: false,
++      launchMode: options?.relaunch ? 'RelaunchIfRunning' : 'None',
++    }),
+   );
+   signal?.throwIfAborted();
++  const packageName =
++    normalizeOptionalString(result.installedBundleId) ??
++    normalizeOptionalString(options?.packageNameHint);
+   const appName = packageName
+     ? await session.dependencies.android.inferAppName(packageName)
+     : undefined;
+@@ -364,9 +349,3 @@ function tcpEndpoint(port: number): LimrunPortReverseEndpoint {
+   }
+   return `tcp:${port}`;
+ }
+-
+-function buildAndroidAssetName(packageName: string | undefined, artifactPath: string): string {
+-  const extension = path.extname(artifactPath) || '.apk';
+-  const prefix = packageName?.replaceAll(/[^a-zA-Z0-9_.-]+/g, '-') || 'android-app';
+-  return `${prefix}${extension}`;
+-}
+diff --git a/packages/provider-limrun/src/deployment-runtime.ts b/packages/provider-limrun/src/deployment-runtime.ts
+index 6445754a2..720dbf6c9 100644
+--- a/packages/provider-limrun/src/deployment-runtime.ts
++++ b/packages/provider-limrun/src/deployment-runtime.ts
+@@ -5,7 +5,10 @@ import type {
+ import { unavailableFact } from '@agent-device/contracts/platform-runtime';
+ import type { DeviceInfo } from '@agent-device/kernel/device';
+ import { AppError } from '@agent-device/kernel/errors';
+-import type { LimrunRequestOperationDrain } from './request-cancellation.ts';
++import {
++  awaitLimrunDeploymentOperation,
++  type LimrunRequestOperationDrain,
++} from './request-cancellation.ts';
+ import { isSupportedLimrunRuntimeDevice } from './runtime-device.ts';
+ 
+ const available = Object.freeze({ available: true } as const);
+@@ -95,7 +98,8 @@ export function createLimrunAppDeploymentOperations(
+           },
+         }
+       : {}),
+-    deployApp: async (input) => (await load()).deployApp(input),
++    deployApp: async (input) =>
++      awaitLimrunDeploymentOperation(operationDrain, (await load()).deployApp(input), signal),
+     materializeAppSource: async (input) => (await load()).materializeAppSource(input),
+     deployMaterializedApp: async (input) => (await load()).deployMaterializedApp(input),
+     uninstallApp: async (input) => (await load()).uninstallApp(input),
+diff --git a/packages/provider-limrun/src/device-session.test.ts b/packages/provider-limrun/src/device-session.test.ts
+index 4b828f96a..61deec478 100644
+--- a/packages/provider-limrun/src/device-session.test.ts
++++ b/packages/provider-limrun/src/device-session.test.ts
+@@ -64,7 +64,7 @@ const TEST_DEPENDENCIES = {
+   },
+   host: {
+     runAdb: async () => adbResult(''),
+-    archiveDirectory: async () => undefined,
++
+     downloadFile,
+   },
+   ios: {
+diff --git a/packages/provider-limrun/src/ios.ts b/packages/provider-limrun/src/ios.ts
+index 5bcebd6eb..53fe0b138 100644
+--- a/packages/provider-limrun/src/ios.ts
++++ b/packages/provider-limrun/src/ios.ts
+@@ -7,13 +7,11 @@ import type {
+ import type { Interactor, RunnerContext } from '@agent-device/contracts/interactor-types';
+ import type { DeviceInfo } from '@agent-device/kernel/device';
+ import { AppError } from '@agent-device/kernel/errors';
+-import type Limrun from '@limrun/api';
+ import {
+   createInstanceClient as createIosInstanceClient,
+   type InstanceClient as LimrunIosClient,
+ } from '@limrun/api/ios-client';
+ import fs from 'node:fs';
+-import os from 'node:os';
+ import path from 'node:path';
+ import { setTimeout as sleep } from 'node:timers/promises';
+ import { normalizeOptionalString } from './strings.ts';
+@@ -77,7 +75,6 @@ export async function createLimrunIosSession(
+ }
+ 
+ export async function installLimrunIosApp(
+-  limrun: Limrun,
+   session: LimrunIosSession,
+   installablePath: string,
+   options?: ProviderDeviceInstallOptions,
+@@ -85,39 +82,36 @@ export async function installLimrunIosApp(
+   operationDrain?: LimrunRequestOperationDrain,
+ ): Promise<ProviderDeviceInstallResult> {
+   signal?.throwIfAborted();
+-  const prepared = await prepareLimrunIosAsset(installablePath, session.dependencies);
+-  try {
+-    signal?.throwIfAborted();
+-    const asset = await awaitLimrunDeploymentOperation(
+-      operationDrain,
+-      limrun.assets.getOrUpload(
+-        {
+-          path: prepared.uploadPath,
+-          name: prepared.assetName,
+-        },
+-        { signal },
+-      ),
+-      signal,
+-    );
+-    const result = await installLimrunIosRemoteApp(
+-      session,
+-      asset.signedDownloadUrl,
+-      {
+-        md5: asset.md5,
+-        relaunch: options?.relaunch,
+-        appIdentifierHint: options?.appIdentifierHint,
+-      },
+-      signal,
+-      operationDrain,
+-    );
+-    const bundleId = result.appId;
+-    return {
+-      ...(bundleId ? { bundleId, launchTarget: bundleId } : {}),
+-      ...(prepared.appName ? { appName: prepared.appName } : {}),
+-    };
+-  } finally {
+-    await prepared.cleanup();
+-  }
++  const stat = await fs.promises.stat(installablePath);
++  const appName =
++    (stat.isDirectory()
++      ? await session.dependencies.ios.readBundleAppName(installablePath)
++      : undefined) ?? inferAppNameFromPath(installablePath);
++  const result = await verifyLimrunIosInstall(
++    session,
++    async () => {
++      signal?.throwIfAborted();
++      // The shared deployment owner must retain the artifact until sync finishes reading it.
++      const synced = await awaitLimrunDeploymentOperation(
++        operationDrain,
++        session.client.syncApp(installablePath, {
++          install: true,
++          watch: false,
++          launchMode: options?.relaunch ? 'RelaunchIfRunning' : 'None',
++        }),
++      );
++      signal?.throwIfAborted();
++      return synced.installedBundleId;
++    },
++    options,
++    signal,
++    operationDrain,
++  );
++  const bundleId = result.appId;
++  return {
++    ...(bundleId ? { bundleId, launchTarget: bundleId } : {}),
++    ...(appName ? { appName } : {}),
++  };
+ }
+ 
+ export async function installLimrunIosRemoteApp(
+@@ -126,6 +120,32 @@ export async function installLimrunIosRemoteApp(
+   options?: LimrunIosRemoteInstallOptions,
+   signal?: AbortSignal,
+   operationDrain?: LimrunRequestOperationDrain,
++): Promise<LimrunIosRemoteInstallResult> {
++  return await verifyLimrunIosInstall(
++    session,
++    async () => {
++      const result = await awaitLimrunDeploymentOperation(
++        operationDrain,
++        session.client.installApp(url, {
++          // The server's digest cache survives uninstall, so every requested install must run.
++          launchMode: options?.relaunch ? 'RelaunchIfRunning' : undefined,
++        }),
++        signal,
++      );
++      return result.bundleId;
++    },
++    options,
++    signal,
++    operationDrain,
++  );
++}
++
++async function verifyLimrunIosInstall(
++  session: LimrunIosSession,
++  install: () => Promise<string | undefined>,
++  options?: LimrunIosRemoteInstallOptions,
++  signal?: AbortSignal,
++  operationDrain?: LimrunRequestOperationDrain,
+ ): Promise<LimrunIosRemoteInstallResult> {
+   signal?.throwIfAborted();
+   const beforeInstallApps = await awaitLimrunDeploymentOperation(
+@@ -136,15 +156,7 @@ export async function installLimrunIosRemoteApp(
+     if (signal?.aborted) throw error;
+     return undefined;
+   });
+-  const result = await awaitLimrunDeploymentOperation(
+-    operationDrain,
+-    session.client.installApp(url, {
+-      // The server's digest cache survives uninstall, so every requested install must run.
+-      launchMode: options?.relaunch ? 'RelaunchIfRunning' : undefined,
+-    }),
+-    signal,
+-  );
+-  const resultBundleId = normalizeOptionalString(result.bundleId);
++  const resultBundleId = normalizeOptionalString(await install());
+   const requestedBundleId = normalizeOptionalString(options?.appIdentifierHint);
+   let afterInstallApps: LimrunIosApp[] = [];
+   for (const delayMs of IOS_APP_INVENTORY_RETRY_DELAYS_MS) {
+@@ -249,49 +261,6 @@ class LimrunIosHostInteractor {
+   }
+ }
+ 
+-async function prepareLimrunIosAsset(
+-  artifactPath: string,
+-  dependencies: Pick<LimrunRuntimeDependencies, 'host' | 'ios'>,
+-): Promise<{
+-  uploadPath: string;
+-  assetName: string;
+-  appName?: string;
+-  cleanup: () => Promise<void>;
+-}> {
+-  const stat = await fs.promises.stat(artifactPath);
+-  if (!stat.isDirectory()) {
+-    return {
+-      uploadPath: artifactPath,
+-      assetName: path.basename(artifactPath),
+-      appName: inferAppNameFromPath(artifactPath),
+-      cleanup: async () => {},
+-    };
+-  }
+-
+-  const tempDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'agent-device-limrun-ios-app-'));
+-  const zipPath = path.join(tempDir, `${path.basename(artifactPath)}.zip`);
+-  try {
+-    await dependencies.host.archiveDirectory({
+-      sourceDirectory: path.dirname(artifactPath),
+-      entryName: path.basename(artifactPath),
+-      archivePath: zipPath,
+-    });
+-  } catch (error) {
+-    await fs.promises.rm(tempDir, { recursive: true, force: true });
+-    throw error;
+-  }
+-  return {
+-    uploadPath: zipPath,
+-    assetName: path.basename(zipPath),
+-    appName:
+-      (await dependencies.ios.readBundleAppName(artifactPath)) ??
+-      inferAppNameFromPath(artifactPath),
+-    cleanup: async () => {
+-      await fs.promises.rm(tempDir, { recursive: true, force: true });
+-    },
+-  };
+-}
+-
+ function inferAppNameFromPath(appPath: string): string | undefined {
+   const base = path.basename(appPath).replace(/\.(?:app|ipa|apk|aab|zip)$/i, '');
+   return base || undefined;
+diff --git a/packages/provider-limrun/src/request-cancellation.ts b/packages/provider-limrun/src/request-cancellation.ts
+index 5b5a66646..f1b8c3d43 100644
+--- a/packages/provider-limrun/src/request-cancellation.ts
++++ b/packages/provider-limrun/src/request-cancellation.ts
+@@ -1,5 +1,5 @@
+ /**
+- * The Limrun WebSocket client does not expose an AbortSignal parameter. Keep the request-bound
++ * The Limrun SDK does not expose an AbortSignal parameter. Keep the request-bound
+  * caller cancellable while retaining a handled continuation for the provider operation it started.
+  */
+ async function awaitLimrunOperation<Value>(
+@@ -48,7 +48,7 @@ async function awaitLimrunOperation<Value>(
+ }
+ 
+ /**
+- * Request-local ownership for an opaque Limrun WebSocket operation. A caller can observe its own
++ * Request-local ownership for an opaque Limrun SDK operation. A caller can observe its own
+  * abort immediately, but a bound runtime does not release the provider session until every
+  * accepted operation has settled. This is deliberately not a durable resource or daemon policy.
+  */
+diff --git a/packages/provider-limrun/src/runtime-dependencies.fixtures.ts b/packages/provider-limrun/src/runtime-dependencies.fixtures.ts
+index 47eeb023c..7a76db2c0 100644
+--- a/packages/provider-limrun/src/runtime-dependencies.fixtures.ts
++++ b/packages/provider-limrun/src/runtime-dependencies.fixtures.ts
+@@ -55,7 +55,7 @@ export function stubLimrunRuntimeDependencies(): LimrunRuntimeDependencies {
+     },
+     host: {
+       runAdb: async () => ({ stdout: '', stderr: '', exitCode: 0 }),
+-      archiveDirectory: async () => undefined,
++
+       downloadFile: async () => undefined,
+     },
+     ios: {
+diff --git a/packages/provider-limrun/src/runtime-dependencies.test.ts b/packages/provider-limrun/src/runtime-dependencies.test.ts
+index 375fd8c12..8db6f1a6b 100644
+--- a/packages/provider-limrun/src/runtime-dependencies.test.ts
++++ b/packages/provider-limrun/src/runtime-dependencies.test.ts
+@@ -354,7 +354,7 @@ function createContractFixture() {
+         adbCalls.push([...serializeAndroidAdbInvocation(invocation)]);
+         return { stdout: '', stderr: '', exitCode: 0 };
+       },
+-      archiveDirectory: async () => undefined,
++
+       downloadFile: async () => undefined,
+     },
+     ios: {
+diff --git a/packages/provider-limrun/src/runtime-dependencies.ts b/packages/provider-limrun/src/runtime-dependencies.ts
+index 1d511a3a5..c4db6894d 100644
+--- a/packages/provider-limrun/src/runtime-dependencies.ts
++++ b/packages/provider-limrun/src/runtime-dependencies.ts
+@@ -156,11 +156,6 @@ export type LimrunHostAdapter = {
+     invocation: AndroidAdbInvocation,
+     options?: LimrunAdbCommandOptions,
+   ): Promise<LimrunAdbCommandResult>;
+-  archiveDirectory(options: {
+-    sourceDirectory: string;
+-    entryName: string;
+-    archivePath: string;
+-  }): Promise<void>;
+   downloadFile(options: LimrunFileDownload): Promise<void>;
+ };
+ 
+diff --git a/packages/provider-limrun/src/runtime.ts b/packages/provider-limrun/src/runtime.ts
+index 489be51aa..7be1b4c62 100644
+--- a/packages/provider-limrun/src/runtime.ts
++++ b/packages/provider-limrun/src/runtime.ts
+@@ -299,17 +299,9 @@ class LimrunRuntimeImplementation implements ProviderDeviceRuntime {
+   ): Promise<ProviderDeviceInstallResult | undefined> {
+     const session = this.getSessionForDevice(device);
+     if (!session) return undefined;
+-    const limrun = this.orgClient('Uploading an app');
+     return session.platform === 'ios'
+-      ? await installLimrunIosApp(limrun, session, installablePath, options, signal, operationDrain)
+-      : await installLimrunAndroidApp(
+-          limrun,
+-          session,
+-          installablePath,
+-          options,
+-          signal,
+-          operationDrain,
+-        );
++      ? await installLimrunIosApp(session, installablePath, options, signal, operationDrain)
++      : await installLimrunAndroidApp(session, installablePath, options, signal, operationDrain);
+   }
+ 
+   async configurePortReverse(
+diff --git a/src/__tests__/limrun-runtime.test.ts b/src/__tests__/limrun-runtime.test.ts
+index d82497f23..be9ef315c 100644
+--- a/src/__tests__/limrun-runtime.test.ts
++++ b/src/__tests__/limrun-runtime.test.ts
+@@ -29,6 +29,8 @@ const limrunMockState = vi.hoisted(() => {
+       bundleId: 'com.example.ios',
+       url: 'https://assets.example/app',
+     })),
++    iosSyncApp: vi.fn(async () => ({ installedBundleId: 'com.example.ios' })),
++    androidSyncApp: vi.fn(async () => ({ installedBundleId: 'com.example.android' })),
+     iosSimctl: vi.fn(),
+     iosLaunchApp: vi.fn(async () => undefined),
+     iosOpenUrl: vi.fn(async () => undefined),
+@@ -111,6 +113,7 @@ vi.mock('@limrun/api/ios-client', async (importOriginal) => {
+     createInstanceClient: vi.fn(async () => ({
+       disconnect: vi.fn(),
+       installApp: limrunMockState.iosInstallApp,
++      syncApp: limrunMockState.iosSyncApp,
+       launchApp: limrunMockState.iosLaunchApp,
+       openUrl: limrunMockState.iosOpenUrl,
+       listApps: limrunMockState.iosListApps,
+@@ -131,6 +134,7 @@ vi.mock('@limrun/api/instance-client', () => ({
+     keepAlive: limrunMockState.androidKeepAlive,
+     openUrl: limrunMockState.androidOpenUrl,
+     sendAsset: limrunMockState.androidSendAsset,
++    syncApp: limrunMockState.androidSyncApp,
+     startAdbTunnel: limrunMockState.androidStartAdbTunnel,
+   })),
+ }));
+@@ -439,7 +443,7 @@ function assertAndroidTunnelLifecycle(openUrl: string): void {
+   assert.equal(limrunMockState.androidTunnelClose.mock.calls.length, 1);
+ }
+ 
+-test('Limrun Android installs direct local artifacts through Limrun assets', async () => {
++test('Limrun Android syncs direct local artifacts', async () => {
+   const runtime = new LimrunRuntime({
+     apiKey: 'lim_test_key',
+   });
+@@ -472,15 +476,11 @@ test('Limrun Android installs direct local artifacts through Limrun assets', asy
+       '/tmp/app-debug.apk',
+     );
+ 
+-    const assetCalls = limrunMockState.assetsGetOrUpload.mock.calls as unknown as Array<
+-      [Record<string, unknown>]
+-    >;
+-    assert.deepEqual(assetCalls[0]?.[0], {
+-      path: '/tmp/app-debug.apk',
+-      name: 'com.example.android.apk',
+-    });
+-    assert.deepEqual(limrunMockState.androidSendAsset.mock.calls[0], [
+-      'https://assets.example/app',
++    assert.equal(limrunMockState.assetsGetOrUpload.mock.calls.length, 0);
++    assert.equal(limrunMockState.androidSendAsset.mock.calls.length, 0);
++    assert.deepEqual(limrunMockState.androidSyncApp.mock.calls[0], [
++      '/tmp/app-debug.apk',
++      { install: true, watch: false, launchMode: 'None' },
+     ]);
+     assert.deepEqual(result, {
+       packageName: 'com.example.android',
+@@ -518,7 +518,7 @@ test('Limrun Android shares an in-flight ADB tunnel across concurrent port rever
+   }
+ });
+ 
+-test('Limrun iOS installs direct local artifacts through Limrun assets', async () => {
++test('Limrun iOS syncs direct local artifacts', async () => {
+   const tempRoot = mkdtempForTestSync('agent-device-limrun-install-');
+   const ipaPath = path.join(tempRoot, 'Demo.ipa');
+   fs.writeFileSync(ipaPath, 'demo');
+@@ -552,16 +552,11 @@ test('Limrun iOS installs direct local artifacts through Limrun assets', async (
+       { relaunch: true },
+     );
+ 
+-    const assetCalls = limrunMockState.assetsGetOrUpload.mock.calls as unknown as Array<
+-      [Record<string, unknown>]
+-    >;
+-    assert.deepEqual(assetCalls[0]?.[0], {
+-      path: ipaPath,
+-      name: 'Demo.ipa',
+-    });
+-    assert.deepEqual(limrunMockState.iosInstallApp.mock.calls[0], [
+-      'https://assets.example/app',
+-      { launchMode: 'RelaunchIfRunning' },
++    assert.equal(limrunMockState.assetsGetOrUpload.mock.calls.length, 0);
++    assert.equal(limrunMockState.iosInstallApp.mock.calls.length, 0);
++    assert.deepEqual(limrunMockState.iosSyncApp.mock.calls[0], [
++      ipaPath,
++      { install: true, watch: false, launchMode: 'RelaunchIfRunning' },
+     ]);
+     assert.deepEqual(result, {
+       bundleId: 'com.example.ios',
+@@ -574,7 +569,7 @@ test('Limrun iOS installs direct local artifacts through Limrun assets', async (
+   }
+ });
+ 
+-test('Limrun iOS reads the bundle display name before uploading an app bundle', async () => {
++test('Limrun iOS reads the bundle display name before syncing an app bundle', async () => {
+   const tempRoot = mkdtempForTestSync('agent-device-limrun-app-name-');
+   const appPath = path.join(tempRoot, 'Renamed.app');
+   fs.mkdirSync(appPath);
+@@ -935,11 +930,6 @@ test('Limrun without an API key refuses operations that need one', async () => {
+   const runtime = new LimrunRuntime({ instances: { ios: ATTACHED_IOS } });
+ 
+   try {
+-    const device = await allocateLimrunDevice(runtime, iosLease('lease-attached-ios'));
+-    await assert.rejects(runtime.installInstallablePath(device, '/tmp/Example.app'), {
+-      code: 'UNSUPPORTED_OPERATION',
+-      message: 'Uploading an app requires a Limrun API key.',
+-    });
+     await assert.rejects(allocateLimrunDevice(runtime, androidLease()), {
+       code: 'UNSUPPORTED_OPERATION',
+       message: 'Creating an instance requires a Limrun API key.',
+diff --git a/src/platform-runtime-gateway.fixtures.ts b/src/platform-runtime-gateway.fixtures.ts
+index 92ebe225d..7d296850b 100644
+--- a/src/platform-runtime-gateway.fixtures.ts
++++ b/src/platform-runtime-gateway.fixtures.ts
+@@ -249,7 +249,6 @@ export const limrunTestDependencies: LimrunRuntimeDependencies = {
+   host: {
+     runAdb: async () => ({ stdout: '', stderr: '', exitCode: 0 }),
+     downloadFile: async () => undefined,
+-    archiveDirectory: async () => {},
+   },
+   ios: {
+     createAppLogReader: ({ client }) => ({
+diff --git a/src/sdk/limrun-host-scope.test.ts b/src/sdk/limrun-host-scope.test.ts
+index 604664513..355c51dc8 100644
+--- a/src/sdk/limrun-host-scope.test.ts
++++ b/src/sdk/limrun-host-scope.test.ts
+@@ -1,5 +1,5 @@
+ import assert from 'node:assert/strict';
+-import { chmodSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
++import { chmodSync, mkdirSync, writeFileSync } from 'node:fs';
+ import path from 'node:path';
+ import { test } from 'vitest';
+ import { mkdtempForTestSync } from '@agent-device/test-kit';
+@@ -7,18 +7,18 @@ import { withCommandHost } from '@agent-device/host-kit/command';
+ import { createLimrunRuntimeDependencies } from './limrun-runtime-dependencies.ts';
+ 
+ test.skipIf(process.platform === 'win32')(
+-  'Limrun archive callbacks retain their owning host outside and across concurrent foreign scopes',
++  'Limrun ADB callbacks retain their owning host outside and across concurrent foreign scopes',
+   async () => {
+     const root = mkdtempForTestSync('agent-device-limrun-host-');
+     const bin = path.join(root, 'bin');
+     mkdirSync(bin);
+-    const zip = path.join(bin, 'zip');
++    const adb = path.join(bin, 'adb');
+     writeFileSync(
+-      zip,
++      adb,
+       `#!${process.execPath}\n` +
+-        `require('node:fs').writeFileSync(process.argv[3], JSON.stringify({args:process.argv.slice(2),host:process.env.LIMRUN_OWNER}));\n`,
++        `process.stdout.write(JSON.stringify({args:process.argv.slice(2),host:process.env.LIMRUN_OWNER}));\n`,
+     );
+-    chmodSync(zip, 0o755);
++    chmodSync(adb, 0o755);
+     const owner = (name: string) =>
+       createLimrunRuntimeDependencies({
+         env: { ...process.env, PATH: bin, LIMRUN_OWNER: name },
+@@ -26,35 +26,28 @@ test.skipIf(process.platform === 'win32')(
+       });
+     const first = owner('first');
+     const second = owner('second');
+-    const archive = (name: string) => ({
+-      sourceDirectory: root,
+-      entryName: 'Example.app',
+-      archivePath: path.join(root, `${name}.zip`),
+-    });
++    const invocation = {
++      target: { selector: { kind: 'unspecified' as const }, server: { kind: 'ambient' as const } },
++      command: ['devices'],
++    };
+     const previous = { PATH: process.env.PATH, LIMRUN_OWNER: process.env.LIMRUN_OWNER };
+     process.env.PATH = bin;
+     process.env.LIMRUN_OWNER = 'ambient';
+     try {
+-      const standalone = archive('standalone');
+-      await first.host.archiveDirectory(standalone);
+-      const left = archive('left'),
+-        right = archive('right');
+-      await withCommandHost(
++      const standalone = await first.host.runAdb(invocation);
++      const [left, right] = await withCommandHost(
+         {
+           host: { env: { ...process.env, PATH: bin, LIMRUN_OWNER: 'foreign' }, cwd: root },
+           requestEnv: { LIMRUN_OWNER: 'foreign-request' },
+         },
+-        () => Promise.all([first.host.archiveDirectory(left), second.host.archiveDirectory(right)]),
++        () => Promise.all([first.host.runAdb(invocation), second.host.runAdb(invocation)]),
+       );
+-      for (const [request, host] of [
++      for (const [result, host] of [
+         [standalone, 'first'],
+         [left, 'first'],
+         [right, 'second'],
+       ] as const) {
+-        assert.deepEqual(JSON.parse(readFileSync(request.archivePath, 'utf8')), {
+-          args: ['-qr', request.archivePath, 'Example.app'],
+-          host,
+-        });
++        assert.deepEqual(JSON.parse(result.stdout), { args: ['devices'], host });
+       }
+     } finally {
+       for (const [key, value] of Object.entries(previous)) {
+diff --git a/src/sdk/limrun-runtime-dependencies.ts b/src/sdk/limrun-runtime-dependencies.ts
+index a8920dece..5f469f7b8 100644
+--- a/src/sdk/limrun-runtime-dependencies.ts
++++ b/src/sdk/limrun-runtime-dependencies.ts
+@@ -1,7 +1,6 @@
+ import { createLimrunIosAppLogReader } from '../core/interactors/limrun-ios-app-logs.ts';
+ import type { HostEnvironment } from '@agent-device/kernel/source-value';
+ import { withMethodScope } from '@agent-device/kernel/scoped-provider';
+-import { AppError } from '@agent-device/kernel/errors';
+ import type { LimrunRuntimeDependencies } from '@agent-device/provider-limrun';
+ import '../platform-runtime-android-adb-host.ts';
+ // ProviderDeviceRuntime.getInteractor is synchronous, so this factory is the deliberate static edge;
+@@ -13,7 +12,7 @@ import {
+   androidAdbSerialTarget,
+   runAndroidHostAdb,
+ } from '@agent-device/platform-android/mechanics';
+-import { execFailureDetails, runCmd, withCommandHost } from '@agent-device/host-kit/command';
++import { withCommandHost } from '@agent-device/host-kit/command';
+ import { readVersion } from '@agent-device/host-kit/version';
+ 
+ export function createLimrunRuntimeDependencies(host: HostEnvironment): LimrunRuntimeDependencies {
+@@ -107,19 +106,6 @@ export function createLimrunRuntimeDependencies(host: HostEnvironment): LimrunRu
+           const { downloadLimrunFile } = await import('../core/limrun-download-file.ts');
+           await downloadLimrunFile(options);
+         },
+-        archiveDirectory: async ({ sourceDirectory, entryName, archivePath }) => {
+-          const args = ['-qr', archivePath, entryName];
+-          const result = await runCmd('zip', args, {
+-            cwd: sourceDirectory,
+-            timeoutMs: 120_000,
+-          });
+-          if (result.exitCode !== 0) {
+-            throw new AppError('COMMAND_FAILED', 'Failed to package iOS .app for Limrun install', {
+-              command: ['zip', ...args].join(' '),
+-              ...execFailureDetails(result),
+-            });
+-          }
+-        },
+       },
+       runOnHost,
+     ),
+diff --git a/test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts b/test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts
+index bc1783e96..7298f8a70 100644
+--- a/test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts
++++ b/test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts
+@@ -7,13 +7,6 @@ import { limrunTestDependencies } from '../../../src/platform-runtime-gateway.fi
+ import type { DeviceInfo } from '@agent-device/kernel/device';
+ import { mkdtempForTestSync } from '@agent-device/test-kit';
+ 
+-export type LimrunDeploymentAsset = { signedDownloadUrl: string; md5: string };
+-
+-export const LIMRUN_DEPLOYMENT_ASSET: LimrunDeploymentAsset = {
+-  signedDownloadUrl: 'https://assets.example.test/app',
+-  md5: 'asset-md5',
+-};
+-
+ export const LIMRUN_IOS_APPS = [
+   { bundleId: 'com.apple.Preferences', name: 'Settings', installType: 'System' },
+   { bundleId: 'com.example.ios', name: 'Example', installType: 'User' },
+@@ -24,23 +17,60 @@ export async function bindLimrunDeployment(
+   signal: AbortSignal,
+   ios: LimrunRuntimeDependencies['ios'] = limrunTestDependencies.ios,
+ ) {
+-  const registration = createLimrunRuntime({ apiKey: 'limrun-test-key' }, limrunDependencies(ios), {
+-    includePlatformModule: true,
+-  });
++  const registration = createLimrunRuntime(
++    {
++      instances: {
++        [platform]: {
++          apiUrl: 'https://limrun.example.test',
++          token: 'instance-token',
++          adbUrl: 'wss://limrun.example.test/adb',
++        },
++      },
++    },
++    limrunDependencies(ios),
++    {
++      includePlatformModule: true,
++    },
++  );
+   const device = await allocatedDevice(registration.runtime, lease(platform));
++  const events: string[] = [];
++  let artifactPath: string | undefined;
+   const deployment = {
+-    prepareArtifact: async (input: { source: { path: string } }) => ({
+-      installablePath: input.source.path,
+-      bundleId: 'com.example.ios',
+-      packageName: 'com.example.android',
+-      cleanup: async () => {},
+-    }),
++    resolveAppBundleId: async () => 'com.example.ios',
++    resolveAppPackage: async () => 'com.example.android',
++    prepareArtifact: async (input: { source: { path: string } }) => {
++      events.push('prepare');
++      artifactPath = input.source.path + '.prepared';
++      fs.copyFileSync(input.source.path, artifactPath);
++      const preparedPath = artifactPath;
++      return {
++        installablePath: preparedPath,
++        bundleId: 'com.example.ios',
++        packageName: 'com.example.android',
++        cleanup: async () => {
++          events.push('cleanup');
++          fs.rmSync(preparedPath);
++        },
++      };
++    },
+     withInvalidatedAppResolutionCache: async (
+       _device: unknown,
+       operation: () => Promise<unknown>,
+     ) => operation(),
+   };
+   const owner = await registration.platformModule.loadRuntime({
++    appleTools: {
++      run: async () => {
++        events.push('uninstall');
++        return { stdout: '', stderr: '', exitCode: 0 };
++      },
++    },
++    androidTools: {
++      runAdb: async () => {
++        events.push('uninstall');
++        return { stdout: '', stderr: '', exitCode: 0 };
++      },
++    },
+     appleDeployment: deployment,
+     androidDeployment: deployment,
+     deviceReadiness: {
+@@ -84,11 +114,18 @@ export async function bindLimrunDeployment(
+   };
+   return {
+     binding,
+-    deploy: async () =>
++    events,
++    artifactExists: () => artifactPath !== undefined && fs.existsSync(artifactPath),
++    materialize: async () => {
++      const materialize = binding.operations.materializeAppSource;
++      if (!materialize) throw new Error('Expected materialization operation');
++      return await materialize({ source: { kind: 'path', path: appPath } });
++    },
++    deploy: async (replaceExisting = false) =>
+       await deployApp({
+         app: platform === 'ios' ? 'com.example.ios' : 'com.example.android',
+         appPath,
+-        replaceExisting: false,
++        replaceExisting,
+       }),
+     shutdown,
+     dispose: async () => {
+@@ -165,7 +202,6 @@ function limrunDependencies(ios: LimrunRuntimeDependencies['ios']): LimrunRuntim
+     host: {
+       runAdb: async () => ({ stdout: '', stderr: '', exitCode: 0 }),
+       downloadFile: async () => undefined,
+-      archiveDirectory: async () => {},
+     },
+     ios,
+   };
+diff --git a/test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts b/test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts
+index f64f56fcf..944a45922 100644
+--- a/test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts
++++ b/test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts
+@@ -1,9 +1,7 @@
+ import { afterEach, expect, test, vi } from 'vitest';
+ import {
+   bindLimrunDeployment,
+-  LIMRUN_DEPLOYMENT_ASSET,
+   LIMRUN_IOS_APPS,
+-  type LimrunDeploymentAsset,
+ } from './limrun-deployment-cancellation.fixtures.ts';
+ 
+ const state = vi.hoisted(() => ({
+@@ -21,14 +19,14 @@ const state = vi.hoisted(() => ({
+   })),
+   androidDelete: vi.fn(async () => undefined),
+   androidDisconnect: vi.fn(async () => undefined),
+-  androidSendAsset: vi.fn(async (_url: string) => undefined),
++  androidSyncApp: vi.fn(async () => ({ installedBundleId: 'com.example.android' })),
+   iosCreate: vi.fn(async () => ({
+     metadata: { id: 'limrun-ios-instance' },
+     status: { token: 'instance-token', apiUrl: 'https://limrun.example.test' },
+   })),
+   iosDelete: vi.fn(async () => undefined),
+   iosDisconnect: vi.fn(async () => undefined),
+-  iosInstallApp: vi.fn(async () => ({ bundleId: 'com.example.ios' })),
++  iosSyncApp: vi.fn(async () => ({ installedBundleId: 'com.example.ios' })),
+   iosListApps: vi.fn(async () => [
+     { bundleId: 'com.apple.Preferences', name: 'Settings', installType: 'System' },
+     { bundleId: 'com.example.ios', name: 'Example', installType: 'User' },
+@@ -54,7 +52,7 @@ vi.mock('@limrun/api', () => ({
+ vi.mock('@limrun/api/instance-client', () => ({
+   createInstanceClient: vi.fn(async () => ({
+     disconnect: state.androidDisconnect,
+-    sendAsset: state.androidSendAsset,
++    syncApp: state.androidSyncApp,
+     setText: vi.fn(async () => undefined),
+     startAdbTunnel: vi.fn(async () => ({
+       address: { address: '127.0.0.1', port: 62_001 },
+@@ -66,7 +64,7 @@ vi.mock('@limrun/api/instance-client', () => ({
+ vi.mock('@limrun/api/ios-client', () => ({
+   createInstanceClient: vi.fn(async () => ({
+     disconnect: state.iosDisconnect,
+-    installApp: state.iosInstallApp,
++    syncApp: state.iosSyncApp,
+     listApps: state.iosListApps,
+     deviceInfo: { udid: 'ios-device', screenWidth: 402, screenHeight: 874, model: 'iPhone' },
+   })),
+@@ -76,160 +74,104 @@ afterEach(() => {
+   vi.clearAllMocks();
+ });
+ 
+-test('bound Limrun Android deployment cancels an in-flight getOrUpload call', async () => {
+-  const controller = new AbortController();
+-  const abortReason = new Error('cancel Android upload');
+-  const uploadStarted = deferred<void>();
+-  const upload = deferred<LimrunDeploymentAsset>();
+-  state.assetsGetOrUpload.mockImplementationOnce(() => {
+-    uploadStarted.resolve();
+-    return upload.promise;
+-  });
+-  const deployment = await bindLimrunDeployment('android', controller.signal);
+-
+-  try {
+-    const pending = deployment.deploy();
+-    await uploadStarted.promise;
+-    controller.abort(abortReason);
+-
+-    await expect(pending).rejects.toBe(abortReason);
+-    expect(uploadSignal()).toBe(controller.signal);
+-    expect(state.androidSendAsset).not.toHaveBeenCalled();
+-  } finally {
+-    upload.resolve(LIMRUN_DEPLOYMENT_ASSET);
+-    await deployment.dispose();
+-  }
+-});
+-
+-test('bound Limrun Android deployment cancels an in-flight sendAsset call', async () => {
+-  const controller = new AbortController();
+-  const abortReason = new Error('cancel Android send asset');
+-  const sendStarted = deferred<void>();
+-  const send = deferred<undefined>();
+-  state.androidSendAsset.mockImplementationOnce(() => {
+-    sendStarted.resolve();
+-    return send.promise;
+-  });
+-  const deployment = await bindLimrunDeployment('android', controller.signal);
+-  let bindingDisposed = false;
+-
+-  try {
+-    const pending = deployment.deploy();
+-    await sendStarted.promise;
+-    controller.abort(abortReason);
+-
+-    await expect(pending).rejects.toBe(abortReason);
+-    const disposing = deployment.binding[Symbol.asyncDispose]().then(() => {
+-      bindingDisposed = true;
++for (const platform of ['android', 'ios'] as const) {
++  const sync = platform === 'ios' ? state.iosSyncApp : state.androidSyncApp;
++  test(`Limrun ${platform} source install keeps caller-owned files until sync settles after cancellation`, async () => {
++    const controller = new AbortController();
++    const abortReason = new Error('cancel source install');
++    const started = deferred<void>();
++    const pendingSync = deferred<{ installedBundleId: string }>();
++    sync.mockImplementationOnce(() => {
++      started.resolve();
++      return pendingSync.promise;
+     });
+-    await waitForAsyncTurn();
+-
+-    expect(bindingDisposed).toBe(false);
+-    send.resolve(undefined);
+-    await disposing;
+-    expect(uploadSignal()).toBe(controller.signal);
+-    expect(state.androidSendAsset).toHaveBeenCalledWith(LIMRUN_DEPLOYMENT_ASSET.signedDownloadUrl);
+-  } finally {
+-    send.resolve(undefined);
+-    await deployment.dispose();
+-  }
+-});
+-
+-test('bound Limrun Android deployment handles a late sendAsset rejection after caller abort', async () => {
+-  const controller = new AbortController();
+-  const abortReason = new Error('cancel Android send asset');
+-  const lateProviderFailure = new Error('sendAsset rejected after caller cancellation');
+-  const sendStarted = deferred<void>();
+-  const send = deferred<undefined>();
+-  const unhandledRejections: unknown[] = [];
+-  const onUnhandledRejection = (reason: unknown) => unhandledRejections.push(reason);
+-  process.on('unhandledRejection', onUnhandledRejection);
+-  state.androidSendAsset.mockImplementationOnce(() => {
+-    sendStarted.resolve();
+-    return send.promise;
++    const deployment = await bindLimrunDeployment(platform, controller.signal);
++    const artifact = await deployment.materialize();
++    const install = deployment.binding.operations.deployMaterializedApp;
++    if (!install) throw new Error('Expected materialized deployment operation');
++    try {
++      const pending = install({ artifact }).finally(() => artifact.cleanup());
++      await started.promise;
++      controller.abort(abortReason);
++      await waitForAsyncTurn();
++      expect(deployment.artifactExists()).toBe(true);
++      pendingSync.resolve({ installedBundleId: `com.example.${platform}` });
++      await expect(pending).rejects.toBe(abortReason);
++      expect(deployment.artifactExists()).toBe(false);
++    } finally {
++      pendingSync.resolve({ installedBundleId: `com.example.${platform}` });
++      await deployment.dispose();
++    }
+   });
+-  const deployment = await bindLimrunDeployment('android', controller.signal);
+-  let bindingDisposed = false;
+-
+-  try {
+-    const pending = deployment.deploy();
+-    await sendStarted.promise;
+-    controller.abort(abortReason);
+ 
+-    await expect(pending).rejects.toBe(abortReason);
+-    const disposing = deployment.binding[Symbol.asyncDispose]().then(() => {
+-      bindingDisposed = true;
++  for (const replaceExisting of [false, true]) {
++    test(`Limrun ${platform} ${replaceExisting ? 'reinstall' : 'install'} syncs with instance credentials and leaves launch to open`, async () => {
++      const deployment = await bindLimrunDeployment(platform, new AbortController().signal);
++      sync.mockImplementationOnce(async () => {
++        expect(deployment.artifactExists()).toBe(true);
++        deployment.events.push('sync');
++        return { installedBundleId: `com.example.${platform}` };
++      });
++      try {
++        const result = await deployment.deploy(replaceExisting);
++        expect(result.launchTarget).toBe(`com.example.${platform}`);
++        expect(sync).toHaveBeenCalledWith(expect.any(String), {
++          install: true,
++          watch: false,
++          launchMode: 'None',
++        });
++        expect(deployment.events).toEqual([
++          ...(replaceExisting ? ['uninstall'] : []),
++          'prepare',
++          'sync',
++          'cleanup',
++        ]);
++        expect(deployment.artifactExists()).toBe(false);
++        expect(state.assetsGetOrUpload).not.toHaveBeenCalled();
++        expect(state.iosCreate).not.toHaveBeenCalled();
++        expect(state.androidCreate).not.toHaveBeenCalled();
++      } finally {
++        await deployment.dispose();
++      }
+     });
+-    await waitForAsyncTurn();
+-
+-    // The opaque WebSocket request has already been accepted by Limrun. The
+-    // caller may observe cancellation promptly, but request binding disposal
+-    // must retain ownership until that mutation settles.
+-    expect(bindingDisposed).toBe(false);
+-    send.reject(lateProviderFailure);
+-    await waitForAsyncTurn();
+-    expect(unhandledRejections).toEqual([]);
+-    await disposing;
+-  } finally {
+-    process.off('unhandledRejection', onUnhandledRejection);
+-    send.resolve(undefined);
+-    if (bindingDisposed) await deployment.dispose();
+-    else await deployment.shutdown();
+-  }
+-});
+-
+-test('bound Limrun iOS deployment cancels an in-flight getOrUpload call', async () => {
+-  const controller = new AbortController();
+-  const abortReason = new Error('cancel iOS upload');
+-  const uploadStarted = deferred<void>();
+-  const upload = deferred<LimrunDeploymentAsset>();
+-  state.assetsGetOrUpload.mockImplementationOnce(() => {
+-    uploadStarted.resolve();
+-    return upload.promise;
+-  });
+-  const deployment = await bindLimrunDeployment('ios', controller.signal);
+-
+-  try {
+-    const pending = deployment.deploy();
+-    await uploadStarted.promise;
+-    controller.abort(abortReason);
+-
+-    await expect(pending).rejects.toBe(abortReason);
+-    expect(uploadSignal()).toBe(controller.signal);
+-    expect(state.iosInstallApp).not.toHaveBeenCalled();
+-  } finally {
+-    upload.resolve(LIMRUN_DEPLOYMENT_ASSET);
+-    await deployment.dispose();
+   }
+-});
+-
+-test('bound Limrun iOS deployment cancels an in-flight installApp call', async () => {
+-  const controller = new AbortController();
+-  const abortReason = new Error('cancel iOS install');
+-  const installStarted = deferred<void>();
+-  const install = deferred<{ bundleId: string }>();
+-  state.iosListApps.mockResolvedValueOnce(LIMRUN_IOS_APPS);
+-  state.iosInstallApp.mockImplementationOnce(() => {
+-    installStarted.resolve();
+-    return install.promise;
+-  });
+-  const deployment = await bindLimrunDeployment('ios', controller.signal);
+-
+-  try {
+-    const pending = deployment.deploy();
+-    await installStarted.promise;
+-    controller.abort(abortReason);
+ 
+-    await expect(pending).rejects.toBe(abortReason);
+-    expect(uploadSignal()).toBe(controller.signal);
+-    expect(state.iosInstallApp).toHaveBeenCalledWith(LIMRUN_DEPLOYMENT_ASSET.signedDownloadUrl, {
+-      launchMode: undefined,
++  for (const fail of [false, true]) {
++    test(`Limrun ${platform} cancellation retains the materialized app until sync ${fail ? 'fails' : 'finishes'}`, async () => {
++      const controller = new AbortController();
++      const abortReason = new Error('cancel sync');
++      const started = deferred<void>();
++      const pendingSync = deferred<{ installedBundleId: string }>();
++      sync.mockImplementationOnce(() => {
++        started.resolve();
++        return pendingSync.promise;
++      });
++      const deployment = await bindLimrunDeployment(platform, controller.signal);
++      let disposed = false;
++      try {
++        const pending = deployment.deploy();
++        await started.promise;
++        controller.abort(abortReason);
++        await expect(pending).rejects.toBe(abortReason);
++        const disposing = deployment.binding[Symbol.asyncDispose]().then(() => {
++          disposed = true;
++        });
++        await waitForAsyncTurn();
++        expect(disposed).toBe(false);
++        expect(deployment.artifactExists()).toBe(true);
++        expect(deployment.events).toEqual(['prepare']);
++        if (fail) pendingSync.reject(new Error('late sync failure'));
++        else pendingSync.resolve({ installedBundleId: `com.example.${platform}` });
++        await disposing;
++        expect(deployment.artifactExists()).toBe(false);
++        expect(deployment.events).toEqual(['prepare', 'cleanup']);
++      } finally {
++        pendingSync.resolve({ installedBundleId: `com.example.${platform}` });
++        await deployment.dispose();
++      }
+     });
+-  } finally {
+-    install.resolve({ bundleId: 'com.example.ios' });
+-    await deployment.dispose();
+   }
+-});
++}
+ 
+ test('bound Limrun iOS deployment cancels an in-flight post-install listApps call', async () => {
+   const controller = new AbortController();
+@@ -250,8 +192,7 @@ test('bound Limrun iOS deployment cancels an in-flight post-install listApps cal
+     controller.abort(abortReason);
+ 
+     await expect(pending).rejects.toBe(abortReason);
+-    expect(uploadSignal()).toBe(controller.signal);
+-    expect(state.iosInstallApp).toHaveBeenCalledOnce();
++    expect(state.iosSyncApp).toHaveBeenCalledOnce();
+     expect(state.iosListApps).toHaveBeenCalledTimes(2);
+   } finally {
+     inventory.resolve(LIMRUN_IOS_APPS);
+@@ -259,13 +200,6 @@ test('bound Limrun iOS deployment cancels an in-flight post-install listApps cal
+   }
+ });
+ 
+-function uploadSignal(): AbortSignal | undefined {
+-  const options = state.assetsGetOrUpload.mock.calls[0]?.[1] as
+-    | { signal?: AbortSignal }
+-    | undefined;
+-  return options?.signal;
+-}
+-
+ function deferred<Value>() {
+   let resolve!: (value: Value) => void;
+   let reject!: (error: unknown) => void;
+diff --git a/test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts b/test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts
+index 14b3de844..4c20742f1 100644
+--- a/test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts
++++ b/test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts
+@@ -338,7 +338,6 @@ function limrunDependencies(): LimrunRuntimeDependencies {
+     host: {
+       runAdb: async () => ({ stdout: '', stderr: '', exitCode: 0 }),
+       downloadFile: async () => undefined,
+-      archiveDirectory: async () => {},
+     },
+     ios: limrunTestDependencies.ios,
+   };
+diff --git a/website/docs/docs/limrun.md b/website/docs/docs/limrun.md
+index 114bcfca9..71957bfcd 100644
+--- a/website/docs/docs/limrun.md
++++ b/website/docs/docs/limrun.md
+@@ -47,7 +47,7 @@ On an attached Android instance, agent-device does not replace an existing port
+ 
+ If your shell's account variables, or its instance variables for the platform you lease, differ from the ones the daemon started with, the first `install` or `open` refuses before it creates or attaches to an instance. See [Change credentials while the daemon runs](/docs/device-clouds#change-credentials-while-the-daemon-runs).
+ 
+-`install`, and `apps` before the first `open`, need `LIMRUN_API_KEY` because they use Limrun asset storage. After `open`, `apps` lists the apps installed on the instance without the key. Install your app before you hand over the instance. From the Node.js runtime, `getDeviceSession(device).installRemoteApp(url)` installs from a signed asset URL without the API key.
++`install` and `reinstall` sync local app files directly to the instance. Attached instances need only their URL and token for these commands. `apps` before the first `open` needs `LIMRUN_API_KEY` to list stored assets. After `open`, `apps` lists the apps installed on the instance without the key. From the Node.js runtime, `getDeviceSession(device).installRemoteApp(url)` installs from a signed asset URL without the API key.
+ 
+ ## Keep idle sessions alive
+ 
+@@ -90,7 +90,7 @@ agent-device disconnect
+ 
+ Use a selector from your app's snapshot in place of `Continue`.
+ 
+-On Android, agent-device connects to Limrun over an ADB tunnel. Snapshots use the Android snapshot helper, installs upload the app through Limrun asset storage, and port reverse runs over ADB, including the usual reverse setup for a local Metro server.
++On Android, agent-device connects to Limrun over an ADB tunnel. Snapshots use the Android snapshot helper, local installs use HTTP delta sync, and port reverse runs over ADB, including the usual reverse setup for a local Metro server.
+ 
+ ## Use an iOS simulator
+ 

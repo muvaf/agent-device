@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-sync-validation
+
+-··---··---
+
+ Test Files  1 passed (1)
+      Tests  4 passed | 7 skipped (11)
+   Start at  23:04:23
+   Duration  1.23s (tests 75%, transform 19%, import 5%, setup 1%)
+

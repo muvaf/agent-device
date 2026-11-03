@@ -1,0 +1,100 @@
+==> Running tests
+FAIL tests/sync-app-launch-mode.test.ts
+  ● ios sync launch mode › sends undefined on initial and unchanged installs
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ArrayContaining [ObjectContaining {"mode": 493, "path": "Demo", "size": 17}, ObjectContaining {"path": "Resources/icon.txt", "size": 15}]
+    Received: [{"mode": 420, "path": "Info.plist", "sha256": "819d3042b67ea07f26adc6c1e8c31268d6d83c3889548563cfd14a7ba45697ab", "size": 22}]
+
+      92 |         expect(requests[0]!.payloads.length).toBeGreaterThan(0);
+      93 |         if (platform === 'ios') {
+    > 94 |           expect(requests[0]!.files).toEqual(expect.arrayContaining([
+         |                                      ^
+      95 |             expect.objectContaining({ path: 'Demo', size: 17, mode: 0o755 }),
+      96 |             expect.objectContaining({ path: 'Resources/icon.txt', size: 15 }),
+      97 |           ]));
+
+      at tests/sync-app-launch-mode.test.ts:94:38
+
+  ● ios sync launch mode › sends None on initial and unchanged installs
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ArrayContaining [ObjectContaining {"mode": 493, "path": "Demo", "size": 17}, ObjectContaining {"path": "Resources/icon.txt", "size": 15}]
+    Received: [{"mode": 420, "path": "Info.plist", "sha256": "819d3042b67ea07f26adc6c1e8c31268d6d83c3889548563cfd14a7ba45697ab", "size": 22}]
+
+      92 |         expect(requests[0]!.payloads.length).toBeGreaterThan(0);
+      93 |         if (platform === 'ios') {
+    > 94 |           expect(requests[0]!.files).toEqual(expect.arrayContaining([
+         |                                      ^
+      95 |             expect.objectContaining({ path: 'Demo', size: 17, mode: 0o755 }),
+      96 |             expect.objectContaining({ path: 'Resources/icon.txt', size: 15 }),
+      97 |           ]));
+
+      at tests/sync-app-launch-mode.test.ts:94:38
+
+  ● ios sync launch mode › sends ForegroundIfRunning on initial and unchanged installs
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ArrayContaining [ObjectContaining {"mode": 493, "path": "Demo", "size": 17}, ObjectContaining {"path": "Resources/icon.txt", "size": 15}]
+    Received: [{"mode": 420, "path": "Info.plist", "sha256": "819d3042b67ea07f26adc6c1e8c31268d6d83c3889548563cfd14a7ba45697ab", "size": 22}]
+
+      92 |         expect(requests[0]!.payloads.length).toBeGreaterThan(0);
+      93 |         if (platform === 'ios') {
+    > 94 |           expect(requests[0]!.files).toEqual(expect.arrayContaining([
+         |                                      ^
+      95 |             expect.objectContaining({ path: 'Demo', size: 17, mode: 0o755 }),
+      96 |             expect.objectContaining({ path: 'Resources/icon.txt', size: 15 }),
+      97 |           ]));
+
+      at tests/sync-app-launch-mode.test.ts:94:38
+
+  ● ios sync launch mode › sends RelaunchIfRunning on initial and unchanged installs
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ArrayContaining [ObjectContaining {"mode": 493, "path": "Demo", "size": 17}, ObjectContaining {"path": "Resources/icon.txt", "size": 15}]
+    Received: [{"mode": 420, "path": "Info.plist", "sha256": "819d3042b67ea07f26adc6c1e8c31268d6d83c3889548563cfd14a7ba45697ab", "size": 22}]
+
+      92 |         expect(requests[0]!.payloads.length).toBeGreaterThan(0);
+      93 |         if (platform === 'ios') {
+    > 94 |           expect(requests[0]!.files).toEqual(expect.arrayContaining([
+         |                                      ^
+      95 |             expect.objectContaining({ path: 'Demo', size: 17, mode: 0o755 }),
+      96 |             expect.objectContaining({ path: 'Resources/icon.txt', size: 15 }),
+      97 |           ]));
+
+      at tests/sync-app-launch-mode.test.ts:94:38
+
+FAIL tests/folder-sync-symlink.test.ts
+  ● folder-sync symlinks › dereferencing rejects directory cycles before sending any files
+
+    expect(received).rejects.toThrow(expected)
+
+    Expected pattern: /symlink cycle/
+    Received message: "symlink ios/parent -> .. points outside the sync root; run the sync from the repo root that contains the target, remove the link, or pass --ignore to skip it"
+
+          316 |   const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(rel), target));
+          317 |   if (resolved === '.' || resolved === '..' || resolved.startsWith('../')) {
+        > 318 |     throw new Error(
+              |           ^
+          319 |       `symlink ${rel} -> ${target} points outside the sync root; ` +
+          320 |         'run the sync from the repo root that contains the target, remove the link, ' +
+          321 |         'or pass --ignore to skip it',
+
+      at validateSymlinkTarget (src/folder-sync.ts:318:11)
+      at walkFiles (src/folder-sync.ts:385:9)
+      at async syncFolderOnce (src/folder-sync.ts:710:17)
+      at async syncOnce (src/folder-sync.ts:602:20)
+      at async syncFolder (src/folder-sync.ts:612:12)
+      at async Object.<anonymous> (tests/folder-sync-symlink.test.ts:148:7)
+      at Object.toThrow (node_modules/expect/build/index.js:218:22)
+      at Object.<anonymous> (tests/folder-sync-symlink.test.ts:149:18)
+
+Test Suites: 2 failed, 2 total
+Tests:       5 failed, 17 passed, 22 total
+Snapshots:   0 total
+Time:        0.599 s, estimated 1 s
+Ran all test suites matching /tests\/sync-app-launch-mode.test.ts|tests\/folder-sync-symlink.test.ts/i.
