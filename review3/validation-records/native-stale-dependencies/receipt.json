@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "cwd": "/Users/muvaf/github.com/callstack/agent-device",
+  "startedAt": "2026-11-03T19:26:09.254Z",
+  "status": "failed",
+  "exitCode": 1,
+  "refs": {
+    "base": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39",
+    "head": "c3c281fb4c782fd19023f4bb3a43570d023a54c9",
+    "resolvedBase": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39",
+    "resolvedHead": "c3c281fb4c782fd19023f4bb3a43570d023a54c9",
+    "mergeBase": "a2c169fa502a53f1f2a1da25b1cd16b9c731af39"
+  },
+  "checkoutChanged": false,
+  "exactCommit": true,
+  "results": [],
+  "initial": {
+    "head": "c3c281fb4c782fd19023f4bb3a43570d023a54c9",
+    "status": "",
+    "fingerprint": "c88744bebb7f1906e905133ee3e0a0826a5ce5f2e6e7e662db8e712799ce2890"
+  },
+  "error": "node_modules does not match this worktree's pnpm-lock.yaml: stale",
+  "final": {
+    "head": "c3c281fb4c782fd19023f4bb3a43570d023a54c9",
+    "status": "",
+    "fingerprint": "c88744bebb7f1906e905133ee3e0a0826a5ce5f2e6e7e662db8e712799ce2890"
+  },
+  "finishedAt": "2026-11-03T19:26:09.448Z"
+}

@@ -1,0 +1,55 @@
+{
+  "total": 1,
+  "executed": 1,
+  "passed": 0,
+  "failed": 1,
+  "skipped": 0,
+  "notRun": 0,
+  "durationMs": 8771,
+  "tests": [
+    {
+      "file": "/private/tmp/agent-device-review3-base/test/integration/replays/ios/device/01-physical-lifecycle.ad",
+      "session": "review3-stock:test:17a323b996a33e15:1-01-physical-lifecycle:attempt-1",
+      "status": "failed",
+      "durationMs": 8770,
+      "attempts": 1,
+      "snapshotDiagnostics": {
+        "stats": {
+          "count": 3,
+          "p50Ms": 515,
+          "p95Ms": 599,
+          "maxMs": 599,
+          "slowThresholdMs": 1500,
+          "platform": "ios",
+          "backends": {
+            "xctest": 3
+          }
+        }
+      },
+      "error": {
+        "code": "REPLAY_DIVERGENCE",
+        "message": "Replay failed at step 3 (click \"role=cell label=General || role=button label=General\"): Selector did not match: role=cell label=General || role=button label=General",
+        "hint": "Selector text/label values match exactly (quote multi-word values: text=\"Sign in\"). Run snapshot -i to see current elements and refs, or use find <text> for contains matching.",
+        "details": {
+          "reason": "selector_not_found",
+          "replayPath": "/private/tmp/agent-device-review3-base/test/integration/replays/ios/device/01-physical-lifecycle.ad",
+          "step": 3,
+          "action": "click",
+          "snapshotDiagnostics": {
+            "stats": {
+              "count": 3,
+              "p50Ms": 515,
+              "p95Ms": 599,
+              "maxMs": 599,
+              "slowThresholdMs": 1500,
+              "platform": "ios",
+              "backends": {
+                "xctest": 3
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

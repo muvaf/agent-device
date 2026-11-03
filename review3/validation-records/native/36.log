@@ -1,0 +1,36 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/lib/repo-git.test.ts scripts/lib/repo-path.test.ts scripts/coverage-changed/model.test.ts scripts/coverage-changed/run.test.ts
+✔ parseLcov reads DA hits and BRDA taken, treating "-" as not taken (0.717167ms)
+✔ source/test classification matches the coverage include glob (0.159916ms)
+✔ ignoredLineSet handles next, next N and start/stop ranges (0.149792ms)
+✔ gate fails when changed-line coverage is below threshold and lists offenders (0.191542ms)
+✔ workspace package source counts toward the gate like root source (0.079917ms)
+✔ non-executable added lines (absent from DA) never enter the denominator (0.061167ms)
+✔ deleted files and docs-only changes are a trivial pass with null pct (0.043875ms)
+✔ waiver forces a pass but still reports the numbers (0.055334ms)
+✔ an includable path whose new side is a symlink or gitlink is skipped, not read (0.092792ms)
+✔ includable source absent from lcov counts as excluded-path code lines (0.129ms)
+✔ changed line suppressed by an ignore directive is tallied, not gated (0.093541ms)
+✔ threshold constant is the single source of truth (0.031125ms)
+✔ rename-only hunks owe no changed-line coverage; edited moves owe their edits (5.089167ms)
+✔ passes and prints n/a for a docs-only change without touching coverage (120.09425ms)
+✔ a committed symlink to a directory passes the gate without an EISDIR crash (115.864625ms)
+✔ reads a large stacked diff beyond the subprocess default buffer (138.449125ms)
+✔ fails when a changed source line is uncovered and names that line (115.397375ms)
+✔ a changed line in a non-ASCII path is scored, not skipped by quoted diff headers (113.013708ms)
+✔ fails when a changed workspace package line is uncovered and names that line (113.25325ms)
+✔ waiver env keeps the job green, still reporting numbers to the job summary (111.197083ms)
+✔ errors when the lcov report is missing rather than silently passing (102.068458ms)
+✔ a pure move owes nothing regardless of the host diff.renames setting (119.40625ms)
+✔ parseUnifiedDiff numbers added lines per hunk and ignores deleted lines (0.728917ms)
+✔ parseUnifiedDiff marks deleted files and keeps rename destinations (0.161375ms)
+✔ parseUnifiedDiff reads the new-side object mode as regularFile (0.114208ms)
+✔ parseUnifiedDiff reads mode-change and deletion headers as regular-file sides (0.078958ms)
+✔ normalizePath strips root, b/ and ./ prefixes and posixifies (0.365834ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1182.587084

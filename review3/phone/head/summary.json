@@ -1,0 +1,370 @@
+{
+  "sha": "ea3dbea24f2f71f631226c0ced937f7ab37cb505",
+  "device": "iPhone 14 Pro",
+  "os": "iOS 27.0.1 (24A446)",
+  "xcode": "27.1 (27A9269)",
+  "commands": [
+    {
+      "label": "clean-start",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 58,
+      "success": true
+    },
+    {
+      "label": "prepare",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "prepare",
+        "ios-runner",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--timeout",
+        "420000",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 12657,
+      "success": true
+    },
+    {
+      "label": "stock-normalize-open",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "open",
+        "com.apple.Preferences",
+        "--foreground",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 2469,
+      "success": true
+    },
+    {
+      "label": "stock-normalize-top",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "scroll",
+        "top",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 4762,
+      "success": true
+    },
+    {
+      "label": "stock-normalize-close",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 523,
+      "success": true
+    },
+    {
+      "label": "stock",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "test",
+        "test/integration/replays/ios/device",
+        "--artifacts-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/stock-artifacts",
+        "--reporter",
+        "junit:/private/tmp/agent-device-review3/phone-comparison/head/stock.xml",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-stock"
+      ],
+      "exitCode": 1,
+      "durationMs": 11212,
+      "success": true
+    },
+    {
+      "label": "scroll-normalize-open",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "open",
+        "com.apple.Preferences",
+        "--foreground",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 6517,
+      "success": true
+    },
+    {
+      "label": "scroll-normalize-top",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "scroll",
+        "top",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 1273,
+      "success": true
+    },
+    {
+      "label": "scroll-normalize-close",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 506,
+      "success": true
+    },
+    {
+      "label": "scroll",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "test",
+        "/private/tmp/agent-device-review3/physical-scroll-lifecycle.ad",
+        "--artifacts-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/scroll-artifacts",
+        "--reporter",
+        "junit:/private/tmp/agent-device-review3/phone-comparison/head/scroll.xml",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-scroll"
+      ],
+      "exitCode": 0,
+      "durationMs": 18421,
+      "success": true
+    },
+    {
+      "label": "final-close-review3-normalize",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-normalize"
+      ],
+      "exitCode": 1,
+      "durationMs": 1651,
+      "success": false
+    },
+    {
+      "label": "final-close-review3-stock",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-stock"
+      ],
+      "exitCode": 1,
+      "durationMs": 1814,
+      "success": false
+    },
+    {
+      "label": "final-close-review3-scroll",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "review3-scroll"
+      ],
+      "exitCode": 1,
+      "durationMs": 1706,
+      "success": false
+    },
+    {
+      "label": "final-daemon-clean",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 197,
+      "success": true
+    },
+    {
+      "label": "final-device-status",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "device",
+        "status",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--state-dir",
+        "/private/tmp/agent-device-review3/phone-comparison/head/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 1,
+      "durationMs": 56,
+      "success": false
+    }
+  ],
+  "suites": {
+    "stock": {
+      "total": 1,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "durationMs": 9485,
+      "exitCode": 1,
+      "failures": [
+        {
+          "code": "REPLAY_DIVERGENCE",
+          "step": 3,
+          "reason": "selector_not_found",
+          "message": "Replay failed at step 3 (click \"role=cell label=General || role=button label=General\"): Selector did not match: role=cell label=General || role=button label=General"
+        }
+      ],
+      "snapshotBackends": [
+        {
+          "xctest": 3
+        }
+      ]
+    },
+    "scroll": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "durationMs": 16753,
+      "exitCode": 0,
+      "failures": [],
+      "snapshotBackends": [
+        {
+          "xctest": 6
+        }
+      ]
+    }
+  },
+  "cleanupSucceeded": true,
+  "remainingClaims": 0
+}

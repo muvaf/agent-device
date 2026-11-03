@@ -1,5 +1,7 @@
 # Agent-device Limrun PR review evidence
 
+Latest: [review update, current validation, and physical iPhone base/head comparison](review3/README.md). The table below retains the original simulator/Android live-run SHAs; the wording-only #4195 update is `ea3dbea24f2f71f631226c0ced937f7ab37cb505`.
+
 Verification performed on 2026-11-03 after rebasing onto `a2c169fa502a53f1f2a1da25b1cd16b9c731af39`. This branch contains review evidence only. It is separate from the PR code branches.
 
 | PR or branch | Tested head | Live report |
@@ -33,6 +35,6 @@ Each receipt records the exact commit, clean checkout, selected checks, command 
 
 ## Cleanup and scope
 
-The live scripts used dedicated emulator/simulator instances and scoped daemon state. They closed their sessions, stopped their daemons and deleted their owned devices. Both remote recording instances were confirmed terminated through the public Limrun API. Transcripts include cleanup results. No connected phone or existing user AVD was used.
+The live scripts used dedicated emulator/simulator instances and scoped daemon state. They closed their sessions, stopped their daemons and deleted their owned devices. Both remote recording instances were confirmed terminated through the public Limrun API. Transcripts include cleanup results. Those runs used no connected phone or existing user AVD. The later physical-phone comparison is reported in the review update above.
 
 The Android run covers the native local installer. A future production installer callback needs live verification when its binding is introduced. The branch-only Apple and native layers are queued behind the independent PRs and are not claimed merge-ready here.

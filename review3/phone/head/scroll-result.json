@@ -1,0 +1,31 @@
+{
+  "total": 1,
+  "executed": 1,
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0,
+  "notRun": 0,
+  "durationMs": 16753,
+  "tests": [
+    {
+      "file": "/private/tmp/agent-device-review3/physical-scroll-lifecycle.ad",
+      "session": "review3-scroll:test:0300ff67b52cb884:1-physical-scroll-lifecycle:attempt-1",
+      "status": "passed",
+      "durationMs": 16752,
+      "attempts": 1,
+      "snapshotDiagnostics": {
+        "stats": {
+          "count": 6,
+          "p50Ms": 532,
+          "p95Ms": 701,
+          "maxMs": 701,
+          "slowThresholdMs": 1500,
+          "platform": "ios",
+          "backends": {
+            "xctest": 6
+          }
+        }
+      }
+    }
+  ]
+}
