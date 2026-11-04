@@ -1,0 +1,1752 @@
+$ pnpm format:check && pnpm lint && pnpm typecheck && pnpm check:layering && pnpm depgraph:test && pnpm check:gate-manifest:test && pnpm check:gate-manifest && pnpm check:production-exports && pnpm check:native-dupes:test && pnpm check:native-dupes && pnpm check:tmpdir-leaks:test && pnpm check:xctest-selection && pnpm check:packaged-runner-swift && pnpm check:mcp-metadata && pnpm check:doc-prose && pnpm check:doc-links && pnpm build && pnpm check:bundle-owner-files && pnpm check:package
+$ node ./node_modules/oxfmt/bin/oxfmt --check
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 165ms on 5185 files using 18 threads.
+$ oxlint . --deny-warnings
+$ tsc -b tsconfig.typecheck.json examples/sdk/tsconfig.json
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/layering/*.test.ts && node --experimental-strip-types scripts/layering/check.ts
+✔ a runner module value-importing host-kit directly is refused (1.319084ms)
+✔ every value-import form that reaches host-kit is refused (0.298417ms)
+✔ a type-only host-kit import is exempt, in the runner subtree and on the port itself (0.377042ms)
+✔ a host-kit import outside the runner subtree is not this rule’s concern (0.066458ms)
+✔ a runner import of anything other than host-kit is not this rule’s concern (0.146083ms)
+✔ the runner package may import the vocabulary and substrate packages a platform family may (1.356ms)
+✔ the runner package never imports platform-apple, a sibling platform, or the daemon (0.294375ms)
+✔ the runner package may not reach platform-apple, root, or daemon code by path (0.226333ms)
+✔ raw process primitives stay out of runner production source, as a type or in tests only (0.424917ms)
+✔ test-kit is test support in the runner package, never production source (0.126083ms)
+✔ the runner entry has platform-apple composition and three named root consumers as production importers (0.152959ms)
+✔ the named root consumers import the runner entry only as a type or deferred (0.212375ms)
+✔ test support may import the runner entry (0.116333ms)
+✔ the #2818 bridge spawn through a plain xcrun executor is refused (26.260833ms)
+✔ a simctl argv is refused however it reaches an executor (1.119208ms)
+✔ an inline xcrun argv must name its tool as a literal other than simctl (0.275ms)
+✔ the tool provider has no exemption for a hand-built simctl argv (0.379625ms)
+✔ a cast to a simulator-scope brand is refused outside the mint modules (0.789542ms)
+✔ the mint modules may build and cast to the brands they mint (5.402042ms)
+✔ named tools, builder output, pass-through argv and simctl text elsewhere are not violations (0.262459ms)
+✔ tests, fixtures and scripts are not policed (0.092959ms)
+✔ a violation reports the line of the offending argv (0.097667ms)
+✔ the durable lifecycle policy accepts fenced, evidence-gated ownership (23.9765ms)
+✔ durable lifecycle rejects an unfenced IME mutation and generic capture-kit role (0.32525ms)
+✔ durable lifecycle rejects platform ownership in the composition gateway (0.196916ms)
+✔ durable lifecycle rejects unevidenced Android startup recovery (0.212916ms)
+✔ durable lifecycle ignores decoy prose and rejects reversed calls (0.460958ms)
+✔ architecture ownership roots resolve to tracked owners (78.57625ms)
+✔ logical module façades pin their named command surfaces (38.989375ms)
+✔ session lifecycle retires its handler helpers and barrel paths (37.981958ms)
+✔ session observability retires its handler and barrel paths (34.131959ms)
+✔ interaction retires its handler-owned implementation paths (23.630209ms)
+✔ vocabulary roots are exported contract facades (0.549416ms)
+✔ capability roots enumerate current exports and have production consumers (2742.190167ms)
+✔ live-state roots enumerate their declared exports (97.72025ms)
+✔ lookalike paths and symbols remain undeclared (0.178958ms)
+✔ every catalogued rule is registered, and nothing else is (1.371375ms)
+✔ every registered rule is callable, so no entry is a stale reference (0.118125ms)
+✔ commands outside schema/ must not import commands/schema/ (0.582ms)
+✔ command-surface files outside schema/ must not import its schema/, except the entry (0.372959ms)
+✔ holds for value, type-only, and dynamic imports alike (0.082583ms)
+✔ the declared direction — schema reading the rest of commands — stays silent (0.081542ms)
+✔ schema importing its own sibling files stays silent (0.058417ms)
+✔ a non-commands zone importing commands/schema/ is not this rule’s concern (0.046083ms)
+✔ contracts rejects host process and timer mechanics (1.033291ms)
+✔ contracts policy ignores type vocabulary, prose, tests, and capture-kit mechanics (0.454833ms)
+✔ network traffic vocabulary cannot grow parser implementation inside contracts (0.379292ms)
+✔ contracts rejects mutable interaction-outcome lifecycle (0.132084ms)
+✔ contracts rejects snapshot quality warning rendering (0.132ms)
+✔ iOS snapshot contracts reject planning implementation and provider imports (0.459792ms)
+✔ a daemon import from a module the CLI never reaches is not CLI reach (1.669584ms)
+✔ a root module the CLI lazy-loads cannot launder a daemon import (0.578833ms)
+✔ a daemon import inside a client-side root is left to the client-side policy (0.218583ms)
+✔ a type-only import by a reached root module is not a load (0.189375ms)
+✔ a missing CLI entry fails as stale instead of passing silently (0.133375ms)
+✔ every tracked daemon production file resolves to a layer folder, and no static edge reads upward (332.098042ms)
+✔ an upward value import fails the layer order (0.314209ms)
+✔ an upward type-only import fails the layer order too (1.197875ms)
+✔ a nested file reads up from its layer folder and fails (0.42925ms)
+✔ downward and same-layer static edges stay silent (0.625833ms)
+✔ a dynamic cross-layer edge is reported, not rejected (0.23ms)
+✔ an empty daemon file set fails: a stale scan filter must not pass the rule silently (1.105958ms)
+✔ a production file at the daemon root fails: the folder is the declaration (0.304167ms)
+✔ the package entry is the one root file that needs no layer folder (0.118ms)
+✔ tests and test support carry no layer and never trip the folder claim (0.121959ms)
+✔ R10 rejects R7 ownership pressure that grew past the merge-base (1.188542ms)
+✔ R10 banks an R7 shrink with no edit anywhere (0.105417ms)
+✔ a production import of the daemon request/session-state modules outside the daemon is red (0.787042ms)
+✔ logical modules reject forbidden imports (0.266583ms)
+✔ replay-test rejects request-global and replay-port imports (0.344542ms)
+✔ replay-test may still import its own files inside the package (0.189375ms)
+✔ internal trees reject deep imports globally, including from daemon (0.160708ms)
+✔ replay-port rejects daemon source imports and engine back edges (0.278708ms)
+✔ session lifecycle rejects handler crossings and private helper imports (0.289333ms)
+✔ the handler shape rule catches a handlers folder under an unlisted layer (0.314709ms)
+✔ interaction rejects handler crossings and deep imports around its facade (0.3325ms)
+✔ session observability rejects handler crossings and private helper imports (0.195083ms)
+✔ snapshot execution cannot return to handler-owned support paths (0.124458ms)
+✔ session lifecycle rejects restored neutral helper paths (0.13525ms)
+✔ interaction rejects restored handler implementation paths (0.083417ms)
+✔ interaction rejects renamed handler implementation paths (0.102292ms)
+✔ session lifecycle rejects any restored open or close handler path (0.048792ms)
+✔ session observability rejects restored handler paths (0.149625ms)
+✔ R9 holds each zone to the merge-base and keeps engine files outside the component (0.104041ms)
+✔ R10 zone overflow names the member that joined the cycle (0.097708ms)
+✔ R9 rejects a cycle grown past the merge-base (0.058917ms)
+✔ R9 banks a shrink with no edit anywhere (0.045917ms)
+✔ client-side src/cli.ts importing the daemon package is red (type-only) (0.151875ms)
+✔ client-side src/cli.ts importing the daemon package is red (value) (0.093917ms)
+✔ client-side src/cli.ts importing the daemon package is red (dynamic) (0.105834ms)
+✔ client-side src/cli/commands/daemon.ts importing the daemon package is red (type-only) (0.085792ms)
+✔ client-side src/cli/commands/daemon.ts importing the daemon package is red (value) (0.08225ms)
+✔ client-side src/cli/commands/daemon.ts importing the daemon package is red (dynamic) (0.123833ms)
+✔ client-side packages/client/src/client-normalizers.ts importing the daemon package is red (type-only) (0.088208ms)
+✔ client-side packages/client/src/client-normalizers.ts importing the daemon package is red (value) (0.090333ms)
+✔ client-side packages/client/src/client-normalizers.ts importing the daemon package is red (dynamic) (0.081875ms)
+✔ client-side packages/remote/src/daemon-artifacts.ts importing the daemon package is red (type-only) (0.143458ms)
+✔ client-side packages/remote/src/daemon-artifacts.ts importing the daemon package is red (value) (0.090709ms)
+✔ client-side packages/remote/src/daemon-artifacts.ts importing the daemon package is red (dynamic) (0.066458ms)
+✔ client-side packages/daemon-client/src/index.ts importing the daemon package is red (type-only) (0.060166ms)
+✔ client-side packages/daemon-client/src/index.ts importing the daemon package is red (value) (0.058542ms)
+✔ client-side packages/daemon-client/src/index.ts importing the daemon package is red (dynamic) (0.058291ms)
+✔ session command owners accept direct imports without an internal barrel (0.1775ms)
+✔ session command families reject restored internal barrels (0.054667ms)
+✔ R65 rejects static, type-only, dynamic, type, and re-export dependencies with source lines (17.581459ms)
+✔ R65 recognizes side-effect and aliased imports, including nested daemon paths (0.204292ms)
+✔ R65 ignores comments, ordinary strings, unresolved dynamic imports, and lookalike names (0.16325ms)
+✔ R65 rejects require, import-equals, and template-literal type imports (0.257375ms)
+✔ R65 folds statically constructed dynamic platform specifiers (0.205584ms)
+✔ R65 unwraps erased TypeScript expressions around executable specifiers (0.150083ms)
+✔ R65 follows common createRequire and require aliases (0.34325ms)
+✔ R65 rejects triple-slash concrete-platform type references (0.197833ms)
+✔ R65 rejects platform selection inside cleanup orchestrators (0.690542ms)
+✔ R65 ignores non-daemon and test-shaped records even when their syntax is red (0.237792ms)
+✔ R65 treats a relative specifier as legacy platform code only after path resolution (0.285375ms)
+✔ R76 rejects the direct-iOS selector edge the retired inventory classified (2.182ms)
+✔ R76 rejects retired observation mechanics in request-recording-health (0.446875ms)
+✔ R76 rejects retired observation mechanics in session-device-resolution (0.672084ms)
+✔ R76 rejects retired observation mechanics in ios-app-session-hint (0.38375ms)
+✔ R76 rejects an edge with the pair and its line (0.29775ms)
+✔ R76 reports an import and re-export of one pair as a single violation (0.287042ms)
+✔ R76 rejects a destructured dynamic import of the root platform-runtime family (0.23625ms)
+✔ R76 rejects a dynamic namespace import of a root platform-runtime module (0.29125ms)
+✔ R76 ignores test-shaped and non-daemon importers (0.572834ms)
+✔ R76 ignores retired-zone targets, which R65 owns (0.247458ms)
+✔ the root composition family is src/platform-runtime.ts plus src/platform-runtime-*.ts only (0.132375ms)
+✔ R76 catches a daemon import of a root hub that reaches the platform family (0.967875ms)
+✔ R76 does not turn an intra-daemon hop into a hub edge (0.696292ms)
+✔ the denied set names replay-port caller-side collector modules (3.768792ms)
+✔ a root platform-runtime module behind a dynamic import cannot reach packages/replay-port/src/script-source-bundle.ts (1.156083ms)
+✔ a static-only chain from the entry cannot reach packages/replay-port/src/script-source-bundle.ts (0.276958ms)
+✔ a root platform-runtime module behind a dynamic import cannot reach packages/replay-port/src/source-discovery.ts (0.191958ms)
+✔ a static-only chain from the entry cannot reach packages/replay-port/src/source-discovery.ts (0.13325ms)
+✔ a type-only edge loads nothing, and the client may import the collector (0.279375ms)
+✔ a renamed entry or denied module fails as stale instead of passing silently (0.087583ms)
+✔ readNamedExports collects re-export and direct-declaration forms, resolving aliases (3.384083ms)
+✔ readNamedExports never reports the original name behind an `as` alias (0.178583ms)
+✔ readNamedExports resolves `export * as ns` to its one real bound name (0.453833ms)
+✔ readNamedExports rejects a bare `export *` re-export (0.352209ms)
+✔ readNamedExports rejects a default export (0.135167ms)
+✔ readNamedExports reports `export { default as x }` as the named symbol x (0.0845ms)
+✔ readNamedExports collects a local `export { … }` list with no `from` (1.455833ms)
+✔ readNamedExports collects every declarator of a multi-declarator export (0.284125ms)
+✔ readFacadeReExportEdgesByModule groups edges by module with source-side names (1.031333ms)
+✔ readFacadeReExportEdgesByModule refuses bare export * like readNamedExports (0.18175ms)
+✔ every workspace package façade names its exports explicitly (no bare `export *`) (171.445125ms)
+✔ every façade re-exports its sources exhaustively (no silent narrowing) (90.762917ms)
+✔ a narrowed source fails even when a sibling module exports the same name (0.648292ms)
+✔ the iOS snapshot engine owns each presentation boundary exactly once (18.737583ms)
+✔ the structural gate rejects a planted duplicate acquired presentation (2.998833ms)
+✔ a named import aliasing vi or vitest is a mock receiver (4.506459ms)
+✔ a string-named import and an unaliased import resolve like a named alias (0.25875ms)
+✔ a vitest namespace import reaches the mock API through vi and vitest members (0.206125ms)
+✔ only a value import from vitest binds a mock receiver (0.193666ms)
+✔ a vitest namespace member other than vi or vitest is not the mock API (0.1475ms)
+✔ an alias counts everywhere in the file, even where a local shadows its name (0.158458ms)
+✔ an alias call is read inside every construct that can hold a module literal (1.694625ms)
+✔ the global vi and vitest names stay mock receivers beside import aliases (0.180083ms)
+✔ an alias call still ignores comments, non-literal modules and non-module methods (0.277417ms)
+✔ only the module-path methods Vitest exposes count, through every receiver form (1.105375ms)
+✔ a Vitest binding made by a dynamic import is not followed (0.155625ms)
+✔ a module named by an alias call keeps its source line (0.121ms)
+✔ parseImports rejects malformed source instead of returning an incomplete graph (1.011625ms)
+✔ parseImports ignores import-like declarations inside comments and template text (0.613667ms)
+✔ parseImports distinguishes value, type-only, dynamic, and value re-export edges (0.439667ms)
+✔ parseImports records TSImportType edges separately from dynamic imports (0.803583ms)
+✔ the nine recorded TSImportType shapes resolve with source-side symbols (0.647375ms)
+✔ the recorded production type dependencies resolve from their owning declarations (1205.982041ms)
+✔ parseImports detects multiline dynamic imports (0.145667ms)
+✔ parseImports resolves constant-template dynamic imports (0.105166ms)
+✔ parseImports captures destructured named bindings of dynamic imports, keyed by export name (0.214833ms)
+✔ parseImports retains named source symbols without changing edge-kind detection (0.187792ms)
+✔ parseImports ignores comments inside named bindings (0.096625ms)
+✔ value cycles fail while type-only and dynamic cycles stay outside the graph (0.96725ms)
+✔ back-edge identities follow the documented target spine (5.81275ms)
+✔ neutral ownership zones reject value imports into higher layers (0.250875ms)
+✔ a relative import resolves within its own workspace package src/, but not past it (0.332458ms)
+✔ type-only edges are ranked by R6 and ignored by R5, and vice versa (0.173542ms)
+✔ ranked and unranked zones are disjoint and both non-empty (0.048667ms)
+✔ classifyZone separates the ranked spine from intentionally-unranked zones (0.039042ms)
+✔ every production zone is deliberately classified as ranked or unranked (41.123958ms)
+✔ listSourceFiles includes root-level src/*.ts production files (18.722291ms)
+✔ SessionState field names come from the declaration, not a hand-kept list (0.239709ms)
+✔ session-state writes are found by field, and non-daemon or undeclared names are not (1.03175ms)
+✔ every assignment form is a write, including the ones a regex forgets (0.306875ms)
+✔ a computed session write is reported rather than silently unattributed (0.101708ms)
+✔ every declared session-state owner is a real file path under packages/daemon (0.3275ms)
+✔ a session write counts through an aliased binding, not only one named `session` (0.177875ms)
+✔ every SessionState field is classified exactly once (0.33325ms)
+✔ classification drift is reported in all three directions (0.247ms)
+✔ largestTypeCycleSize counts type-only cycles and ignores dynamic ones (0.432209ms)
+✔ parseModuleMockSpecifiers reads every Vitest mock-family call with a literal module (0.358084ms)
+✔ parseModuleMockSpecifiers ignores comments, unrelated objects and non-literal arguments (0.122209ms)
+✔ parseModuleMockSpecifiers rejects malformed source instead of returning partial sites (0.173208ms)
+✔ a string export resolves the package root (0.794208ms)
+✔ a require-only export resolves the package root (0.206625ms)
+✔ a private package reads its devDependencies as test-only siblings (0.502666ms)
+✔ test support may import a sibling declared only in devDependencies (1.668917ms)
+✔ production source needs the production field and is told so (0.396ms)
+✔ an undeclared sibling is refused for tests and production alike (0.309ms)
+✔ a production declaration serves tests and production (0.315625ms)
+✔ a published package keeps its siblings in devDependencies for every file (0.191625ms)
+✔ a production root file importing the ./testing/ namespace is refused (1.270083ms)
+✔ a test root file importing ./testing/ passes, and a named entry stays open to all (0.77775ms)
+✔ the ./testing/ refusal bites inside packages and through the vi.mock scan (0.809292ms)
+✔ a package-local test/ tree is a test consumer, its src/ tree is not (0.168125ms)
+✔ a pattern entry matches deep specifiers, and an unnamed one is refused in scripts/ (0.120458ms)
+✔ specifier sites carry mock-family module arguments with their lines (1.525125ms)
+✔ specifier sites report a module once when an import edge and a mock call share its line (6.818584ms)
+✔ specifier sites skip comments, interpolated templates and unrelated objects (0.146875ms)
+✔ specifier sites carry mock-family arguments called through an imported Vitest alias or namespace (19.929709ms)
+✔ specifier sites skip alias calls on other modules, other exports and type-only imports (2.2265ms)
+✔ specifier sites carry 1-based lines for static and dynamic imports (1.798709ms)
+✔ the compiled set classifies every file region the R11 walk visits (0.211459ms)
+✔ readWorkspacePackages reads tracked manifests only (163.8655ms)
+✔ published ESM plugins declare bundled workspace build dependencies without runtime dependencies (1.158167ms)
+✔ double-quoted and re-export routes into packages are not invisible to R11 (0.817666ms)
+✔ a package vi.mock route into root src is an R11 escape, and a sibling route needs its declaration (0.49ms)
+✔ a package relative escape is R11-owned, compiled or not (0.149917ms)
+✔ intra-package relative imports hold (0.083792ms)
+✔ an exported package self-reference holds while a deep self-import is compiler-owned (0.134375ms)
+✔ a cross-package import needs a workspace:* declaration; the exports map is compiler-owned (0.922125ms)
+✔ a root src file tunnelling into packages/*/src relatively is a violation (0.19125ms)
+✔ a scripts/ file gets no relative route into a package either (0.126375ms)
+✔ root workspace specifiers need a root workspace:* entry; resolution is compiler-owned (0.188959ms)
+✔ a published package declares its bundled workspace siblings as devDependencies (0.241042ms)
+✔ the real tree parses, declares, and passes R11 (4959.733125ms)
+✔ Node resolution enforces the exports map at runtime (2.721375ms)
+✔ the test-kit shape holds: one entry, built only on packages below it (2.112375ms)
+✔ test-kit exports exactly "." and nothing else (1.11025ms)
+✔ daemon exports exactly "." and nothing else (0.430708ms)
+✔ every daemon condition of "." points at src/index.ts (0.695292ms)
+✔ daemon-client exports exactly "." and nothing else (0.333ms)
+✔ every daemon-client condition of "." points at src/index.ts (0.508ms)
+✔ command-output exports exactly "." and nothing else (0.307958ms)
+✔ every command-output condition of "." points at src/index.ts (0.572375ms)
+✔ apple-runner exports exactly "." and nothing else (1.736833ms)
+✔ every apple-runner condition of "." points at src/index.ts (0.255167ms)
+✔ the apple-runner entry names its exports: export * is refused (1.877042ms)
+✔ command-surface exports exactly "." and nothing else (3.290292ms)
+✔ the command-surface entry names its exports: export * and namespace dumps are refused (2.1405ms)
+✔ the entry names its exports: export * is refused (1.065417ms)
+✔ text that only mentions a star is not an export (0.365708ms)
+✔ the daemon entry names its exports: export * is refused (0.3245ms)
+✔ the daemon-client entry names its exports: export * is refused (0.317666ms)
+✔ the command-output entry names its exports: export * is refused (0.279459ms)
+✔ every condition of the "." entry must point at src/index.ts (1.016917ms)
+✔ the shared isolation walk runs under the test-kit policy (0.213292ms)
+✔ daemon refuses a missing or renamed entry source (0.326709ms)
+✔ daemon-client refuses a missing or renamed entry source (0.265708ms)
+✔ command-output refuses a missing or renamed entry source (1.222333ms)
+✔ apple-runner refuses a missing or renamed entry source (0.337541ms)
+✔ test-kit refuses a missing or renamed entry source (0.218125ms)
+✔ command-surface refuses a missing or renamed entry source (0.209459ms)
+✔ command-runtime rejects subpaths and star exports (0.307833ms)
+✔ every shape of test support is caught, by key or by target (1.101709ms)
+✔ production exports that merely mention test or support are not flagged (0.469459ms)
+✔ every export condition is judged, not only the selected one (0.096292ms)
+✔ a string exports map and a missing one are both read (0.111167ms)
+✔ a wildcard export is judged by the tracked files it publishes (0.19275ms)
+✔ expandExportTarget matches a star across directories and leaves literals alone (0.092666ms)
+✔ test-kit is the one package allowed to export test support (0.061625ms)
+✔ growth against the merge-base fails; a cleanup or an unchanged set passes (0.240667ms)
+✔ a moved fixture file under an unchanged export key is not growth; a renamed key is (0.105833ms)
+✔ a package new at head cannot bring test support with it (0.118666ms)
+✔ the summary reports the remaining count against the merge-base (0.544625ms)
+✔ the key predicate works on specifiers too, for rules that hold only the specifier (0.180334ms)
+✔ production source importing a test-only export is refused, at root and in packages (1.422625ms)
+✔ an export whose types condition is test support is refused whatever default says (0.11225ms)
+✔ the vi.mock scan refuses a planted test-only export in production source too (0.167041ms)
+✔ tests, specs, fixtures, test trees and scripts/ may import test-only exports and test-kit (0.764292ms)
+✔ production source importing test-kit is refused (0.084125ms)
+✔ a production subpath of the same package stays importable from production source (0.122542ms)
+✔ the real repository holds every isolation policy (452.616333ms)
+✔ a repo without the isolated package has nothing to isolate (0.162792ms)
+✔ an isolated package built only on foundations holds (0.993208ms)
+✔ a provider package is refused in every dependency field, under a non-provider name too (0.847625ms)
+✔ a provider reached through other workspace packages is refused with its chain (0.27225ms)
+✔ a package outside the isolated package reach may declare a forbidden package (0.109917ms)
+✔ a package the isolated package reaches cannot declare it back, directly or transitively (0.258875ms)
+✔ a diamond and a shared foundation are not a cycle or a false ban (0.101667ms)
+✔ a static, type-only, dynamic, re-export, inline-type or mocked import of a provider is refused (3.048084ms)
+✔ an import ignores comments, non-literal mock arguments, other objects and its own directory (0.542416ms)
+✔ a mock of a provider is refused through an alias even where a local shadows the alias name (1.429417ms)
+✔ relative reach out of the package directory is refused (0.167958ms)
+✔ test-kit also refuses platform, daemon and root packages that the plugin framework may use (0.8255ms)
+✔ the plugin framework carries R85 and its provider-policy remedy (0.0885ms)
+✔ the inventory substrate has six private lazy packages and one exact composition root (5.782791ms)
+✔ retired platform family implementations are rejected from src/platforms (0.218459ms)
+✔ capture-kit and platform workspace packages are R11-owned unranked zones (0.095167ms)
+✔ untracked production TypeScript makes committed-state evidence fail closed (1.688709ms)
+✔ family packages are exact, private, and expose only their root facade (3.918334ms)
+✔ composition policy does not pin local platform-module identifier spelling (4.563458ms)
+✔ external consumers use root facades with static imports only at the interactor seam (37.246333ms)
+✔ only the canonical composition root may import the private provider composition submodule (2.36925ms)
+✔ the apple runner mechanics facet subpaths are the enumerated exception (4.636ms)
+✔ the runner test host is importable only from tests and __tests__ helpers (3.451459ms)
+✔ the Apple domain facades preserve synchronous helpers without widening the root facade (18.82525ms)
+✔ the runner mechanics facet is exempt from ambient-host and raw-process rules the right way around (2.985417ms)
+✔ platform packages may import the xml vocabulary package (1.101125ms)
+✔ the Android mechanics facet is the named consumer seam and adb host wiring is limited to the root binding and daemon composition (6.553667ms)
+✔ R13 leaves the Android test-only fixture subpaths to R83 for every consumer (3.664166ms)
+✔ contracts never depend on a concrete platform package in production or tests (5.902ms)
+✔ platform packages cannot escape to root, daemon, siblings, or raw process primitives (5.420375ms)
+✔ platform packages may use capture-kit but no unrelated workspace implementation package (4.195208ms)
+✔ platform-web production source may use only the canonical positional-ref selectors subpath (31.500125ms)
+✔ interactor subpaths are loaded only by the builtin registry, dynamically (20.401208ms)
+✔ platform package tests may import test-kit, production source may not (1.98175ms)
+✔ package-owned tests may import their own public facade (1.076291ms)
+✔ platform facades cannot evaluate mechanics eagerly (56.062666ms)
+✔ composition policy does not infer host authority from function or class names (1.121166ms)
+✔ composition keeps platform implementation loaders behind selected use (2.146333ms)
+✔ implementation-loader detection ignores comments, strings, and deferred function bodies (8.740333ms)
+✔ composition imports are category-based for future contracts and host adapters (3.600583ms)
+✔ Node resolves only each platform package root facade (3.1175ms)
+✔ the retired src/platforms zone rejects every production, test, and fixture file (0.107625ms)
+✔ a moved Android family cannot leave production or test files under the old root (0.063333ms)
+✔ a new direct production file or sibling directory under src/platforms fails closed (0.053ms)
+✔ platform packages may import the provision-kit substrate (1.220625ms)
+✔ a provision-kit import of a concrete platform package fails closed (1.030917ms)
+✔ committed-state discovery rejects untracked production and ignores untracked manifests (178.391792ms)
+✔ facade dynamic imports must be nested in deferred functions (1.017ms)
+✔ platform production cannot acquire ambient filesystem, OS, process, or network authority (0.493833ms)
+✔ platform facades cannot probe injected host capabilities at module evaluation (0.137292ms)
+✔ Apple production must route xcrun availability and execution through appleTools (0.299917ms)
+✔ Apple xcrun routing guard ignores comments, strings, and non-xcrun generic commands (0.473291ms)
+✔ syntax checks ignore comments and strings and allow deferred imports and host use (0.209125ms)
+✔ the registered gate rejects process configuration and command-host scope in non-entry sources (1.505583ms)
+✔ all six process globals fail, including bracketed and imported process members (1.486875ms)
+✔ entry declarations permit process reads but do not permit ambient command-host calls (0.584709ms)
+✔ command spawn boundaries permit the scoped host but still reject raw process configuration (0.202833ms)
+✔ renamed and namespace command-host calls cannot bypass the boundary (0.107417ms)
+✔ test support and scripts are outside the production rule (0.0895ms)
+✔ comments, strings and explicit host values are not process reads (0.079792ms)
+✔ bare process values are captures in calls, aliases, spreads, returns and computed access (1.273042ms)
+✔ SDK adapters capture their default host only through the shared entry (0.169209ms)
+✔ non-configuration process members and unrelated property names remain permitted (0.174458ms)
+✔ a pure presentation package reaches no process member, stream or terminal fact (0.326792ms)
+✔ local process bindings do not hide captures in other lexical scopes (0.235458ms)
+✔ root and examples/sdk reference exactly the workspace package set (44.05125ms)
+✔ the root build node is tsconfig.json plus references, and tsconfig.json has none (0.245959ms)
+✔ the compiled-set predicate is licensed by the tsconfig include/exclude shape it mirrors (29.989709ms)
+✔ the root manifest declares every workspace package as a workspace dependency (53.365792ms)
+✔ every package tsconfig references exactly its manifest workspace dependencies (43.707375ms)
+✔ provider packages use the acquisition entrypoint and cannot reach presentation (1233.738375ms)
+✔ R73 rejects an out-of-adapter provider presentation import (1036.797417ms)
+✔ R73 rejects a provider import of the capture-kit presentation runtime subpath (965.933666ms)
+✔ R73 preserves breadth-first origin and finding order through a shared import graph (16.143167ms)
+✔ R73 rejects a planted provider residue discard (875.303709ms)
+✔ R73 rejects a planted provider residue rewrite (873.138667ms)
+✔ sessionStateWritePressure counts written fields and (field, writer) claims, not writes (7.791834ms)
+✔ carried merge-base entries map to head paths and stay sorted (0.10475ms)
+✔ measureRatchets reports all ratchets from one tree (3.759583ms)
+✔ memoizedImportParser parses each distinct source text once (0.266625ms)
+✔ the committed enumeration at HEAD is the working-tree scan input (721.723541ms)
+✔ the merge-base reference names its ref and measures the real tree (1497.535083ms)
+✔ R16 rejects native mechanics in the daemon record owner without scanning prose (1.341166ms)
+✔ R16 rejects child termination and platform branching in daemon record owners (0.536875ms)
+✔ R16 requires the real registry normalization path to assert the record use join (1.510792ms)
+✔ R14 rejects every tracked path under the retired src/utils zone (1.048542ms)
+✔ R14 ignores paths outside the retired zone (0.094ms)
+✔ R71 rejects a planted production file under retired src/replay by name (0.093375ms)
+✔ R71 accepts the current replay owners and ignores the src/utils zone (0.052625ms)
+✔ tracked-path discovery includes top-level and nested retired paths (207.301667ms)
+✔ tracked-path discovery includes an exact retired root entry (72.036375ms)
+✔ the committed tree has no tracked path under a retired directory (18.40225ms)
+✔ every root module is declared in exactly one zone, and every declaration names a module (44.712958ms)
+✔ drift names a root module with no declared zone and a declaration with no module (0.148333ms)
+✔ (root) ranks above every other zone (0.0855ms)
+✔ R5 ranks a root module by its declared zone, so no lower zone reaches the command runtime through it (0.968292ms)
+✔ every ranked zone but (root) reaches the operation host only through import() (59.91ms)
+✔ an undeclared root module is (root), so a ranked import of it is a back-edge (0.255958ms)
+✔ the layering rules currently in tree carry no unallowed collision (5.400791ms)
+✔ a collision nobody allowed fails, whichever order it lands in (0.346959ms)
+✔ an allowance expires with the collision it allows (0.08175ms)
+✔ reintroducing the transitional collision is rejected once the allowance is gone (0.068959ms)
+✔ one rule declaring its id from several call sites is not a collision (0.050458ms)
+✔ the permanent runtime policy accepts facts-only admission and typed operation access (1.613833ms)
+✔ a descriptor capability bucket and legacy admission call are rejected globally (0.290792ms)
+✔ daemon code cannot cast, assert, or bracket its way around runtime narrowing (0.345375ms)
+✔ dynamic operation iteration used by admission remains legal (0.172625ms)
+✔ shared admission must inspect facts and expose binding exactly once (0.197917ms)
+✔ shared admission cannot hide an additional inspection behind an alias (0.192459ms)
+✔ a capability bucket in a descriptor family module is rejected (0.160083ms)
+✔ a conditional capability bucket in descriptor-traits.ts is rejected (0.141917ms)
+✔ a conditional capability bucket in descriptor-extra-traits.ts is rejected (0.159042ms)
+✔ test-support capability objects are outside the declaration policy (0.177083ms)
+✔ every import form that reaches the engine is refused (1.078583ms)
+✔ the owner holds the engine, and the root façade stays open to everyone (0.486166ms)
+✔ an in-package relative route to the engine file is refused, except for the owner (0.105125ms)
+✔ a missing engine door fails the gate instead of silencing it (0.064209ms)
+✔ the refusal names the owner and the entries that replace the bypass (0.081916ms)
+✔ the overlay counts symbol-level production importers, not file-level importers (2.0475ms)
+✔ the overlay follows the SessionState declaration to a moved path, not a recorded one (0.282ms)
+✔ the handler-owned subset is every <layer>/handlers/ folder, not a recorded pair (0.113208ms)
+✔ R75 fails a handler file that gains a shape or authority edge beyond the merge-base (0.201083ms)
+✔ R75 passes when the handler-owned sets hold or shrink (0.066292ms)
+✔ R75 leaves new non-handler importers to the module declarations, not this ratchet (0.0525ms)
+✔ the end-to-end measurement feeds the ratchet: a new handler importer is red, an existing one is not (0.295208ms)
+✔ the overlay classifies handler writes in both live handler roots, measured end to end (0.299083ms)
+✔ the merge-base overlay arrives in head coordinates through the rename mapping (617.236167ms)
+✔ R75 catches a new handler shape edge expressed as an import type (0.393667ms)
+✔ session resources are constructed only by their durable domain owners (1.202833ms)
+✔ the capture-admission owners sit inside the scan, so a field planted there is caught too (0.109583ms)
+✔ teardown app-log discriminants are policy input rather than session construction (0.105042ms)
+✔ explicit owner patches name their writes and retain direct assignment checks (7.606375ms)
+✔ inline synchronous patches can derive named fields with nested value spreads (0.689042ms)
+✔ update rejects unattributable patch { [key]: value } (0.141ms)
+✔ update rejects unattributable patch { ...changes } (0.109708ms)
+✔ update rejects unattributable patch changes (0.09375ms)
+✔ update rejects unattributable patch rebuild (0.086875ms)
+✔ update rejects unattributable patch async (current) => ({ appLogFailure: undefined }) (0.102708ms)
+✔ update rejects unattributable patch (current) => changes (0.080209ms)
+✔ update rejects unattributable patch (current) => { if (test) return changes; return { appLogFailure: undefined }; } (0.122542ms)
+✔ update rejects unattributable patch { get appLogFailure() { return error; } } (0.63725ms)
+✔ patch callbacks cannot call back into the session store (0.187459ms)
+✔ the historical app-log whole-record spread is refused and counted fairly (0.26225ms)
+✔ record copies through a read alias or captured ref remain visible (0.45625ms)
+✔ typed store aliases enforce the same explicit patch contract (0.156417ms)
+✔ plain store and record aliases retain their owning identity (0.192667ms)
+✔ direct field writes through a tracked SessionRef session are visible (0.772167ms)
+✔ unrelated session properties are not SessionState records (0.802917ms)
+✔ optional-chain record and store reads remain visible through aliases (1.549208ms)
+✔ direct clone APIs and full object-rest patterns cannot copy a session record (0.63775ms)
+✔ nested callback returns do not make a direct patch return ambiguous (0.2255ms)
+✔ rest copies retain identity from an inline patch callback current record (0.218625ms)
+✔ destructuring preserves store and record aliases (0.26575ms)
+✔ computed destructuring from a typed SessionRef cannot hide its session record (1.370125ms)
+✔ literal computed SessionRef fields survive real store and typed parameter sources (0.274ms)
+✔ known SessionRef-returning store methods seed computed destructuring (0.466042ms)
+✔ static destructuring carries typed ref properties into computed record reads (0.419459ms)
+✔ alias declarations and patch parameters are collected before checking writes (0.17325ms)
+✔ draft exceptions cover only the declared constructors and fresh open publication (1.4455ms)
+✔ the owning store can merge records, while unrelated updates and platform sessions are excluded (0.118792ms)
+✔ pressure counts capture-kit record replacement and daemon patches with the same syntax rules (0.600042ms)
+✔ the snapshot assembly and the producer adapters are presentation-neutral (1137.870584ms)
+✔ R74 rejects the assembly importing the iOS snapshot engine (980.001833ms)
+✔ R74 rejects the assembly reading the producer capability table (901.955458ms)
+✔ R74 rejects a backend-name presentation branch in the assembly (837.069958ms)
+✔ R74 rejects an assembly branch on a producer name (829.079083ms)
+✔ R74 rejects a producer adapter importing iOS presentation (744.942917ms)
+✔ R74 fails closed when the assembly moves out from under it (738.170708ms)
+✔ the snapshot facet cannot import daemon assembly (2654.72925ms)
+✔ the boundary reports a facet module that reaches back into the daemon (0.213333ms)
+✔ source-executed syntax rejects using declarations but ignores prose (1.061125ms)
+✔ capture-kit rejects request-scoped async_hooks dispatch (1.437083ms)
+✔ capture-kit policy ignores types, prose, tests, and non-capture-kit ALS (0.513791ms)
+✔ retired src/contracts/ production files fail closed (0.117541ms)
+✔ a test named for the module beside it, or for it plus an aspect, is matched (1.248417ms)
+✔ a test named for no module in its directory is unmatched (2.709083ms)
+✔ a declaration module is named for its stem: foo.d.ts matches foo.test.ts (0.367917ms)
+✔ the aspect suffix is dash-separated: a dotted or glued name does not match (0.071333ms)
+✔ a test in __tests__ is judged against the modules of its parent directory (0.07525ms)
+✔ modules inside __tests__ do not make a test matched (0.048667ms)
+✔ index is an ordinary module: a cross-module package test is index-<aspect>.test.ts (0.058584ms)
+✔ fixtures never count as the module a test is named for, and test-kit is not measured (0.054167ms)
+✔ test/, scripts/ and package test trees are exempt: the rule reads src trees only (0.058834ms)
+✔ a daemon-composition style suite under src/__tests__ is unmatched (0.079333ms)
+✔ growth against the merge-base fails; moving a test into place or an unchanged set passes (0.197875ms)
+✔ the remedy locations R84 names are collected by a vitest project (0.154291ms)
+✔ the summary reports the remaining count against the merge-base (0.054083ms)
+✔ production source is a non-test TypeScript file under root src/ or a package src/ (0.703125ms)
+✔ test support is not production source, whatever shape it takes (0.134375ms)
+✔ tooling and non-TypeScript files are not production sources (0.053708ms)
+✔ typeInversionCounts keys distinct type-only inversions by zone pair, sorted (1.8135ms)
+✔ R6 is quiet at the merge-base count, and banks a shrink with no edit (0.456ms)
+✔ R6 rejects a pair that grew past the merge-base and names the first edge (0.261042ms)
+✔ R6 rejects a pair the merge-base does not have at all (0.122459ms)
+✔ R2 commands-floor closes the remaining zones below the command surface, whatever the kind (0.813084ms)
+✔ the retired R3 platforms seam has no zone-policy declaration (0.090916ms)
+✔ every policy carries a hint, and the lead names the kind it rejected (0.144708ms)
+✔ a policy states its scope with exactly one of `to` or `exceptTo` (0.068792ms)
+✔ two same-rank zones importing each other form a cycle no file-level or rank check sees (8.611667ms)
+✔ type-only, dynamic and same-zone imports never close a zone cycle (0.475458ms)
+ℹ tests 474
+ℹ suites 0
+ℹ pass 474
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6860.999917
+Layering guard: R81 reports 14 dynamic cross-layer daemon edge(s) (reported, not rejected; see scripts/layering/daemon-layers.ts):
+  packages/daemon/src/execution/selector-runtime-backend.ts (execution) -> packages/daemon/src/core/explicit-session-resolution.ts (core)
+  packages/daemon/src/server/request-execution-scope.ts (server) -> packages/daemon/src/sessions/session-lifecycle/internal/session-open.ts (sessions)
+  packages/daemon/src/server/request-execution-scope.ts (server) -> packages/daemon/src/resources/session-device-resolution.ts (resources)
+  packages/daemon/src/server/request-execution-scope.ts (server) -> packages/daemon/src/core/composite-resource-admission.ts (core)
+  packages/daemon/src/server/request-execution-scope.ts (server) -> packages/daemon/src/sessions/session-lifecycle/internal/session-open.ts (sessions)
+  packages/daemon/src/server/request-execution-scope.ts (server) -> packages/daemon/src/core/composite-resource-admission.ts (core)
+  packages/daemon/src/server/request-router.ts (server) -> packages/daemon/src/core/composite-resource-admission.ts (core)
+  packages/daemon/src/sessions/handlers/lease.ts (sessions) -> packages/daemon/src/core/device/device-selector-intent.ts (core)
+  packages/daemon/src/sessions/handlers/record-runtime.ts (sessions) -> packages/daemon/src/core/explicit-session-resolution.ts (core)
+  packages/daemon/src/sessions/request-handler-chain.ts (sessions) -> packages/daemon/src/execution/handlers/react-native.ts (execution)
+  packages/daemon/src/sessions/request-handler-chain.ts (sessions) -> packages/daemon/src/execution/interaction/index.ts (execution)
+  packages/daemon/src/sessions/request-handler-chain.ts (sessions) -> packages/daemon/src/execution/interaction/index.ts (execution)
+  packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts (sessions) -> packages/daemon/src/core/explicit-session-resolution.ts (core)
+  packages/daemon/src/sessions/session-teardown.ts (sessions) -> packages/daemon/src/resources/app-log-session-resource.ts (resources)
+Layering guard: OK — 1950 source files satisfy R2 and contain no value-import cycles (both checked globally); the ranked target spine contains no back-edges and the zone graph no value-import cycle (R80); the ranked spine's type-only inversions hold at or under the merge-base 4abff15eda per zone pair (R6, 4 remaining); R14 src-utils-retirement permits no tracked paths under retired src/utils; all 31 SessionState fields are classified and every write is inside its declared owner (R7); the largest type-level cycle is 6 files (R9); R10 holds R7 at the merge-base's 24 writer-owned fields / 32 owner claims, R9 at its 6 files per zone, no external daemon request/session-state importers, and zero forbidden logical-module imports; R11 holds 40 workspace package(s) behind 456 exported subpath(s) with zero undeclared or relative-tunnel import routes (the compiler owns specifier resolution for compiled sources); R13 holds six private implementation-lazy platform packages above capture-kit behind one canonical composition root and its single private provider-composition submodule, with the android mechanics facet and the Apple runner package behind their enumerated seams; deferred or type-only edges are limited to the approved platform-runtime host watchlist and the dynamic-only HarmonyOS, Linux and Web interactor subpaths imported by src/core/interactors/register-builtins.ts; runtime facts remain the only device-command admission authority and daemon code cannot manufacture narrowed runtime proof (R66); R65 keeps production packages/daemon/src free of concrete platform imports in every executable and type-only form; no production daemon file reaches the root platform-runtime family or a hub that does (R76); the daemon process reaches no caller-side replay source module over static or dynamic edges (R82); process globals stay at declared entries and command-host reads stay at command-execution/spawn boundaries (R86); package exports publish no new test support: 12 test-only export(s) remain against 12 at the merge-base (R83); every new unit test is named for a module beside it: 150 unmatched test(s) remain against 150 at the merge-base (R84); and the handler-owned SessionState/SessionStore authority overlay holds at or under the merge-base (R75, 13 shape / 21 authority files); and every production daemon file lives under a layer folder with no upward static edges across core < resources < execution < sessions < server (R81; dynamic cross-layer edges are reported above when present).
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/depgraph/model.test.ts scripts/depgraph/entries.test.ts scripts/depgraph/import-graph.test.ts scripts/depgraph/affected.test.ts scripts/depgraph/structure-summary.test.ts tools/depgraph-view/*.test.mjs
+✔ collectDependents separates direct importers from transitive ones (6.672291ms)
+✔ collectDependents ignores type-only and dynamic dependents, which are counted separately (0.220833ms)
+✔ collectExecutableDependents reports what a dynamic import adds beyond value dependents (0.327584ms)
+✔ zoneBreakdown and rankByFanIn order by weight, then name (0.122458ms)
+✔ commandsReaching follows the dynamic import a route uses to load its handler (0.306ms)
+✔ guaranteeRowsForFile matches module-qualified cells only, on the whole path (0.056ms)
+✔ bounded lists disclose what they hid (0.083042ms)
+✔ every daemon route in the real route table resolves to a handler entry (0.648417ms)
+✔ the real guarantee matrix contributes module-qualified rows (0.1155ms)
+✔ a flag keeps its value whichever side of the path it is on (0.426375ms)
+✔ parseInvocation rejects a missing path, a second path, and a non-positive limit (0.206875ms)
+✔ text output bounds every list and says what it hid (0.2155ms)
+✔ text output treats empty and nonempty command lists as lower bounds (0.069959ms)
+✔ blast radius over the real tree agrees with check:affected and stays under 10s (867.441917ms)
+✔ platform and command-surface injection both have partial command attribution (2498.03875ms)
+✔ text and JSON CLI output agree on partial attribution and bounded dynamic dependents (2106.533833ms)
+✔ maps declared root and workspace exports to graph source files (50.276375ms)
+✔ importGraph keeps only the requested edge kinds, keyed by file pair (0.694542ms)
+✔ importGraph adds explicit files that no kept edge touches (0.065791ms)
+✔ importGraph gives every distinct file pair its own edge id (0.083791ms)
+✔ authority overlay uses declared roots and symbols, keeps kind separate, and collapses labels (9.134042ms)
+✔ live-state labels follow shared declarations and reject lookalike targets (0.183917ms)
+✔ collapseEdges keeps one edge per pair at the strongest kind (0.22725ms)
+✔ flags only value edges whose target is already reachable at distance >= 2 (0.428625ms)
+✔ transitive marking is undefined on a value cycle (0.386875ms)
+✔ buildGraph still reports a value cycle and leaves edges unmarked (0.817583ms)
+✔ computeLevels takes the longest value path to a sink and ignores type edges (0.560625ms)
+✔ computeLevels stays finite on a value cycle, where the closing edge adds no height (0.25675ms)
+✔ a type-only shortcut is never flagged against a value path (0.148875ms)
+✔ collectCycles separates gate-rejected value cycles from type-only and dynamic loops (0.372333ms)
+✔ collectCycles keeps the value-cycle representative for a chorded three-file SCC (0.183083ms)
+✔ collectCycles preserves the first DFS back edge when a chord closes below the SCC root (0.130375ms)
+✔ buildGraph reports zone membership, degrees, and cross-zone edge counts (0.266583ms)
+✔ typeInversionsByPair counts raw type-only edges once per file pair (0.195375ms)
+✔ no tracked TypeScript source contains a raw NUL byte (27.848958ms)
+✔ build.ts writes the default path and a summary consistent with the JSON (1173.347667ms)
+✔ build.ts honours --dominator-entry (1157.847917ms)
+✔ build.ts reports a typed error for a dominator entry outside the graph (994.164667ms)
+✔ build.ts honours --out and reports the path it wrote (1208.211375ms)
+✔ build.ts falls back to the default path when --out has no value (1171.748375ms)
+✔ build.ts falls back to the default path when --out is given an empty string (1079.184292ms)
+✔ build.ts falls back to the default dominator entry when --dominator-entry is given an empty string (1143.617083ms)
+✔ the dominator analyzer excludes dynamic imports and ranks dominated subtrees (8.086292ms)
+✔ the dominator analyzer rejects an entry outside the layering graph (0.30975ms)
+✔ one analyzer computes independent summaries for connected and isolated entries (0.328875ms)
+✔ computeZoneSccSummary finds a zone-level cycle built from value edges across distinct files (0.405417ms)
+✔ computeZoneSccSummary reports no components over an acyclic zone graph (0.483209ms)
+✔ computeCohesionSummary reports full cohesion when declared zones match the detected communities (0.829083ms)
+✔ computeCohesionSummary scores below the detected partition when declared zones split a cohesive cluster (0.361666ms)
+✔ keeps opposite imports separate and hides disabled kinds (0.763833ms)
+✔ hides transitively reachable value edges and keeps other imports (0.106041ms)
+✔ highlights only complete visible directed cycle paths (0.175375ms)
+✔ escapes text and attribute metacharacters in graph names (0.353958ms)
+✔ fits a large graph into a canvas narrower than the usual padding (0.403541ms)
+✔ shows all public subpaths that resolve to the same source file (0.291417ms)
+✔ keeps pinned files in their zone and entry files on their slot (0.753542ms)
+✔ repels large nodes throughout their force range across grid cells (0.107458ms)
+ℹ tests 57
+ℹ suites 0
+ℹ pass 57
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8065.04
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/gate/*.test.ts
+✔ the live tree is green — every planted failure below is a real difference (197.108333ms)
+✔ deleting the lane that runs a gate reports exactly that gate, naming the runner (173.827167ms)
+✔ a docs-only change still reaches the command-reference gate (#1420) (165.252ms)
+✔ a path filter that excludes a category fails, though the check still runs somewhere (170.308042ms)
+✔ a Vitest project no check runs is reported, and so is a suite script (320.553292ms)
+✔ a `test:*` script that is a suite by name, not by shape, needs an owner (151.109167ms)
+✔ a parked check selected by a path is exempt from path-coverage only while declared (324.204542ms)
+✔ the live tree is green (196.361667ms)
+✔ a structural gate id must exist in CHECK_CATALOG (173.412375ms)
+✔ raw shell text cannot declare ownership (168.710916ms)
+✔ a reusable workflow the loader cannot open fails closed (160.364042ms)
+✔ every manual-only declaration names a registered check no qualifying lane owns (1.338625ms)
+✔ deleting a manual-only declaration reports its check as unowned (188.422917ms)
+✔ deleting a parked job fails instead of reading as still parked (150.470916ms)
+✔ a parked lane re-triggered by push fails even though push does not qualify (151.88525ms)
+✔ a parked lane that loses workflow_dispatch entirely fails (148.823334ms)
+✔ a parked lane back on a schedule fails until its declaration is deleted (147.468417ms)
+✔ a parked lane that stops declaring its gate fails unless the gate is opaque (131.139167ms)
+✔ unknown assertion kinds remain visible in the report (0.177542ms)
+✔ the locked gates are the whole-repo suites and worker-spawning sweeps (0.643416ms)
+✔ unit-ci waits for the host lock owner, then runs under it and releases it (608.647334ms)
+✔ a locked gate returns the command exit code and still releases the lock (91.478583ms)
+✔ a gate inside a locked validation inherits the owner instead of deadlocking (30.873541ms)
+✔ cheap gates and GitHub runners do not wait for the lock (54.350125ms)
+✔ a signal while waiting cancels the gate and leaves the owner in place (10.127041ms)
+✔ a signal while the locked command runs stops it and still releases the lock (112.249792ms)
+✔ an env prefix does not hide the command behind it (0.843959ms)
+✔ a filtered Vitest run does not credit the whole project (0.212416ms)
+✔ a bare Vitest run spans every configured project (0.103583ms)
+✔ a negated --project subtracts from the configured set, so the skipped one is not credited (0.065ms)
+✔ split coverage commands together still own every project (0.069459ms)
+✔ aggregates expand transitively, so a lane running the aggregate owns its parts (0.069542ms)
+✔ `node --test` globs expand against the tree, which is how test:smoke is owned (1.293875ms)
+✔ a registered gate resolves to its package script (0.6075ms)
+✔ lane-specific flags are forwarded verbatim, with or without a `--` separator (0.066208ms)
+✔ a lane supplying --base replaces the default rather than passing it twice (0.057417ms)
+✔ an unknown gate fails loudly and lists what is registered (0.242375ms)
+✔ a registered check whose script was renamed away fails instead of silently skipping (0.067875ms)
+✔ the canonical action binds and runs a structural gate without optional arguments (175.820291ms)
+✔ a command repeating a script body verbatim credits that script (0.474083ms)
+✔ path filters use GitHub glob semantics (0.202167ms)
+✔ lanes carry the workflow spelling the catalog used, and only real triggers qualify (0.074292ms)
+✔ a workflow_dispatch-only lane owns nothing, however many gates it declares (0.857125ms)
+✔ trigger kinds survive the model, not just whether they qualify (0.783209ms)
+✔ a gate invoked from inside a composite action belongs to the calling lane (0.047833ms)
+✔ a composite action cycle is a loud error, not an empty step list (1.735125ms)
+✔ nesting deeper than the old cutoff is followed rather than silently dropped (3.230708ms)
+✔ a local reusable workflow is opened, so its gates belong to the calling lane (1.258042ms)
+✔ gates inside a parallel step group belong to the lane, alongside sequential ones (0.776667ms)
+✔ a remote or nested reusable workflow fails closed (1ms)
+✔ a reusable workflow's gate input resolves from the caller's with (0.976292ms)
+✔ a reusable workflow with no jobs fails closed (0.859792ms)
+✔ device smoke lanes skip drafts and start when a draft is marked ready (14.537209ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 53
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1861.909416
+$ node --experimental-strip-types scripts/gate/check.ts
+gate manifest: ok — 60 checks wired across 24 lanes, manual-only: replay-android, replay-ios, replay-ios-device.
+$ fallow dead-code --config fallow-production-exports.json --production --unused-exports --fail-on-issues
+loaded config: fallow-production-exports.json
+   0.372102000s  WARN Graph cache decoded but not reused: resolver, entry points, or plugins changed
+  698 entry points detected (579 package.json, 75 plugin, 38 manual entry, 6 dynamically loaded)
+
+✓ No issues found (1.11s)
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/native-dupes/check.test.ts
+✔ the gate rejects a new swift clone of an unchanged file (104.383833ms)
+✔ the gate rejects a new objectivec clone of an unchanged file (88.095791ms)
+✔ the gate rejects a new java clone of an unchanged file (99.112041ms)
+✔ the gate rejects a new kotlin clone of an unchanged file (93.724417ms)
+✔ the gate rejects a new python clone of an unchanged file (95.198542ms)
+✔ a header clone is analyzed as Objective-C (93.455916ms)
+✔ baseline accepts line shifts, rejects extra copies and replacement clones at the same count (208.447625ms)
+✔ the gate rejects a missing baseline and an empty scan (132.296208ms)
+✔ same-file clones fail while comment blocks and ignored build outputs do not (129.537334ms)
+✔ baseline refresh prunes removed clones so their later reintroduction fails (205.143375ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1382.182667
+$ jscpd --config .jscpd-native.json --baseline native-dupes-baseline.json --fail-on-new-clones --fail-on-empty
+Using config from .jscpd-native.json
+Clone found (java)
+ - snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [81:7 - 86:85] (6 lines, 62 tokens)
+   snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [264:7 - 269:85]
+Clone found (java)
+ - snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [411:76 - 420:25] (10 lines, 57 tokens)
+   snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [426:73 - 435:25]
+Clone found (java)
+ - snapshot-helper/src/test/java/com/callstack/agentdevice/snapshothelper/AccessibilityCaptureStabilizerTest.java [35:60 - 43:13] (9 lines, 50 tokens)
+   snapshot-helper/src/test/java/com/callstack/agentdevice/snapshothelper/AccessibilityCaptureStabilizerTest.java [61:59 - 69:13]
+Clone found (swift)
+ - macos-helper/Sources/AgentDeviceMacOSHelper/main.swift [380:27 - 385:9] (6 lines, 64 tokens)
+   macos-helper/Sources/AgentDeviceMacOSHelper/main.swift [461:26 - 465:44]
+Clone found (swift)
+ - macos-helper/Tests/AgentDeviceMacOSHelperTests/BackgroundInteractionTests.swift [10:5 - 24:2] (15 lines, 52 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+ScrollGestureTests.swift [19:5 - 33:2]
+Clone found (swift)
+ - macos-helper/Tests/AgentDeviceMacOSHelperTests/BackgroundInteractionTests.swift [81:48 - 86:19] (6 lines, 63 tokens)
+   macos-helper/Tests/AgentDeviceMacOSHelperTests/BackgroundInteractionTests.swift [90:58 - 95:8]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [40:1 - 45:89] (6 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [73:1 - 78:89]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [50:1 - 56:85] (7 lines, 55 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [102:1 - 108:85]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [77:1 - 82:68] (6 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [424:1 - 429:68]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [107:1 - 116:79] (10 lines, 82 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [190:1 - 199:79]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerSynthesizedGesture.m [349:33 - 359:4] (11 lines, 58 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerSynthesizedGesture.m [376:44 - 389:4]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+SynthesizedTextEntry.swift [399:7 - 413:19] (15 lines, 61 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+SynthesizedTextEntry.swift [434:5 - 448:17]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AXSnapshotFallbackTests.swift [332:56 - 339:47] (8 lines, 60 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AXSnapshotFallbackTests.swift [400:70 - 407:47]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [94:66 - 104:8] (11 lines, 52 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [129:5 - 139:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [138:63 - 146:79] (9 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [56:58 - 64:79]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [138:63 - 146:79] (9 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [130:74 - 138:79]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [191:5 - 201:92] (11 lines, 90 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [63:5 - 72:92]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [201:153 - 215:26] (15 lines, 61 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [247:198 - 258:40]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CoordinateTextEntryTests.swift [59:142 - 66:45] (8 lines, 53 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [140:138 - 147:45]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+MainThreadWorkTests.swift [163:26 - 176:32] (14 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+MainThreadWorkTests.swift [230:28 - 243:32]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+RecordingTests.swift [321:65 - 328:10] (8 lines, 59 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+RecordingTests.swift [361:70 - 368:10]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SequenceExecutionTests.swift [64:51 - 72:26] (9 lines, 82 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SequenceExecutionTests.swift [87:47 - 95:26]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [149:5 - 155:71] (7 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [479:5 - 485:71]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [236:5 - 251:66] (16 lines, 76 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [324:5 - 339:66]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [281:23 - 290:11] (10 lines, 54 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [374:35 - 383:11]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [539:7 - 557:57] (19 lines, 81 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [582:7 - 600:57]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanTests.swift [333:13 - 342:13] (10 lines, 53 tokens)
+   snapshot-presentation/Tests/AgentDeviceSnapshotPresentationTests/SnapshotPresentedSurfaceTests.swift [77:20 - 86:17]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotExecutionTests.swift [51:75 - 59:75] (9 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [89:81 - 97:75]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotExecutionTests.swift [64:55 - 79:6] (16 lines, 99 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [109:7 - 124:6]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [14:25 - 30:15] (17 lines, 75 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [202:52 - 207:41]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [33:33 - 44:15] (12 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [65:33 - 76:15]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [94:58 - 103:6] (10 lines, 58 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [251:38 - 260:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationConformanceTests.swift [54:66 - 64:31] (11 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotScopePolicyTests.swift [21:55 - 32:31]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationConformanceTests.swift [54:66 - 64:31] (11 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SystemSurfaceHostPolicyTests.swift [15:57 - 25:31]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationConformanceTests.swift [54:66 - 64:31] (11 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TapPointPolicyTests.swift [26:50 - 36:31]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [26:20 - 39:13] (14 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotVisibilityFoldTests.swift [13:21 - 17:77]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [107:93 - 120:17] (14 lines, 61 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [169:92 - 182:17]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [144:25 - 154:23] (11 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [200:25 - 210:23]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [200:17 - 207:41] (8 lines, 89 tokens)
+   snapshot-presentation/Tests/AgentDeviceSnapshotPresentationTests/ConformanceTests.swift [16:16 - 36:19]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [300:31 - 314:8] (15 lines, 68 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [485:24 - 499:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [622:5 - 629:6] (8 lines, 89 tokens)
+   snapshot-presentation/Tests/AgentDeviceSnapshotPresentationTests/CoordinateSpaceTests.swift [384:3 - 391:4]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [378:89 - 393:8] (16 lines, 80 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [416:95 - 431:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SynthesizedCommitDeadlineTests.swift [30:5 - 38:53] (9 lines, 52 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SynthesizedCommitDeadlineTests.swift [122:5 - 130:53]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SynthesizedTextEntryTests.swift [65:5 - 76:25] (12 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryConfirmationTests.swift [423:5 - 432:25]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryConfirmationTests.swift [286:5 - 295:8] (10 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryConfirmationTests.swift [327:109 - 336:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [8:66 - 14:16] (7 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [37:5 - 45:16]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [8:66 - 14:16] (7 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [100:109 - 106:16]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [32:56 - 42:79] (11 lines, 67 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [129:76 - 139:79]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [39:13 - 47:86] (9 lines, 65 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [102:13 - 108:86]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [5:54 - 15:8] (11 lines, 68 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [157:72 - 167:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [56:59 - 70:8] (15 lines, 88 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [130:75 - 144:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [132:7 - 140:43] (9 lines, 59 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [482:7 - 490:43]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [168:68 - 174:37] (7 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [239:81 - 245:37]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [277:71 - 290:7] (14 lines, 76 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [319:78 - 336:7]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [278:5 - 290:7] (13 lines, 67 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [357:35 - 371:7]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [478:48 - 489:8] (12 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [551:47 - 561:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [479:5 - 488:83] (10 lines, 55 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [594:66 - 602:83]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+XCTestEventBridgeTests.swift [196:65 - 204:24] (9 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+XCTestEventBridgeTests.swift [214:5 - 222:24]
+Clone found (swift)
+ - runner/AgentDeviceRunner/RecordingScripts/recording-overlay.swift [399:3 - 407:33] (9 lines, 71 tokens)
+   runner/AgentDeviceRunner/RecordingScripts/recording-overlay.swift [423:3 - 431:33]
+Clone found (objectivec)
+ - snapshot-bridge/SnapshotBridgeRuntime.h [22:1 - 29:83] (8 lines, 60 tokens)
+   snapshot-bridge/SnapshotBridgeRuntime.m [326:1 - 333:85]
+Clone found (swift)
+ - snapshot-presentation/Package.runner.swift [2:1 - 16:7] (15 lines, 61 tokens)
+   snapshot-presentation/Package.swift [2:1 - 16:7]
+┌────────────┬────────────────┬─────────────┬──────────────┬──────────────┬──────────────────┬───────────────────┐
+│ Format     │ Files analyzed │ Total lines │ Total tokens │ Clones found │ Duplicated lines │ Duplicated tokens │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ java       │ 26             │ 3403        │ 19616        │ 3            │ 25 (0.73%)       │ 169 (0.86%)       │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ objectivec │ 25             │ 5647        │ 34638        │ 6            │ 48 (0.85%)       │ 355 (1.02%)       │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ python     │ 1              │ 330         │ 1731         │ 0            │ 0 (0.00%)        │ 0 (0.00%)         │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ swift      │ 196            │ 45466       │ 250849       │ 52           │ 578 (1.27%)      │ 3254 (1.30%)      │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ Total:     │ 248            │ 54846       │ 306834       │ 61           │ 651 (1.19%)      │ 3778 (1.23%)      │
+└────────────┴────────────────┴─────────────┴──────────────┴──────────────┴──────────────────┴───────────────────┘
+Found 61 clones.
+JSON report saved to .tmp/native-dupes/jscpd-report.json
+time: 28.495ms
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test --test-concurrency=1 scripts/check-tmpdir-leaks-model.test.ts scripts/vitest-tmpdir-global-setup.test.ts scripts/node-test-tmpdir.test.ts scripts/swift-toolchain-tmpdir.test.ts
+✔ a directory owned by a still-running process is not reported as a leak (0.903917ms)
+✔ a directory whose owning process has exited is reported as a leak (0.335209ms)
+✔ a concurrent run from another worktree does not fail the check for this one (0.380584ms)
+✔ a mix of active and abandoned directories reports only the abandoned one (0.368417ms)
+✔ a directory with no parseable pid is conservatively reported as a leak (0.2635ms)
+✔ non-matching directories and files are ignored (0.365333ms)
+✔ pruning removes only abandoned directories and returns their names (0.752209ms)
+✔ pruning nothing is a no-op that reports nothing (0.273791ms)
+✔ a directory whose owner is dead but which some live process still holds as TMPDIR is not a leak (0.587667ms)
+✔ a consumer is identified by the run directory its TMPDIR sits inside, at any depth (0.199292ms)
+✔ the wrapper redirects a node --test child TMPDIR and removes it after the run (313.481042ms)
+✔ the wrapper stops an orphaned Node fixture tree still using the run directory, not a shared tool (436.57675ms)
+✔ an interrupted wrapper waits for its child, then stops the leftovers and exits 130 (455.140916ms)
+✔ the wrapper still cleans up and forwards a nonzero exit code when the child fails (310.644542ms)
+✔ the wrapper keeps AGENT_DEVICE_SWIFT_CACHE_DIR outside the disposable TMPDIR (310.10125ms)
+✔ the wrapper isolates advisory device claims inside its disposable run directory (311.211042ms)
+✔ every node --test package.json script routes through scripts/node-test-tmpdir.ts (0.737167ms)
+✔ lanes that sweep the shared run-directory root serialize their files (0.238708ms)
+✔ the wrapper prunes a run directory abandoned by an earlier killed run and keeps a live one (306.659ms)
+✔ a run whose owner alone was killed keeps its directory while a child still uses it, and loses it once the child exits (551.500958ms)
+✔ the Swift toolchain wrapper removes its TMPDIR after success (81.586667ms)
+✔ the Swift toolchain wrapper cleans up and forwards a failure (82.33025ms)
+✔ the Swift toolchain wrapper keeps TMPDIR until a signaled child exits (288.86875ms)
+✔ the Swift toolchain wrapper keeps TMPDIR until signaled descendants exit (330.213666ms)
+✔ Apple build lanes route toolchain commands through the cleanup wrapper (1.2665ms)
+✔ the configured Vitest lifecycle redirects worker TMPDIR and removes it after the run (578.6255ms)
+✔ global setup prunes a run directory abandoned by an earlier killed run and keeps a live one (541.925167ms)
+✔ global teardown stops a detached child a test left running in the run directory (547.207667ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5733.695209
+$ node --experimental-strip-types scripts/check-xctest-selection.ts
+xctest selection: 628 declared AgentDeviceRunnerUITests methods — host lane (.github/actions/smoke-macos/action.yml, macOS, every PR) reaches 415, PR iOS branch lane (.github/actions/smoke-ios-run/action.yml, iOS Simulator, selected PRs and main) selects 5, nightly (.github/workflows/xctest-nightly.yml, iOS Simulator) reaches 620, its iPad leg selects 5; 0 reachable by no lane; RunnerTests/testCommand skipped everywhere.
+$ node --experimental-strip-types scripts/check-packaged-runner-swift.ts
+packaged runner Swift: ok — 67 files keep the checkout's line numbering; all 67 parse under swiftc -parse.
+$ node scripts/sync-mcp-metadata.mjs --check
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/__tests__/check-doc-prose.test.ts && node --experimental-strip-types scripts/check-doc-prose.ts
+✔ banned words match case-insensitively as whole words, with line and column (1.296083ms)
+✔ phrases match across any run of whitespace (0.062ms)
+✔ bare new, now, and current are allowed (0.041083ms)
+✔ each violation names the file, position, matched text, and reason (0.053959ms)
+✔ every rule is a lowercase word or phrase with a reason (0.109958ms)
+✔ YAML frontmatter at the top is skipped, but a later thematic break is prose (0.063292ms)
+✔ fenced code is skipped until a matching closer of at least the opening length (0.065625ms)
+✔ a backtick fence is not closed by tildes (0.051084ms)
+✔ a fence inside a blockquote is skipped through its quoted closer (0.0525ms)
+✔ a fence inside an HTML comment does not swallow the prose after the comment (0.072166ms)
+✔ inline code spans are skipped, matching backtick run lengths (0.047375ms)
+✔ an inline code span that wraps across lines is skipped (0.042375ms)
+✔ a stray backtick does not mask past the end of its paragraph (0.035625ms)
+✔ a phrase wrapped across lines matches at its first word (0.027333ms)
+✔ HTML tags, comments, link destinations, and bare URLs are skipped (0.035208ms)
+✔ link text is prose (0.027333ms)
+✔ CRLF line endings are scanned like LF (0.04975ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 58.091542
+doc prose: 31 files clean.
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/__tests__/check-doc-links.test.ts && pnpm --dir website build && node --experimental-strip-types scripts/check-doc-links.ts
+✔ links to rendered pages and IDs pass (2.20275ms)
+✔ a link to a page that was not built fails (0.772709ms)
+✔ a link to an ID the target page does not render fails (0.588042ms)
+✔ a same-page fragment must name an ID on that page (0.520167ms)
+✔ a heading ID rendered twice on one page fails; repeated non-heading IDs do not (0.495916ms)
+✔ external URLs are skipped and asset links must exist (0.491ms)
+✔ README links into the published docs are checked against the built pages (0.447625ms)
+✔ a docs page without its Markdown twin fails (0.455041ms)
+✔ the base is read from the asset paths and proven by the home link (0.423875ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 65.535208
+$ astro build --force && node --experimental-strip-types scripts/build-depgraph.mjs
+23:16:04 [WARN] [content] data store cleared (force)
+23:16:04 [content] Syncing content
+23:16:05 [content] Synced content
+23:16:05 [types] Generated 809ms
+23:16:05 [build] output: "static"
+23:16:05 [build] mode: "static"
+23:16:05 [build] directory: /Users/muvaf/github.com/callstack/agent-device-native-upstream/website/dist/
+23:16:05 [build] Collecting build info...
+23:16:05 [build] ✓ Completed in 863ms.
+23:16:05 [build] Building static entrypoints...
+23:16:05 [vite] ✓ built in 369ms
+23:16:05 [vite] ✓ built in 42ms
+23:16:05 [build] Rearranging server assets...
+
+ generating static routes 
+23:16:05 [WARN] [content] The collection "i18n" does not exist or is empty. Please check your content config file for errors.
+23:16:05   ├─ /.well-known/mcp.json (+65ms) 
+23:16:05   ├─ /404.html (+455ms) 
+23:16:06   ├─ /cloud.html (+6ms) 
+23:16:06   ├─ /contact.html (+2ms) 
+23:16:06   ├─ /docs/agent-setup.md (+1ms) 
+23:16:06   ├─ /docs/ai-sdk.md (+1ms) 
+23:16:06   ├─ /docs/aws-device-farm.md (+1ms) 
+23:16:06   ├─ /docs/batching.md (+1ms) 
+23:16:06   ├─ /docs/browserstack.md (+1ms) 
+23:16:06   ├─ /docs/build-an-integration.md (+0ms) 
+23:16:06   ├─ /docs/capabilities.md (+0ms) 
+23:16:06   ├─ /docs/client-api.md (+0ms) 
+23:16:06   ├─ /docs/commands.md (+1ms) 
+23:16:06   ├─ /docs/configuration.md (+0ms) 
+23:16:06   ├─ /docs/debugging-profiling.md (+0ms) 
+23:16:06   ├─ /docs/device-clouds.md (+0ms) 
+23:16:06   ├─ /docs/eve.md (+0ms) 
+23:16:06   ├─ /docs/installation.md (+0ms) 
+23:16:06   ├─ /docs/introduction.md (+0ms) 
+23:16:06   ├─ /docs/known-limitations.md (+0ms) 
+23:16:06   ├─ /docs/limrun.md (+0ms) 
+23:16:06   ├─ /docs/migrating-gestures.md (+1ms) 
+23:16:06   ├─ /docs/plugins.md (+1ms) 
+23:16:06   ├─ /docs/quick-start.md (+1ms) 
+23:16:06   ├─ /docs/remote-proxy.md (+1ms) 
+23:16:06   ├─ /docs/replay-e2e.md (+1ms) 
+23:16:06   ├─ /docs/revyl.md (+0ms) 
+23:16:06   ├─ /docs/run-maestro-flows.md (+0ms) 
+23:16:06   ├─ /docs/security-trust.md (+0ms) 
+23:16:06   ├─ /docs/selectors.md (+0ms) 
+23:16:06   ├─ /docs/sessions.md (+0ms) 
+23:16:06   ├─ /docs/snapshots.md (+0ms) 
+23:16:06   ├─ /docs/testmu.md (+0ms) 
+23:16:06   ├─ /docs/webos.md (+0ms) 
+23:16:06   ├─ /llms-full.txt (+426ms) 
+23:16:06   ├─ /llms-small.txt (+277ms) 
+23:16:07   ├─ /llms.txt (+4ms) 
+23:16:07   ├─ /robots.txt (+1ms) 
+23:16:07   ├─ /showcase.html (+1ms) 
+23:16:07   ├─ /version.txt (+1ms) 
+23:16:07   ├─ /index.html (+78ms) 
+23:16:07   ├─ /docs/agent-setup.html (+6ms) 
+23:16:07   ├─ /docs/ai-sdk.html (+2ms) 
+23:16:07   ├─ /docs/aws-device-farm.html (+2ms) 
+23:16:07   ├─ /docs/batching.html (+2ms) 
+23:16:07   ├─ /docs/browserstack.html (+1ms) 
+23:16:07   ├─ /docs/build-an-integration.html (+2ms) 
+23:16:07   ├─ /docs/capabilities.html (+2ms) 
+23:16:07   ├─ /docs/client-api.html (+1ms) 
+23:16:07   ├─ /docs/commands.html (+2ms) 
+23:16:07   ├─ /docs/configuration.html (+1ms) 
+23:16:07   ├─ /docs/debugging-profiling.html (+1ms) 
+23:16:07   ├─ /docs/device-clouds.html (+2ms) 
+23:16:07   ├─ /docs/eve.html (+1ms) 
+23:16:07   ├─ /docs/installation.html (+1ms) 
+23:16:07   ├─ /docs/introduction.html (+1ms) 
+23:16:07   ├─ /docs/known-limitations.html (+2ms) 
+23:16:07   ├─ /docs/limrun.html (+1ms) 
+23:16:07   ├─ /docs/migrating-gestures.html (+1ms) 
+23:16:07   ├─ /docs/plugins.html (+1ms) 
+23:16:07   ├─ /docs/quick-start.html (+1ms) 
+23:16:07   ├─ /docs/remote-proxy.html (+1ms) 
+23:16:07   ├─ /docs/replay-e2e.html (+1ms) 
+23:16:07   ├─ /docs/revyl.html (+1ms) 
+23:16:07   ├─ /docs/run-maestro-flows.html (+1ms) 
+23:16:07   ├─ /docs/security-trust.html (+1ms) 
+23:16:07   ├─ /docs/selectors.html (+1ms) 
+23:16:07   ├─ /docs/sessions.html (+1ms) 
+23:16:07   ├─ /docs/snapshots.html (+1ms) 
+23:16:07   ├─ /docs/testmu.html (+1ms) 
+23:16:07   ├─ /docs/webos.html (+1ms) 
+23:16:07 ✓ Completed in 1.41s.
+
+23:16:07 [build] ✓ Completed in 1.86s.
+23:16:07 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+23:16:07 [starlight:pagefind] Building search index with Pagefind...
+23:16:07 [starlight:pagefind] Found 35 HTML files.
+23:16:07 [starlight:pagefind] Finished building search index in 120ms.
+23:16:07 [build] 35 page(s) built in 2.85s
+23:16:07 [build] Complete!
+Dependency graph: 1950 files, 11137 edges, 49 zones
+  value-import cycles (R4): 0
+  type-only/dynamic cycles (not gate-rejected): 20
+  spine back-edges (R5): 0
+  type-only spine inversions (R6): 4
+  value edges whose target is also reachable at distance >= 2: 2716
+  declared-authority labels: vocabulary=195, capability=51, live-state-shape=103, live-state-authority=71, executable-policy=73, ordinary=10647
+    (reachability only — not a removability claim, see scripts/depgraph/README.md)
+  dominator summary for src/daemon.ts: 356 of 1950 files loaded eagerly, biggest branch packages/daemon/src/index.ts (332 files, 60971 loc)
+  zone-level SCCs: 0 cyclic group(s) across 49 zones
+  modularity: declared zones 0.366, detected communities 0.548, least cohesive zone sdk (24%)
+  wrote website/dist/depgraph/graph.json
+doc links: every internal link resolves (base /).
+$ tsdown
+ℹ tsdown v0.22.14 powered by rolldown v1.2.5
+ℹ config file: /Users/muvaf/github.com/callstack/agent-device-native-upstream/tsdown.config.ts 
+ℹ entry: src/sdk/index.ts, src/sdk/io.ts, src/sdk/artifacts.ts, src/sdk/batch.ts, src/sdk/metro.ts, src/sdk/remote-config.ts, src/sdk/install-source.ts, src/sdk/android-adb.ts, src/sdk/limrun.ts, src/sdk/plugins.ts, src/sdk/plugin-webdriver.ts, src/sdk/contracts.ts, src/sdk/selectors.ts, src/sdk/finders.ts, src/ai-sdk/index.ts, src/bin.ts, packages/react-native/src/companion/companion-tunnel.ts, src/daemon.ts, packages/maestro/src/daemon-port/run-script-http-child.ts, packages/capture-kit/src/png-worker.ts, src/cli/update-check-entry.ts
+ℹ target: es2022
+ℹ tsconfig: tsconfig.lib.json
+ℹ Build start
+ℹ Cleaning 656 files
+
+ WARN  TypeScript 7.0 does not yet have a stable API and is experimental. Some options will be unavailable.
+
+ℹ The following entries in deps.onlyBundle are not used in the bundle:
+- undici-types
+Consider removing them to keep your configuration clean.
+ℹ dist/src/internal/companion-tunnel.js                                   7.97 kB │ gzip:   3.10 kB
+ℹ dist/src/internal/run-script-http-child.js                              3.04 kB │ gzip:   1.49 kB
+ℹ dist/src/internal/bin.js                                                1.75 kB │ gzip:   0.75 kB
+ℹ dist/src/internal/png-worker.js                                         1.46 kB │ gzip:   0.64 kB
+ℹ dist/src/ai-sdk.js                                                      1.32 kB │ gzip:   0.73 kB
+ℹ dist/src/internal/daemon.js                                             1.21 kB │ gzip:   0.61 kB
+ℹ dist/src/limrun.js                                                      0.98 kB │ gzip:   0.37 kB
+ℹ dist/src/android-adb.js                                                 0.88 kB │ gzip:   0.40 kB
+ℹ dist/src/index.js                                                       0.59 kB │ gzip:   0.32 kB
+ℹ dist/src/selectors.js                                                   0.36 kB │ gzip:   0.21 kB
+ℹ dist/src/metro.js                                                       0.33 kB │ gzip:   0.21 kB
+ℹ dist/src/artifacts.js                                                   0.26 kB │ gzip:   0.18 kB
+ℹ dist/src/remote-config.js                                               0.19 kB │ gzip:   0.15 kB
+ℹ dist/src/install-source.js                                              0.15 kB │ gzip:   0.14 kB
+ℹ dist/src/internal/update-check-entry.js                                 0.13 kB │ gzip:   0.13 kB
+ℹ dist/src/finders.js                                                     0.13 kB │ gzip:   0.11 kB
+ℹ dist/src/contracts.js                                                   0.12 kB │ gzip:   0.13 kB
+ℹ dist/src/io.js                                                          0.07 kB │ gzip:   0.09 kB
+ℹ dist/src/batch.js                                                       0.06 kB │ gzip:   0.07 kB
+ℹ dist/src/plugins.js                                                     0.01 kB │ gzip:   0.03 kB
+ℹ dist/src/plugins/webdriver.js                                           0.01 kB │ gzip:   0.03 kB
+ℹ dist/src/undici.js                                                    518.98 kB │ gzip: 159.44 kB
+ℹ dist/src/replay-maestro-backend.js                                    223.08 kB │ gzip:  66.38 kB
+ℹ dist/src/session2.js                                                  156.24 kB │ gzip:  45.47 kB
+ℹ dist/src/src3.js                                                      151.33 kB │ gzip:  49.31 kB
+ℹ dist/src/dist.js                                                      150.33 kB │ gzip:  43.13 kB
+ℹ dist/src/mechanics.js                                                 132.48 kB │ gzip:  42.09 kB
+ℹ dist/src/cli-help.js                                                  130.28 kB │ gzip:  45.64 kB
+ℹ dist/src/destination-tunnel-dialer.js                                 102.98 kB │ gzip:  32.04 kB
+ℹ dist/src/src2.js                                                       98.69 kB │ gzip:  30.69 kB
+ℹ dist/src/sdk-batch.js                                                  86.54 kB │ gzip:  21.97 kB
+ℹ dist/src/runtime-factory.js                                            83.44 kB │ gzip:  26.75 kB
+ℹ dist/src/THIRD_PARTY_NOTICES.txt                                       52.68 kB │ gzip:   7.59 kB
+ℹ dist/src/runtime3.js                                                   50.83 kB │ gzip:  15.62 kB
+ℹ dist/src/ios-client.js                                                 47.07 kB │ gzip:  16.50 kB
+ℹ dist/src/runtime6.js                                                   46.38 kB │ gzip:  13.89 kB
+ℹ dist/src/archive.js                                                    45.70 kB │ gzip:  13.63 kB
+ℹ dist/src/api.js                                                        45.59 kB │ gzip:  14.65 kB
+ℹ dist/src/log-stream.js                                                 42.11 kB │ gzip:  14.08 kB
+ℹ dist/src/flag-registry.js                                              41.80 kB │ gzip:  10.90 kB
+ℹ dist/src/runtime12.js                                                  39.96 kB │ gzip:  11.82 kB
+ℹ dist/src/interactor.js                                                 39.08 kB │ gzip:  12.81 kB
+ℹ dist/src/server-startup.js                                             38.73 kB │ gzip:  12.54 kB
+ℹ dist/src/sdk-io.js                                                     38.24 kB │ gzip:  12.79 kB
+ℹ dist/src/interaction2.js                                               36.45 kB │ gzip:  10.74 kB
+ℹ dist/src/snapshot-helper-install.js                                    35.75 kB │ gzip:  11.36 kB
+ℹ dist/src/runtime-selector-query.js                                     35.73 kB │ gzip:  10.72 kB
+ℹ dist/src/daemon-client-transport.js                                    35.66 kB │ gzip:  11.62 kB
+ℹ dist/src/runtime.js                                                    33.71 kB │ gzip:  10.35 kB
+ℹ dist/src/runner-lifecycle.js                                           33.48 kB │ gzip:  10.46 kB
+ℹ dist/src/ios-snapshot-engine.js                                        30.13 kB │ gzip:   9.42 kB
+ℹ dist/src/png.js                                                        29.18 kB │ gzip:   8.85 kB
+ℹ dist/src/session-store.js                                              28.50 kB │ gzip:   9.14 kB
+ℹ dist/src/adapter.js                                                    27.74 kB │ gzip:   8.98 kB
+ℹ dist/src/instance-client.js                                            26.01 kB │ gzip:   9.31 kB
+ℹ dist/src/cli.js                                                        25.82 kB │ gzip:   8.60 kB
+ℹ dist/src/platform-runtime-operation-host.js                            25.40 kB │ gzip:   8.02 kB
+ℹ dist/src/react-devtools-connection.js                                  25.03 kB │ gzip:   8.18 kB
+ℹ dist/src/agent-browser-provider.js                                     24.29 kB │ gzip:   8.94 kB
+ℹ dist/src/perf-facade.js                                                23.92 kB │ gzip:   7.52 kB
+ℹ dist/src/connection.js                                                 23.37 kB │ gzip:   7.74 kB
+ℹ dist/src/session-open.js                                               22.43 kB │ gzip:   7.32 kB
+ℹ dist/src/yauzl.js                                                      22.06 kB │ gzip:   8.42 kB
+ℹ dist/src/cli-output.js                                                 21.07 kB │ gzip:   7.35 kB
+ℹ dist/src/runner-disposal.js                                            20.74 kB │ gzip:   7.43 kB
+ℹ dist/src/screenshot-image.js                                           20.61 kB │ gzip:   8.51 kB
+ℹ dist/src/react-profile-command.js                                      19.52 kB │ gzip:   7.01 kB
+ℹ dist/src/src.js                                                        19.21 kB │ gzip:   6.41 kB
+ℹ dist/src/reporting.js                                                  19.06 kB │ gzip:   6.62 kB
+ℹ dist/src/script.js                                                     18.63 kB │ gzip:   5.99 kB
+ℹ dist/src/app-log-runtime2.js                                           18.00 kB │ gzip:   6.21 kB
+ℹ dist/src/runtime8.js                                                   17.63 kB │ gzip:   6.03 kB
+ℹ dist/src/sdk-contracts.js                                              17.48 kB │ gzip:   6.77 kB
+ℹ dist/src/screenshot-runtime.js                                         17.14 kB │ gzip:   6.00 kB
+ℹ dist/src/durable-capture.js                                            16.19 kB │ gzip:   4.99 kB
+ℹ dist/src/install-source-network-transport.js                           16.12 kB │ gzip:   5.18 kB
+ℹ dist/src/daemon-client-lifecycle.js                                    16.00 kB │ gzip:   6.16 kB
+ℹ dist/src/session-event-action.js                                       15.46 kB │ gzip:   5.20 kB
+ℹ dist/src/device-claims.js                                              15.41 kB │ gzip:   4.82 kB
+ℹ dist/src/selector-runtime.js                                           14.91 kB │ gzip:   5.29 kB
+ℹ dist/src/src6.js                                                       14.64 kB │ gzip:   4.96 kB
+ℹ dist/src/command-tools.js                                              14.36 kB │ gzip:   5.72 kB
+ℹ dist/src/runner-startup-transport.js                                   14.31 kB │ gzip:   5.19 kB
+ℹ dist/src/debug-symbols-facade.js                                       14.20 kB │ gzip:   5.33 kB
+ℹ dist/src/src10.js                                                      13.48 kB │ gzip:   4.23 kB
+ℹ dist/src/session-replay-vars.js                                        13.28 kB │ gzip:   4.97 kB
+ℹ dist/src/client-metro.js                                               13.23 kB │ gzip:   4.90 kB
+ℹ dist/src/connection-lease-transaction.js                               13.22 kB │ gzip:   4.52 kB
+ℹ dist/src/request-ended-leases.js                                       13.18 kB │ gzip:   4.11 kB
+ℹ dist/src/limrun-ios-runner.js                                          12.87 kB │ gzip:   5.22 kB
+ℹ dist/src/app-lifecycle.js                                              12.78 kB │ gzip:   4.60 kB
+ℹ dist/src/runner-lease.js                                               12.77 kB │ gzip:   4.71 kB
+ℹ dist/src/snapshot2.js                                                  12.67 kB │ gzip:   4.24 kB
+ℹ dist/src/snapshot.js                                                   12.00 kB │ gzip:   4.27 kB
+ℹ dist/src/runner-error-classification.js                                11.73 kB │ gzip:   3.74 kB
+ℹ dist/src/physical-device-control.js                                    11.43 kB │ gzip:   3.93 kB
+ℹ dist/src/proxy.js                                                      11.41 kB │ gzip:   4.40 kB
+ℹ dist/src/device-claim-rule.js                                          11.34 kB │ gzip:   4.37 kB
+ℹ dist/src/daemon-registration-owner.js                                  11.23 kB │ gzip:   4.16 kB
+ℹ dist/src/snapshot-runtime-capture-input.js                             10.87 kB │ gzip:   4.14 kB
+ℹ dist/src/runner-cache-metadata.js                                      10.64 kB │ gzip:   3.92 kB
+ℹ dist/src/tv-remote-runtime.js                                          10.52 kB │ gzip:   2.96 kB
+ℹ dist/src/sdk-device.js                                                 10.12 kB │ gzip:   3.70 kB
+ℹ dist/src/platform-runtime.js                                           10.11 kB │ gzip:   3.15 kB
+ℹ dist/src/network-traffic.js                                            10.11 kB │ gzip:   3.79 kB
+ℹ dist/src/session-runtime.js                                            10.03 kB │ gzip:   3.90 kB
+ℹ dist/src/parameterized-recorded-fill.js                                 9.68 kB │ gzip:   3.34 kB
+ℹ dist/src/settings.js                                                    9.58 kB │ gzip:   3.57 kB
+ℹ dist/src/platform-runtime2.js                                           9.50 kB │ gzip:   3.36 kB
+ℹ dist/src/command-schema.js                                              9.47 kB │ gzip:   3.63 kB
+ℹ dist/src/browserstack.js                                                9.46 kB │ gzip:   3.40 kB
+ℹ dist/src/video.js                                                       9.41 kB │ gzip:   4.02 kB
+ℹ dist/src/sdk-batch-runner.js                                            9.41 kB │ gzip:   3.33 kB
+ℹ dist/src/react-devtools-inspect-command.js                              9.31 kB │ gzip:   3.73 kB
+ℹ dist/src/selector-pipeline-policy.js                                    8.97 kB │ gzip:   3.00 kB
+ℹ dist/src/daemon-composition.js                                          8.97 kB │ gzip:   3.03 kB
+ℹ dist/src/runner-exchange.js                                             8.80 kB │ gzip:   3.25 kB
+ℹ dist/src/snapshot-runtime.js                                            8.64 kB │ gzip:   2.96 kB
+ℹ dist/src/auth-session.js                                                8.54 kB │ gzip:   2.94 kB
+ℹ dist/src/file.js                                                        8.05 kB │ gzip:   2.93 kB
+ℹ dist/src/server.js                                                      8.05 kB │ gzip:   3.47 kB
+ℹ dist/src/adb-executor.js                                                7.96 kB │ gzip:   3.01 kB
+ℹ dist/src/runtime2.js                                                    7.93 kB │ gzip:   3.11 kB
+ℹ dist/src/interaction-ref-policy.js                                      7.88 kB │ gzip:   3.20 kB
+ℹ dist/src/install-source2.js                                             7.88 kB │ gzip:   3.13 kB
+ℹ dist/src/find.js                                                        7.65 kB │ gzip:   3.12 kB
+ℹ dist/src/screenshot.js                                                  7.62 kB │ gzip:   2.56 kB
+ℹ dist/src/recording-gestures.js                                          7.60 kB │ gzip:   2.67 kB
+ℹ dist/src/record-runtime.js                                              7.52 kB │ gzip:   2.76 kB
+ℹ dist/src/open-script.js                                                 7.49 kB │ gzip:   2.48 kB
+ℹ dist/src/runtime11.js                                                   7.45 kB │ gzip:   2.72 kB
+ℹ dist/src/lease-release.js                                               7.38 kB │ gzip:   2.55 kB
+ℹ dist/src/server-shutdown.js                                             7.16 kB │ gzip:   2.94 kB
+ℹ dist/src/lease.js                                                       7.08 kB │ gzip:   2.80 kB
+ℹ dist/src/app-resolution.js                                              7.07 kB │ gzip:   2.88 kB
+ℹ dist/src/network-har.js                                                 7.01 kB │ gzip:   3.01 kB
+ℹ dist/src/app-launch.js                                                  6.94 kB │ gzip:   2.74 kB
+ℹ dist/src/artifact-tracking.js                                           6.86 kB │ gzip:   2.67 kB
+ℹ dist/src/gesture-plan.js                                                6.84 kB │ gzip:   2.55 kB
+ℹ dist/src/device.js                                                      6.76 kB │ gzip:   2.67 kB
+ℹ dist/src/snapshot-runtime-binding.js                                    6.67 kB │ gzip:   2.33 kB
+ℹ dist/src/helper.js                                                      6.53 kB │ gzip:   2.76 kB
+ℹ dist/src/client-metro-companion.js                                      6.46 kB │ gzip:   2.53 kB
+ℹ dist/src/request-dispatch-disclosure.js                                 6.42 kB │ gzip:   2.29 kB
+ℹ dist/src/device-claim-recovery.js                                       6.41 kB │ gzip:   1.88 kB
+ℹ dist/src/replay-divergence.js                                           6.34 kB │ gzip:   2.59 kB
+ℹ dist/src/remote-connection-state.js                                     6.21 kB │ gzip:   2.38 kB
+ℹ dist/src/post-gesture-stability.js                                      6.10 kB │ gzip:   2.59 kB
+ℹ dist/src/runner-artifact-manifest.js                                    6.05 kB │ gzip:   2.02 kB
+ℹ dist/src/lease-scope.js                                                 6.03 kB │ gzip:   2.08 kB
+ℹ dist/src/application-lifecycle-interaction.js                           5.99 kB │ gzip:   2.06 kB
+ℹ dist/src/display-inventory.js                                           5.92 kB │ gzip:   2.46 kB
+ℹ dist/src/snapshot-state.js                                              5.84 kB │ gzip:   2.44 kB
+ℹ dist/src/inventory2.js                                                  5.84 kB │ gzip:   2.42 kB
+ℹ dist/src/devicectl.js                                                   5.83 kB │ gzip:   2.28 kB
+ℹ dist/src/runner-contract.js                                             5.79 kB │ gzip:   2.55 kB
+ℹ dist/src/touch-runtime2.js                                              5.79 kB │ gzip:   1.95 kB
+ℹ dist/src/adb-failure.js                                                 5.67 kB │ gzip:   2.22 kB
+ℹ dist/src/runtime-session.js                                             5.61 kB │ gzip:   2.33 kB
+ℹ dist/src/registry.js                                                    5.56 kB │ gzip:   2.11 kB
+ℹ dist/src/device-session.js                                              5.54 kB │ gzip:   2.17 kB
+ℹ dist/src/snapshot-occlusion.js                                          5.46 kB │ gzip:   2.03 kB
+ℹ dist/src/platform-runtime-app-log-process.js                            5.37 kB │ gzip:   2.18 kB
+ℹ dist/src/daemon-lifecycle-errors.js                                     5.22 kB │ gzip:   2.09 kB
+ℹ dist/src/agent-browser-tool.js                                          5.16 kB │ gzip:   2.14 kB
+ℹ dist/src/runtime-deployment.js                                          5.12 kB │ gzip:   1.99 kB
+ℹ dist/src/scroll-gesture.js                                              5.01 kB │ gzip:   2.04 kB
+ℹ dist/src/request-runtime-binding.js                                     5.00 kB │ gzip:   1.92 kB
+ℹ dist/src/runtime5.js                                                    4.98 kB │ gzip:   2.08 kB
+ℹ dist/src/snapshot4.js                                                   4.97 kB │ gzip:   2.24 kB
+ℹ dist/src/lease-registry-scope.js                                        4.96 kB │ gzip:   1.70 kB
+ℹ dist/src/session-teardown.js                                            4.91 kB │ gzip:   2.04 kB
+ℹ dist/src/adb-transport.js                                               4.90 kB │ gzip:   1.93 kB
+ℹ dist/src/limrun-runtime-dependencies.js                                 4.90 kB │ gzip:   2.06 kB
+ℹ dist/src/parser.js                                                      4.84 kB │ gzip:   1.77 kB
+ℹ dist/src/cli-config.js                                                  4.82 kB │ gzip:   2.04 kB
+ℹ dist/src/runtime9.js                                                    4.75 kB │ gzip:   1.71 kB
+ℹ dist/src/connection-verification.js                                     4.71 kB │ gzip:   1.85 kB
+ℹ dist/src/platform-runtime-runtime-hints.js                              4.62 kB │ gzip:   1.96 kB
+ℹ dist/src/runtime10.js                                                   4.61 kB │ gzip:   1.53 kB
+ℹ dist/src/tool-provider.js                                               4.56 kB │ gzip:   1.92 kB
+ℹ dist/src/src4.js                                                        4.54 kB │ gzip:   1.89 kB
+ℹ dist/src/store.js                                                       4.48 kB │ gzip:   1.95 kB
+ℹ dist/src/input-actions2.js                                              4.32 kB │ gzip:   1.52 kB
+ℹ dist/src/tap-keyboard-occlusion.js                                      4.32 kB │ gzip:   1.79 kB
+ℹ dist/src/src8.js                                                        4.30 kB │ gzip:   1.75 kB
+ℹ dist/src/cache.js                                                       4.29 kB │ gzip:   1.79 kB
+ℹ dist/src/result-serialization.js                                        4.28 kB │ gzip:   1.42 kB
+ℹ dist/src/session-selector.js                                            4.28 kB │ gzip:   1.58 kB
+ℹ dist/src/sdk-remote-config.js                                           4.21 kB │ gzip:   1.21 kB
+ℹ dist/src/device3.js                                                     4.19 kB │ gzip:   1.60 kB
+ℹ dist/src/stop-sequence.js                                               4.17 kB │ gzip:   1.60 kB
+ℹ dist/src/png-crop-bytes.js                                              4.15 kB │ gzip:   1.79 kB
+ℹ dist/src/request-providers.js                                           4.12 kB │ gzip:   1.19 kB
+ℹ dist/src/platform-runtime-screen-recording-android-host.js              4.06 kB │ gzip:   1.62 kB
+ℹ dist/src/platform-runtime-screen-recording-apple-simulator-host.js      3.96 kB │ gzip:   1.65 kB
+ℹ dist/src/ime-state.js                                                   3.95 kB │ gzip:   1.75 kB
+ℹ dist/src/android.js                                                     3.91 kB │ gzip:   1.75 kB
+ℹ dist/src/fold-helper.js                                                 3.89 kB │ gzip:   1.84 kB
+ℹ dist/src/react-native.js                                                3.82 kB │ gzip:   1.52 kB
+ℹ dist/src/inventory.js                                                   3.80 kB │ gzip:   1.72 kB
+ℹ dist/src/snapshot-lines.js                                              3.79 kB │ gzip:   1.56 kB
+ℹ dist/src/tool-provider2.js                                              3.79 kB │ gzip:   1.42 kB
+ℹ dist/src/agent-browser-process-record.js                                3.78 kB │ gzip:   1.63 kB
+ℹ dist/src/alert-tree-driver.js                                           3.73 kB │ gzip:   1.49 kB
+ℹ dist/src/snapshot-chrome.js                                             3.73 kB │ gzip:   1.25 kB
+ℹ dist/src/mobile-snapshot-semantics.js                                   3.73 kB │ gzip:   1.48 kB
+ℹ dist/src/daemon-stop.js                                                 3.70 kB │ gzip:   1.40 kB
+ℹ dist/src/daemon-policy-file.js                                          3.70 kB │ gzip:   1.57 kB
+ℹ dist/src/daemon-client-ensure.js                                        3.69 kB │ gzip:   1.56 kB
+ℹ dist/src/composite-resource-admission.js                                3.66 kB │ gzip:   1.57 kB
+ℹ dist/src/platform-runtime-screen-recording-finalizer-host.js            3.66 kB │ gzip:   1.66 kB
+ℹ dist/src/react-native-overlay2.js                                       3.65 kB │ gzip:   1.60 kB
+ℹ dist/src/webdriver-source.js                                            3.59 kB │ gzip:   1.65 kB
+ℹ dist/src/tv-remote.js                                                   3.57 kB │ gzip:   1.29 kB
+ℹ dist/src/boot-diagnostics.js                                            3.50 kB │ gzip:   1.45 kB
+ℹ dist/src/host4.js                                                       3.50 kB │ gzip:   1.58 kB
+ℹ dist/src/platform-runtime-apple-application-tools.js                    3.49 kB │ gzip:   1.34 kB
+ℹ dist/src/durable-resource.js                                            3.49 kB │ gzip:   1.33 kB
+ℹ dist/src/interactors.js                                                 3.44 kB │ gzip:   1.25 kB
+ℹ dist/src/request.js                                                     3.42 kB │ gzip:   1.53 kB
+ℹ dist/src/touch-runtime.js                                               3.41 kB │ gzip:   1.35 kB
+ℹ dist/src/png-worker-client.js                                           3.38 kB │ gzip:   1.45 kB
+ℹ dist/src/install-artifact-facade.js                                     3.30 kB │ gzip:   1.33 kB
+ℹ dist/src/platform-runtime-unavailable.js                                3.28 kB │ gzip:   1.31 kB
+ℹ dist/src/target-evidence.js                                             3.28 kB │ gzip:   1.30 kB
+ℹ dist/src/runner-operations-facade.js                                    3.26 kB │ gzip:   1.45 kB
+ℹ dist/src/dispatch-resolve.js                                            3.24 kB │ gzip:   1.35 kB
+ℹ dist/src/quality-warnings.js                                            3.24 kB │ gzip:   1.47 kB
+ℹ dist/src/limrun-ios-files.js                                            3.23 kB │ gzip:   1.44 kB
+ℹ dist/src/device-selection-resolver.js                                   3.22 kB │ gzip:   1.39 kB
+ℹ dist/src/ios-snapshot-runtime.js                                        3.21 kB │ gzip:   1.38 kB
+ℹ dist/src/diff.js                                                        3.20 kB │ gzip:   1.42 kB
+ℹ dist/src/selection.js                                                   3.16 kB │ gzip:   1.38 kB
+ℹ dist/src/launch-confirmation.js                                         3.15 kB │ gzip:   1.33 kB
+ℹ dist/src/app-lifecycle2.js                                              3.14 kB │ gzip:   1.48 kB
+ℹ dist/src/daemon-resolution.js                                           3.13 kB │ gzip:   1.48 kB
+ℹ dist/src/app-log-reconnect.js                                           3.12 kB │ gzip:   1.19 kB
+ℹ dist/src/connection-runtime.js                                          3.11 kB │ gzip:   1.26 kB
+ℹ dist/src/observation.js                                                 3.10 kB │ gzip:   1.40 kB
+ℹ dist/src/android2.js                                                    3.08 kB │ gzip:   1.35 kB
+ℹ dist/src/src15.js                                                       3.05 kB │ gzip:   1.30 kB
+ℹ dist/src/perf-runtime-plan.js                                           3.02 kB │ gzip:   0.95 kB
+ℹ dist/src/orientation.js                                                 3.02 kB │ gzip:   1.29 kB
+ℹ dist/src/tree.js                                                        3.01 kB │ gzip:   1.22 kB
+ℹ dist/src/vars.js                                                        3.01 kB │ gzip:   1.34 kB
+ℹ dist/src/snapshot-diagnostics.js                                        2.97 kB │ gzip:   1.18 kB
+ℹ dist/src/session-routing.js                                             2.93 kB │ gzip:   1.35 kB
+ℹ dist/src/update-check.js                                                2.91 kB │ gzip:   1.34 kB
+ℹ dist/src/src11.js                                                       2.90 kB │ gzip:   0.88 kB
+ℹ dist/src/composed-inventory-gateways.js                                 2.85 kB │ gzip:   1.08 kB
+ℹ dist/src/code-signature.js                                              2.84 kB │ gzip:   1.29 kB
+ℹ dist/src/perf-target.js                                                 2.77 kB │ gzip:   1.23 kB
+ℹ dist/src/connection-metro-runtime.js                                    2.75 kB │ gzip:   1.18 kB
+ℹ dist/src/discovery.js                                                   2.74 kB │ gzip:   1.22 kB
+ℹ dist/src/daemon.js                                                      2.69 kB │ gzip:   1.32 kB
+ℹ dist/src/artifact-download.js                                           2.68 kB │ gzip:   1.19 kB
+ℹ dist/src/keyed-lock.js                                                  2.66 kB │ gzip:   1.12 kB
+ℹ dist/src/screen-recording-stop-recovery.js                              2.65 kB │ gzip:   1.09 kB
+ℹ dist/src/platform-runtime-android-adb-host.js                           2.65 kB │ gzip:   1.10 kB
+ℹ dist/src/interaction-positionals.js                                     2.61 kB │ gzip:   1.14 kB
+ℹ dist/src/platform-runtime-host.js                                       2.60 kB │ gzip:   1.14 kB
+ℹ dist/src/interactor-operation-catalog.js                                2.59 kB │ gzip:   0.77 kB
+ℹ dist/src/snapshot3.js                                                   2.57 kB │ gzip:   1.35 kB
+ℹ dist/src/metro-session-hints.js                                         2.55 kB │ gzip:   1.07 kB
+ℹ dist/src/runner-toolchain-identity.js                                   2.54 kB │ gzip:   1.24 kB
+ℹ dist/src/screenshot4.js                                                 2.53 kB │ gzip:   1.16 kB
+ℹ dist/src/daemon-registration.js                                         2.52 kB │ gzip:   0.96 kB
+ℹ dist/src/runner-client.js                                               2.51 kB │ gzip:   1.24 kB
+ℹ dist/src/app-log-session-resource.js                                    2.50 kB │ gzip:   1.12 kB
+ℹ dist/src/snapshot-capture-annotations.js                                2.49 kB │ gzip:   0.84 kB
+ℹ dist/src/platform-runtime-screen-recording-process-host.js              2.49 kB │ gzip:   1.11 kB
+ℹ dist/src/gesture-runtime.js                                             2.48 kB │ gzip:   0.81 kB
+ℹ dist/src/runner-launched-session.js                                     2.47 kB │ gzip:   1.16 kB
+ℹ dist/src/platform-runtime-open-target.js                                2.45 kB │ gzip:   1.08 kB
+ℹ dist/src/src12.js                                                       2.39 kB │ gzip:   0.73 kB
+ℹ dist/src/capture-lifecycle.js                                           2.35 kB │ gzip:   1.05 kB
+ℹ dist/src/screen-recording-transport.js                                  2.35 kB │ gzip:   1.00 kB
+ℹ dist/src/runner-io.js                                                   2.35 kB │ gzip:   1.18 kB
+ℹ dist/src/launch-services-registration.js                                2.34 kB │ gzip:   1.15 kB
+ℹ dist/src/snapshot-helper-session.js                                     2.32 kB │ gzip:   1.10 kB
+ℹ dist/src/simulator.js                                                   2.31 kB │ gzip:   1.13 kB
+ℹ dist/src/platform-runtime-screen-recording-apple-runner-transport.js    2.31 kB │ gzip:   0.96 kB
+ℹ dist/src/runner-start-budget.js                                         2.28 kB │ gzip:   1.12 kB
+ℹ dist/src/record-trace.js                                                2.28 kB │ gzip:   0.99 kB
+ℹ dist/src/input-actions.js                                               2.27 kB │ gzip:   0.93 kB
+ℹ dist/src/daemon-client-lease-beat.js                                    2.26 kB │ gzip:   1.10 kB
+ℹ dist/src/platform-runtime-screen-recording-apple-runner-host.js         2.26 kB │ gzip:   0.88 kB
+ℹ dist/src/cli-runner.js                                                  2.20 kB │ gzip:   1.07 kB
+ℹ dist/src/session-capture-binding.js                                     2.19 kB │ gzip:   0.84 kB
+ℹ dist/src/daemon-command-registry.js                                     2.17 kB │ gzip:   0.89 kB
+ℹ dist/src/record-runtime-response.js                                     2.17 kB │ gzip:   0.84 kB
+ℹ dist/src/screenshot-overlay-draw.js                                     2.16 kB │ gzip:   0.83 kB
+ℹ dist/src/ios-node-interpretation.js                                     2.14 kB │ gzip:   1.00 kB
+ℹ dist/src/runner-runtime.js                                              2.08 kB │ gzip:   0.96 kB
+ℹ dist/src/session-allocation.js                                          2.07 kB │ gzip:   0.87 kB
+ℹ dist/src/replay-backend-host.js                                         2.06 kB │ gzip:   1.01 kB
+ℹ dist/src/durable-capture-resource.js                                    2.05 kB │ gzip:   0.94 kB
+ℹ dist/src/ios-snapshot-planning.js                                       2.03 kB │ gzip:   0.66 kB
+ℹ dist/src/human-control-contract.js                                      2.01 kB │ gzip:   0.94 kB
+ℹ dist/src/interactor4.js                                                 2.01 kB │ gzip:   0.84 kB
+ℹ dist/src/session-device-resolution.js                                   2.00 kB │ gzip:   0.90 kB
+ℹ dist/src/runner-session-types.js                                        1.98 kB │ gzip:   0.83 kB
+ℹ dist/src/daemon-launch-spec.js                                          1.97 kB │ gzip:   0.90 kB
+ℹ dist/src/browserstack-device-features.js                                1.97 kB │ gzip:   0.79 kB
+ℹ dist/src/takeover.js                                                    1.96 kB │ gzip:   0.96 kB
+ℹ dist/src/platform-runtime-screen-recording-apple-host.js                1.96 kB │ gzip:   0.55 kB
+ℹ dist/src/runner-sequence.js                                             1.94 kB │ gzip:   1.00 kB
+ℹ dist/src/local-simulator-apps.js                                        1.91 kB │ gzip:   0.94 kB
+ℹ dist/src/ios-snapshot-acquisition.js                                    1.90 kB │ gzip:   0.81 kB
+ℹ dist/src/code-signature-cache.js                                        1.89 kB │ gzip:   0.92 kB
+ℹ dist/src/version.js                                                     1.88 kB │ gzip:   0.91 kB
+ℹ dist/src/agent-browser-lifecycle.js                                     1.88 kB │ gzip:   0.91 kB
+ℹ dist/src/window-state.js                                                1.86 kB │ gzip:   0.91 kB
+ℹ dist/src/capture-disclosure.js                                          1.86 kB │ gzip:   0.81 kB
+ℹ dist/src/verified-file.js                                               1.85 kB │ gzip:   0.88 kB
+ℹ dist/src/app-deployment-resolution.js                                   1.84 kB │ gzip:   0.97 kB
+ℹ dist/src/android-input-ownership.js                                     1.81 kB │ gzip:   0.77 kB
+ℹ dist/src/alert.js                                                       1.80 kB │ gzip:   0.88 kB
+ℹ dist/src/host3.js                                                       1.79 kB │ gzip:   0.92 kB
+ℹ dist/src/inventory3.js                                                  1.79 kB │ gzip:   0.93 kB
+ℹ dist/src/screen-recording-session-resource.js                           1.77 kB │ gzip:   0.72 kB
+ℹ dist/src/manifest.js                                                    1.76 kB │ gzip:   0.91 kB
+ℹ dist/src/host2.js                                                       1.76 kB │ gzip:   0.93 kB
+ℹ dist/src/src5.js                                                        1.76 kB │ gzip:   0.67 kB
+ℹ dist/src/settings-bluetooth.js                                          1.75 kB │ gzip:   0.85 kB
+ℹ dist/src/screen-recording-completion.js                                 1.73 kB │ gzip:   0.82 kB
+ℹ dist/src/ime-settings-record.js                                         1.73 kB │ gzip:   0.68 kB
+ℹ dist/src/device-shell.js                                                1.73 kB │ gzip:   0.90 kB
+ℹ dist/src/runner-retention.js                                            1.72 kB │ gzip:   0.80 kB
+ℹ dist/src/lease-context.js                                               1.72 kB │ gzip:   0.77 kB
+ℹ dist/src/simulator-boot.js                                              1.71 kB │ gzip:   0.90 kB
+ℹ dist/src/interaction.js                                                 1.70 kB │ gzip:   0.71 kB
+ℹ dist/src/remote-config-flags.js                                         1.69 kB │ gzip:   0.91 kB
+ℹ dist/src/platform-runtime-daemon-services.js                            1.69 kB │ gzip:   0.66 kB
+ℹ dist/src/limrun-download-file.js                                        1.69 kB │ gzip:   0.82 kB
+ℹ dist/src/doctor-facade.js                                               1.67 kB │ gzip:   0.72 kB
+ℹ dist/src/host-file.js                                                   1.67 kB │ gzip:   0.57 kB
+ℹ dist/src/daemon-http.js                                                 1.66 kB │ gzip:   0.78 kB
+ℹ dist/src/replay2.js                                                     1.65 kB │ gzip:   0.80 kB
+ℹ dist/src/daemon-startup-diagnostics.js                                  1.65 kB │ gzip:   0.79 kB
+ℹ dist/src/src14.js                                                       1.64 kB │ gzip:   0.57 kB
+ℹ dist/src/device2.js                                                     1.63 kB │ gzip:   0.70 kB
+ℹ dist/src/settings-global-toggle.js                                      1.63 kB │ gzip:   0.83 kB
+ℹ dist/src/interactor3.js                                                 1.62 kB │ gzip:   0.77 kB
+ℹ dist/src/app-parsers.js                                                 1.61 kB │ gzip:   0.74 kB
+ℹ dist/src/automation-helper.js                                           1.61 kB │ gzip:   0.81 kB
+ℹ dist/src/remote-config-core.js                                          1.60 kB │ gzip:   0.76 kB
+ℹ dist/src/audio-probe-result.js                                          1.59 kB │ gzip:   0.62 kB
+ℹ dist/src/png-resize.js                                                  1.58 kB │ gzip:   0.75 kB
+ℹ dist/src/app-catalog.js                                                 1.57 kB │ gzip:   0.82 kB
+ℹ dist/src/ios-system-surface.js                                          1.56 kB │ gzip:   0.81 kB
+ℹ dist/src/engine-eval-script.js                                          1.56 kB │ gzip:   0.85 kB
+ℹ dist/src/host6.js                                                       1.55 kB │ gzip:   0.86 kB
+ℹ dist/src/plugin-inventory.js                                            1.54 kB │ gzip:   0.71 kB
+ℹ dist/src/absence-observation.js                                         1.54 kB │ gzip:   0.73 kB
+ℹ dist/src/keyboard-occlusion.js                                          1.53 kB │ gzip:   0.69 kB
+ℹ dist/src/daemon-shutdown-report.js                                      1.51 kB │ gzip:   0.56 kB
+ℹ dist/src/daemon-client-liveness-probe.js                                1.51 kB │ gzip:   0.81 kB
+ℹ dist/src/tool-provider3.js                                              1.50 kB │ gzip:   0.69 kB
+ℹ dist/src/generic-settle.js                                              1.50 kB │ gzip:   0.63 kB
+ℹ dist/src/plugins2.js                                                    1.48 kB │ gzip:   0.79 kB
+ℹ dist/src/absence-observation-errors.js                                  1.47 kB │ gzip:   0.65 kB
+ℹ dist/src/local-simulator-files.js                                       1.47 kB │ gzip:   0.72 kB
+ℹ dist/src/detached-attempt.js                                            1.46 kB │ gzip:   0.71 kB
+ℹ dist/src/runner-cache-retention.js                                      1.44 kB │ gzip:   0.82 kB
+ℹ dist/src/session-artifact-paths.js                                      1.44 kB │ gzip:   0.63 kB
+ℹ dist/src/generic.js                                                     1.41 kB │ gzip:   0.73 kB
+ℹ dist/src/provider-limrun-credentials.js                                 1.41 kB │ gzip:   0.72 kB
+ℹ dist/src/doctor2.js                                                     1.41 kB │ gzip:   0.79 kB
+ℹ dist/src/alert-contract.js                                              1.40 kB │ gzip:   0.72 kB
+ℹ dist/src/automation-helper-artifact.js                                  1.40 kB │ gzip:   0.65 kB
+ℹ dist/src/inventory5.js                                                  1.39 kB │ gzip:   0.81 kB
+ℹ dist/src/snapshot-quality-verdict.js                                    1.37 kB │ gzip:   0.60 kB
+ℹ dist/src/type-text-runtime.js                                           1.37 kB │ gzip:   0.76 kB
+ℹ dist/src/perf-capture-session-resource.js                               1.37 kB │ gzip:   0.54 kB
+ℹ dist/src/web.js                                                         1.36 kB │ gzip:   0.66 kB
+ℹ dist/src/auth.js                                                        1.35 kB │ gzip:   0.62 kB
+ℹ dist/src/daemon-client-attach.js                                        1.35 kB │ gzip:   0.72 kB
+ℹ dist/src/runtime-admission.js                                           1.32 kB │ gzip:   0.65 kB
+ℹ dist/src/png-worker-contract.js                                         1.31 kB │ gzip:   0.67 kB
+ℹ dist/src/screen-recording-resource-recovery.js                          1.31 kB │ gzip:   0.60 kB
+ℹ dist/src/runner-panel.js                                                1.31 kB │ gzip:   0.66 kB
+ℹ dist/src/session-repair-tombstone.js                                    1.30 kB │ gzip:   0.65 kB
+ℹ dist/src/scroll-command.js                                              1.29 kB │ gzip:   0.61 kB
+ℹ dist/src/store-legacy.js                                                1.27 kB │ gzip:   0.68 kB
+ℹ dist/src/device-inventory-context.js                                    1.27 kB │ gzip:   0.63 kB
+ℹ dist/src/register-builtins.js                                           1.27 kB │ gzip:   0.54 kB
+ℹ dist/src/platform-runtime-screen-recording-harmony-host.js              1.25 kB │ gzip:   0.54 kB
+ℹ dist/src/recording.js                                                   1.23 kB │ gzip:   0.69 kB
+ℹ dist/src/browserstack-connection.js                                     1.22 kB │ gzip:   0.57 kB
+ℹ dist/src/interactor5.js                                                 1.22 kB │ gzip:   0.59 kB
+ℹ dist/src/src13.js                                                       1.21 kB │ gzip:   0.55 kB
+ℹ dist/src/runtime-transport-hints.js                                     1.21 kB │ gzip:   0.67 kB
+ℹ dist/src/perf.js                                                        1.21 kB │ gzip:   0.68 kB
+ℹ dist/src/interactor2.js                                                 1.20 kB │ gzip:   0.63 kB
+ℹ dist/src/ime-rebind.js                                                  1.20 kB │ gzip:   0.59 kB
+ℹ dist/src/legacy.js                                                      1.19 kB │ gzip:   0.62 kB
+ℹ dist/src/simctl.js                                                      1.18 kB │ gzip:   0.57 kB
+ℹ dist/src/error.js                                                       1.17 kB │ gzip:   0.63 kB
+ℹ dist/src/platform-runtime-app-log-android-transport.js                  1.14 kB │ gzip:   0.63 kB
+ℹ dist/src/node-http.js                                                   1.14 kB │ gzip:   0.66 kB
+ℹ dist/src/doctor3.js                                                     1.09 kB │ gzip:   0.49 kB
+ℹ dist/src/interaction-error.js                                           1.09 kB │ gzip:   0.55 kB
+ℹ dist/src/provider-profile-fields.js                                     1.09 kB │ gzip:   0.60 kB
+ℹ dist/src/provider-session-ownership.js                                  1.08 kB │ gzip:   0.51 kB
+ℹ dist/src/app-helpers.js                                                 1.07 kB │ gzip:   0.57 kB
+ℹ dist/src/inventory-parsers.js                                           1.04 kB │ gzip:   0.53 kB
+ℹ dist/src/runner-cache-trim.js                                           1.02 kB │ gzip:   0.56 kB
+ℹ dist/src/aws-device-farm-connection.js                                  1.02 kB │ gzip:   0.49 kB
+ℹ dist/src/async-lifecycle.js                                             1.02 kB │ gzip:   0.46 kB
+ℹ dist/src/metro-reload-endpoints.js                                      1.01 kB │ gzip:   0.57 kB
+ℹ dist/src/session-runtime-admission.js                                   1.01 kB │ gzip:   0.52 kB
+ℹ dist/src/human-control.js                                               1.01 kB │ gzip:   0.57 kB
+ℹ dist/src/perf-runtime-operation-builder.js                              1.01 kB │ gzip:   0.52 kB
+ℹ dist/src/snapshot-desktop-projection.js                                 1.01 kB │ gzip:   0.57 kB
+ℹ dist/src/output-common.js                                               1.00 kB │ gzip:   0.53 kB
+ℹ dist/src/daemon-client-ensuring.js                                      1.00 kB │ gzip:   0.52 kB
+ℹ dist/src/mp4-atoms.js                                                   0.98 kB │ gzip:   0.56 kB
+ℹ dist/src/android-system-chrome.js                                       0.98 kB │ gzip:   0.40 kB
+ℹ dist/src/screenshot-image-size.js                                       0.97 kB │ gzip:   0.57 kB
+ℹ dist/src/capture-output-ownership.js                                    0.97 kB │ gzip:   0.57 kB
+ℹ dist/src/settle-observation-capture.js                                  0.96 kB │ gzip:   0.47 kB
+ℹ dist/src/leased-recording-retention.js                                  0.94 kB │ gzip:   0.47 kB
+ℹ dist/src/plist.js                                                       0.94 kB │ gzip:   0.53 kB
+ℹ dist/src/runtime7.js                                                    0.93 kB │ gzip:   0.49 kB
+ℹ dist/src/clipboard-shell-response.js                                    0.93 kB │ gzip:   0.52 kB
+ℹ dist/src/legacy-xctest-device-set.js                                    0.93 kB │ gzip:   0.47 kB
+ℹ dist/src/app-backend.js                                                 0.92 kB │ gzip:   0.51 kB
+ℹ dist/src/observability.js                                               0.91 kB │ gzip:   0.49 kB
+ℹ dist/src/snapshot-evidence.js                                           0.91 kB │ gzip:   0.49 kB
+ℹ dist/src/rolldown-runtime.js                                            0.88 kB │ gzip:   0.52 kB
+ℹ dist/src/runner-device-readiness.js                                     0.87 kB │ gzip:   0.44 kB
+ℹ dist/src/screenshot-runtime2.js                                         0.86 kB │ gzip:   0.47 kB
+ℹ dist/src/app-log-durable-resource.js                                    0.86 kB │ gzip:   0.47 kB
+ℹ dist/src/device-selector-intent.js                                      0.86 kB │ gzip:   0.46 kB
+ℹ dist/src/react-native-overlay.js                                        0.86 kB │ gzip:   0.49 kB
+ℹ dist/src/application-lifecycle-runtime.js                               0.85 kB │ gzip:   0.35 kB
+ℹ dist/src/click-button.js                                                0.85 kB │ gzip:   0.44 kB
+ℹ dist/src/gesture-admission.js                                           0.84 kB │ gzip:   0.48 kB
+ℹ dist/src/transport.js                                                   0.84 kB │ gzip:   0.50 kB
+ℹ dist/src/hdc.js                                                         0.83 kB │ gzip:   0.49 kB
+ℹ dist/src/session-test-source-discovery.js                               0.83 kB │ gzip:   0.45 kB
+ℹ dist/src/session.js                                                     0.83 kB │ gzip:   0.46 kB
+ℹ dist/src/screenshot-density.js                                          0.80 kB │ gzip:   0.46 kB
+ℹ dist/src/app-log-files.js                                               0.80 kB │ gzip:   0.50 kB
+ℹ dist/src/rect-center.js                                                 0.80 kB │ gzip:   0.41 kB
+ℹ dist/src/app-state-read.js                                              0.79 kB │ gzip:   0.50 kB
+ℹ dist/src/platform-runtime-screen-recording-apple-transport.js           0.79 kB │ gzip:   0.46 kB
+ℹ dist/src/runtime4.js                                                    0.78 kB │ gzip:   0.44 kB
+ℹ dist/src/png-encode.js                                                  0.77 kB │ gzip:   0.46 kB
+ℹ dist/src/providers.js                                                   0.76 kB │ gzip:   0.46 kB
+ℹ dist/src/client-options.js                                              0.75 kB │ gzip:   0.47 kB
+ℹ dist/src/command.js                                                     0.75 kB │ gzip:   0.41 kB
+ℹ dist/src/telephony-runtime.js                                           0.75 kB │ gzip:   0.40 kB
+ℹ dist/src/snapshot-quality-backend-capabilities.js                       0.72 kB │ gzip:   0.26 kB
+ℹ dist/src/settings2.js                                                   0.72 kB │ gzip:   0.42 kB
+ℹ dist/src/interactor-operation-binding.js                                0.71 kB │ gzip:   0.40 kB
+ℹ dist/src/focus-runtime.js                                               0.70 kB │ gzip:   0.39 kB
+ℹ dist/src/session-observation.js                                         0.68 kB │ gzip:   0.42 kB
+ℹ dist/src/request-cancellation.js                                        0.68 kB │ gzip:   0.37 kB
+ℹ dist/src/platform-runtime-shutdown-error.js                             0.68 kB │ gzip:   0.43 kB
+ℹ dist/src/mp4-duration.js                                                0.68 kB │ gzip:   0.41 kB
+ℹ dist/src/client-companion-tunnel-contract.js                            0.67 kB │ gzip:   0.30 kB
+ℹ dist/src/app-state.js                                                   0.67 kB │ gzip:   0.40 kB
+ℹ dist/src/browser-launch.js                                              0.67 kB │ gzip:   0.40 kB
+ℹ dist/src/credential-fingerprint.js                                      0.67 kB │ gzip:   0.44 kB
+ℹ dist/src/runner-dev-tools-security.js                                   0.67 kB │ gzip:   0.40 kB
+ℹ dist/src/src16.js                                                       0.67 kB │ gzip:   0.31 kB
+ℹ dist/src/helper-artifacts.js                                            0.66 kB │ gzip:   0.35 kB
+ℹ dist/src/explicit-session-resolution.js                                 0.65 kB │ gzip:   0.40 kB
+ℹ dist/src/replay-script-selection.js                                     0.65 kB │ gzip:   0.35 kB
+ℹ dist/src/ios-target-activation.js                                       0.65 kB │ gzip:   0.34 kB
+ℹ dist/src/local-interactor-operation-set.js                              0.65 kB │ gzip:   0.34 kB
+ℹ dist/src/adb.js                                                         0.65 kB │ gzip:   0.35 kB
+ℹ dist/src/doctor-lines.js                                                0.64 kB │ gzip:   0.35 kB
+ℹ dist/src/ttl-memo.js                                                    0.62 kB │ gzip:   0.36 kB
+ℹ dist/src/lifecycle-budget.js                                            0.61 kB │ gzip:   0.40 kB
+ℹ dist/src/platform-runtime-claim-recovery.js                             0.60 kB │ gzip:   0.36 kB
+ℹ dist/src/entities.js                                                    0.60 kB │ gzip:   0.35 kB
+ℹ dist/src/expo-dev-client-launch.js                                      0.60 kB │ gzip:   0.37 kB
+ℹ dist/src/target-evidence-tree.js                                        0.60 kB │ gzip:   0.37 kB
+ℹ dist/src/screenshot2.js                                                 0.60 kB │ gzip:   0.40 kB
+ℹ dist/src/ended-lease.js                                                 0.58 kB │ gzip:   0.36 kB
+ℹ dist/src/tool-provider-facade.js                                        0.58 kB │ gzip:   0.30 kB
+ℹ dist/src/provider.js                                                    0.57 kB │ gzip:   0.33 kB
+ℹ dist/src/runner-device-set.js                                           0.56 kB │ gzip:   0.30 kB
+ℹ dist/src/app-resolution-cache.js                                        0.55 kB │ gzip:   0.34 kB
+ℹ dist/src/open-target-resolution.js                                      0.54 kB │ gzip:   0.31 kB
+ℹ dist/src/status-markers.js                                              0.54 kB │ gzip:   0.34 kB
+ℹ dist/src/cli-command-aliases.js                                         0.54 kB │ gzip:   0.29 kB
+ℹ dist/src/platform-runtime-network-web-transport.js                      0.52 kB │ gzip:   0.33 kB
+ℹ dist/src/provider-plugin-catalog.js                                     0.51 kB │ gzip:   0.29 kB
+ℹ dist/src/webdriver-ios-snapshot.js                                      0.51 kB │ gzip:   0.33 kB
+ℹ dist/src/scroll-indicator.js                                            0.50 kB │ gzip:   0.32 kB
+ℹ dist/src/unsupported-interactor.js                                      0.50 kB │ gzip:   0.29 kB
+ℹ dist/src/runner-owner-state.js                                          0.49 kB │ gzip:   0.26 kB
+ℹ dist/src/scoped-provider.js                                             0.49 kB │ gzip:   0.32 kB
+ℹ dist/src/request-progress-protocol.js                                   0.49 kB │ gzip:   0.22 kB
+ℹ dist/src/device-boot.js                                                 0.49 kB │ gzip:   0.35 kB
+ℹ dist/src/doctor.js                                                      0.49 kB │ gzip:   0.31 kB
+ℹ dist/src/vega-executable.js                                             0.49 kB │ gzip:   0.29 kB
+ℹ dist/src/location-coordinates.js                                        0.48 kB │ gzip:   0.31 kB
+ℹ dist/src/android-snapshot-quality.js                                    0.48 kB │ gzip:   0.28 kB
+ℹ dist/src/snapshot-private-evidence.js                                   0.48 kB │ gzip:   0.23 kB
+ℹ dist/src/telemetry.js                                                   0.48 kB │ gzip:   0.31 kB
+ℹ dist/src/wait.js                                                        0.47 kB │ gzip:   0.27 kB
+ℹ dist/src/script-source.js                                               0.47 kB │ gzip:   0.32 kB
+ℹ dist/src/provider-webdriver.js                                          0.47 kB │ gzip:   0.30 kB
+ℹ dist/src/platform-runtime-screen-recording-output-host.js               0.46 kB │ gzip:   0.28 kB
+ℹ dist/src/open-target.js                                                 0.46 kB │ gzip:   0.30 kB
+ℹ dist/src/recording-stop-observation.js                                  0.46 kB │ gzip:   0.28 kB
+ℹ dist/src/project-runtime.js                                             0.46 kB │ gzip:   0.28 kB
+ℹ dist/src/replay-backend-registry.js                                     0.44 kB │ gzip:   0.28 kB
+ℹ dist/src/builtin-provider-ids.js                                        0.44 kB │ gzip:   0.30 kB
+ℹ dist/src/perf-process-identity.js                                       0.44 kB │ gzip:   0.27 kB
+ℹ dist/src/output-path.js                                                 0.43 kB │ gzip:   0.27 kB
+ℹ dist/src/runner-launcher-provider.js                                    0.43 kB │ gzip:   0.28 kB
+ℹ dist/src/snapshot-node-lookup.js                                        0.42 kB │ gzip:   0.26 kB
+ℹ dist/src/daemon-client-proxy-upstream.js                                0.41 kB │ gzip:   0.29 kB
+ℹ dist/src/png-size.js                                                    0.41 kB │ gzip:   0.31 kB
+ℹ dist/src/app-lifecycle3.js                                              0.40 kB │ gzip:   0.24 kB
+ℹ dist/src/byte-limit-stream.js                                           0.40 kB │ gzip:   0.28 kB
+ℹ dist/src/logcat.js                                                      0.39 kB │ gzip:   0.28 kB
+ℹ dist/src/format.js                                                      0.39 kB │ gzip:   0.25 kB
+ℹ dist/src/daemon-client-stop.js                                          0.38 kB │ gzip:   0.25 kB
+ℹ dist/src/viewport.js                                                    0.38 kB │ gzip:   0.28 kB
+ℹ dist/src/runner-selector-query.js                                       0.38 kB │ gzip:   0.26 kB
+ℹ dist/src/screen-recording-options.js                                    0.38 kB │ gzip:   0.26 kB
+ℹ dist/src/platform-runtime-screen-recording-web-host.js                  0.37 kB │ gzip:   0.24 kB
+ℹ dist/src/recording-export-quality.js                                    0.37 kB │ gzip:   0.24 kB
+ℹ dist/src/catalog.js                                                     0.37 kB │ gzip:   0.24 kB
+ℹ dist/src/validation.js                                                  0.36 kB │ gzip:   0.25 kB
+ℹ dist/src/app-resolution-facade.js                                       0.35 kB │ gzip:   0.23 kB
+ℹ dist/src/simulator-state.js                                             0.35 kB │ gzip:   0.25 kB
+ℹ dist/src/shared.js                                                      0.35 kB │ gzip:   0.24 kB
+ℹ dist/src/toolchain-probe.js                                             0.34 kB │ gzip:   0.25 kB
+ℹ dist/src/src9.js                                                        0.34 kB │ gzip:   0.23 kB
+ℹ dist/src/runner-owner-facade.js                                         0.34 kB │ gzip:   0.23 kB
+ℹ dist/src/webdriver-android-source.js                                    0.33 kB │ gzip:   0.24 kB
+ℹ dist/src/perf-runtime.js                                                0.33 kB │ gzip:   0.18 kB
+ℹ dist/src/runtime-slots.js                                               0.33 kB │ gzip:   0.23 kB
+ℹ dist/src/simctl-facade.js                                               0.32 kB │ gzip:   0.24 kB
+ℹ dist/src/process-exit.js                                                0.32 kB │ gzip:   0.23 kB
+ℹ dist/src/src7.js                                                        0.31 kB │ gzip:   0.17 kB
+ℹ dist/src/android-system-surface-disclosure.js                           0.30 kB │ gzip:   0.23 kB
+ℹ dist/src/artifact-paths.js                                              0.30 kB │ gzip:   0.19 kB
+ℹ dist/src/surface-snapshot.js                                            0.30 kB │ gzip:   0.24 kB
+ℹ dist/src/success-text.js                                                0.29 kB │ gzip:   0.19 kB
+ℹ dist/src/surface-snapshot2.js                                           0.29 kB │ gzip:   0.21 kB
+ℹ dist/src/resolve-provider.js                                            0.28 kB │ gzip:   0.20 kB
+ℹ dist/src/android-text-entry.js                                          0.27 kB │ gzip:   0.19 kB
+ℹ dist/src/string-enum.js                                                 0.27 kB │ gzip:   0.23 kB
+ℹ dist/src/config.js                                                      0.27 kB │ gzip:   0.17 kB
+ℹ dist/src/daemon-diagnostics-scope.js                                    0.27 kB │ gzip:   0.20 kB
+ℹ dist/src/platform-runtime-android-mechanics.js                          0.27 kB │ gzip:   0.20 kB
+ℹ dist/src/recording-scope.js                                             0.27 kB │ gzip:   0.20 kB
+ℹ dist/src/device-isolation.js                                            0.26 kB │ gzip:   0.20 kB
+ℹ dist/src/launcher-categories.js                                         0.26 kB │ gzip:   0.18 kB
+ℹ dist/src/simulator-app-budget.js                                        0.25 kB │ gzip:   0.19 kB
+ℹ dist/src/retry.js                                                       0.24 kB │ gzip:   0.20 kB
+ℹ dist/src/touch-reference-frame.js                                       0.24 kB │ gzip:   0.19 kB
+ℹ dist/src/bounds.js                                                      0.23 kB │ gzip:   0.17 kB
+ℹ dist/src/host5.js                                                       0.23 kB │ gzip:   0.17 kB
+ℹ dist/src/app-inventory.js                                               0.23 kB │ gzip:   0.20 kB
+ℹ dist/src/provider-device-admission.js                                   0.23 kB │ gzip:   0.18 kB
+ℹ dist/src/backend-snapshot-options.js                                    0.23 kB │ gzip:   0.19 kB
+ℹ dist/src/bundle-url.js                                                  0.23 kB │ gzip:   0.18 kB
+ℹ dist/src/open-target2.js                                                0.23 kB │ gzip:   0.19 kB
+ℹ dist/src/screen-recording-resource-store.js                             0.22 kB │ gzip:   0.16 kB
+ℹ dist/src/snapshot-process.js                                            0.22 kB │ gzip:   0.20 kB
+ℹ dist/src/command-policy.js                                              0.22 kB │ gzip:   0.13 kB
+ℹ dist/src/macos-facade.js                                                0.22 kB │ gzip:   0.16 kB
+ℹ dist/src/startup-recovery-fence.js                                      0.21 kB │ gzip:   0.16 kB
+ℹ dist/src/inventory4.js                                                  0.21 kB │ gzip:   0.18 kB
+ℹ dist/src/session-paths.js                                               0.21 kB │ gzip:   0.17 kB
+ℹ dist/src/session-tenant-scope.js                                        0.21 kB │ gzip:   0.15 kB
+ℹ dist/src/clipboard.js                                                   0.21 kB │ gzip:   0.15 kB
+ℹ dist/src/color.js                                                       0.20 kB │ gzip:   0.17 kB
+ℹ dist/src/simctl-execution.js                                            0.20 kB │ gzip:   0.16 kB
+ℹ dist/src/plugin.js                                                      0.20 kB │ gzip:   0.15 kB
+ℹ dist/src/snapshot-baseline.js                                           0.20 kB │ gzip:   0.14 kB
+ℹ dist/src/process-entry.js                                               0.20 kB │ gzip:   0.17 kB
+ℹ dist/src/audio-probe-runtime.js                                         0.19 kB │ gzip:   0.14 kB
+ℹ dist/src/host.js                                                        0.18 kB │ gzip:   0.15 kB
+ℹ dist/src/launch-console.js                                              0.18 kB │ gzip:   0.14 kB
+ℹ dist/src/diagnostics.js                                                 0.18 kB │ gzip:   0.15 kB
+ℹ dist/src/interactor-types.js                                            0.17 kB │ gzip:   0.13 kB
+ℹ dist/src/limrun-delta-sync-omitted.js                                   0.17 kB │ gzip:   0.15 kB
+ℹ dist/src/react-devtools.js                                              0.17 kB │ gzip:   0.15 kB
+ℹ dist/src/simulator-facade.js                                            0.15 kB │ gzip:   0.12 kB
+ℹ dist/src/deploy-result-target.js                                        0.15 kB │ gzip:   0.12 kB
+ℹ dist/src/interactor-facade.js                                           0.14 kB │ gzip:   0.12 kB
+ℹ dist/src/interactor-facade3.js                                          0.14 kB │ gzip:   0.12 kB
+ℹ dist/src/human-error.js                                                 0.13 kB │ gzip:   0.13 kB
+ℹ dist/src/interactor-facade2.js                                          0.13 kB │ gzip:   0.12 kB
+ℹ dist/src/screenshot3.js                                                 0.13 kB │ gzip:   0.12 kB
+ℹ dist/src/sdk-finders.js                                                 0.12 kB │ gzip:   0.13 kB
+ℹ dist/src/base-url.js                                                    0.12 kB │ gzip:   0.12 kB
+ℹ dist/src/physical-device-constants.js                                   0.12 kB │ gzip:   0.12 kB
+ℹ dist/src/replay.js                                                      0.11 kB │ gzip:   0.12 kB
+ℹ dist/src/inventory6.js                                                  0.11 kB │ gzip:   0.12 kB
+ℹ dist/src/sdk-selectors.js                                               0.10 kB │ gzip:   0.11 kB
+ℹ dist/src/keyboard-actions.js                                            0.10 kB │ gzip:   0.10 kB
+ℹ dist/src/physical-device-facade.js                                      0.09 kB │ gzip:   0.10 kB
+ℹ dist/src/json.js                                                        0.09 kB │ gzip:   0.11 kB
+ℹ dist/src/numeric.js                                                     0.08 kB │ gzip:   0.09 kB
+ℹ dist/src/viewport-runtime.js                                            0.08 kB │ gzip:   0.09 kB
+ℹ dist/src/screen-recording-runtime.js                                    0.08 kB │ gzip:   0.09 kB
+ℹ dist/src/fold-runtime.js                                                0.07 kB │ gzip:   0.09 kB
+ℹ dist/src/app-lifecycle-facade.js                                        0.06 kB │ gzip:   0.08 kB
+ℹ dist/src/back-mode.js                                                   0.04 kB │ gzip:   0.06 kB
+ℹ dist/src/gesture-plan-types.js                                          0.04 kB │ gzip:   0.06 kB
+ℹ dist/src/remote-config2.js                                              0.04 kB │ gzip:   0.06 kB
+ℹ dist/src/device-readiness-runtime.js                                    0.04 kB │ gzip:   0.06 kB
+ℹ dist/src/app-log-runtime.js                                             0.03 kB │ gzip:   0.05 kB
+ℹ dist/src/capture.js                                                     0.03 kB │ gzip:   0.05 kB
+ℹ dist/src/index.d.ts                                                    13.25 kB │ gzip:   3.96 kB
+ℹ dist/src/limrun.d.ts                                                    8.11 kB │ gzip:   2.31 kB
+ℹ dist/src/android-adb.d.ts                                               5.67 kB │ gzip:   1.57 kB
+ℹ dist/src/metro.d.ts                                                     4.99 kB │ gzip:   1.41 kB
+ℹ dist/src/ai-sdk.d.ts                                                    2.87 kB │ gzip:   1.35 kB
+ℹ dist/src/internal/png-worker.d.ts                                       1.58 kB │ gzip:   0.58 kB
+ℹ dist/src/plugins.d.ts                                                   1.25 kB │ gzip:   0.44 kB
+ℹ dist/src/install-source.d.ts                                            0.87 kB │ gzip:   0.50 kB
+ℹ dist/src/io.d.ts                                                        0.70 kB │ gzip:   0.27 kB
+ℹ dist/src/contracts.d.ts                                                 0.56 kB │ gzip:   0.26 kB
+ℹ dist/src/selectors.d.ts                                                 0.56 kB │ gzip:   0.23 kB
+ℹ dist/src/artifacts.d.ts                                                 0.54 kB │ gzip:   0.25 kB
+ℹ dist/src/remote-config.d.ts                                             0.46 kB │ gzip:   0.23 kB
+ℹ dist/src/finders.d.ts                                                   0.18 kB │ gzip:   0.13 kB
+ℹ dist/src/internal/run-script-http-child.d.ts                            0.17 kB │ gzip:   0.15 kB
+ℹ dist/src/plugins/webdriver.d.ts                                         0.15 kB │ gzip:   0.11 kB
+ℹ dist/src/batch.d.ts                                                     0.07 kB │ gzip:   0.08 kB
+ℹ dist/src/internal/bin.d.ts                                              0.01 kB │ gzip:   0.03 kB
+ℹ dist/src/internal/companion-tunnel.d.ts                                 0.01 kB │ gzip:   0.03 kB
+ℹ dist/src/internal/daemon.d.ts                                           0.01 kB │ gzip:   0.03 kB
+ℹ dist/src/internal/update-check-entry.d.ts                               0.01 kB │ gzip:   0.03 kB
+ℹ dist/src/client-port.d.ts                                              85.13 kB │ gzip:  23.82 kB
+ℹ dist/src/sdk-contracts.d.ts                                            39.05 kB │ gzip:  13.64 kB
+ℹ dist/src/provider-device-runtime.d.ts                                  30.85 kB │ gzip:   9.35 kB
+ℹ dist/src/cloud-artifacts.d.ts                                          27.47 kB │ gzip:   8.30 kB
+ℹ dist/src/sdk-selectors.d.ts                                            18.02 kB │ gzip:   6.24 kB
+ℹ dist/src/contract.d.ts                                                 11.79 kB │ gzip:   4.11 kB
+ℹ dist/src/device-input-state.d.ts                                        9.24 kB │ gzip:   2.87 kB
+ℹ dist/src/sdk-remote-config.d.ts                                         7.11 kB │ gzip:   2.42 kB
+ℹ dist/src/provider-plugin.d.ts                                           5.32 kB │ gzip:   1.75 kB
+ℹ dist/src/replay.d.ts                                                    4.59 kB │ gzip:   1.73 kB
+ℹ dist/src/local-artifact-adapter.d.ts                                    2.50 kB │ gzip:   0.77 kB
+ℹ dist/src/sdk-batch-runner.d.ts                                          2.27 kB │ gzip:   0.96 kB
+ℹ dist/src/gesture-plan-types.d.ts                                        1.76 kB │ gzip:   0.61 kB
+ℹ dist/src/sdk-finders.d.ts                                               1.11 kB │ gzip:   0.50 kB
+ℹ dist/src/app-state-runtime.d.ts                                         0.67 kB │ gzip:   0.39 kB
+ℹ dist/src/app-inventory.d.ts                                             0.14 kB │ gzip:   0.13 kB
+ℹ 654 files, total: 4.97 MB
+[33m[PLUGIN_TIMINGS] [0mYour build spent 95% of 4.1s inside plugin hooks (3.9s).
+Measured inside the callback, so queue time is excluded and time the callback itself awaited is not:
+  - rolldown-plugin-dts:generate buildStart (62%, 2.5s, 1 call)
+Those rows are 62% of the build; the rest of the 95% is below.
+Not measurable — 4 hooks whose calls overlap, so elapsed time covers work other calls were doing. Profile with `node --cpu-prof`:
+  - tsdown:deps resolveId (11755 calls)
+  - rolldown-plugin-dts:resolver resolveId (5122 calls)
+  - rolldown-plugin-dts:generate load (470 calls)
+  … and 1 more
+See https://rolldown.rs/reference/InputOptions.checks#plugintimings for more details.
+
+✔ Build complete in 4160ms
+$ node --experimental-strip-types scripts/check-bundle-owner-files.ts
+Verified the ownerFiles key and 52 owner-file paths are absent from 616 production bundles.
+$ node --experimental-strip-types scripts/check-package.ts
+Packing and verifying agent-device in /private/var/folders/hg/_l20wr051cqfybfsv_bdy59r0000gn/T/agent-device-package-6VQRl5
+Linted the tarball with publint and attw.
+Confirmed the installed tree carries no daemon source, so its version pins its code.
+Confirmed no test code in the 683 packed files.
+Verified the dependency closure: ai.
+Imported all 15 published entry points from a clean install.
+Ran the published CLI 0.21.37-dev on Node 26.5.0.
+The package npm would publish is sound.

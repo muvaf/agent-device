@@ -1,0 +1,53 @@
+instance ios_euna_01m6m3mw3qemxrr3bwq17cjgx8 lease c85f246e495cfc44bbfef3a698cf3643
+source a95049b9a1a86413d2703c91a6cc7f08ff136f65
+install {
+  app: 'com.limrun.e2e-fixture',
+  appPath: '/Users/muvaf/github.com/limrun/limrun/test/e2e/testdata/fixtures/ios/E2EFixture.app',
+  platform: 'ios',
+  appId: 'com.limrun.e2e-fixture',
+  bundleId: 'com.limrun.e2e-fixture',
+  package: undefined,
+  identifiers: {
+    session: 'ios-app',
+    appId: 'com.limrun.e2e-fixture',
+    appBundleId: 'com.limrun.e2e-fixture',
+    package: undefined
+  }
+}
+install-only leaves app stopped
+open passed
+Checking app data replacement
+iOS app-container marker written
+reinstall {
+  app: 'com.limrun.e2e-fixture',
+  appPath: '/Users/muvaf/github.com/limrun/limrun/test/e2e/testdata/fixtures/ios/E2EFixture.app',
+  platform: 'ios',
+  appId: 'com.limrun.e2e-fixture',
+  bundleId: 'com.limrun.e2e-fixture',
+  package: undefined,
+  identifiers: {
+    session: 'ios-app',
+    appId: 'com.limrun.e2e-fixture',
+    appBundleId: 'com.limrun.e2e-fixture',
+    package: undefined
+  }
+}
+install-only leaves app stopped
+reinstall removed old app data
+reinstalled app launched
+uninstall {
+  platform: 'ios',
+  app: 'com.limrun.e2e-fixture',
+  wasInstalled: true,
+  appId: 'com.limrun.e2e-fixture',
+  message: 'Uninstalled: com.limrun.e2e-fixture'
+}
+uninstall verified
+missing uninstall {
+  platform: 'ios',
+  app: 'com.limrun.e2e-fixture',
+  wasInstalled: false,
+  message: 'Not installed: com.limrun.e2e-fixture'
+}
+PASS ios
+closed session and released lease

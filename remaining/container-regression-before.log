@@ -1,0 +1,33 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-container-fix
+
+-x-------------
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| src/core/interactors/limrun-ios-files.test.ts > clear state uses the shared reset and preserves container identity without launching
+Error: xcrun exited with code 1
+ ❯ runSimctl src/core/interactors/limrun-ios-tools.ts:94:15
+     92|       }
+     93|       if (result.code !== 0 && !options.allowFailure) {
+     94|         throw new AppError('COMMAND_FAILED', `xcrun exited with code $…
+       |               ^
+     95|           cmd: 'simctl',
+     96|           args,
+ ❯ Object.openContainer src/core/interactors/limrun-ios-files.ts:98:22
+ ❯ clearIosSimulatorAppState packages/platform-apple/src/core/app-settings.ts:303:21
+ ❯ setIosSetting packages/platform-apple/src/core/app-settings.ts:86:22
+ ❯ Object.setSetting packages/platform-apple/src/interactor.ts:522:14
+ ❯ packages/kernel/src/scoped-provider.ts:37:59
+ ❯ withAppleRunnerProvider packages/apple-runner/src/runner-provider.ts:156:10
+ ❯ packages/kernel/src/scoped-provider.ts:37:59
+ ❯ Object.run packages/kernel/src/scoped-provider.ts:21:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 14 skipped (15)
+   Start at  23:10:38
+   Duration  816ms (transform 50%, tests 37%, import 12%, setup 1%)
+

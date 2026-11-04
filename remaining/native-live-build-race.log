@@ -1,0 +1,8 @@
+Replacing daemon (pid 92162, v0.21.37-dev) in /private/tmp/agent-device-remaining-evidence/native-state: code-signature mismatch
+instance ios_euna_01m6m2qjnfegeb4bzx3d6max21
+source 0ae3dc2a41de9f17743bb3f04eab91f516482a9f
+install-only leaves app stopped
+downloaded plist resolves unique deep-link owner
+Replacing daemon (pid 29738, v0.21.37-dev) in /private/tmp/agent-device-remaining-evidence/native-state: code-signature mismatch
+FAIL UNAUTHORIZED Lease is not active {"reason":"LEASE_NOT_FOUND","hint":"Refresh daemon metadata and retry the command.","diagnosticId":"mw2k9060-89c055a6","logPath":"/private/tmp/agent-device-remaining-evidence/native-state/sessions/limrun_ios-app/requests/647a54a1dd3b9f22.ndjson","diagnosticsRecord":{"session":"limrun:ios-app","requestId":"647a54a1dd3b9f22"}}
+closed session and released lease

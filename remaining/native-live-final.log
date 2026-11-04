@@ -1,0 +1,17 @@
+instance ios_euna_01m6m3mw3qemxrr3bwq17cjgx8
+source 0ae3dc2a41de9f17743bb3f04eab91f516482a9f
+install-only leaves app stopped
+downloaded plist resolves unique deep-link owner
+PASS public SDK open and boot readiness
+PASS daemon app log heartbeat
+PASS shared runner snapshot 21
+appstate {"platform":"ios","appName":"com.limrun.e2e-fixture","appBundleId":"com.limrun.e2e-fixture","source":"runner","state":"runningForeground","surface":"app","device_udid":"limrun:ios:c3b5360b39b64441f94464df31cad836","ios_simulator_device_set":null}
+PASS selector tap updates app state
+PASS shared fill with delay
+PASS MP4 recording download and independent concurrent recorder
+push delivered through common deployment
+push staging removed
+clear state removes data, preserves identity and leaves app stopped
+runner screenshot and relaunch passed
+PASS native integration live
+closed session and released lease

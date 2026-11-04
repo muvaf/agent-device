@@ -1,0 +1,52 @@
+instance android_euna_01m6m2tesdemxs7w3qnet1ms2y lease f1b1e2e9382d06d8b907ca2f5c356636
+source a95049b9a1a86413d2703c91a6cc7f08ff136f65
+install {
+  app: 'com.limrun.e2e.fixture',
+  appPath: '/Users/muvaf/github.com/limrun/limrun/test/e2e/testdata/fixtures/android/e2e-fixture.apk',
+  platform: 'android',
+  appId: 'com.limrun.e2e.fixture',
+  bundleId: undefined,
+  package: 'com.limrun.e2e.fixture',
+  identifiers: {
+    session: 'android-app',
+    appId: 'com.limrun.e2e.fixture',
+    appBundleId: undefined,
+    package: 'com.limrun.e2e.fixture'
+  }
+}
+install-only leaves app stopped
+open passed
+Android data marker written
+reinstall {
+  app: 'com.limrun.e2e.fixture',
+  appPath: '/Users/muvaf/github.com/limrun/limrun/test/e2e/testdata/fixtures/android/e2e-fixture.apk',
+  platform: 'android',
+  appId: 'com.limrun.e2e.fixture',
+  bundleId: undefined,
+  package: 'com.limrun.e2e.fixture',
+  identifiers: {
+    session: 'android-app',
+    appId: 'com.limrun.e2e.fixture',
+    appBundleId: undefined,
+    package: 'com.limrun.e2e.fixture'
+  }
+}
+install-only leaves app stopped
+reinstall removed old app data
+reinstalled app launched
+uninstall {
+  platform: 'android',
+  app: 'com.limrun.e2e.fixture',
+  wasInstalled: true,
+  appId: 'com.limrun.e2e.fixture',
+  message: 'Uninstalled: com.limrun.e2e.fixture'
+}
+uninstall verified
+missing uninstall {
+  platform: 'android',
+  app: 'com.limrun.e2e.fixture',
+  wasInstalled: false,
+  message: 'Not installed: com.limrun.e2e.fixture'
+}
+PASS android
+closed session and released lease

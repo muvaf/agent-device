@@ -1,0 +1,19 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/native-dupes/check.test.ts
+✔ the gate rejects a new swift clone of an unchanged file (87.804708ms)
+✔ the gate rejects a new objectivec clone of an unchanged file (88.679667ms)
+✔ the gate rejects a new java clone of an unchanged file (89.185833ms)
+✔ the gate rejects a new kotlin clone of an unchanged file (89.900917ms)
+✔ the gate rejects a new python clone of an unchanged file (90.738625ms)
+✔ a header clone is analyzed as Objective-C (92.691625ms)
+✔ baseline accepts line shifts, rejects extra copies and replacement clones at the same count (218.507167ms)
+✔ the gate rejects a missing baseline and an empty scan (135.310125ms)
+✔ same-file clones fail while comment blocks and ignored build outputs do not (135.708667ms)
+✔ baseline refresh prunes removed clones so their later reintroduction fails (200.235083ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1363.12225

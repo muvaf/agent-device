@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "cwd": "/Users/muvaf/github.com/callstack/agent-device-native-upstream",
+  "startedAt": "2026-11-04T20:13:51.899Z",
+  "status": "passed",
+  "exitCode": 0,
+  "refs": {
+    "base": "origin/main",
+    "head": "HEAD",
+    "resolvedHead": "69048e55ab7718f4d1d76e7b4658fd56a0365a45"
+  },
+  "checkoutChanged": false,
+  "exactCommit": true,
+  "results": [
+    {
+      "id": "check:tooling",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:tooling"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-MG5g6H/0.log",
+      "exitCode": 0,
+      "durationMs": 63618,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-MG5g6H/0.tests.3818.json",
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-MG5g6H/0.tests.3859.json",
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-MG5g6H/0.tests.3906.json"
+      ],
+      "tests": [
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "check:fallow",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:fallow"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-MG5g6H/1.log",
+      "exitCode": 0,
+      "durationMs": 3778,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "check:unit",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:unit"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-MG5g6H/2.log",
+      "exitCode": 0,
+      "durationMs": 148049,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-MG5g6H/2.tests.5459.json"
+      ],
+      "tests": [
+        {
+          "passed": 17274,
+          "failed": 0,
+          "skipped": 1,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    }
+  ],
+  "initial": {
+    "head": "69048e55ab7718f4d1d76e7b4658fd56a0365a45",
+    "status": "",
+    "fingerprint": "4b183df3d5e771be8b12d0924eb9b7d7c264264c227fe871c1e8db800cfb5bc7"
+  },
+  "final": {
+    "head": "69048e55ab7718f4d1d76e7b4658fd56a0365a45",
+    "status": "",
+    "fingerprint": "4b183df3d5e771be8b12d0924eb9b7d7c264264c227fe871c1e8db800cfb5bc7"
+  },
+  "finishedAt": "2026-11-04T20:18:50.108Z"
+}

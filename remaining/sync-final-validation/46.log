@@ -1,0 +1,127 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/__tests__/check-doc-links.test.ts && pnpm --dir website build && node --experimental-strip-types scripts/check-doc-links.ts
+✔ links to rendered pages and IDs pass (1.929375ms)
+✔ a link to a page that was not built fails (0.654875ms)
+✔ a link to an ID the target page does not render fails (0.571958ms)
+✔ a same-page fragment must name an ID on that page (0.506667ms)
+✔ a heading ID rendered twice on one page fails; repeated non-heading IDs do not (0.515875ms)
+✔ external URLs are skipped and asset links must exist (0.508584ms)
+✔ README links into the published docs are checked against the built pages (0.431958ms)
+✔ a docs page without its Markdown twin fails (0.462125ms)
+✔ the base is read from the asset paths and proven by the home link (0.394292ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 61.928625
+$ astro build --force && node --experimental-strip-types scripts/build-depgraph.mjs
+23:31:00 [content] Syncing content
+23:31:00 [content] Synced content
+23:31:00 [types] Generated 828ms
+23:31:00 [build] output: "static"
+23:31:00 [build] mode: "static"
+23:31:00 [build] directory: /Users/muvaf/github.com/callstack/agent-device-sync-upstream/website/dist/
+23:31:00 [build] Collecting build info...
+23:31:00 [build] ✓ Completed in 901ms.
+23:31:00 [build] Building static entrypoints...
+23:31:01 [vite] ✓ built in 663ms
+23:31:01 [vite] ✓ built in 38ms
+23:31:01 [build] Rearranging server assets...
+
+ generating static routes 
+23:31:01 [WARN] [content] The collection "i18n" does not exist or is empty. Please check your content config file for errors.
+23:31:01   ├─ /.well-known/mcp.json (+321ms) 
+23:31:01   ├─ /404.html (+470ms) 
+23:31:02   ├─ /cloud.html (+7ms) 
+23:31:02   ├─ /contact.html (+2ms) 
+23:31:02   ├─ /docs/agent-setup.md (+2ms) 
+23:31:02   ├─ /docs/ai-sdk.md (+1ms) 
+23:31:02   ├─ /docs/aws-device-farm.md (+1ms) 
+23:31:02   ├─ /docs/batching.md (+1ms) 
+23:31:02   ├─ /docs/browserstack.md (+1ms) 
+23:31:02   ├─ /docs/build-an-integration.md (+1ms) 
+23:31:02   ├─ /docs/capabilities.md (+1ms) 
+23:31:02   ├─ /docs/client-api.md (+0ms) 
+23:31:02   ├─ /docs/commands.md (+1ms) 
+23:31:02   ├─ /docs/configuration.md (+0ms) 
+23:31:02   ├─ /docs/debugging-profiling.md (+0ms) 
+23:31:02   ├─ /docs/device-clouds.md (+0ms) 
+23:31:02   ├─ /docs/eve.md (+0ms) 
+23:31:02   ├─ /docs/installation.md (+0ms) 
+23:31:02   ├─ /docs/introduction.md (+1ms) 
+23:31:02   ├─ /docs/known-limitations.md (+1ms) 
+23:31:02   ├─ /docs/limrun.md (+0ms) 
+23:31:02   ├─ /docs/migrating-gestures.md (+0ms) 
+23:31:02   ├─ /docs/plugins.md (+0ms) 
+23:31:02   ├─ /docs/quick-start.md (+0ms) 
+23:31:02   ├─ /docs/remote-proxy.md (+0ms) 
+23:31:02   ├─ /docs/replay-e2e.md (+0ms) 
+23:31:02   ├─ /docs/revyl.md (+0ms) 
+23:31:02   ├─ /docs/run-maestro-flows.md (+0ms) 
+23:31:02   ├─ /docs/security-trust.md (+0ms) 
+23:31:02   ├─ /docs/selectors.md (+0ms) 
+23:31:02   ├─ /docs/sessions.md (+0ms) 
+23:31:02   ├─ /docs/snapshots.md (+0ms) 
+23:31:02   ├─ /docs/testmu.md (+0ms) 
+23:31:02   ├─ /docs/webos.md (+0ms) 
+23:31:02   ├─ /llms-full.txt (+413ms) 
+23:31:02   ├─ /llms-small.txt (+218ms) 
+23:31:02   ├─ /llms.txt (+1ms) 
+23:31:02   ├─ /robots.txt (+0ms) 
+23:31:02   ├─ /showcase.html (+1ms) 
+23:31:02   ├─ /version.txt (+0ms) 
+23:31:02   ├─ /index.html (+329ms) 
+23:31:03   ├─ /docs/agent-setup.html (+11ms) 
+23:31:03   ├─ /docs/ai-sdk.html (+3ms) 
+23:31:03   ├─ /docs/aws-device-farm.html (+2ms) 
+23:31:03   ├─ /docs/batching.html (+2ms) 
+23:31:03   ├─ /docs/browserstack.html (+2ms) 
+23:31:03   ├─ /docs/build-an-integration.html (+2ms) 
+23:31:03   ├─ /docs/capabilities.html (+2ms) 
+23:31:03   ├─ /docs/client-api.html (+2ms) 
+23:31:03   ├─ /docs/commands.html (+3ms) 
+23:31:03   ├─ /docs/configuration.html (+2ms) 
+23:31:03   ├─ /docs/debugging-profiling.html (+2ms) 
+23:31:03   ├─ /docs/device-clouds.html (+1ms) 
+23:31:03   ├─ /docs/eve.html (+1ms) 
+23:31:03   ├─ /docs/installation.html (+1ms) 
+23:31:03   ├─ /docs/introduction.html (+1ms) 
+23:31:03   ├─ /docs/known-limitations.html (+1ms) 
+23:31:03   ├─ /docs/limrun.html (+1ms) 
+23:31:03   ├─ /docs/migrating-gestures.html (+1ms) 
+23:31:03   ├─ /docs/plugins.html (+2ms) 
+23:31:03   ├─ /docs/quick-start.html (+1ms) 
+23:31:03   ├─ /docs/remote-proxy.html (+1ms) 
+23:31:03   ├─ /docs/replay-e2e.html (+1ms) 
+23:31:03   ├─ /docs/revyl.html (+1ms) 
+23:31:03   ├─ /docs/run-maestro-flows.html (+1ms) 
+23:31:03   ├─ /docs/security-trust.html (+1ms) 
+23:31:03   ├─ /docs/selectors.html (+1ms) 
+23:31:03   ├─ /docs/sessions.html (+1ms) 
+23:31:03   ├─ /docs/snapshots.html (+1ms) 
+23:31:03   ├─ /docs/testmu.html (+1ms) 
+23:31:03   ├─ /docs/webos.html (+1ms) 
+23:31:03 ✓ Completed in 1.88s.
+
+23:31:03 [build] ✓ Completed in 2.62s.
+23:31:03 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+23:31:03 [starlight:pagefind] Building search index with Pagefind...
+23:31:04 [starlight:pagefind] Found 35 HTML files.
+23:31:04 [starlight:pagefind] Finished building search index in 0.92s.
+23:31:04 [build] 35 page(s) built in 4.45s
+23:31:04 [build] Complete!
+Dependency graph: 1950 files, 11136 edges, 49 zones
+  value-import cycles (R4): 0
+  type-only/dynamic cycles (not gate-rejected): 20
+  spine back-edges (R5): 0
+  type-only spine inversions (R6): 4
+  value edges whose target is also reachable at distance >= 2: 2716
+  declared-authority labels: vocabulary=195, capability=51, live-state-shape=103, live-state-authority=71, executable-policy=73, ordinary=10646
+    (reachability only — not a removability claim, see scripts/depgraph/README.md)
+  dominator summary for src/daemon.ts: 356 of 1950 files loaded eagerly, biggest branch packages/daemon/src/index.ts (332 files, 60971 loc)
+  zone-level SCCs: 0 cyclic group(s) across 49 zones
+  modularity: declared zones 0.367, detected communities 0.548, least cohesive zone sdk (24%)
+  wrote website/dist/depgraph/graph.json
+doc links: every internal link resolves (base /).

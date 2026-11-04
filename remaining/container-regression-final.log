@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-native-upstream
+
+-·-------------
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 14 skipped (15)
+   Start at  23:29:13
+   Duration  700ms (tests 40%, transform 38%, import 19%, setup 1%)
+

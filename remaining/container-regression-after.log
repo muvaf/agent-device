@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-container-fix
+
+······································
+
+ Test Files  2 passed (2)
+      Tests  38 passed (38)
+   Start at  23:11:46
+   Duration  487ms (tests 55%, import 25%, transform 18%, setup 1%)
+

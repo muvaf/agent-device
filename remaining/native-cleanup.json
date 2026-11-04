@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "data": {
+    "stopped": true,
+    "mode": "graceful",
+    "cleanupConfidence": "known",
+    "claimsReleased": [],
+    "claimsOrphaned": [],
+    "claimsSuperseded": [],
+    "claimsUnattributable": [],
+    "providerReleases": {
+      "status": "completed",
+      "released": [],
+      "pending": []
+    },
+    "warnings": [],
+    "clean": true
+  }
+}

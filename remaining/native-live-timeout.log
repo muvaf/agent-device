@@ -1,0 +1,8 @@
+instance ios_euna_01m6m2qjnfegeb4bzx3d6max21
+source 0ae3dc2a41de9f17743bb3f04eab91f516482a9f
+install-only leaves app stopped
+downloaded plist resolves unique deep-link owner
+PASS public SDK open and boot readiness
+PASS daemon app log heartbeat
+FAIL COMMAND_FAILED regular iOS snapshot presentation requires a valid viewport {"reason":"invalid-viewport","field":"viewport","snapshotQuality":{"state":"sparse","backend":"private-ax","reason":"the XCTest tree capture exceeded its 8s time slice","reasonCode":"capture-failed"},"dispatched":"no","hint":"No snapshot backend could read this screen (the XCTest tree capture exceeded its 8s time slice). Its refs and selectors are invalid. Use screenshot as visual truth and coordinate taps; retry snapshot after navigating.","diagnosticId":"mw2k9tco-68bf6f87","logPath":"/private/tmp/agent-device-remaining-evidence/native-state/sessions/limrun_ios-app/requests/dc44778cc032349d.ndjson","diagnosticsRecord":{"session":"limrun:ios-app","requestId":"dc44778cc032349d"}}
+closed session and released lease

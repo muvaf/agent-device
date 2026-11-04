@@ -1,0 +1,11 @@
+$ vitest run --project unit-core test/repo-guards/command-doc-coverage.test.ts
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-sync-upstream
+
+············
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  23:30:55
+   Duration  276ms (transform 49%, import 43%, setup 4%, tests 3%, worker 1%)
+

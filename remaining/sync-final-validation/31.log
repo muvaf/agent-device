@@ -1,0 +1,2 @@
+$ node --experimental-strip-types scripts/gate/check.ts
+gate manifest: ok — 60 checks wired across 24 lanes, manual-only: replay-android, replay-ios, replay-ios-device.
