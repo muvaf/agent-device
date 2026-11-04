@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/apple-tools-review-before
+
+-----------------------------··---
+
+ Test Files  1 passed (1)
+      Tests  2 passed | 32 skipped (34)
+   Start at  13:20:59
+   Duration  174ms (transform 41%, import 34%, setup 13%, tests 7%, worker 4%)
+

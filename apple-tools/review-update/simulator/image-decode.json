@@ -1,0 +1,32 @@
+[
+  {
+    "command": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-i",
+      "/private/tmp/apple-tools-open-live/simulator-review-final/simctl.png",
+      "-f",
+      "null",
+      "-"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-i",
+      "/private/tmp/apple-tools-open-live/simulator-review-final/runner.png",
+      "-f",
+      "null",
+      "-"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

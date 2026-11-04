@@ -1,0 +1,364 @@
+diff --git a/packages/platform-apple/src/core/__tests__/app-resolution-deep-link.test.ts b/packages/platform-apple/src/core/__tests__/app-resolution-deep-link.test.ts
+index bcfd56e3b..b247bc858 100644
+--- a/packages/platform-apple/src/core/__tests__/app-resolution-deep-link.test.ts
++++ b/packages/platform-apple/src/core/__tests__/app-resolution-deep-link.test.ts
+@@ -142,3 +142,37 @@ test('rewriting the Info.plist invalidates the cached scheme set', async () => {
+     assert.equal(plutilProbes(), probesBeforeRewrite + 1);
+   });
+ });
++
++test('deep-link ownership reads app metadata serially and still detects ambiguous owners', async () => {
++  const { createLocalAppleToolProvider, withAppleToolProvider } =
++    await import('../tool-provider.ts');
++  let active = 0;
++  let peak = 0;
++  let reads = 0;
++  const apps = Array.from({ length: 20 }, (_, index) => ({
++    bundleId: `com.example.app${index}`,
++    name: `App ${index}`,
++    applicationType: 'User',
++  }));
++  const provider = createLocalAppleToolProvider({
++    simulatorApps: {
++      list: async () => ({ type: 'listed', apps }),
++      readInfoPlist: async () => {
++        active += 1;
++        peak = Math.max(peak, active);
++        reads += 1;
++        await new Promise<void>((resolve) => setImmediate(resolve));
++        active -= 1;
++        return { CFBundleURLTypes: [{ CFBundleURLSchemes: ['shared'] }] };
++      },
++    },
++  });
++  await withAppleToolProvider(provider, async () => {
++    assert.equal(
++      await resolveIosSimulatorDeepLinkBundleId(IOS_TEST_SIMULATOR, 'shared://home'),
++      undefined,
++    );
++  });
++  assert.equal(reads, 20);
++  assert.equal(peak, 1);
++});
+diff --git a/packages/platform-apple/src/core/app-resolution.ts b/packages/platform-apple/src/core/app-resolution.ts
+index e1e30e1db..79d6f9911 100644
+--- a/packages/platform-apple/src/core/app-resolution.ts
++++ b/packages/platform-apple/src/core/app-resolution.ts
+@@ -213,16 +213,12 @@ export async function resolveIosSimulatorDeepLinkBundleId(
+   const { remainingLookupBudget } = await import('./simulator-app-budget.ts');
+   const remaining = remainingLookupBudget(options);
+   const apps = await listSimulatorAppMetadata(device, remaining());
+-  const candidates = apps.filter(
+-    (app) => !app.bundleId.startsWith(AGENT_DEVICE_RUNNER_BUNDLE_PREFIX),
+-  );
+-  const claims = await Promise.all(
+-    candidates.map(async (app) => ({
+-      app,
+-      schemes: await readInstalledAppUrlSchemes(device, app.bundleId, remaining(), app.path),
+-    })),
+-  );
+-  const matches = claims.filter(({ schemes }) => schemes.has(scheme)).map(({ app }) => app);
++  const matches: SimulatorAppMetadata[] = [];
++  for (const app of apps) {
++    if (app.bundleId.startsWith(AGENT_DEVICE_RUNNER_BUNDLE_PREFIX)) continue;
++    const schemes = await readInstalledAppUrlSchemes(device, app.bundleId, remaining(), app.path);
++    if (schemes.has(scheme)) matches.push(app);
++  }
+   const userMatches = matches.filter((app) => app.applicationType === 'User');
+   if (userMatches.length === 1) return userMatches[0]?.bundleId;
+   if (userMatches.length > 1) return undefined;
+diff --git a/packages/platform-apple/src/core/local-simulator-files.ts b/packages/platform-apple/src/core/local-simulator-files.ts
+index 27bcb4dfa..194c2b271 100644
+--- a/packages/platform-apple/src/core/local-simulator-files.ts
++++ b/packages/platform-apple/src/core/local-simulator-files.ts
+@@ -1,4 +1,8 @@
+-import { readSimctlContainerPath, scopeSimctlArgsForDevice } from './simctl.ts';
++import {
++  readSimctlContainerPath,
++  scopeSimctlArgsForDevice,
++  simulatorAddressFor,
++} from './simctl.ts';
+ import path from 'node:path';
+ import {
+   copyHostFile,
+@@ -27,7 +31,11 @@ export async function copySimulatorFileToHost(
+     await copyFromContainer('', request);
+     return;
+   }
+-  const key = JSON.stringify([request.device.id, request.bundleId, request.containerType]);
++  const key = JSON.stringify([
++    simulatorAddressFor(request.device),
++    request.bundleId,
++    request.containerType,
++  ]);
+   const cached = containerPaths.get(key);
+   if (cached) {
+     try {
+diff --git a/packages/platform-apple/src/core/simulator-files.test.ts b/packages/platform-apple/src/core/simulator-files.test.ts
+index 38fc7b1b5..a4de66922 100644
+--- a/packages/platform-apple/src/core/simulator-files.test.ts
++++ b/packages/platform-apple/src/core/simulator-files.test.ts
+@@ -163,3 +163,40 @@ test('an absolute simulator screenshot path does not require an app container lo
+   expect(await fs.readFile(destinationPath)).toEqual(bytes);
+   expect(run).not.toHaveBeenCalled();
+ });
++
++test('container copies distinguish the same simulator UDID in different simulator sets', async () => {
++  const directory = await mkdtempForTest('simulator-file-set-identity-');
++  const sets = [path.join(directory, 'first'), path.join(directory, 'second')];
++  for (const [index, setPath] of sets.entries()) {
++    await fs.mkdir(path.join(setPath, 'container'), { recursive: true });
++    await fs.writeFile(path.join(setPath, 'container', 'file.bin'), `set ${index}`);
++  }
++  const run = vi.fn(async (args: readonly string[]) => ({
++    stdout: path.join(args[1]!, 'container'),
++    stderr: '',
++    exitCode: 0,
++  }));
++  await withAppleToolProvider(createLocalAppleToolProvider({ simctl: { run } }), async () => {
++    for (const index of [0, 1, 0]) {
++      const destinationPath = path.join(directory, `copied-${index}.bin`);
++      await copySimulatorFileToHost({
++        device: {
++          platform: 'apple',
++          appleOs: 'ios',
++          kind: 'simulator',
++          id: directory,
++          name: 'Same UDID',
++          simulatorSetPath: sets[index],
++          booted: true,
++        },
++        bundleId: 'com.example.app',
++        containerType: 'data',
++        sourcePath: 'file.bin',
++        destinationPath,
++        timeoutMs: 1000,
++      });
++      expect(await fs.readFile(destinationPath, 'utf8')).toBe(`set ${index}`);
++    }
++  });
++  expect(run).toHaveBeenCalledTimes(2);
++});
+diff --git a/packages/platform-apple/src/deployment/runtime.test.ts b/packages/platform-apple/src/deployment/runtime.test.ts
+index d2cbf3c56..82502afb1 100644
+--- a/packages/platform-apple/src/deployment/runtime.test.ts
++++ b/packages/platform-apple/src/deployment/runtime.test.ts
+@@ -714,8 +714,8 @@ test.each([false, true])(
+     const host = deploymentHost(
+       executor,
+       xcrunLikeRun((request) => {
+-        if (request.args[0] === 'uninstall' || request.args[0] === 'install')
+-          events.push(request.args[0]);
++        if (request.args[0] === 'uninstall') events.push('uninstall');
++        if (request.args[0] === 'install') events.push('native-install');
+         return bootedSimulatorListResult(request);
+       }),
+     );
+@@ -726,7 +726,7 @@ test.each([false, true])(
+       ...(hosted
+         ? {
+             install: async () => {
+-              events.push('install');
++              events.push('hosted-install');
+               return { bundleId: 'com.example.app' };
+             },
+           }
+@@ -743,9 +743,43 @@ test.each([false, true])(
+       'invalidate-before',
+       'uninstall',
+       'materialize',
+-      'install',
++      hosted ? 'hosted-install' : 'native-install',
+       'cleanup',
+       'invalidate-after',
+     ]);
+   },
+ );
++
++test.each([
++  [{}, { bundleId: 'com.example.app', appName: 'Example', launchTarget: 'com.example.app' }],
++  [
++    { bundleId: 'com.installed.app' },
++    { bundleId: 'com.installed.app', appName: 'Example', launchTarget: 'com.installed.app' },
++  ],
++  [
++    { bundleId: 'com.installed.app', appName: 'Installed', launchTarget: 'installed://home' },
++    { bundleId: 'com.installed.app', appName: 'Installed', launchTarget: 'installed://home' },
++  ],
++])(
++  'hosted install preserves metadata and fills artifact defaults: %j',
++  async (result, expected) => {
++    const run = xcrunLikeRun(bootedSimulatorListResult);
++    const operations = createAppleAppDeploymentOperations({
++      host: deploymentHost({} as AppleAppDeploymentExecutor, run),
++      device: appleDevice(),
++      signal: new AbortController().signal,
++      install: async () => result,
++    });
++    await expect(
++      operations.deployMaterializedApp!({
++        artifact: {
++          installablePath: '/tmp/Example.app',
++          bundleId: 'com.example.app',
++          appName: 'Example',
++          cleanup: async () => {},
++        },
++      }),
++    ).resolves.toEqual(expected);
++    expect(run).not.toHaveBeenCalled();
++  },
++);
+diff --git a/packages/platform-apple/src/deployment/runtime.ts b/packages/platform-apple/src/deployment/runtime.ts
+index 59ee5d2b2..376c1bb4d 100644
+--- a/packages/platform-apple/src/deployment/runtime.ts
++++ b/packages/platform-apple/src/deployment/runtime.ts
+@@ -164,12 +164,17 @@ async function deployPreparedAppleApp(
+   signal: AbortSignal,
+   install?: AppDeploymentInstaller,
+ ): Promise<AppDeploymentResult> {
+-  if (install) return await install(input.artifact, signal);
+-  await installAppleApp(host, device, input.artifact.installablePath, signal);
++  let result: AppDeploymentResult = {};
++  if (install) result = await install(input.artifact, signal);
++  else await installAppleApp(host, device, input.artifact.installablePath, signal);
++  const bundleId = result.bundleId ?? input.artifact.bundleId;
++  const appName = result.appName ?? input.artifact.appName;
++  const launchTarget = result.launchTarget ?? bundleId;
+   return {
+-    ...(input.artifact.bundleId ? { bundleId: input.artifact.bundleId } : {}),
+-    ...(input.artifact.appName ? { appName: input.artifact.appName } : {}),
+-    ...(input.artifact.bundleId ? { launchTarget: input.artifact.bundleId } : {}),
++    ...result,
++    ...(bundleId ? { bundleId } : {}),
++    ...(appName ? { appName } : {}),
++    ...(launchTarget ? { launchTarget } : {}),
+   };
+ }
+ 
+diff --git a/packages/platform-apple/src/launch-confirmation.test.ts b/packages/platform-apple/src/launch-confirmation.test.ts
+index f3b27c4bb..1c8df0f03 100644
+--- a/packages/platform-apple/src/launch-confirmation.test.ts
++++ b/packages/platform-apple/src/launch-confirmation.test.ts
+@@ -742,21 +742,3 @@ test('abandoned accepts stop once the request cannot hold another press', async
+     expect(acceptAlert).toHaveBeenCalledTimes(2);
+   });
+ });
+-
+-test('forwarded launch confirmation uses its provider URL resolver without reading local app containers', async () => {
+-  const local = vi.mocked(resolveIosSimulatorDeepLinkBundleId);
+-  local.mockClear();
+-  const signal = new AbortController().signal;
+-  const resolveOwner = vi.fn(async () => undefined);
+-  const port = createLaunchConfirmationPort(
+-    simulator,
+-    { appBundleId: 'com.example.app', url: 'example://home' },
+-    { awaitAlert: async () => ({}), readAlert: async () => ({}), acceptAlert: async () => ({}) },
+-    signal,
+-    undefined,
+-    resolveOwner,
+-  );
+-  await expect(port.resolveUrlOwner()).resolves.toBeUndefined();
+-  expect(resolveOwner).toHaveBeenCalledWith(simulator, 'example://home', signal);
+-  expect(local).not.toHaveBeenCalled();
+-});
+diff --git a/packages/platform-apple/src/launch-confirmation.ts b/packages/platform-apple/src/launch-confirmation.ts
+index dd0623cec..44c870349 100644
+--- a/packages/platform-apple/src/launch-confirmation.ts
++++ b/packages/platform-apple/src/launch-confirmation.ts
+@@ -221,24 +221,12 @@ export async function answerSimulatorLaunchConfirmation(
+   interactor: Promise<Interactor>,
+   signal: AbortSignal,
+   deadlineAtMs: number | undefined,
+-  resolveUrlOwner?: (
+-    device: DeviceInfo,
+-    url: string,
+-    signal: AbortSignal,
+-  ) => Promise<string | undefined>,
+ ): Promise<LaunchConfirmationAttempt> {
+   const settled: Readonly<{ interactor: Interactor }> | LaunchConfirmationAttempt =
+     await interactor.then((resolved) => ({ interactor: resolved }), unreadable('runner'));
+   if ('outcome' in settled) return settled;
+   return await answerLaunchConfirmation(
+-    createLaunchConfirmationPort(
+-      device,
+-      confirmation,
+-      settled.interactor,
+-      signal,
+-      deadlineAtMs,
+-      resolveUrlOwner,
+-    ),
++    createLaunchConfirmationPort(device, confirmation, settled.interactor, signal, deadlineAtMs),
+   );
+ }
+ 
+@@ -248,11 +236,6 @@ export function createLaunchConfirmationPort(
+   interactor: Pick<Interactor, 'awaitAlert' | 'readAlert' | 'acceptAlert'>,
+   signal: AbortSignal,
+   deadlineAtMs: number | undefined,
+-  resolveUrlOwner?: (
+-    device: DeviceInfo,
+-    url: string,
+-    signal: AbortSignal,
+-  ) => Promise<string | undefined>,
+ ): LaunchConfirmationPort {
+   const awaitAlert = interactor.awaitAlert?.bind(interactor);
+   const readAlert = interactor.readAlert?.bind(interactor);
+@@ -270,12 +253,10 @@ export function createLaunchConfirmationPort(
+       ),
+     readAlert: async () => await alertIfPresent(readAlert(target)),
+     acceptAlert: async () => await acceptAlert(target),
+-    resolveUrlOwner: resolveUrlOwner
+-      ? () => resolveUrlOwner(device, url, signal)
+-      : async () =>
+-          await resolveIosSimulatorDeepLinkBundleId(device, url, {
+-            timeoutMs: URL_OWNER_LOOKUP_TIMEOUT_MS,
+-            signal,
+-          }),
++    resolveUrlOwner: async () =>
++      await resolveIosSimulatorDeepLinkBundleId(device, url, {
++        timeoutMs: URL_OWNER_LOOKUP_TIMEOUT_MS,
++        signal,
++      }),
+   });
+ }
+diff --git a/packages/platform-apple/src/lifecycle.ts b/packages/platform-apple/src/lifecycle.ts
+index 651883675..abe759375 100644
+--- a/packages/platform-apple/src/lifecycle.ts
++++ b/packages/platform-apple/src/lifecycle.ts
+@@ -73,11 +73,6 @@ type AppleLifecycleServices = Pick<
+     device: DeviceInfo,
+     input: OpenApplicationInput,
+   ): Promise<string | undefined>;
+-  resolveUrlOwner?: (
+-    device: DeviceInfo,
+-    url: string,
+-    signal: AbortSignal,
+-  ) => Promise<string | undefined>;
+   runnerFreeObservation: boolean;
+ };
+ 
+@@ -215,7 +210,7 @@ async function openAppleApplication(
+       localIosSimulator,
+       {
+         observation,
+-        answerConfirmation: confirmationAnswer(host, binding, input, launch),
++        answerConfirmation: confirmationAnswer(binding, input, launch),
+         redispatchLaunchUrl: confirmationRedispatch(binding, input, launch),
+       },
+       timing,
+@@ -358,7 +353,6 @@ async function openLaunchUrl(
+  * answered.
+  */
+ function confirmationAnswer(
+-  host: AppleLifecycleServices,
+   binding: BoundAppleInteractor,
+   input: OpenApplicationInput,
+   { confirmation }: AppleLaunchPlan,
+@@ -372,7 +366,6 @@ function confirmationAnswer(
+       binding.resolveInteractor(input.execution, confirmation.appBundleId),
+       binding.signal,
+       input.execution.requestDeadlineAtMs,
+-      host.resolveUrlOwner,
+     );
+   };
+ }

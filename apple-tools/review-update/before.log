@@ -1,0 +1,99 @@
+
+ RUN  v5.0.4 /private/tmp/apple-tools-review-before
+
+·······························xx····x······x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/platform-apple/src/deployment/runtime.test.ts > hosted install preserves metadata and fills artifact defaults: {}
+AssertionError: expected {} to deeply equal { bundleId: 'com.example.app', …(2) }
+
+- Expected
++ Received
+
+- {
+-   "appName": "Example",
+-   "bundleId": "com.example.app",
+-   "launchTarget": "com.example.app",
+- }
++ {}
+
+ ❯ packages/platform-apple/src/deployment/runtime.test.ts:782:6
+    780|         },
+    781|       }),
+    782|     ).resolves.toEqual(expected);
+       |      ^
+    783|     expect(run).not.toHaveBeenCalled();
+    784|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |unit-core| packages/platform-apple/src/deployment/runtime.test.ts > hosted install preserves metadata and fills artifact defaults: {"bundleId":"com.installed.app"}
+AssertionError: expected { bundleId: 'com.installed.app' } to deeply equal { bundleId: 'com.installed.app', …(2) }
+
+- Expected
++ Received
+
+  {
+-   "appName": "Example",
+    "bundleId": "com.installed.app",
+-   "launchTarget": "com.installed.app",
+  }
+
+ ❯ packages/platform-apple/src/deployment/runtime.test.ts:782:6
+    780|         },
+    781|       }),
+    782|     ).resolves.toEqual(expected);
+       |      ^
+    783|     expect(run).not.toHaveBeenCalled();
+    784|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  |unit-core| packages/platform-apple/src/core/simulator-files.test.ts > container copies distinguish the same simulator UDID in different simulator sets
+AssertionError: expected 'set 0' to be 'set 1' // Object.is equality
+
+Expected: "set 1"
+Received: "set 0"
+
+ ❯ packages/platform-apple/src/core/simulator-files.test.ts:198:58
+    196|         timeoutMs: 1000,
+    197|       });
+    198|       expect(await fs.readFile(destinationPath, 'utf8')).toBe(`set ${i…
+       |                                                          ^
+    199|     }
+    200|   });
+ ❯ Object.run packages/kernel/src/scoped-provider.ts:21:14
+ ❯ withAppleToolProvider packages/platform-apple/src/core/tool-provider.ts:154:10
+ ❯ packages/platform-apple/src/core/simulator-files.test.ts:179:3
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  |unit-core| packages/platform-apple/src/core/__tests__/app-resolution-deep-link.test.ts > deep-link ownership reads app metadata serially and still detects ambiguous owners
+AssertionError: Expected values to be strictly equal:
+
+20 !== 1
+
+
+- Expected
++ Received
+
+- 1
++ 20
+
+ ❯ packages/platform-apple/src/core/__tests__/app-resolution-deep-link.test.ts:177:10
+    175|   });
+    176|   assert.equal(reads, 20);
+    177|   assert.equal(peak, 1);
+       |          ^
+    178| });
+    179|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  4 failed | 41 passed (45)
+   Start at  13:20:27
+   Duration  436ms (transform 71%, import 15%, tests 9%, setup 3%, worker 1%)
+

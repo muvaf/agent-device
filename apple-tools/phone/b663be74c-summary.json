@@ -1,0 +1,246 @@
+{
+  "sha": "b663be74c1b2194330360793ab9187848be9a449",
+  "device": "iPhone 14 Pro",
+  "commands": [
+    {
+      "label": "initial-device-status",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "device",
+        "status",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 79,
+      "success": true
+    },
+    {
+      "label": "clean-start",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 56,
+      "success": true
+    },
+    {
+      "label": "prepare",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "prepare",
+        "ios-runner",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--timeout",
+        "420000",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 97145,
+      "success": true
+    },
+    {
+      "label": "normalize-open",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "open",
+        "com.apple.Preferences",
+        "--foreground",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 4664,
+      "success": true
+    },
+    {
+      "label": "normalize-top",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "scroll",
+        "top",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 517,
+      "success": true
+    },
+    {
+      "label": "normalize-close",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-normalize"
+      ],
+      "exitCode": 0,
+      "durationMs": 529,
+      "success": true
+    },
+    {
+      "label": "scroll",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "test",
+        "/private/tmp/apple-tools-open-live/physical-scroll-lifecycle.ad",
+        "--artifacts-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/artifacts",
+        "--reporter",
+        "junit:/private/tmp/apple-tools-open-live/phone-unlocked/results.xml",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-phone"
+      ],
+      "exitCode": 0,
+      "durationMs": 16797,
+      "success": true
+    },
+    {
+      "label": "final-close-apple-tools-normalize",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-normalize"
+      ],
+      "exitCode": 1,
+      "durationMs": 1651,
+      "success": false
+    },
+    {
+      "label": "final-close-apple-tools-phone",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-phone"
+      ],
+      "exitCode": 1,
+      "durationMs": 1663,
+      "success": false
+    },
+    {
+      "label": "final-daemon-clean",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-unlocked/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 187,
+      "success": true
+    },
+    {
+      "label": "final-device-status",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "device",
+        "status",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 60,
+      "success": true
+    }
+  ],
+  "result": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 15107,
+    "snapshotBackends": [
+      {
+        "apple-runner": 6
+      }
+    ]
+  },
+  "cleanupSucceeded": true,
+  "remainingClaims": 0
+}

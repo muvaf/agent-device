@@ -1,0 +1,142 @@
+{
+  "sha": "a8758b33fb5f605d1b12c4e287ea69aa5bcab901",
+  "device": "iPhone 14 Pro",
+  "commands": [
+    {
+      "label": "initial-device-status",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "device",
+        "status",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 72,
+      "success": true
+    },
+    {
+      "label": "clean-start",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-review-final/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 58,
+      "success": true
+    },
+    {
+      "label": "prepare",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "prepare",
+        "ios-runner",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--timeout",
+        "420000",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-review-final/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 1,
+      "durationMs": 7438,
+      "success": false
+    },
+    {
+      "label": "final-close-apple-tools-normalize",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-review-final/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-normalize"
+      ],
+      "exitCode": 1,
+      "durationMs": 1873,
+      "success": false
+    },
+    {
+      "label": "final-close-apple-tools-phone",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-review-final/state",
+        "--json",
+        "--debug",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--session",
+        "apple-tools-phone"
+      ],
+      "exitCode": 1,
+      "durationMs": 1689,
+      "success": false
+    },
+    {
+      "label": "final-daemon-clean",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/phone-review-final/state",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 196,
+      "success": true
+    },
+    {
+      "label": "final-device-status",
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "device",
+        "status",
+        "--platform",
+        "ios",
+        "--udid",
+        "<phone-udid>",
+        "--json",
+        "--debug"
+      ],
+      "exitCode": 0,
+      "durationMs": 55,
+      "success": true
+    }
+  ],
+  "cleanupSucceeded": true,
+  "remainingClaims": 0
+}

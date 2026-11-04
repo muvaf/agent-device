@@ -1,0 +1,39 @@
+
+ RUN  v5.0.4 /private/tmp/apple-tools-review-before
+
+-----------------------------·x---
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/platform-apple/src/deployment/runtime.test.ts > reinstall clears the old app before preparing and installing with a hosted installer: true
+AssertionError: expected [ 'invalidate-before', …(5) ] to deeply equal [ 'invalidate-before', …(5) ]
+
+- Expected
++ Received
+
+  [
+    "invalidate-before",
+    "uninstall",
+    "materialize",
+-   "hosted-install",
++   "native-install",
+    "cleanup",
+    "invalidate-after",
+  ]
+
+ ❯ packages/platform-apple/src/deployment/runtime.test.ts:742:20
+    740|       }),
+    741|     ).toEqual({ bundleId: 'com.example.app', launchTarget: 'com.exampl…
+    742|     expect(events).toEqual([
+       |                    ^
+    743|       'invalidate-before',
+    744|       'uninstall',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed | 32 skipped (34)
+   Start at  13:21:00
+   Duration  215ms (transform 49%, import 27%, tests 11%, setup 10%, worker 3%)
+

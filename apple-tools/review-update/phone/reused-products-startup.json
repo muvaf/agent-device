@@ -1,0 +1,8 @@
+{
+  "code": "COMMAND_FAILED",
+  "message": "Runner did not accept connection (xcodebuild exited early)",
+  "reason": "IOS_RUNNER_CONNECT_TIMEOUT",
+  "xcodebuildExitCode": 65,
+  "xcodebuildFailure": "The application could not be launched because the Developer App Certificate is not trusted.",
+  "localCodesignVerificationExitCode": 0
+}

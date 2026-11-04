@@ -1,0 +1,5 @@
+$ node ./node_modules/oxfmt/bin/oxfmt --check
+Checking formatting...
+
+All matched files use the correct format.
+Finished in 168ms on 5182 files using 18 threads.

@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device
+
+·············································
+
+ Test Files  3 passed (3)
+      Tests  45 passed (45)
+   Start at  13:21:24
+   Duration  280ms (transform 44%, import 31%, tests 15%, setup 7%, worker 3%)
+

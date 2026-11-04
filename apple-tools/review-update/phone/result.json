@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "data": {
+    "total": 1,
+    "executed": 1,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "notRun": 0,
+    "durationMs": 16457,
+    "failures": [],
+    "tests": [
+      {
+        "status": "passed",
+        "durationMs": 16456,
+        "finalAttemptDurationMs": 16455,
+        "attempts": 1,
+        "replayed": 9,
+        "healed": 0,
+        "snapshotBackends": {
+          "apple-runner": 6
+        }
+      }
+    ]
+  }
+}
