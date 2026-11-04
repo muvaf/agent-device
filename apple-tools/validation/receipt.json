@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "cwd": "/Users/muvaf/github.com/callstack/agent-device",
+  "startedAt": "2026-11-04T08:30:02.446Z",
+  "status": "passed",
+  "exitCode": 0,
+  "refs": {
+    "base": "8c416a75980d888985886d9d6eada2f9a51d3ea8",
+    "head": "b663be74c1b2194330360793ab9187848be9a449",
+    "resolvedHead": "b663be74c1b2194330360793ab9187848be9a449"
+  },
+  "checkoutChanged": false,
+  "exactCommit": true,
+  "results": [
+    {
+      "id": "check:tooling",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:tooling"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device/.tmp/validation/run-vNnpPb/0.log",
+      "exitCode": 0,
+      "durationMs": 67340,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device/.tmp/validation/run-vNnpPb/0.tests.5895.json",
+        "/Users/muvaf/github.com/callstack/agent-device/.tmp/validation/run-vNnpPb/0.tests.5964.json",
+        "/Users/muvaf/github.com/callstack/agent-device/.tmp/validation/run-vNnpPb/0.tests.6017.json"
+      ],
+      "tests": [
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "check:fallow",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:fallow"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device/.tmp/validation/run-vNnpPb/1.log",
+      "exitCode": 0,
+      "durationMs": 6619,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "check:unit",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:unit"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device/.tmp/validation/run-vNnpPb/2.log",
+      "exitCode": 0,
+      "durationMs": 144167,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device/.tmp/validation/run-vNnpPb/2.tests.8044.json"
+      ],
+      "tests": [
+        {
+          "passed": 17226,
+          "failed": 0,
+          "skipped": 1,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    }
+  ],
+  "initial": {
+    "head": "b663be74c1b2194330360793ab9187848be9a449",
+    "status": "",
+    "fingerprint": "2e1c838c132144e87599cdfc9524929ed47564994fbe5bdeea0faf6293ace379"
+  },
+  "final": {
+    "head": "b663be74c1b2194330360793ab9187848be9a449",
+    "status": "",
+    "fingerprint": "2e1c838c132144e87599cdfc9524929ed47564994fbe5bdeea0faf6293ace379"
+  },
+  "finishedAt": "2026-11-04T08:33:40.769Z"
+}

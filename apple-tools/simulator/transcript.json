@@ -1,0 +1,372 @@
+{
+  "sha": "b663be74c1b2194330360793ab9187848be9a449",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "start": "2026-11-04T08:37:26.912Z",
+      "exit": 0,
+      "stdout": "b663be74c1b2194330360793ab9187848be9a449\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "start": "2026-11-04T08:37:26.929Z",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcodebuild",
+        "-version"
+      ],
+      "start": "2026-11-04T08:37:27.006Z",
+      "exit": 0,
+      "stdout": "Xcode 27.1\nBuild version 27A9269\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "simctl",
+        "create",
+        "agent-device-apple-tools-review",
+        "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+        "com.apple.CoreSimulator.SimRuntime.iOS-26-4"
+      ],
+      "start": "2026-11-04T08:37:27.161Z",
+      "exit": 0,
+      "stdout": "E6F74FBD-3831-47E5-8A85-83FE088E6069\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json"
+      ],
+      "start": "2026-11-04T08:37:27.342Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"stopped\": false,\n    \"mode\": \"not-running\",\n    \"cleanupConfidence\": \"known\",\n    \"claimsReleased\": [],\n    \"claimsOrphaned\": [],\n    \"claimsSuperseded\": [],\n    \"claimsUnattributable\": [],\n    \"providerReleases\": {\n      \"status\": \"completed\",\n      \"released\": [],\n      \"pending\": []\n    },\n    \"warnings\": [],\n    \"clean\": false\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "prepare",
+        "ios-runner",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--timeout",
+        "420000",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json"
+      ],
+      "start": "2026-11-04T08:37:27.401Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"action\": \"ios-runner\",\n    \"platform\": \"ios\",\n    \"deviceId\": \"E6F74FBD-3831-47E5-8A85-83FE088E6069\",\n    \"deviceName\": \"agent-device-apple-tools-review\",\n    \"kind\": \"simulator\",\n    \"durationMs\": 25851,\n    \"runner\": {\n      \"currentUptimeMs\": 207693885.90766668,\n      \"runnerMainThreadBusy\": false\n    },\n    \"cache\": \"exact\",\n    \"artifact\": \"valid\",\n    \"buildMs\": 0,\n    \"connectMs\": 423,\n    \"healthCheckMs\": 7496,\n    \"xctestrunPath\": \"/private/tmp/apple-tools-open-live/simulator-verified/derived/Build/Products/AgentDeviceRunner_AgentDeviceRunnerUITests_iphonesimulator27.1-arm64.xctestrun\",\n    \"timing\": {\n      \"totalMs\": 25851,\n      \"additiveParts\": {\n        \"buildMs\": 0,\n        \"connectAfterBuildMs\": 423,\n        \"healthCheckMs\": 7496\n      },\n      \"containment\": {\n        \"connectMs\": [\n          \"buildMs\"\n        ],\n        \"healthCheckMs\": []\n      },\n      \"note\": \"Top-level prepare timing fields are diagnostic and may overlap; use timing.additiveParts for additive wall-clock phases.\"\n    },\n    \"message\": \"Prepared Apple runner: agent-device-apple-tools-review\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "apps",
+        "--all",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--session",
+        "apple-tools-local"
+      ],
+      "start": "2026-11-04T08:37:53.707Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"apps\": [\n      \"Web (com.apple.webapp)\",\n      \"Weather Wallpaper (com.apple.Posters.WeatherPosterApp)\",\n      \"Safari (com.apple.mobilesafari)\",\n      \"Files (com.apple.DocumentsApp)\",\n      \"Settings (com.apple.Preferences)\",\n      \"AgentDeviceRunnerUITests-Runner (com.callstack.agentdevice.runner.uitests.xctrunner)\",\n      \"Pride (com.apple.PridePoster)\",\n      \"Wallet (com.apple.Passbook)\",\n      \"Photos (com.apple.mobileslideshow)\",\n      \"Color (com.apple.GradientPoster)\",\n      \"SystemIntents (com.apple.SystemIntents)\",\n      \"Messages (com.apple.MobileSMS)\",\n      \"EscrowSecurityAlert (com.apple.EscrowSecurityAlert)\",\n      \"CarPlay (com.apple.CarPlayApp)\",\n      \"Maps (com.apple.Maps)\",\n      \"Emoji (com.apple.EmojiPoster)\",\n      \"Astronomy (com.apple.NanoUniverse.AegirProxyApp)\",\n      \"VoiceOver (com.apple.VoiceOverTouch)\",\n      \"Health (com.apple.Health)\",\n      \"Contacts (com.apple.MobileAddressBook)\",\n      \"Fitness (com.apple.Fitness)\",\n      \"Shortcuts (com.apple.shortcuts)\",\n      \"SpringBoard (com.apple.springboard)\",\n      \"Live Captions (com.apple.livetranscriptionui)\",\n      \"Passwords (com.apple.Passwords)\",\n      \"ShortcutsActions (com.apple.ShortcutsActions)\",\n      \"Kaleidoscope (com.apple.Posters.KaleidoscopePosterApp)\",\n      \"Watch (com.apple.Bridge)\",\n      \"Calendar (com.apple.mobilecal)\",\n      \"Xcode Previews (com.apple.PreviewShell)\",\n      \"AssistiveTouch (com.apple.assistivetouchd)\",\n      \"FullKeyboardAccess (com.apple.fullkeyboardaccess)\",\n      \"Reminders (com.apple.reminders)\",\n      \"News (com.apple.news)\",\n      \"Preview (com.apple.Preview)\",\n      \"Unity (com.apple.Posters.UnityPosterApp)\",\n      \"Voice Control (com.apple.commandandcontrol)\"\n    ]\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "open",
+        "com.apple.Preferences",
+        "--relaunch",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--session",
+        "apple-tools-local"
+      ],
+      "start": "2026-11-04T08:37:54.238Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"session\": \"apple-tools-local\",\n    \"sessionStateDir\": \"/private/tmp/apple-tools-open-live/simulator-verified/state/sessions/apple-tools-local\",\n    \"runnerLogPath\": \"/private/tmp/apple-tools-open-live/simulator-verified/state/sessions/apple-tools-local/runner.log\",\n    \"requestLogPath\": \"/private/tmp/apple-tools-open-live/simulator-verified/state/sessions/apple-tools-local/requests/a937e33afba0ba83.ndjson\",\n    \"eventLogPath\": \"/private/tmp/apple-tools-open-live/simulator-verified/state/sessions/apple-tools-local/events.ndjson\",\n    \"appName\": \"com.apple.Preferences\",\n    \"appBundleId\": \"com.apple.Preferences\",\n    \"selection\": {\n      \"reason\": \"explicit-selector\",\n      \"source\": \"local\",\n      \"candidateCount\": 1,\n      \"bootOccurred\": false\n    },\n    \"startup\": {\n      \"durationMs\": 2062,\n      \"measuredAt\": \"2026-11-04T08:37:56.662Z\",\n      \"method\": \"open-command-roundtrip\",\n      \"appTarget\": \"com.apple.Preferences\",\n      \"appBundleId\": \"com.apple.Preferences\"\n    },\n    \"platform\": \"ios\",\n    \"target\": \"mobile\",\n    \"device\": \"agent-device-apple-tools-review\",\n    \"id\": \"E6F74FBD-3831-47E5-8A85-83FE088E6069\",\n    \"device_udid\": \"E6F74FBD-3831-47E5-8A85-83FE088E6069\",\n    \"ios_simulator_device_set\": null,\n    \"message\": \"Opened: com.apple.Preferences\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "snapshot",
+        "-i",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--session",
+        "apple-tools-local"
+      ],
+      "start": "2026-11-04T08:37:56.674Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"nodes\": [\n      {\n        \"index\": 0,\n        \"type\": \"Other\",\n        \"role\": \"_TtC7SwiftUIP33_ACC2C5639A7D76F611E170E831FCA49118SwiftUIApplication\",\n        \"subrole\": \"UIApplication\",\n        \"label\": \"Settings\",\n        \"rect\": {\n          \"x\": 0,\n          \"y\": 0,\n          \"width\": 402,\n          \"height\": 874\n        },\n        \"enabled\": true,\n        \"depth\": 0,\n        \"pid\": 39617,\n        \"hittable\": false,\n        \"ref\": \"e1\",\n        \"kind\": \"other\"\n      },\n      {\n        \"index\": 1,\n        \"parentIndex\": 0,\n        \"type\": \"NavigationBar\",\n        \"role\": \"SwiftUI.UIKitNavigationBar\",\n        \"subrole\": \"UINavigationBar\",\n        \"identifier\": \"Settings\",\n        \"rect\": {\n          \"x\": 0,\n          \"y\": 62,\n          \"width\": 402,\n          \"height\": 106\n        },\n        \"enabled\": true,\n        \"depth\": 1,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"ref\": \"e2\",\n        \"kind\": \"navigation-bar\"\n      },\n      {\n        \"index\": 2,\n        \"parentIndex\": 0,\n        \"type\": \"CollectionView\",\n        \"role\": \"SwiftUI.UpdateCoalescingCollectionView\",\n        \"subrole\": \"UICollectionView\",\n        \"rect\": {\n          \"x\": 0,\n          \"y\": 116,\n          \"width\": 402,\n          \"height\": 672\n        },\n        \"enabled\": true,\n        \"depth\": 1,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"hiddenContentBelow\": true,\n        \"ref\": \"e3\",\n        \"kind\": \"collection\"\n      },\n      {\n        \"index\": 3,\n        \"parentIndex\": 2,\n        \"type\": \"Image\",\n        \"role\": \"UIImageView\",\n        \"identifier\": \"AdditionalDimmingOverlay\",\n        \"rect\": {\n          \"x\": 0,\n          \"y\": 738,\n          \"width\": 402,\n          \"height\": 50\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": false,\n        \"ref\": \"e4\",\n        \"kind\": \"image\"\n      },\n      {\n        \"index\": 4,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 168,\n          \"width\": 370,\n          \"height\": 90.33333333333331\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Apple Account\",\n        \"ref\": \"e5\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 5,\n        \"parentIndex\": 4,\n        \"type\": \"Button\",\n        \"role\": \"SwiftUI.AccessibilityNode\",\n        \"subrole\": \"UIResponder\",\n        \"label\": \"Apple Account, Sign in to access your iCloud data, the App Store, Apple services, and more.\",\n        \"identifier\": \"com.apple.settings.primaryAppleAccount\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 168,\n          \"width\": 370,\n          \"height\": 90.33333333333331\n        },\n        \"enabled\": true,\n        \"depth\": 3,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"ref\": \"e6\",\n        \"kind\": \"button\"\n      },\n      {\n        \"index\": 6,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 293.3333333333333,\n          \"width\": 370,\n          \"height\": 52\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"General\",\n        \"identifier\": \"com.apple.settings.general\",\n        \"ref\": \"e7\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 7,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 345.33333333333337,\n          \"width\": 370,\n          \"height\": 52\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Accessibility\",\n        \"identifier\": \"com.apple.settings.accessibility\",\n        \"ref\": \"e8\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 8,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 397.33333333333337,\n          \"width\": 370,\n          \"height\": 52\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Action Button\",\n        \"identifier\": \"com.apple.settings.actionButton\",\n        \"ref\": \"e9\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 9,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 449.3333333333333,\n          \"width\": 370,\n          \"height\": 52\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Apple Intelligence & Siri\",\n        \"identifier\": \"com.apple.settings.siri\",\n        \"ref\": \"e10\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 10,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 501.3333333333333,\n          \"width\": 370,\n          \"height\": 51.99999999999994\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Camera\",\n        \"identifier\": \"com.apple.settings.camera\",\n        \"ref\": \"e11\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 11,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 553.3333333333333,\n          \"width\": 370,\n          \"height\": 52\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Home Screen & App Library\",\n        \"identifier\": \"com.apple.settings.homeScreen\",\n        \"ref\": \"e12\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 12,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 605.3333333333333,\n          \"width\": 370,\n          \"height\": 52\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Search\",\n        \"identifier\": \"com.apple.settings.search\",\n        \"ref\": \"e13\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 13,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 657.3333333333333,\n          \"width\": 370,\n          \"height\": 52\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"StandBy\",\n        \"identifier\": \"com.apple.settings.standBy\",\n        \"ref\": \"e14\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 14,\n        \"parentIndex\": 2,\n        \"type\": \"Cell\",\n        \"role\": \"SwiftUI.ListCollectionViewCell\",\n        \"subrole\": \"UICollectionViewListCell\",\n        \"rect\": {\n          \"x\": 16,\n          \"y\": 744.3333333333334,\n          \"width\": 370,\n          \"height\": 43.66666666666663\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"label\": \"Screen Time\",\n        \"identifier\": \"com.apple.settings.screenTime\",\n        \"ref\": \"e15\",\n        \"kind\": \"cell\"\n      },\n      {\n        \"index\": 15,\n        \"parentIndex\": 0,\n        \"type\": \"SearchField\",\n        \"role\": \"UISearchBarTextField\",\n        \"label\": \"Search\",\n        \"value\": \"Search\",\n        \"placeholder\": \"Search\",\n        \"rect\": {\n          \"x\": 32.99999999999994,\n          \"y\": 803,\n          \"width\": 336,\n          \"height\": 38\n        },\n        \"enabled\": true,\n        \"depth\": 1,\n        \"password\": false,\n        \"editable\": true,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"ref\": \"e16\",\n        \"kind\": \"search\"\n      },\n      {\n        \"index\": 16,\n        \"parentIndex\": 15,\n        \"type\": \"Button\",\n        \"role\": \"UIDictationSearchButton\",\n        \"label\": \"Dictate\",\n        \"identifier\": \"Dictate\",\n        \"rect\": {\n          \"x\": 335.6666666666667,\n          \"y\": 811,\n          \"width\": 17.333333333333314,\n          \"height\": 22\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"ref\": \"e17\",\n        \"kind\": \"button\"\n      },\n      {\n        \"index\": 17,\n        \"parentIndex\": 15,\n        \"type\": \"Button\",\n        \"role\": \"UIDictationSearchButton\",\n        \"label\": \"Dictate\",\n        \"identifier\": \"Dictate\",\n        \"rect\": {\n          \"x\": 335.6666666666667,\n          \"y\": 811,\n          \"width\": 17.333333333333314,\n          \"height\": 22\n        },\n        \"enabled\": true,\n        \"depth\": 2,\n        \"pid\": 39617,\n        \"hittable\": true,\n        \"ref\": \"e18\",\n        \"kind\": \"button\"\n      }\n    ],\n    \"truncated\": false,\n    \"appName\": \"com.apple.Preferences\",\n    \"appBundleId\": \"com.apple.Preferences\",\n    \"visibility\": {\n      \"partial\": true,\n      \"visibleNodeCount\": 18,\n      \"totalNodeCount\": 18,\n      \"reasons\": [\n        \"scroll-hidden-below\"\n      ]\n    },\n    \"viewport\": {\n      \"width\": 402,\n      \"height\": 874\n    },\n    \"presentedSurface\": \"absent\",\n    \"snapshotQualityNotes\": [\n      {\n        \"code\": \"regular-geometry-clipped\",\n        \"clippedNodeCount\": 12,\n        \"droppedNodeCount\": 0\n      }\n    ],\n    \"snapshotDiagnostics\": {\n      \"stats\": {\n        \"count\": 1,\n        \"p50Ms\": 184,\n        \"p95Ms\": 184,\n        \"maxMs\": 184,\n        \"slowThresholdMs\": 1500,\n        \"platform\": \"ios\",\n        \"backends\": {\n          \"simulator-ax-bridge\": 1\n        }\n      }\n    },\n    \"refsGeneration\": 129112\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "screenshot",
+        "/private/tmp/apple-tools-open-live/simulator-verified/simctl.png",
+        "--screen-mask",
+        "black",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--session",
+        "apple-tools-local"
+      ],
+      "start": "2026-11-04T08:37:57.026Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"path\": \"/private/tmp/apple-tools-open-live/simulator-verified/simctl.png\",\n    \"width\": 402,\n    \"height\": 874,\n    \"logicalWidth\": 402,\n    \"logicalHeight\": 874,\n    \"pixelDensity\": 1,\n    \"displayRotation\": \"portrait\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "close",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--session",
+        "apple-tools-local"
+      ],
+      "start": "2026-11-04T08:37:57.881Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"session\": \"apple-tools-local\",\n    \"message\": \"Closed: apple-tools-local\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json"
+      ],
+      "start": "2026-11-04T08:37:58.043Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"stopped\": true,\n    \"mode\": \"graceful\",\n    \"cleanupConfidence\": \"known\",\n    \"claimsReleased\": [],\n    \"claimsOrphaned\": [],\n    \"claimsSuperseded\": [],\n    \"claimsUnattributable\": [],\n    \"providerReleases\": {\n      \"status\": \"completed\",\n      \"released\": [],\n      \"pending\": []\n    },\n    \"warnings\": [],\n    \"clean\": true\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "install",
+        "/private/tmp/apple-tools-open-live/simulator-verified/derived/Build/Products/Debug-iphonesimulator/AgentDeviceRunner.app",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--session",
+        "apple-tools-local"
+      ],
+      "start": "2026-11-04T08:38:05.905Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"app\": \"com.callstack.agentdevice.runner\",\n    \"appPath\": \"/private/tmp/apple-tools-open-live/simulator-verified/derived/Build/Products/Debug-iphonesimulator/AgentDeviceRunner.app\",\n    \"platform\": \"ios\",\n    \"appId\": \"com.callstack.agentdevice.runner\",\n    \"bundleId\": \"com.callstack.agentdevice.runner\",\n    \"message\": \"Installed: com.callstack.agentdevice.runner\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "reinstall",
+        "com.callstack.agentdevice.runner",
+        "/private/tmp/apple-tools-open-live/simulator-verified/derived/Build/Products/Debug-iphonesimulator/AgentDeviceRunner.app",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--session",
+        "apple-tools-local"
+      ],
+      "start": "2026-11-04T08:38:07.778Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"app\": \"com.callstack.agentdevice.runner\",\n    \"appPath\": \"/private/tmp/apple-tools-open-live/simulator-verified/derived/Build/Products/Debug-iphonesimulator/AgentDeviceRunner.app\",\n    \"platform\": \"ios\",\n    \"appId\": \"com.callstack.agentdevice.runner\",\n    \"bundleId\": \"com.callstack.agentdevice.runner\",\n    \"message\": \"Installed: com.callstack.agentdevice.runner\"\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "daemon",
+        "stop",
+        "--clean",
+        "--state-dir",
+        "/private/tmp/apple-tools-open-live/simulator-verified/state",
+        "--json"
+      ],
+      "start": "2026-11-04T08:38:08.704Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"stopped\": true,\n    \"mode\": \"graceful\",\n    \"cleanupConfidence\": \"known\",\n    \"claimsReleased\": [],\n    \"claimsOrphaned\": [],\n    \"claimsSuperseded\": [],\n    \"claimsUnattributable\": [],\n    \"providerReleases\": {\n      \"status\": \"completed\",\n      \"released\": [],\n      \"pending\": []\n    },\n    \"warnings\": [],\n    \"clean\": true\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "bin/agent-device.mjs",
+        "device",
+        "status",
+        "--platform",
+        "ios",
+        "--udid",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+        "--json"
+      ],
+      "start": "2026-11-04T08:38:08.942Z",
+      "exit": 0,
+      "stdout": "{\n  \"success\": true,\n  \"data\": {\n    \"claims\": [],\n    \"hiddenStaleClaims\": 0\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "simctl",
+        "shutdown",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069"
+      ],
+      "start": "2026-11-04T08:38:09.027Z",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "xcrun",
+        "simctl",
+        "delete",
+        "E6F74FBD-3831-47E5-8A85-83FE088E6069"
+      ],
+      "start": "2026-11-04T08:38:12.251Z",
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "observations": [
+    {
+      "operation": "simulatorApps.list",
+      "count": 37,
+      "settingsFound": true
+    },
+    {
+      "operation": "readInfoPlist/deepLinkOwner",
+      "bundleId": "com.apple.mobilesafari",
+      "owner": "com.apple.mobilesafari"
+    },
+    {
+      "operation": "snapshot",
+      "backend": "xctest",
+      "nodeCount": 73
+    },
+    {
+      "operation": "screenshot",
+      "name": "simctl.png",
+      "bytes": 60231,
+      "width": 402,
+      "height": 874
+    },
+    {
+      "operation": "screenshot",
+      "name": "runner.png",
+      "bytes": 58250,
+      "width": 402,
+      "height": 874
+    },
+    {
+      "operation": "container-copy-and-clear",
+      "bytesMatched": true,
+      "cleared": true,
+      "entries": [
+        ".com.apple.mobile_container_manager.metadata.plist",
+        "Documents",
+        "Library",
+        "SystemData",
+        "tmp"
+      ]
+    }
+  ],
+  "cleanup": [
+    {
+      "claims": []
+    },
+    {
+      "simulatorDeleted": true
+    }
+  ],
+  "xcode": "Xcode 27.1\nBuild version 27A9269",
+  "device": {
+    "id": "E6F74FBD-3831-47E5-8A85-83FE088E6069",
+    "platform": "apple",
+    "appleOs": "ios",
+    "kind": "simulator",
+    "name": "iPhone 17 Pro",
+    "booted": true
+  },
+  "passed": true
+}

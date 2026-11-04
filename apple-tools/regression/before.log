@@ -1,0 +1,44 @@
+
+ RUN  v5.0.4 /private/tmp/apple-tools-budget-before
+
+x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/platform-apple/src/core/local-simulator-apps.test.ts > app metadata shares one timeout between container lookup and plist conversion
+AssertionError: expected "vi.fn()" to be called with arguments: [ 'plutil', …(2) ]
+
+Received:
+
+  1st vi.fn() call:
+
+@@ -16,8 +16,8 @@
+        Symbol(kHandlers): undefined,
+        Symbol(kAborted): false,
+        Symbol(kReason): undefined,
+        Symbol(kComposite): false,
+      },
+-     "timeoutMs": 20,
++     "timeoutMs": 100,
+    },
+  ]
+
+
+Number of calls: 1
+
+ ❯ packages/platform-apple/src/core/local-simulator-apps.test.ts:33:21
+     31|     );
+     32|     expect(plist?.CFBundleIdentifier).toBe('com.example.app');
+     33|     expect(convert).toHaveBeenCalledWith(
+       |                     ^
+     34|       'plutil',
+     35|       ['-convert', 'json', '-o', '-', path.join(appPath, 'Info.plist')…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  11:28:41
+   Duration  393ms (transform 74%, import 20%, tests 3%, setup 2%, worker 1%)
+

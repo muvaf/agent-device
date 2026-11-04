@@ -1,0 +1,45 @@
+1:  acf6cfb85 ! 1:  4d225cfc2 refactor(apple): share simulator files apps and runner operations
+    @@ packages/platform-apple/src/core/__tests__/display-inventory.test.ts: import {
+     
+      ## packages/platform-apple/src/core/__tests__/screenshot.test.ts ##
+     @@ packages/platform-apple/src/core/__tests__/screenshot.test.ts: import {
+    -   captureSimulatorScreenshotWithFallback,
+        captureSimulatorScreenshotWithRetry,
+        captureScreenshotViaRunner,
+    +   screenshotIos,
+     -  resolveSimulatorRunnerScreenshotCandidatePaths,
+     +  resolveRunnerScreenshotFilePaths,
+        shouldRetryIosSimulatorScreenshot,
+    @@ packages/platform-apple/src/core/screenshot-status-bar.ts: async function applyS
+      function parseSimulatorStatusBarOverrides(output: string): RestorableStatusBarOverrides | null {
+     
+      ## packages/platform-apple/src/core/screenshot.ts ##
+    -@@ packages/platform-apple/src/core/screenshot.ts: import { isMacOs, type DeviceInfo } from '@agent-device/kernel/device';
+    +@@ packages/platform-apple/src/core/screenshot.ts: import { appleScreenshotCaptureCapabilities } from '../screenshot-support.ts';
+      import type { EnvMap } from '@agent-device/kernel/source-value';
+      import { emitDiagnostic } from '@agent-device/host-kit/diagnostics';
+      import { copyHostFile } from '@agent-device/host-kit/host-file';
+    @@ packages/platform-apple/src/core/screenshot.ts: export async function captureSim
+     +            screenshotError = retryError;
+     +          }
+              }
+    -+        if (!deps.shouldFallbackToRunner(screenshotError)) {
+    ++        if (options.screenMask !== undefined || !deps.shouldFallbackToRunner(screenshotError)) {
+     +          throw screenshotError;
+     +        }
+     +        emitScreenshotFallbackDiagnostic(device, 'simctl_screenshot', screenshotError);
+            }
+    --      if (!deps.shouldFallbackToRunner(screenshotError)) {
+    +-      if (options.screenMask !== undefined || !deps.shouldFallbackToRunner(screenshotError)) {
+     -        throw screenshotError;
+     -      }
+     -      emitScreenshotFallbackDiagnostic(device, 'simctl_screenshot', screenshotError);
+    @@ packages/platform-apple/src/foldable/fold-helper.ts: import {
+     
+      ## packages/platform-apple/src/interactor.ts ##
+     @@
+    + import { assertScreenshotCaptureSupport } from '@agent-device/contracts/screenshot-runtime';
+    + import { appleScreenshotCaptureCapabilities } from './screenshot-support.ts';
+     +import { hasScopedAppleToolProvider } from './core/tool-provider.ts';
+      import { closeIosApp, openIosApp, openIosDevice } from './core/app-launch.ts';
+      import { readIosClipboardText, writeIosClipboardText } from './core/app-device-io.ts';

@@ -1,0 +1,5 @@
+The regression check verifies that a 100 ms metadata lookup leaves only 20 ms for plist conversion after container resolution consumes 80 ms. It checks the timeout passed to the production tool boundary, without wall-clock sleeps.
+
+The pre-fix source was `4fa8c61a0370674ed62f6fa3777c5c7a68b5e9a6`. A disposable detached worktree received only [the new test](local-simulator-apps.test.ts), followed by its own `pnpm install --frozen-lockfile` and `pnpm build`. `pnpm exec vitest run packages/platform-apple/src/core/local-simulator-apps.test.ts` failed with one failure: conversion received 100 ms instead of 20 ms. See [before.log](before.log).
+
+The same command passed after the fix with one test passing. See [after.log](after.log). That focused run used the then-uncommitted fix; it is not an exact-commit receipt. The fix and test are now included in `b663be74c1b2194330360793ab9187848be9a449`, whose [full gate receipt](../validation/receipt.json) records `exactCommit: true` and includes the same test. The disposable worktree was removed, and the reviewed checkout's SHA and pre-existing diff were unchanged during the experiment.

@@ -1,0 +1,11 @@
+{
+  "code": "COMMAND_FAILED",
+  "message": "Runner did not accept connection (xcodebuild exited early)",
+  "reason": "IOS_RUNNER_CONNECT_TIMEOUT",
+  "runnerConnectFailureReason": "xcodebuild_exited_early",
+  "xcodebuildExitCode": 70,
+  "coreDeviceLockState": {
+    "passcodeRequired": true,
+    "unlockedSinceBoot": true
+  }
+}
