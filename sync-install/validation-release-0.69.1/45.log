@@ -1,0 +1,13 @@
+$ vitest run --project unit-core test/repo-guards/capability-matrix.test.ts
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device
+
+(node:35827) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+············
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  04:29:09
+   Duration  1.09s (tests 50%, import 46%, transform 3%, setup 1%)
+

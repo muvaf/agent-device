@@ -1,5 +1,21 @@
 # Local app installation through Limrun sync
 
+## Published SDK validation, November 4
+
+The SDK is released as [`@limrun/api@0.69.1`](https://github.com/limrun-inc/typescript-sdk/releases/tag/v0.69.1). [Publishing succeeded](https://github.com/limrun-inc/typescript-sdk/actions/runs/41752789969), and the installed npm package identifies source commit `89c93cca931c48732af1d2d5c466a6bab7cf81d6`.
+
+The agent-device change is pushed on [`codex/limrun-sync-install`](https://github.com/muvaf/agent-device/tree/codex/limrun-sync-install) at `092c6faa6b762402eb914485c5c3207177de6ec2`. Both dependency manifests require `^0.69.1`; the lockfile resolves npm `0.69.1`. The branch contains no local package paths. Its base remains the native runner branch at `c3c281fb4c782fd19023f4bb3a43570d023a54c9`.
+
+`pnpm check:affected --run --base c3c281fb4c782fd19023f4bb3a43570d023a54c9 --head 092c6faa6b762402eb914485c5c3207177de6ec2` passed all runnable checks with `exactCommit: true`. Results: 17,096 unit tests passed and one skipped, 1,276 affected tests passed, and 250 provider integration tests passed. See the [receipt](validation-release-0.69.1/receipt.json) and [logs](validation-release-0.69.1). Independent follow-up review found no concrete regressions. No new live device run was performed for this dependency update; the receipt identifies skipped CI and device checks.
+
+The SDK symlink dereferencing change and its synthetic tests were removed before release. No failure with a real iOS app was established. SDK `0.69.1` retains the existing app-sync symlink behavior.
+
+The [iOS server PR](https://github.com/limrun-inc/limrun/pull/1933), [Android server PR](https://github.com/limrun-inc/scrcpy-webrtc/pull/57), [SDK PR](https://github.com/limrun-inc/typescript-sdk/pull/610), and [SDK release PR](https://github.com/limrun-inc/typescript-sdk/pull/609) are merged. The [customer documentation PR](https://github.com/limrun-inc/docs/pull/218) remains open.
+
+## Historical pre-release evidence
+
+The notes below describe the November 3 snapshots and their local SDK packages. The release results above supersede their staging status and symlink recommendation. The original logs remain available for comparison.
+
 The provider change replaces asset uploads with `syncApp` for local iOS apps and Android APKs. Shared platform code still owns install/reinstall sequencing and artifact cleanup. Signed asset URL installation retains its existing path. The CLI has no new flag.
 
 ## Source branches

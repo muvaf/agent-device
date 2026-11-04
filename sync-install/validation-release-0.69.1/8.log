@@ -1,0 +1,240 @@
+$ jscpd --config .jscpd-native.json --baseline native-dupes-baseline.json --fail-on-new-clones --fail-on-empty
+Using config from .jscpd-native.json
+Clone found (java)
+ - snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [81:7 - 86:85] (6 lines, 62 tokens)
+   snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [264:7 - 269:85]
+Clone found (java)
+ - snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [411:76 - 420:25] (10 lines, 57 tokens)
+   snapshot-helper/src/main/java/com/callstack/agentdevice/snapshothelper/SnapshotInstrumentation.java [426:73 - 435:25]
+Clone found (java)
+ - snapshot-helper/src/test/java/com/callstack/agentdevice/snapshothelper/AccessibilityCaptureStabilizerTest.java [35:60 - 43:13] (9 lines, 50 tokens)
+   snapshot-helper/src/test/java/com/callstack/agentdevice/snapshothelper/AccessibilityCaptureStabilizerTest.java [61:59 - 69:13]
+Clone found (swift)
+ - macos-helper/Sources/AgentDeviceMacOSHelper/main.swift [380:27 - 385:9] (6 lines, 64 tokens)
+   macos-helper/Sources/AgentDeviceMacOSHelper/main.swift [461:26 - 465:44]
+Clone found (swift)
+ - macos-helper/Tests/AgentDeviceMacOSHelperTests/BackgroundInteractionTests.swift [10:5 - 24:2] (15 lines, 52 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+ScrollGestureTests.swift [19:5 - 33:2]
+Clone found (swift)
+ - macos-helper/Tests/AgentDeviceMacOSHelperTests/BackgroundInteractionTests.swift [81:48 - 86:19] (6 lines, 63 tokens)
+   macos-helper/Tests/AgentDeviceMacOSHelperTests/BackgroundInteractionTests.swift [90:58 - 95:8]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [40:1 - 45:89] (6 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [73:1 - 78:89]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [50:1 - 56:85] (7 lines, 55 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [102:1 - 108:85]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [77:1 - 82:68] (6 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [424:1 - 429:68]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.h [107:1 - 116:79] (10 lines, 82 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerAXSnapshotBridge.m [190:1 - 199:79]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerSynthesizedGesture.m [88:55 - 102:8] (15 lines, 70 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerSynthesizedGesture.m [110:66 - 124:8]
+Clone found (objectivec)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerSynthesizedGesture.m [378:33 - 388:4] (11 lines, 58 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerSynthesizedGesture.m [405:44 - 418:4]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+CommandExecution.swift [77:11 - 84:19] (8 lines, 52 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+CommandExecution.swift [167:9 - 172:48]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+CommandExecution.swift [104:15 - 112:14] (9 lines, 58 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+CommandExecution.swift [176:69 - 184:12]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+CommandExecution.swift [169:11 - 174:26] (6 lines, 55 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+TypeExecution.swift [44:7 - 49:22]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+Snapshot.swift [168:20 - 178:12] (11 lines, 63 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+Snapshot.swift [298:19 - 308:12]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+SynthesizedInteraction.swift [55:58 - 63:8] (9 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+SynthesizedInteraction.swift [65:47 - 73:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+SynthesizedTextEntry.swift [399:7 - 413:19] (15 lines, 61 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/RunnerTests+SynthesizedTextEntry.swift [434:5 - 448:17]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AXSnapshotFallbackTests.swift [332:56 - 339:47] (8 lines, 60 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AXSnapshotFallbackTests.swift [400:70 - 407:47]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [10:3 - 18:34] (9 lines, 55 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [12:3 - 20:34]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [47:67 - 56:8] (10 lines, 53 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [88:61 - 97:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [47:67 - 56:8] (10 lines, 53 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [141:77 - 150:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [48:73 - 56:66] (9 lines, 55 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [183:5 - 192:66]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [89:5 - 100:8] (12 lines, 75 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [142:5 - 152:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [150:5 - 155:52] (6 lines, 70 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [226:5 - 231:52]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [156:5 - 165:26] (10 lines, 56 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+AlertObservationTests.swift [234:5 - 244:26]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [103:66 - 113:8] (11 lines, 52 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [129:5 - 139:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [147:63 - 155:79] (9 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [56:58 - 64:79]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [147:63 - 155:79] (9 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [130:74 - 138:79]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [200:5 - 210:92] (11 lines, 90 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [63:5 - 72:92]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [210:153 - 224:26] (15 lines, 61 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CommandExecutionTests.swift [256:198 - 267:40]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+CoordinateTextEntryTests.swift [59:142 - 66:45] (8 lines, 53 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [140:138 - 147:45]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+MainThreadWorkTests.swift [163:26 - 176:32] (14 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+MainThreadWorkTests.swift [230:28 - 243:32]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+RecordingTests.swift [321:65 - 328:10] (8 lines, 59 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+RecordingTests.swift [361:70 - 368:10]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SequenceExecutionTests.swift [64:51 - 72:26] (9 lines, 82 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SequenceExecutionTests.swift [87:47 - 95:26]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [149:5 - 155:71] (7 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [479:5 - 485:71]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [236:5 - 251:66] (16 lines, 76 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [324:5 - 339:66]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [281:23 - 290:11] (10 lines, 54 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [374:35 - 383:11]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [539:7 - 557:57] (19 lines, 81 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanOccupancyTests.swift [582:7 - 600:57]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotCapturePlanTests.swift [333:13 - 342:13] (10 lines, 53 tokens)
+   snapshot-presentation/Tests/AgentDeviceSnapshotPresentationTests/SnapshotPresentedSurfaceTests.swift [77:20 - 86:17]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotExecutionTests.swift [51:75 - 59:75] (9 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [89:81 - 97:75]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotExecutionTests.swift [64:55 - 79:6] (16 lines, 99 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [109:7 - 124:6]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [14:25 - 30:15] (17 lines, 75 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [202:52 - 207:41]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [33:33 - 44:15] (12 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [65:33 - 76:15]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotHittabilityTests.swift [94:58 - 103:6] (10 lines, 58 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [251:38 - 260:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationConformanceTests.swift [54:66 - 64:31] (11 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotScopePolicyTests.swift [21:55 - 32:31]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationConformanceTests.swift [54:66 - 64:31] (11 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SystemSurfaceHostPolicyTests.swift [15:57 - 25:31]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationConformanceTests.swift [54:66 - 64:31] (11 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TapPointPolicyTests.swift [26:50 - 36:31]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [26:20 - 39:13] (14 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotVisibilityFoldTests.swift [13:21 - 17:77]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [107:93 - 120:17] (14 lines, 61 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [169:92 - 182:17]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [144:25 - 154:23] (11 lines, 50 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationInvariantTests.swift [200:25 - 210:23]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [200:17 - 207:41] (8 lines, 89 tokens)
+   snapshot-presentation/Tests/AgentDeviceSnapshotPresentationTests/ConformanceTests.swift [16:16 - 36:19]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [300:31 - 314:8] (15 lines, 68 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [485:24 - 499:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotPresentationTests.swift [622:5 - 629:6] (8 lines, 89 tokens)
+   snapshot-presentation/Tests/AgentDeviceSnapshotPresentationTests/CoordinateSpaceTests.swift [384:3 - 391:4]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [378:89 - 393:8] (16 lines, 80 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SnapshotTests.swift [416:95 - 431:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SynthesizedCommitDeadlineTests.swift [30:5 - 38:53] (9 lines, 52 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SynthesizedCommitDeadlineTests.swift [122:5 - 130:53]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+SynthesizedTextEntryTests.swift [65:5 - 76:25] (12 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryConfirmationTests.swift [423:5 - 432:25]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryConfirmationTests.swift [286:5 - 295:8] (10 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryConfirmationTests.swift [327:109 - 336:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [8:66 - 14:16] (7 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [37:5 - 45:16]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [8:66 - 14:16] (7 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [100:109 - 106:16]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [32:56 - 42:79] (11 lines, 67 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [129:76 - 139:79]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [39:13 - 47:86] (9 lines, 65 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextEntryLatencyTests.swift [102:13 - 108:86]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [5:54 - 15:8] (11 lines, 68 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [157:72 - 167:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [56:59 - 70:8] (15 lines, 88 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextInputProbeTests.swift [130:75 - 144:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [132:7 - 140:43] (9 lines, 59 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [482:7 - 490:43]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [168:68 - 174:37] (7 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [239:81 - 245:37]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [277:71 - 290:7] (14 lines, 76 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [319:78 - 336:7]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [278:5 - 290:7] (13 lines, 67 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [357:35 - 371:7]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [478:48 - 489:8] (12 lines, 57 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [551:47 - 561:8]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [479:5 - 488:83] (10 lines, 55 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+TextTypingTests.swift [594:66 - 602:83]
+Clone found (swift)
+ - runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+XCTestEventBridgeTests.swift [177:65 - 185:24] (9 lines, 51 tokens)
+   runner/AgentDeviceRunner/AgentDeviceRunnerUITests/UnitTests/RunnerTests+XCTestEventBridgeTests.swift [195:5 - 203:24]
+Clone found (swift)
+ - runner/AgentDeviceRunner/RecordingScripts/recording-overlay.swift [399:3 - 407:33] (9 lines, 71 tokens)
+   runner/AgentDeviceRunner/RecordingScripts/recording-overlay.swift [423:3 - 431:33]
+Clone found (objectivec)
+ - snapshot-bridge/SnapshotBridgeRuntime.h [22:1 - 29:83] (8 lines, 60 tokens)
+   snapshot-bridge/SnapshotBridgeRuntime.m [326:1 - 333:85]
+Clone found (swift)
+ - snapshot-presentation/Package.runner.swift [2:1 - 16:7] (15 lines, 61 tokens)
+   snapshot-presentation/Package.swift [2:1 - 16:7]
+┌────────────┬────────────────┬─────────────┬──────────────┬──────────────┬──────────────────┬───────────────────┐
+│ Format     │ Files analyzed │ Total lines │ Total tokens │ Clones found │ Duplicated lines │ Duplicated tokens │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ java       │ 26             │ 3403        │ 19616        │ 3            │ 25 (0.73%)       │ 169 (0.86%)       │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ objectivec │ 22             │ 5191        │ 31841        │ 7            │ 63 (1.21%)       │ 425 (1.33%)       │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ python     │ 1              │ 330         │ 1731         │ 0            │ 0 (0.00%)        │ 0 (0.00%)         │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ swift      │ 193            │ 43529       │ 234679       │ 64           │ 687 (1.58%)      │ 3950 (1.68%)      │
+├────────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤
+│ Total:     │ 242            │ 52453       │ 287867       │ 74           │ 775 (1.48%)      │ 4544 (1.58%)      │
+└────────────┴────────────────┴─────────────┴──────────────┴──────────────┴──────────────────┴───────────────────┘
+Found 74 clones.
+JSON report saved to .tmp/native-dupes/jscpd-report.json
+time: 39.131ms
