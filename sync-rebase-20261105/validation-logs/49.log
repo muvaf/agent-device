@@ -1,0 +1,2 @@
+$ node --experimental-strip-types scripts/check-xctest-selection.ts
+xctest selection: 653 declared AgentDeviceRunnerUITests methods — host lane (.github/actions/smoke-macos/action.yml, macOS, every PR) reaches 427, PR iOS branch lane (.github/actions/smoke-ios-run/action.yml, iOS Simulator, selected PRs and main) selects 6, nightly (.github/workflows/xctest-nightly.yml, iOS Simulator) reaches 644, its iPad leg selects 5; 0 reachable by no lane; RunnerTests/testCommand skipped everywhere.

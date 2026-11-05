@@ -1,0 +1,5 @@
+1:  815e2e790 = 1:  b23c2ba07 feat(limrun): sync local app installs with SDK 0.69.1
+2:  8d93a3f1e = 2:  fce348b8b fix(limrun): bundle delta encoder and own sync cache lifetime
+3:  8f01e5cd7 = 3:  2cf342868 chore(gates): align sync fixtures and remove the deleted vendor zone
+4:  a6a2a7c51 = 4:  e7bdceb44 test(limrun): mock the public simctl execution interface
+5:  bafbb7556 = 5:  12c2b679c test(apple): wait for owner lookup before advancing its deadline
