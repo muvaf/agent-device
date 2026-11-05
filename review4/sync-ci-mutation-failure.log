@@ -1,0 +1,480 @@
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	﻿2026-11-05T10:36:08.5146340Z Prepare all required actions
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5170712Z ##[group]Run ./.github/actions/run-gate
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5170903Z with:
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5171037Z   gate: mutation
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5171204Z   args: --modules
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	kernel-errors
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	--shard
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	1/5
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5171401Z env:
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5171534Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5171689Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5171835Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 508
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5172015Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 790
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5172199Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5172408Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5172609Z ##[endgroup]
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5179259Z ##[start-action display=Run set -euo pipefail;id=__self_2.run]
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5188519Z ##[group]Run set -euo pipefail
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5188740Z ^[[36;1mset -euo pipefail^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5188921Z ^[[36;1mcommand=(pnpm gate "$INPUT_GATE")^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5189159Z ^[[36;1mwhile IFS= read -r arg; do^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5189346Z ^[[36;1m  if [ -n "$arg" ]; then^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5189524Z ^[[36;1m    command+=("$arg")^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5189687Z ^[[36;1m  fi^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5189834Z ^[[36;1mdone <<< "$INPUT_ARGS"^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5190016Z ^[[36;1moutput_file="$(mktemp)"^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5190201Z ^[[36;1mtrap 'rm -f "$output_file"' EXIT^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5190404Z ^[[36;1m"${command[@]}" | tee "$output_file"^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5190587Z ^[[36;1m{^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5190737Z ^[[36;1m  echo 'result<<__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5190929Z ^[[36;1m  tail -n 1 "$output_file"^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5191109Z ^[[36;1m  echo '__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5191289Z ^[[36;1m} >> "$GITHUB_OUTPUT"^[[0m
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5204767Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5204992Z env:
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5205137Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5205305Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5205473Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 508
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5205673Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 790
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5205877Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5206194Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5206411Z   INPUT_GATE: mutation
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5206595Z   INPUT_ARGS: --modules
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	kernel-errors
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	--shard
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	1/5
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.5206803Z ##[endgroup]
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.7688911Z $ node --experimental-strip-types scripts/gate/run.ts mutation --modules kernel-errors --shard 1/5
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:08.8668534Z [gate] mutation: pnpm run mutation:run --modules kernel-errors --shard 1/5
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:09.1044850Z $ node --experimental-strip-types scripts/mutation/run.ts --modules kernel-errors --shard 1/5
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:12.7660879Z mutation: kernel-errors shard 1/5 -> 2 source(s), 474 owned test file(s)
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:13.5814356Z ^[[32m10:36:13 (3758) INFO ProjectReader^[[39m Found 1 of 5885 file(s) to be mutated.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:13.6753169Z ^[[32m10:36:13 (3758) INFO Instrumenter^[[39m Instrumented 1 source file(s) with 76 mutant(s)
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:14.3468119Z ^[[32m10:36:14 (3758) INFO ConcurrencyTokenProvider^[[39m Creating 4 test runner process(es).
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:14.9532699Z ^[[32m10:36:14 (3758) INFO BroadcastReporter^[[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:36:15.4319967Z ^[[32m10:36:15 (3758) INFO DryRunExecutor^[[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3451561Z ^[[91m10:37:33 (3758) ERROR DryRunExecutor^[[39m One or more tests failed in the initial test run:
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3452722Z 	the owner lookup is bounded as a whole: one Info.plist read hangs after the app list answered and the open is left unanswered within its budget
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3453254Z 		expected +0 to be 2 // Object.is equality
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3453684Z ^[[91m10:37:33 (3758) ERROR Stryker^[[39m There were failed tests in the initial test run.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3940817Z file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3942555Z                     throw new ConfigError('There were failed tests in the initial test run.');
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3942931Z                           ^
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3943114Z 
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3943390Z ConfigError: There were failed tests in the initial test run.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3944194Z     at DryRunExecutor.validateResultCompleted (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65:27)
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3945353Z     at DryRunExecutor.executeDryRun (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:100:14)
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3946092Z     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3946837Z     at async WorkItem.execute (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:32:28)
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3947768Z     at async file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:69:13 {
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3948391Z   innerError: undefined
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3948627Z }
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3948774Z 
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.3948910Z Node.js v24.13.1
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.4207465Z mutation: Stryker failed (exit 1) or produced no report at .tmp/mutation/mutation.json. See output above.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.4280168Z 
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.4281233Z Lane envelope (.tmp/mutation/lane-envelope.json): fail at stage stryker in 84s at 5465c4b80ea6.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.4767730Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.5083038Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.5257146Z ##[error]Process completed with exit code 1.
+Mutants (kernel-errors-1)	Run mutants for kernel-errors-1	2026-11-05T10:37:33.5269631Z ##[end-action id=__self_2.run;outcome=failure;conclusion=failure;duration_ms=85008]
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	﻿2026-11-05T10:36:07.9281466Z Prepare all required actions
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9302270Z ##[group]Run ./.github/actions/run-gate
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9302436Z with:
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9302549Z   gate: mutation
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9302697Z   args: --modules
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	kernel-errors
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	--shard
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	5/5
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9302863Z env:
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9302981Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9303120Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9303245Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 595
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9303403Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 864
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9303568Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9303750Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9303919Z ##[endgroup]
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9459288Z ##[start-action display=Run set -euo pipefail;id=__self_2.run]
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9470159Z ##[group]Run set -euo pipefail
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9470350Z ^[[36;1mset -euo pipefail^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9470493Z ^[[36;1mcommand=(pnpm gate "$INPUT_GATE")^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9470693Z ^[[36;1mwhile IFS= read -r arg; do^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9470837Z ^[[36;1m  if [ -n "$arg" ]; then^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9470978Z ^[[36;1m    command+=("$arg")^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9471105Z ^[[36;1m  fi^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9471226Z ^[[36;1mdone <<< "$INPUT_ARGS"^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9471368Z ^[[36;1moutput_file="$(mktemp)"^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9471517Z ^[[36;1mtrap 'rm -f "$output_file"' EXIT^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9471676Z ^[[36;1m"${command[@]}" | tee "$output_file"^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9471819Z ^[[36;1m{^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9471937Z ^[[36;1m  echo 'result<<__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9472086Z ^[[36;1m  tail -n 1 "$output_file"^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9472226Z ^[[36;1m  echo '__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9472369Z ^[[36;1m} >> "$GITHUB_OUTPUT"^[[0m
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9487358Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9487541Z env:
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9487657Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9487788Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9488158Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 595
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9488313Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 864
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9488470Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9488834Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9489002Z   INPUT_GATE: mutation
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9489151Z   INPUT_ARGS: --modules
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	kernel-errors
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	--shard
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	5/5
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:07.9489317Z ##[endgroup]
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:08.1921577Z $ node --experimental-strip-types scripts/gate/run.ts mutation --modules kernel-errors --shard 5/5
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:08.2896550Z [gate] mutation: pnpm run mutation:run --modules kernel-errors --shard 5/5
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:08.5132076Z $ node --experimental-strip-types scripts/mutation/run.ts --modules kernel-errors --shard 5/5
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:12.1203608Z mutation: kernel-errors shard 5/5 -> 3 source(s), 474 owned test file(s)
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:12.9550629Z ^[[32m10:36:12 (3757) INFO ProjectReader^[[39m Found 1 of 5885 file(s) to be mutated.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:13.0438975Z ^[[32m10:36:13 (3757) INFO Instrumenter^[[39m Instrumented 1 source file(s) with 91 mutant(s)
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:13.6654291Z ^[[32m10:36:13 (3757) INFO ConcurrencyTokenProvider^[[39m Creating 4 test runner process(es).
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:14.2256377Z ^[[32m10:36:14 (3757) INFO BroadcastReporter^[[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:36:14.6582473Z ^[[32m10:36:14 (3757) INFO DryRunExecutor^[[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7509716Z ^[[91m10:37:29 (3757) ERROR DryRunExecutor^[[39m One or more tests failed in the initial test run:
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7511045Z 	the owner lookup is bounded as a whole: one Info.plist read hangs after the app list answered and the open is left unanswered within its budget
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7511670Z 		expected +0 to be 2 // Object.is equality
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7512308Z ^[[91m10:37:29 (3757) ERROR Stryker^[[39m There were failed tests in the initial test run.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7820567Z file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7821298Z                     throw new ConfigError('There were failed tests in the initial test run.');
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7823082Z                           ^
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7823325Z 
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7823537Z ConfigError: There were failed tests in the initial test run.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7824203Z     at DryRunExecutor.validateResultCompleted (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65:27)
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7825287Z     at DryRunExecutor.executeDryRun (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:100:14)
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7825910Z     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7826519Z     at async WorkItem.execute (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:32:28)
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7827289Z     at async file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:69:13 {
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7827750Z   innerError: undefined
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7827961Z }
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7828091Z 
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.7828211Z Node.js v24.13.1
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.8045736Z mutation: Stryker failed (exit 1) or produced no report at .tmp/mutation/mutation.json. See output above.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.8092765Z 
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.8093264Z Lane envelope (.tmp/mutation/lane-envelope.json): fail at stage stryker in 81s at 5465c4b80ea6.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.8519354Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.8778907Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.8914328Z ##[error]Process completed with exit code 1.
+Mutants (kernel-errors-5)	Run mutants for kernel-errors-5	2026-11-05T10:37:29.8924901Z ##[end-action id=__self_2.run;outcome=failure;conclusion=failure;duration_ms=81946]
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	﻿2026-11-05T10:36:09.0551578Z Prepare all required actions
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0574926Z ##[group]Run ./.github/actions/run-gate
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0575112Z with:
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0575238Z   gate: mutation
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0575570Z   args: --modules
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	kernel-errors
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	--shard
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	3/5
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0575760Z env:
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0575886Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0576031Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0576168Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 522
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0576339Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 814
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0576539Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0576739Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0576921Z ##[endgroup]
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0583670Z ##[start-action display=Run set -euo pipefail;id=__self_2.run]
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0592260Z ##[group]Run set -euo pipefail
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0592507Z ^[[36;1mset -euo pipefail^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0592676Z ^[[36;1mcommand=(pnpm gate "$INPUT_GATE")^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0592900Z ^[[36;1mwhile IFS= read -r arg; do^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0593065Z ^[[36;1m  if [ -n "$arg" ]; then^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0593225Z ^[[36;1m    command+=("$arg")^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0593375Z ^[[36;1m  fi^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0593513Z ^[[36;1mdone <<< "$INPUT_ARGS"^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0593672Z ^[[36;1moutput_file="$(mktemp)"^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0593838Z ^[[36;1mtrap 'rm -f "$output_file"' EXIT^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0594017Z ^[[36;1m"${command[@]}" | tee "$output_file"^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0594180Z ^[[36;1m{^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0594315Z ^[[36;1m  echo 'result<<__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0594488Z ^[[36;1m  tail -n 1 "$output_file"^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0594647Z ^[[36;1m  echo '__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0594806Z ^[[36;1m} >> "$GITHUB_OUTPUT"^[[0m
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0614248Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0614450Z env:
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0614620Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0614772Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0614921Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 522
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0615115Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 814
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0616455Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0616786Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0617094Z   INPUT_GATE: mutation
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0617256Z   INPUT_ARGS: --modules
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	kernel-errors
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	--shard
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	3/5
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.0617462Z ##[endgroup]
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.3204702Z $ node --experimental-strip-types scripts/gate/run.ts mutation --modules kernel-errors --shard 3/5
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.4247933Z [gate] mutation: pnpm run mutation:run --modules kernel-errors --shard 3/5
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:09.6581461Z $ node --experimental-strip-types scripts/mutation/run.ts --modules kernel-errors --shard 3/5
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:13.1536579Z mutation: kernel-errors shard 3/5 -> 3 source(s), 474 owned test file(s)
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:14.0005758Z ^[[32m10:36:13 (3756) INFO ProjectReader^[[39m Found 1 of 5885 file(s) to be mutated.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:14.0574072Z ^[[32m10:36:14 (3756) INFO Instrumenter^[[39m Instrumented 1 source file(s) with 75 mutant(s)
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:14.7617654Z ^[[32m10:36:14 (3756) INFO ConcurrencyTokenProvider^[[39m Creating 4 test runner process(es).
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:15.3921135Z ^[[32m10:36:15 (3756) INFO BroadcastReporter^[[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:36:15.8555696Z ^[[32m10:36:15 (3756) INFO DryRunExecutor^[[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.2717227Z ^[[91m10:37:30 (3756) ERROR DryRunExecutor^[[39m One or more tests failed in the initial test run:
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.2718202Z 	the owner lookup is bounded as a whole: one Info.plist read hangs after the app list answered and the open is left unanswered within its budget
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.2719226Z 		expected +0 to be 2 // Object.is equality
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.2719701Z ^[[91m10:37:30 (3756) ERROR Stryker^[[39m There were failed tests in the initial test run.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3011504Z file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3012142Z                     throw new ConfigError('There were failed tests in the initial test run.');
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3012386Z                           ^
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3012485Z 
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3012719Z ConfigError: There were failed tests in the initial test run.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3013343Z     at DryRunExecutor.validateResultCompleted (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65:27)
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3014426Z     at DryRunExecutor.executeDryRun (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:100:14)
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3015017Z     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3015688Z     at async WorkItem.execute (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:32:28)
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3016418Z     at async file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:69:13 {
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3016836Z   innerError: undefined
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3016991Z }
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3017058Z 
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3017154Z Node.js v24.13.1
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3239633Z mutation: Stryker failed (exit 1) or produced no report at .tmp/mutation/mutation.json. See output above.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3285092Z 
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3285889Z Lane envelope (.tmp/mutation/lane-envelope.json): fail at stage stryker in 80s at 5465c4b80ea6.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3704393Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.3983896Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.4136942Z ##[error]Process completed with exit code 1.
+Mutants (kernel-errors-3)	Run mutants for kernel-errors-3	2026-11-05T10:37:30.4147383Z ##[end-action id=__self_2.run;outcome=failure;conclusion=failure;duration_ms=81356]
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	﻿2026-11-05T10:36:07.9772023Z Prepare all required actions
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9798123Z ##[group]Run ./.github/actions/run-gate
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9798302Z with:
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9798416Z   gate: mutation
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9798575Z   args: --modules
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	kernel-errors
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	--shard
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	4/5
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9798740Z env:
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9798856Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9798992Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9799140Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 646
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9799301Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 791
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9799459Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9799640Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9799825Z ##[endgroup]
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9808377Z ##[start-action display=Run set -euo pipefail;id=__self_2.run]
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9820940Z ##[group]Run set -euo pipefail
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9821236Z ^[[36;1mset -euo pipefail^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9821485Z ^[[36;1mcommand=(pnpm gate "$INPUT_GATE")^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9821813Z ^[[36;1mwhile IFS= read -r arg; do^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9822061Z ^[[36;1m  if [ -n "$arg" ]; then^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9822284Z ^[[36;1m    command+=("$arg")^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9822505Z ^[[36;1m  fi^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9822696Z ^[[36;1mdone <<< "$INPUT_ARGS"^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9822998Z ^[[36;1moutput_file="$(mktemp)"^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9823247Z ^[[36;1mtrap 'rm -f "$output_file"' EXIT^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9823529Z ^[[36;1m"${command[@]}" | tee "$output_file"^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9823798Z ^[[36;1m{^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9824026Z ^[[36;1m  echo 'result<<__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9824297Z ^[[36;1m  tail -n 1 "$output_file"^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9824541Z ^[[36;1m  echo '__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9824785Z ^[[36;1m} >> "$GITHUB_OUTPUT"^[[0m
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9844990Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9845293Z env:
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9845485Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9845709Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9845937Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 646
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9846211Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 791
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9846492Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9846796Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9847092Z   INPUT_GATE: mutation
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9847338Z   INPUT_ARGS: --modules
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	kernel-errors
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	--shard
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	4/5
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:07.9847633Z ##[endgroup]
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:08.2235068Z $ node --experimental-strip-types scripts/gate/run.ts mutation --modules kernel-errors --shard 4/5
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:08.3205351Z [gate] mutation: pnpm run mutation:run --modules kernel-errors --shard 4/5
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:08.5406890Z $ node --experimental-strip-types scripts/mutation/run.ts --modules kernel-errors --shard 4/5
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:12.3575968Z mutation: kernel-errors shard 4/5 -> 3 source(s), 474 owned test file(s)
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:13.1920621Z ^[[32m10:36:13 (3755) INFO ProjectReader^[[39m Found 1 of 5885 file(s) to be mutated.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:13.2826895Z ^[[32m10:36:13 (3755) INFO Instrumenter^[[39m Instrumented 1 source file(s) with 80 mutant(s)
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:13.9361774Z ^[[32m10:36:13 (3755) INFO ConcurrencyTokenProvider^[[39m Creating 4 test runner process(es).
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:14.5011164Z ^[[32m10:36:14 (3755) INFO BroadcastReporter^[[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:36:14.9629254Z ^[[32m10:36:14 (3755) INFO DryRunExecutor^[[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6301318Z ^[[91m10:37:31 (3755) ERROR DryRunExecutor^[[39m One or more tests failed in the initial test run:
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6303388Z 	the owner lookup is bounded as a whole: one Info.plist read hangs after the app list answered and the open is left unanswered within its budget
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6314909Z 		expected +0 to be 2 // Object.is equality
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6315554Z ^[[91m10:37:31 (3755) ERROR Stryker^[[39m There were failed tests in the initial test run.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6657195Z file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6657920Z                     throw new ConfigError('There were failed tests in the initial test run.');
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6658275Z                           ^
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6658484Z 
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6658740Z ConfigError: There were failed tests in the initial test run.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6659400Z     at DryRunExecutor.validateResultCompleted (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65:27)
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6660356Z     at DryRunExecutor.executeDryRun (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:100:14)
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6660916Z     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6661484Z     at async WorkItem.execute (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:32:28)
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6662205Z     at async file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:69:13 {
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6662619Z   innerError: undefined
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6662768Z }
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6662830Z 
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6662886Z Node.js v24.13.1
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6843510Z mutation: Stryker failed (exit 1) or produced no report at .tmp/mutation/mutation.json. See output above.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6887376Z 
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.6888001Z Lane envelope (.tmp/mutation/lane-envelope.json): fail at stage stryker in 83s at 5465c4b80ea6.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.7288229Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.7524840Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.7661909Z ##[error]Process completed with exit code 1.
+Mutants (kernel-errors-4)	Run mutants for kernel-errors-4	2026-11-05T10:37:31.7671854Z ##[end-action id=__self_2.run;outcome=failure;conclusion=failure;duration_ms=83786]
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	﻿2026-11-05T10:36:08.6803290Z Prepare all required actions
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6826747Z ##[group]Run ./.github/actions/run-gate
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6826924Z with:
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6827042Z   gate: mutation
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6827201Z   args: --modules
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	kernel-errors
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	--shard
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2/5
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6827390Z env:
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6827509Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6827654Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6827792Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 489
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6827960Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 797
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6828134Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6828330Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6828514Z ##[endgroup]
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6834514Z ##[start-action display=Run set -euo pipefail;id=__self_2.run]
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6842723Z ##[group]Run set -euo pipefail
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6842919Z ^[[36;1mset -euo pipefail^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6843079Z ^[[36;1mcommand=(pnpm gate "$INPUT_GATE")^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6843287Z ^[[36;1mwhile IFS= read -r arg; do^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6843450Z ^[[36;1m  if [ -n "$arg" ]; then^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6843606Z ^[[36;1m    command+=("$arg")^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6843752Z ^[[36;1m  fi^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6843885Z ^[[36;1mdone <<< "$INPUT_ARGS"^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6844043Z ^[[36;1moutput_file="$(mktemp)"^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6844213Z ^[[36;1mtrap 'rm -f "$output_file"' EXIT^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6844399Z ^[[36;1m"${command[@]}" | tee "$output_file"^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6844563Z ^[[36;1m{^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6844694Z ^[[36;1m  echo 'result<<__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6844871Z ^[[36;1m  tail -n 1 "$output_file"^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6845029Z ^[[36;1m  echo '__GATE_OUTPUT__'^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6845186Z ^[[36;1m} >> "$GITHUB_OUTPUT"^[[0m
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6855849Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6856083Z env:
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6856222Z   MUTATION_BASE: origin/main
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6856366Z   MUTATION_SCOPE: 
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6856510Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 489
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6856770Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 797
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6856940Z   GITHUB_REPO_NAME: callstack/agent-device
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6857318Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6857498Z   INPUT_GATE: mutation
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6857652Z   INPUT_ARGS: --modules
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	kernel-errors
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	--shard
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2/5
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.6857830Z ##[endgroup]
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:08.9547827Z $ node --experimental-strip-types scripts/gate/run.ts mutation --modules kernel-errors --shard 2/5
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:09.0496969Z [gate] mutation: pnpm run mutation:run --modules kernel-errors --shard 2/5
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:09.2728391Z $ node --experimental-strip-types scripts/mutation/run.ts --modules kernel-errors --shard 2/5
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:12.9137639Z mutation: kernel-errors shard 2/5 -> 2 source(s), 474 owned test file(s)
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:13.7314192Z ^[[32m10:36:13 (3755) INFO ProjectReader^[[39m Found 1 of 5885 file(s) to be mutated.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:13.7843181Z ^[[32m10:36:13 (3755) INFO Instrumenter^[[39m Instrumented 1 source file(s) with 72 mutant(s)
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:14.4307551Z ^[[32m10:36:14 (3755) INFO ConcurrencyTokenProvider^[[39m Creating 4 test runner process(es).
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:14.9720806Z ^[[32m10:36:14 (3755) INFO BroadcastReporter^[[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:36:15.4393029Z ^[[32m10:36:15 (3755) INFO DryRunExecutor^[[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.8792134Z ^[[91m10:37:30 (3755) ERROR DryRunExecutor^[[39m One or more tests failed in the initial test run:
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.8792953Z 	the owner lookup is bounded as a whole: one Info.plist read hangs after the app list answered and the open is left unanswered within its budget
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.8808508Z 		expected +0 to be 2 // Object.is equality
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.8812463Z ^[[91m10:37:30 (3755) ERROR Stryker^[[39m There were failed tests in the initial test run.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9135372Z file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9135981Z                     throw new ConfigError('There were failed tests in the initial test run.');
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9136232Z                           ^
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9136329Z 
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9136470Z ConfigError: There were failed tests in the initial test run.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9137212Z     at DryRunExecutor.validateResultCompleted (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:65:27)
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9138163Z     at DryRunExecutor.executeDryRun (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/process/3-dry-run-executor.js:100:14)
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9138740Z     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9139319Z     at async WorkItem.execute (file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:32:28)
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9140072Z     at async file:///home/runner/_work/agent-device/agent-device/node_modules/.pnpm/@stryker-mutator+core@10.0.0_@types+node@22.20.1/node_modules/@stryker-mutator/core/dist/src/concurrent/pool.js:69:13 {
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9140486Z   innerError: undefined
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9140633Z }
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9140700Z 
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9140755Z Node.js v24.13.1
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9314255Z mutation: Stryker failed (exit 1) or produced no report at .tmp/mutation/mutation.json. See output above.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9376974Z 
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9377777Z Lane envelope (.tmp/mutation/lane-envelope.json): fail at stage stryker in 81s at 5465c4b80ea6.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9755029Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:30.9996875Z [ELIFECYCLE] Command failed with exit code 1.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:31.0127585Z ##[error]Process completed with exit code 1.
+Mutants (kernel-errors-2)	Run mutants for kernel-errors-2	2026-11-05T10:37:31.0137873Z ##[end-action id=__self_2.run;outcome=failure;conclusion=failure;duration_ms=82330]
+Affected decision-kernel mutants	Score the affected modules	﻿2026-11-05T10:38:00.5522829Z ##[group]Run if [ -d .tmp/mutation/shards ]; then
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5523159Z ^[[36;1mif [ -d .tmp/mutation/shards ]; then^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5523896Z ^[[36;1m  expected=$(echo '[{"name":"kernel-errors-1","module":"kernel-errors","shard":"1/5"},{"name":"kernel-errors-2","module":"kernel-errors","shard":"2/5"},{"name":"kernel-errors-3","module":"kernel-errors","shard":"3/5"},{"name":"kernel-errors-4","module":"kernel-errors","shard":"4/5"},{"name":"kernel-errors-5","module":"kernel-errors","shard":"5/5"},{"name":"snapshot-occlusion","module":"snapshot-occlusion"}]' | jq length)^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5524779Z ^[[36;1m  pnpm gate mutation-check --report-dir .tmp/mutation/shards --affected \^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5525027Z ^[[36;1m    --expect-shards "$expected" \^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5525285Z ^[[36;1m    --base "$MUTATION_BASE" $MUTATION_SCOPE^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5525466Z ^[[36;1melse^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5525664Z ^[[36;1m  pnpm gate mutation-affected --base "$MUTATION_BASE" $MUTATION_SCOPE^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5525901Z ^[[36;1mfi^[[0m
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5543618Z shell: /usr/bin/bash -e {0}
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5543867Z env:
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5544064Z   MUTATION_BASE: origin/main
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5544308Z   MUTATION_SCOPE: 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5544530Z   BLACKSMITH_RUNNER_MESSAGE_WAIT_MS: 537
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5544747Z   BLACKSMITH_RUNNER_ACQUIRE_JOB_MS: 894
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5544924Z   GITHUB_REPO_NAME: callstack/agent-device
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5545125Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.5545349Z ##[endgroup]
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.8127997Z $ node --experimental-strip-types scripts/gate/run.ts mutation-check --report-dir .tmp/mutation/shards --affected --expect-shards 6 --base origin/main
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:00.9045603Z [gate] mutation-check: pnpm run mutation:check --report-dir .tmp/mutation/shards --affected --expect-shards 6 --base origin/main
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:01.1434038Z $ node --experimental-strip-types scripts/mutation/run.ts --no-run --report-dir .tmp/mutation/shards --affected --expect-shards 6 --base origin/main
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2093888Z mutation: merging 1 shard report(s) from .tmp/mutation/shards
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2124814Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2125724Z ## Mutation score — affected decision kernels
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2126580Z mutation: Incomplete shard set from .tmp/mutation/shards: 1 report(s), expected 6. A shard job failed or its artifact is absent; the aggregate is not a sweep.
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2127175Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2127639Z Stryker `10.0.0` · config `sha256:dc05b4a4f531` · scores are advisory; harness failures fail the lane.
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2127856Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2128210Z **Incomplete sweep: Incomplete shard set from .tmp/mutation/shards: 1 report(s), expected 6. A shard job failed or its artifact is absent; the aggregate is not a sweep.**
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2128510Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2128674Z | Kernel | Score | Killed | Survived | Total | Timeout | Uncovered | Errors |
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2128975Z | --- | --- | --- | --- | --- | --- | --- | --- |
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2129322Z | `kernel-errors` — Error retriability + hints | 0% | 0 | 0 | 0 | 0 | 0 | 0 |
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2129768Z | `snapshot-occlusion` — Snapshot occlusion (covered/not-covered) decisions | 83.67% | 374 | 73 | 447 | 5 | 7 | 0 |
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2130002Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2130156Z ### `snapshot-occlusion` — 73 surviving mutant(s) at 83.67%
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2130295Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2130496Z - `packages/capture-kit/src/snapshot-occlusion.ts:89` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2130864Z - `packages/capture-kit/src/snapshot-occlusion.ts:111` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2131232Z - `packages/capture-kit/src/snapshot-occlusion.ts:125` ArrayDeclaration (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2131581Z - `packages/capture-kit/src/snapshot-occlusion.ts:157` StringLiteral (NoCoverage)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2131935Z - `packages/capture-kit/src/snapshot-occlusion.ts:180` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2132789Z - `packages/capture-kit/src/snapshot-occlusion.ts:182` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2133139Z - `packages/capture-kit/src/snapshot-occlusion.ts:183` BooleanLiteral (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2133488Z - `packages/capture-kit/src/snapshot-occlusion.ts:183` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2133850Z - `packages/capture-kit/src/snapshot-occlusion.ts:242` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2134192Z - `packages/capture-kit/src/snapshot-occlusion.ts:244` BooleanLiteral (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2134535Z - `packages/capture-kit/src/snapshot-occlusion.ts:244` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2134895Z - `packages/capture-kit/src/snapshot-occlusion.ts:244` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2135310Z - `packages/capture-kit/src/snapshot-occlusion.ts:244` EqualityOperator (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2135813Z - `packages/capture-kit/src/snapshot-occlusion.ts:269` BooleanLiteral (NoCoverage)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2136378Z - `packages/capture-kit/src/snapshot-occlusion.ts:269` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2136923Z - `packages/capture-kit/src/snapshot-occlusion.ts:270` EqualityOperator (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2137265Z - `packages/capture-kit/src/snapshot-occlusion.ts:271` BooleanLiteral (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2137611Z - `packages/capture-kit/src/snapshot-occlusion.ts:271` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2138094Z - `packages/capture-kit/src/snapshot-occlusion.ts:271` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2138459Z - `packages/capture-kit/src/snapshot-occlusion.ts:271` ConditionalExpression (Survived)
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2138769Z - …and 53 more
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2138853Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2139138Z A low score names tests worth strengthening (#1474, #1475 were written from this table); it is an input for a human-authored PR, not a verdict.
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2174721Z 
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2175062Z Lane envelope (.tmp/mutation/lane-envelope.json): fail at stage score in 3s at 5465c4b80ea6.
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2685539Z [ELIFECYCLE] Command failed with exit code 1.
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.2942298Z [ELIFECYCLE] Command failed with exit code 1.
+Affected decision-kernel mutants	Score the affected modules	2026-11-05T10:38:04.3057416Z ##[error]Process completed with exit code 1.

@@ -28,3 +28,4 @@
 -:  --------- > 2:  8d93a3f1e fix(limrun): bundle delta encoder and own sync cache lifetime
 -:  --------- > 3:  8f01e5cd7 chore(gates): align sync fixtures and remove the deleted vendor zone
 -:  --------- > 4:  a6a2a7c51 test(limrun): mock the public simctl execution interface
+-:  --------- > 5:  bafbb7556 test(apple): wait for owner lookup before advancing its deadline

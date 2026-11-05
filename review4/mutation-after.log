@@ -1,0 +1,36 @@
+$ node --experimental-strip-types scripts/gate/run.ts mutation --modules kernel-errors --shard 1/5
+[gate] mutation: pnpm run mutation:run --modules kernel-errors --shard 1/5
+$ node --experimental-strip-types scripts/mutation/run.ts --modules kernel-errors --shard 1/5
+mutation: kernel-errors shard 1/5 -> 2 source(s), 474 owned test file(s)
+[32m13:46:14 (28953) INFO ProjectReader[39m Found 1 of 6533 file(s) to be mutated.
+[32m13:46:15 (28953) INFO Instrumenter[39m Instrumented 1 source file(s) with 76 mutant(s)
+[32m13:46:15 (28953) INFO ConcurrencyTokenProvider[39m Creating 4 test runner process(es).
+[32m13:46:16 (28953) INFO BroadcastReporter[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+[32m13:46:16 (28953) INFO DryRunExecutor[39m Starting initial test run (vitest test runner with "perTest" coverage analysis). This may take a while.
+[32m13:49:28 (28953) INFO DryRunExecutor[39m Initial test run succeeded. Ran 5518 tests in 3 minutes and 11 seconds (net 139607.86307500143 ms, overhead 52310.13692499857 ms).
+Mutation testing 65% (elapsed: <1m, remaining: <1m) 62/76 tested (3 survived, 0 timed out)
+Mutation testing 82% (elapsed: <1m, remaining: <1m) 73/76 tested (3 survived, 0 timed out)
+[32m13:49:57 (28953) INFO JsonReporter[39m Your report can be found at: file:///private/tmp/agent-device-review4-mutation/.tmp/mutation/mutation.json
+[32m13:49:57 (28953) INFO MutationTestExecutor[39m Done in 3 minutes and 43 seconds.
+
+## Mutation score — decision kernels
+
+Stryker `10.0.0` · config `sha256:dc05b4a4f531` · scores are advisory; harness failures fail the lane.
+
+| Kernel | Score | Killed | Survived | Total | Timeout | Uncovered | Errors |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `kernel-errors` — Error retriability + hints | 94.74% | 72 | 4 | 76 | 0 | 0 | 0 |
+
+### `kernel-errors` — 4 surviving mutant(s) at 94.74%
+
+- `packages/kernel/src/errors.ts:206` Regex (Survived)
+- `packages/kernel/src/errors.ts:206` Regex (Survived)
+- `packages/kernel/src/errors.ts:206` Regex (Survived)
+- `packages/kernel/src/errors.ts:637` StringLiteral (Survived)
+
+A low score names tests worth strengthening (#1474, #1475 were written from this table); it is an input for a human-authored PR, not a verdict.
+
+
+Test scope: owned; 474/474 files.
+
+Lane envelope (.tmp/mutation/lane-envelope.json): pass at stage complete in 227s at 02ebf41eb322.

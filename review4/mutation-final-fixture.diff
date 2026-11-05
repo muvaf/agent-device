@@ -1,0 +1,28 @@
+diff --git a/packages/platform-apple/src/launch-confirmation.test.ts b/packages/platform-apple/src/launch-confirmation.test.ts
+index d6894ee89..3084b3d34 100644
+--- a/packages/platform-apple/src/launch-confirmation.test.ts
++++ b/packages/platform-apple/src/launch-confirmation.test.ts
+@@ -283,9 +283,12 @@ test.each([
+     vi.mocked(emitDiagnostic).mockClear();
+     try {
+       const { interactor, acceptAlert } = confirmationRunner();
+-      const lookupStarted = Promise.withResolvers<void>();
++      let signalLookupStarted: () => void;
++      const lookupStarted = new Promise<void>((resolve) => {
++        signalLookupStarted = resolve;
++      });
+       const coreSimulator = wedgedCoreSimulator(answers, (count) => {
+-        if (count === 2) lookupStarted.resolve();
++        if (count === 2) signalLookupStarted();
+       });
+       let answered: unknown = 'pending';
+       const answer = withAppleToolProvider(coreSimulator, async () =>
+@@ -299,7 +302,7 @@ test.each([
+       );
+ 
+       await Promise.race([
+-        lookupStarted.promise,
++        lookupStarted,
+         answer.then(() => {
+           throw new Error('Owner lookup completed before the second command started');
+         }),

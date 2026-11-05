@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "lane": "mutation-decision-kernels",
+  "commit": "a6a2a7c510b2e62ca1994cc340156cb3f57e7fe5",
+  "tool": {
+    "stryker": "10.0.0"
+  },
+  "configHash": "sha256:dc05b4a4f531",
+  "seed": null,
+  "startedAt": "2026-11-05T10:42:07.918Z",
+  "finishedAt": "2026-11-05T10:45:56.494Z",
+  "durationMs": 228576,
+  "result": "pass",
+  "data": {
+    "scope": "full-sweep",
+    "testScope": {
+      "mode": "owned",
+      "candidates": 474,
+      "selected": 474,
+      "producerMs": null
+    },
+    "stage": "complete",
+    "error": null,
+    "modules": [
+      {
+        "id": "kernel-errors",
+        "score": 94.74,
+        "killed": 72,
+        "survived": 4,
+        "total": 76,
+        "timeout": 0,
+        "noCoverage": 0,
+        "errors": 0
+      }
+    ]
+  }
+}

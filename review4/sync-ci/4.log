@@ -1,0 +1,11 @@
+$ fallow audit --base 8f01e5cd710454ee4dc71aa547a33194840cdbb4
+loaded config: /Users/muvaf/github.com/callstack/agent-device-sync-upstream/.fallowrc.json
+   0.784092959s  WARN Skipped 2 package.json entry points outside project root or containing parent directory traversal: ./node_modules/oxfmt/bin/oxfmt (2x)
+Comparing against health baseline: /Users/muvaf/github.com/callstack/agent-device-sync-upstream/fallow-baselines/health.json
+
+Audit scope: 3 changed files vs 8f01e5cd710454ee4dc71aa547a33194840cdbb4 (bafbb7556..HEAD)
+
+── Styling ────────────────────────────────────────
+✓ No issues in 3 changed files (3.51s)
+■ Metrics: dead code 0 · complexity 0 · duplication 0
+  31 styling candidates (run `fallow health --css` for detail)

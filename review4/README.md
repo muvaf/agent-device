@@ -25,7 +25,7 @@ The review fixes also cover reconnect log history, upload and shutdown cleanup, 
 
 ## App sync (#4225)
 
-The final sync source is `a6a2a7c510b2e62ca1994cc340156cb3f57e7fe5`. Runtime code in live-tested `62536e91c5b478b8a90f16ad531ec1759f583e27` is unchanged in subsequent commits; those declare the test helper dependency/project reference, remove the deleted vendor zone classification, and clean up test fixtures.
+The final sync source is `bafbb7556c3ba186274ba11ceafa6a5db8b26dc9`. Runtime code in live-tested `62536e91c5b478b8a90f16ad531ec1759f583e27` is unchanged in subsequent commits; those declare the test helper dependency/project reference, remove the deleted vendor zone classification, and clean up test fixtures.
 
 [The live script](delta-live.mjs) uses the built `dist` client, installs build one, installs a different rebuilt binary at the same local path, and reinstalls build one. Both apps were compiled remotely from source with a different visible title ([iOS build](ios-fixture-build.log), [Android build](android-fixture-build.log)). The Android fixture includes a stored resource so the APK exceeds the SDK's 64 KB delta threshold. It verifies stopped state after each install and launch afterwards. iOS checks the changed UI; Android compares the installed APK's SHA-256 with the source binary.
 
@@ -40,7 +40,13 @@ Running changed-binary installs from base `a95049b9a` reproduces the throwing `@
 
 A live session now owns one serialized basis cache, prunes removed files and disposes the cache after accepted SDK work settles. Canceled queued installs never start. In-flight SDK work retains its source files until completion; adding early abort at the inner materialized-install boundary would race source cleanup. Provider errors preserve typed failures or wrap plain SDK errors with `limrun_app_sync_failed`.
 
-The full affected gate passed at `8f01e5cd710454ee4dc71aa547a33194840cdbb4` ([receipt](sync-affected/receipt.json)). The final commit changes only two integration mocks to use the public SDK interface. `pnpm check:affected --run --base 8f01e5cd710454ee4dc71aa547a33194840cdbb4 --head HEAD` passed at `a6a2a7c51` ([receipt](sync-fixtures/receipt.json)). Both receipts have `exactCommit: true`. GitHub-owned checks remain CI obligations.
+The full affected gate passed at `8f01e5cd710454ee4dc71aa547a33194840cdbb4` ([receipt](sync-affected/receipt.json)). The next commit changes two integration mocks to use the public SDK interface; its affected gate passed at `a6a2a7c51` ([receipt](sync-fixtures/receipt.json)). The final commit removes a polling race from an Apple deadline test. `pnpm check:affected --run --base 8f01e5cd710454ee4dc71aa547a33194840cdbb4 --head HEAD` passed at `bafbb7556` ([receipt](sync-ci/receipt.json)). All three receipts have `exactCommit: true`. GitHub-owned checks remain CI obligations.
+
+### CI mutation follow-up
+
+After the first push, all five kernel-errors shards failed their initial test run at merge commit `5465c4b80ea6`, whose PR parent is `a6a2a7c51` ([CI log](sync-ci-mutation-failure.log)). The unchanged Apple launch-confirmation test expected two commands after 1,000 event-loop turns, but saw zero while lazy modules were loading. Commit `bafbb7556` replaces that polling bound with an explicit second-command barrier. It retains the exact command count, deadline assertions, and failure when lookup completes prematurely; no timeout or test selection was loosened.
+
+The same `pnpm gate mutation --modules kernel-errors --shard 1/5` command passes locally both [before](mutation-before.log) at `a6a2a7c51` and [after](mutation-after.log) at `02ebf41eb`, with 72 killed, 4 surviving, and zero errored mutants in each run. The final `bafbb7556` changes only the Promise constructor in that fixture to satisfy the repository's older TypeScript target ([exact delta](mutation-final-fixture.diff)); its affected gate includes the full unit suite. The Linux CI failure was not reproduced on this Mac. The patched local run proves the full selected shard still completes; the new GitHub run remains authoritative for the CI failure. Independent read-only review found no issue in the barrier change.
 
 ## Review and cleanup
 
