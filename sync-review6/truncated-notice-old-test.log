@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-sync-review6-experiment
+
+--------------··
+
+ Test Files  1 passed (1)
+      Tests  2 passed | 14 skipped (16)
+   Start at  23:50:21
+   Duration  405ms (tests 70%, transform 14%, import 13%, setup 2%, worker 1%)
+

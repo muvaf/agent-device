@@ -1,0 +1,302 @@
+$ pnpm test:unit && pnpm check:tmpdir-leaks && pnpm test:smoke
+$ vitest run --project unit-core --project fuzz-worker
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-sync-upstream
+
+·······························································································································································Error: --iterations must be a positive integer (got lots).
+Envelope: /tmp/agent-device-test-run-92458-7kJqHW/fuzz-envelope-8PL0Sm/run-envelope.json
+·······TypeError [ERR_PARSE_ARGS_UNKNOWN_OPTION]: Unknown option '--not-a-flag'
+Envelope: /tmp/agent-device-test-run-92458-7kJqHW/fuzz-envelope-VDwTf5/run-envelope.json
+··································································································································································································································································································································································································································································Replacing daemon (pid 95668, v0.0.0-stale) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-explicit-lifecycle-9Mung7: version mismatch (client v0.21.37-dev)
+Replacing daemon (pid 95691, v0.0.0-stale) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-explicit-lifecycle-FfjZIy: version mismatch (client v0.21.37-dev)
+········Replacing daemon (pid 95724, v0.0.0-stale) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-explicit-lifecycle-XrErxr: version mismatch (client v0.21.37-dev)
+·······Replacing daemon (pid 95768, v0.0.0-stale) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-explicit-lifecycle-gCXYwp: version mismatch (client v0.21.37-dev)
+·Replacing daemon (pid 95806, v0.0.0-stale) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-explicit-lifecycle-ZwCAAU: version mismatch (client v0.21.37-dev)
+·Replacing daemon (pid 95818, v0.0.0-stale) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-explicit-lifecycle-PcIYhm: version mismatch (client v0.21.37-dev)
+················································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································Automatic merge went well; stopped before committing as requested
+·······················································································································································································································································································································································································································································································································································································································Replacing daemon (pid 8268, v0.21.37-dev) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-dead-probe-vCT5dc: unreachable
+Replacing daemon (pid 8273, v999.0.0) in /tmp/agent-device-test-run-92458-7kJqHW/agent-device-dead-probe-gbsgXG: version mismatch (client v0.21.37-dev)
+·····················································(node:8298) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+·················································································································································································································[perf] finalize: close failed: 
+[perf] finalize: daemon stop --clean failed: 
+[perf] round 1/1
+[perf]  scenario heavy-feed
+···[perf] round 1/1
+··························[perf]  scenario heavy-feed
+······[perf]  ✗ session failed: open: claimed
+····························································································································································································································································································································································································································································································································································································stderr | packages/react-native/src/companion/client-companion-tunnel-worker.test.ts > metro companion worker exits after non-retryable registration failure
+Failed to register companion (401): {"ok":false,"error":{"code":"UNAUTHORIZED","message":"Invalid token"}}
+
+stderr | packages/react-native/src/companion/client-companion-tunnel-worker.test.ts > metro companion worker retries registration failures with retry-after delay
+Failed to register companion (429): {"ok":false,"error":{"code":"RATE_LIMITED","message":"Try again later"}}
+
+····································································································································································································································································································································································································································································································································································································································································································································Error: Benchmark state directory is not benchmark-owned: /tmp/agent-device-test-run-92458-7kJqHW/agent-device-ios-benchmark-cli-xbAAal
+    at readPaths (file:///Users/muvaf/github.com/callstack/agent-device-sync-upstream/scripts/ios-snapshot-benchmark/benchmark-config.ts:170:11)
+    at parseConfig (file:///Users/muvaf/github.com/callstack/agent-device-sync-upstream/scripts/ios-snapshot-benchmark/benchmark-config.ts:61:17)
+    at main (file:///Users/muvaf/github.com/callstack/agent-device-sync-upstream/scripts/ios-snapshot-benchmark/run.ts:66:18)
+    at file:///Users/muvaf/github.com/callstack/agent-device-sync-upstream/scripts/ios-snapshot-benchmark/run.ts:56:11
+    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+    at async node:internal/modules/esm/loader:650:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+······Installed: com.example.demo
+Installed: com.example.demo
+Installed: com.example.demo
+Installed: com.example.demo
+/tmp/screenshot.png
+··········································Opened: MenuBarApp
+Opened: Agent Device Tester
+···············································································································································································································································································································································································································································································································································································································································································{
+  "success": true,
+  "data": {
+    "connected": true,
+    "session": "adc-status-metro",
+    "tenant": "acme",
+    "runId": "run-123",
+    "leaseAllocated": false,
+    "leaseBackend": "android-instance",
+    "platform": "android",
+    "remoteConfig": "/tmp/agent-device-test-run-92458-7kJqHW/agent-device-connection-status-metro-fHob3M/remote.json",
+    "remoteConfigHash": "77632ad36bdd9d19beb42d20f7dff559cb880fd4597afc3bfaf57d2f4f0b967d",
+    "daemonBaseUrlFingerprint": "cd7ab9656667",
+    "liveSession": {
+      "status": "not-created"
+    },
+    "verification": {
+      "status": "configured",
+      "service": "remote provider",
+      "message": "Remote connection profile loaded. Access is checked by the first remote command."
+    },
+    "nextSteps": [
+      "agent-device open <package-id> --relaunch --session adc-status-metro"
+    ],
+    "metro": {
+      "prepared": false
+    },
+    "leasePreparation": {
+      "status": "deferred",
+      "nextSteps": [
+        "agent-device install-from-source <artifact-url> --platform ios|android --session adc-status-metro",
+        "agent-device open <app-id> --relaunch --session adc-status-metro",
+        "agent-device snapshot -i --session adc-status-metro",
+        "agent-device devices --session adc-status-metro"
+      ],
+      "message": "No live device session has been created. Run a device command when ready to allocate or refresh the lease."
+    },
+    "runtimePreparation": {
+      "status": "deferred",
+      "nextStep": "agent-device metro prepare --remote-config /tmp/agent-device-test-run-92458-7kJqHW/agent-device-connection-status-metro-fHob3M/remote.json --session adc-status-metro",
+      "message": "Metro runtime is not prepared yet; it will be prepared automatically on first open, or run \"agent-device metro prepare --remote-config /tmp/agent-device-test-run-92458-7kJqHW/agent-device-connection-status-metro-fHob3M/remote.json --session adc-status-metro\" to inspect it before launch."
+    },
+    "connectedAt": "2026-11-05T20:55:29.898Z",
+    "updatedAt": "2026-11-05T20:55:29.898Z"
+  }
+}
+···················································································································································································································································································································[agent-device][diag] {"ts":"2026-11-05T20:55:32.551Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":0}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.552Z","level":"info","phase":"android_snapshot_helper_install","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installPolicy":"missing-or-outdated"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.553Z","level":"info","phase":"android_snapshot_helper_install_decision","session":"snapshot-helper","requestId":"req-1","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installedVersionCode":13004,"artifactSha256":"a5f6a2fba1163bba2f13026bd3a192f52ba2816524b7cfa83c6b7ca568f6710a","installed":false,"reason":"current"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.553Z","level":"info","phase":"android_snapshot_helper_session_capture","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"transport":"persistent-session","answered":false}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.553Z","level":"info","phase":"android_snapshot_helper_capture","session":"snapshot-helper","requestId":"req-1","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"commandTimeoutMs":30000,"transport":"instrumentation"}}
+·[agent-device][diag] {"ts":"2026-11-05T20:55:32.606Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":0}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.606Z","level":"info","phase":"android_snapshot_helper_install","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installPolicy":"missing-or-outdated"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.606Z","level":"info","phase":"android_snapshot_helper_install_decision","session":"snapshot-failure","requestId":"req-2","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installedVersionCode":13004,"artifactSha256":"a5f6a2fba1163bba2f13026bd3a192f52ba2816524b7cfa83c6b7ca568f6710a","installed":false,"reason":"current"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.606Z","level":"info","phase":"android_snapshot_helper_session_capture","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"transport":"persistent-session","answered":false}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.606Z","level":"error","phase":"android_snapshot_helper_capture","session":"snapshot-failure","requestId":"req-2","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"commandTimeoutMs":30000,"transport":"instrumentation","error":"Android snapshot helper failed before returning parseable output"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.606Z","level":"error","phase":"android_snapshot_helper_failed","session":"snapshot-failure","requestId":"req-2","command":"snapshot","data":{"reason":"Android snapshot helper failed before returning parseable output: helper unavailable","instrumentation":{"exitCode":1}}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.606Z","level":"debug","phase":"android_snapshot_helper_runtime_reset","session":"snapshot-failure","requestId":"req-2","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.608Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-helper-missing","requestId":"req-missing","command":"snapshot","durationMs":1}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.608Z","level":"error","phase":"android_snapshot_helper_unavailable","session":"snapshot-helper-missing","requestId":"req-missing","command":"snapshot","data":{"reason":"artifact_not_found"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.611Z","level":"info","phase":"android_snapshot_helper_artifact_resolution","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.611Z","level":"info","phase":"android_snapshot_helper_install","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installPolicy":"missing-or-outdated"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.611Z","level":"info","phase":"android_snapshot_helper_install_decision","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper","versionCode":13003,"installedVersionCode":13004,"artifactSha256":"a5f6a2fba1163bba2f13026bd3a192f52ba2816524b7cfa83c6b7ca568f6710a","installed":false,"reason":"current"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.611Z","level":"info","phase":"android_snapshot_helper_session_capture","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"transport":"persistent-session","answered":false}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.611Z","level":"error","phase":"android_snapshot_helper_capture","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","durationMs":0,"data":{"packageName":"com.callstack.agentdevice.snapshothelper","version":"0.13.3","timeoutMs":5000,"commandTimeoutMs":30000,"transport":"instrumentation","error":"helper capture timed out"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.611Z","level":"error","phase":"android_snapshot_helper_failed","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","data":{"reason":"helper capture timed out"}}
+[agent-device][diag] {"ts":"2026-11-05T20:55:32.611Z","level":"debug","phase":"android_snapshot_helper_runtime_reset","session":"snapshot-helper-timeout","requestId":"req-timeout","command":"snapshot","data":{"packageName":"com.callstack.agentdevice.snapshothelper"}}
+·······························································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································{
+  "success": true,
+  "data": {
+    "connected": true,
+    "session": "adc-apple-reuse",
+    "tenant": "acme",
+    "runId": "run-9",
+    "leaseAllocated": true,
+    "leaseId": "apple-lease-1",
+    "leaseBackend": "ios-instance",
+    "platform": "ios",
+    "remoteConfig": "/tmp/agent-device-test-run-92458-7kJqHW/agent-device-connect-apple-reuse-hpqQSX/remote.json",
+    "remoteConfigHash": "a7b968615f248de94cdf0356bcc6c0fb7919e8940c2c3d00171c22d5fcc52814",
+    "daemonBaseUrlFingerprint": "b4706a0a54aa",
+    "liveSession": {
+      "status": "created",
+      "leaseId": "apple-lease-1"
+    },
+    "verification": {
+      "status": "configured",
+      "service": "remote provider",
+      "message": "Remote connection profile loaded. Access is checked by the first remote command."
+    },
+    "nextSteps": [
+      "agent-device open <bundle-id> --relaunch --session adc-apple-reuse"
+    ],
+    "metro": {
+      "prepared": false
+    },
+    "connectedAt": "2026-11-05T20:55:44.907Z",
+    "updatedAt": "2026-11-05T20:55:44.908Z"
+  }
+}
+{
+  "success": true,
+  "data": {
+    "connected": true,
+    "session": "adc-redeclare",
+    "tenant": "acme",
+    "runId": "run-9",
+    "leaseAllocated": true,
+    "leaseId": "ios-lease-1",
+    "leaseBackend": "ios-instance",
+    "platform": "ios",
+    "remoteConfig": "/tmp/agent-device-test-run-92458-7kJqHW/agent-device-connect-apple-redeclare-2ngvC6/remote.json",
+    "remoteConfigHash": "a7b968615f248de94cdf0356bcc6c0fb7919e8940c2c3d00171c22d5fcc52814",
+    "daemonBaseUrlFingerprint": "b4706a0a54aa",
+    "liveSession": {
+      "status": "created",
+      "leaseId": "ios-lease-1"
+    },
+    "verification": {
+      "status": "configured",
+      "service": "remote provider",
+      "message": "Remote connection profile loaded. Access is checked by the first remote command."
+    },
+    "nextSteps": [
+      "agent-device open <bundle-id> --relaunch --session adc-redeclare"
+    ],
+    "metro": {
+      "prepared": false
+    },
+    "connectedAt": "2026-11-05T20:55:44.910Z",
+    "updatedAt": "2026-11-05T20:55:44.911Z"
+  }
+}
+·····················································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································agent-device: building macOS helper (first run or helper update)
+agent-device: building macOS helper (first run or helper update)
+agent-device: building macOS helper (first run or helper update)
+agent-device: building macOS helper (first run or helper update)
+··············································································································································································································································································································································································································································································································································································································································································································{
+  "success": true,
+  "data": {
+    "connected": false,
+    "session": "harmony-proxy",
+    "released": true
+  }
+}
+·····································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································-·····················································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································································
+
+ Test Files  1930 passed (1930)
+      Tests  17400 passed | 1 skipped (17401)
+   Start at  23:54:04
+   Duration  144.43s (tests 69%, import 23%, transform 5%, setup 2%, worker 1%)
+
+
+Slow-test gate: 7 test(s) over budget (within the 2x load-variance band, not failing):
+  4.43s (budget 2.5s)  packages/platform-android/src/__tests__/snapshot-helper-exit-result.test.ts :: a sensitive value never reaches the instrumentation detail or the log wherever the helper printed it
+  4.03s (budget 2.5s)  packages/provider-revyl/src/runtime.test.ts :: Revyl answers health with 503 until the worker attaches, and the start keeps polling
+  3.05s (budget 2.5s)  packages/daemon-client/src/__tests__/daemon-client-startup-budget.test.ts :: a child gone at the deadline without an observed exit and no live startup fails exited
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles retry deadline
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles caller cancellation
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles short startup budget
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles admission timeout
+$ node --experimental-strip-types scripts/check-tmpdir-leaks.ts
+No abandoned agent-device-test-run-* directories found in /tmp.
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --test test/integration/smoke-*.test.ts
+✔ Android emulator coverage declarations cover exactly the public catalog with an assertion and owner (0.724416ms)
+✔ Android coverage classification summary is the rollup of the manifest declarations (0.160166ms)
+✔ Android scenario command declarations equal the live manifest rows with one owner per command (0.23725ms)
+✔ Android app scenarios declare deterministic starting surfaces and IME modes (0.093458ms)
+✔ Android permission recovery waits for the asynchronous native prompt (0.050209ms)
+✔ Android emulator scenarios can be selected as an ordered subset (0.285417ms)
+✔ Android emulator completeness checks selected scenario completion and recorded command and behavior evidence (0.813875ms)
+✔ Android command-contract declarations name an existing file containing the evidence test text (1.319833ms)
+✔ Android behavior declarations equal the scenario behavior declarations with one owner each (0.996416ms)
+✔ Android fact-owned denials are declared command-contract (0.128834ms)
+﹣ live Android emulator fixture E2E (0.285041ms) # Set AGENT_DEVICE_ANDROID_E2E=1 with fixture APK path/id and emulator serial to run.
+✔ clean-xcuitest ios removes only transient root entries and reports preserved cache entries (283.364042ms)
+✔ clean-xcuitest ios reports a no-op when only preserved entries remain (135.506875ms)
+✔ clean-xcuitest macos skips a missing derived directory (131.127709ms)
+✔ clean-xcuitest macos removes the entire platform directory when present (131.855917ms)
+✔ clean-xcuitest ios cleans the override directory and leaves the default untouched (128.660333ms)
+✔ clean-xcuitest macos cleans the override directory and leaves the default untouched (117.605291ms)
+✔ clean-xcuitest ignores a blank override and keeps the default directory (116.154417ms)
+✔ clean-xcuitest reports cleanup failures directly (123.104458ms)
+✔ cli --help returns usage (435.179416ms)
+✔ cli --version prints semver and exits 0 (78.13275ms)
+✔ cli -V prints semver and exits 0 (79.298792ms)
+✔ cli without command prints usage and exits 1 (169.746458ms)
+✔ alias --help matches the canonical command help (1221.445667ms)
+✔ clean daemon retains metadata when a live recorded process is not a verified daemon (119.296292ms)
+✔ clean daemon script stops a live daemon before removing metadata (1335.8785ms)
+✔ forced retirement waits for a real daemon and reclaims its abandoned registration claim (803.756541ms)
+✔ daemon HTTP transport starts from CLI and accepts a command RPC (1212.339ms)
+✔ iOS runner status transport stays visible while command execution remains serial (333.85375ms)
+✔ iOS simulator coverage declarations cover exactly the public catalog with an assertion and owner (0.807666ms)
+✔ iOS live command declarations name existing scenario ids with one owner per command (3.221708ms)
+✔ iOS behavior declarations name an existing scenario id or a file containing the owner test text (0.222833ms)
+✔ iOS non-live owner declarations name an existing file containing the evidence test text (0.872458ms)
+✔ fixture identifier coverage rejects direct-selector drift (0.254458ms)
+✔ live iOS scenario sources reference test IDs present in the fixture app sources (5.696709ms)
+✔ iOS fact-owned simulator denials are declared command-contract (0.10025ms)
+✔ fixture replay gestures fit the smallest supported iPhone viewport (3.107125ms)
+✔ drag replay fixtures use parseable source and destination selectors (0.790833ms)
+✔ fixture navigation uses edge-aware traversal without losing direct swipe evidence (0.2175ms)
+✔ fixture navigation establishes the home route before selecting Catalog (0.1335ms)
+✔ event timeline coverage follows cursors beyond the first page (0.219334ms)
+✔ event timeline coverage rejects malformed and non-advancing pages (0.350625ms)
+✔ event timeline coverage fails fast on runaway pagination (0.257833ms)
+﹣ live iOS simulator fixture E2E (0.48475ms) # Set AGENT_DEVICE_IOS_E2E=1 with fixture path/id and simulator UDID to run.
+✔ snapshot backend conformance checks each backend contract independently (9.047334ms)
+✔ snapshot backend conformance rejects every promised control invariant (0.603917ms)
+✔ backend forcing stays in the test-owned daemon transport seam (0.099041ms)
+﹣ live iOS runner discloses a foreground repair on the command that paid for it (0.429875ms) # Set AGENT_DEVICE_IOS_E2E=1 to run the live iOS lanes.
+✔ Linux coverage declarations cover exactly the public catalog with an assertion and owner (0.772083ms)
+✔ Linux coverage classification summary is the rollup of the manifest declarations (0.112417ms)
+✔ Linux live declarations equal the commands parsed from the smoke replay script (1.484208ms)
+✔ Linux command-evidence declarations match command assertions named in the lane runner source (0.956042ms)
+✔ Linux contract declarations name an existing file containing the evidence test text (2.578709ms)
+✔ Linux accepted-gap rows are exactly the pinned command list (0.142584ms)
+✔ macOS coverage declarations cover exactly the public catalog with an assertion and owner (0.963709ms)
+✔ macOS coverage classification summary is the rollup of the manifest declarations (0.162791ms)
+✔ macOS live declarations equal the commands named in live scenario sources (2.018166ms)
+✔ macOS live declarations name commands present in their scenario source files (0.358833ms)
+✔ macOS non-live evidence declarations name an existing file containing the evidence test text (1.204333ms)
+✔ macOS known gaps use one grouped tracking issue (0.0715ms)
+✔ macOS coverage report persists the manifest rollup and live command list (3.218292ms)
+✔ connect prepares Metro and open reuses bridged runtime for remote daemon (168.388542ms)
+✔ built CLI provider flow closes its named session before disconnect cleanup (703.417833ms)
+✔ tvOS coverage declarations cover exactly the public catalog with an assertion and owner (0.764542ms)
+✔ tvOS coverage classification summary is the rollup of the manifest declarations (0.110958ms)
+✔ tvOS contract declarations name an existing file containing the evidence test text (1.359417ms)
+✔ tvOS provider-contract declarations match callCommand names in the scenario source (0.131167ms)
+✔ tvOS host-dependent audio admission remains explicit (0.065292ms)
+✔ tvOS gesture contract preserves the typed multi-touch denial (102.04625ms)
+✔ tvOS known gaps use one grouped tracking issue (0.089292ms)
+✔ web coverage declarations cover exactly the public catalog with an assertion and owner (0.826667ms)
+✔ web coverage classification summary is the rollup of the manifest declarations (0.128958ms)
+✔ web live declarations equal the commands named as argv heads in the smoke scenario source (0.289334ms)
+✔ web contract declarations name an existing file containing the evidence test text (2.10975ms)
+✔ web accepted gap is exactly the structurally excluded test command (0.15875ms)
+✔ web coverage report persists the manifest rollup and live command list (2.298ms)
+✔ web coverage report survives a failed close cleanup (2.657917ms)
+✔ web cleanup error is preserved when report writing also fails (0.3ms)
+✔ web shutdown cleanup reaps the exact daemon that survived graceful shutdown (228.968875ms)
+﹣ live web platform e2e smoke (0.169541ms) # Set AGENT_DEVICE_WEB_E2E=1 to run the managed web backend smoke.
+﹣ live web coordinate fill selects in the page and refuses what it cannot confirm (0.049333ms) # Set AGENT_DEVICE_WEB_E2E=1 to run the managed web backend smoke.
+﹣ live web platform e2e daemon-shutdown browser cleanup (0.039958ms) # Set AGENT_DEVICE_WEB_E2E=1 to run the managed web backend smoke.
+ℹ tests 82
+ℹ suites 0
+ℹ pass 76
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 6
+ℹ todo 0
+ℹ duration_ms 2566.819708

@@ -1,0 +1,31 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-sync-review6-experiment
+
+·x···
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/sync-cache.test.ts > cache teardown waits for serialized APK syncs to finish reading their basis
+Error: Limrun app sync failed.
+ ❯ packages/provider-limrun/src/sync-cache.ts:42:15
+     40|         this.directory = undefined;
+     41|         if (error instanceof AppError || (signal?.aborted && error ===…
+     42|         throw new AppError(
+       |               ^
+     43|           'COMMAND_FAILED',
+     44|           'Limrun app sync failed.',
+
+Caused by: Error: ENOENT: no such file or directory, open '/tmp/agent-device-test-run-81796-5fKmzy/agent-device-limrun-sync-0eBK6n/Example.apk'
+ ❯ packages/provider-limrun/src/sync-cache.test.ts:58:12
+ ❯ packages/provider-limrun/src/sync-cache.ts:28:24
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -2, code: 'ENOENT', syscall: 'open', path: '/tmp/agent-device-test-run-81796-5fKmzy/agent-device-limrun-sync-0eBK6n/Example.apk' }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  23:50:24
+   Duration  264ms (transform 40%, import 39%, setup 10%, tests 8%, worker 2%)
+

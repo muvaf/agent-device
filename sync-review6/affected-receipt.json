@@ -1,0 +1,2846 @@
+{
+  "version": 1,
+  "cwd": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream",
+  "startedAt": "2026-11-05T20:52:13.662Z",
+  "status": "passed",
+  "exitCode": 0,
+  "refs": {
+    "base": "origin/main",
+    "head": "HEAD",
+    "resolvedBase": "e6ac165961def2f7b80336d2c04586a3ace32ce0",
+    "resolvedHead": "d2c9b9fc16e221ecd68e0bc7d3358a0a2c57a7dc",
+    "mergeBase": "e6ac165961def2f7b80336d2c04586a3ace32ce0"
+  },
+  "checkoutChanged": false,
+  "exactCommit": true,
+  "results": [
+    {
+      "id": "format",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "format:check"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/0.log",
+      "exitCode": 0,
+      "durationMs": 498,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "lint",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "lint"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/1.log",
+      "exitCode": 0,
+      "durationMs": 1818,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "typecheck",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "typecheck"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/2.log",
+      "exitCode": 0,
+      "durationMs": 828,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "test-app-typecheck",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)"
+    },
+    {
+      "id": "test-app-security",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)"
+    },
+    {
+      "id": "layering",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:layering"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/5.log",
+      "exitCode": 0,
+      "durationMs": 18449,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "di-seams",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:di-seams"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/6.log",
+      "exitCode": 0,
+      "durationMs": 807,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "fallow",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:fallow",
+        "--base",
+        "e6ac165961def2f7b80336d2c04586a3ace32ce0"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/7.log",
+      "exitCode": 0,
+      "durationMs": 3709,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "native-dupes",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:native-dupes"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/8.log",
+      "exitCode": 0,
+      "durationMs": 329,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "native-dupes-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:native-dupes:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/9.log",
+      "exitCode": 0,
+      "durationMs": 1846,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "mcp-metadata",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:mcp-metadata"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/10.log",
+      "exitCode": 0,
+      "durationMs": 267,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "build",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "build"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/11.log",
+      "exitCode": 0,
+      "durationMs": 4146,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "package",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:package"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/12.log",
+      "exitCode": 0,
+      "durationMs": 5427,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "integration-node",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:node"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/13.log",
+      "exitCode": 0,
+      "durationMs": 20063,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "macos-coverage",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:macos-coverage"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/14.log",
+      "exitCode": 0,
+      "durationMs": 659,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "ios-snapshot-differential",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "vitest-related",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "exec",
+        "vitest",
+        "related",
+        "--run",
+        "--passWithNoTests",
+        "--project=!unit-core",
+        "--project=!fuzz-worker",
+        "LICENSES/xdelta3-wasm.txt",
+        "THIRD_PARTY_NOTICES.md",
+        "package.json",
+        "packages/platform-apple/src/launch-confirmation.test.ts",
+        "packages/provider-limrun/package.json",
+        "packages/provider-limrun/src/android.ts",
+        "packages/provider-limrun/src/deployment-runtime.ts",
+        "packages/provider-limrun/src/ios.ts",
+        "packages/provider-limrun/src/lease-release-observation.test.ts",
+        "packages/provider-limrun/src/lease-release.ts",
+        "packages/provider-limrun/src/request-cancellation.ts",
+        "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "packages/provider-limrun/src/runtime-dependencies.test.ts",
+        "packages/provider-limrun/src/runtime-dependencies.ts",
+        "packages/provider-limrun/src/runtime.test.ts",
+        "packages/provider-limrun/src/runtime.ts",
+        "packages/provider-limrun/src/sync-cache.test.ts",
+        "packages/provider-limrun/src/sync-cache.ts",
+        "packages/provider-limrun/tsconfig.json",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "scripts/__tests__/bundled-license-notices.test.ts",
+        "scripts/__tests__/fixtures/bundled-license-build.mts",
+        "scripts/layering/model.ts",
+        "scripts/lib/bundled-license-notices.ts",
+        "src/__tests__/limrun-runtime.test.ts",
+        "src/commands/schema/cli-help.ts",
+        "src/platform-runtime-gateway.fixtures.ts",
+        "src/sdk/limrun-host-scope.test.ts",
+        "src/sdk/limrun-runtime-dependencies.ts",
+        "src/vendor/limrun-delta-sync-omitted.ts",
+        "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "tsdown.config.ts",
+        "website/docs/docs/limrun.md"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/16.log",
+      "exitCode": 0,
+      "durationMs": 50823,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/16.tests.87525.json"
+      ],
+      "tests": [
+        {
+          "passed": 1305,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "unit",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:unit"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/17.log",
+      "exitCode": 0,
+      "durationMs": 149450,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/17.tests.92458.json"
+      ],
+      "tests": [
+        {
+          "passed": 17400,
+          "failed": 0,
+          "skipped": 1,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "unit-ci",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Coverage, Integration Tests)"
+    },
+    {
+      "id": "coverage",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Coverage)"
+    },
+    {
+      "id": "coverage-crap",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Coverage)"
+    },
+    {
+      "id": "provider-integration",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:provider"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/21.log",
+      "exitCode": 0,
+      "durationMs": 33658,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/21.tests.14546.json"
+      ],
+      "tests": [
+        {
+          "passed": 254,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "integration-progress",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:integration:progress:check"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/22.log",
+      "exitCode": 0,
+      "durationMs": 894,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "swift-runner-ios",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests, Conformance Differential / iOS Conformance Differential, Perf Nightly / iOS Command Perf, XCTest Nightly / iOS Runner Full XCTest Suite (${{ matrix.leg.name }}))"
+    },
+    {
+      "id": "swift-runner-macos",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "android-helpers",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Android / Smoke Tests, Perf Nightly / Android Command Perf)"
+    },
+    {
+      "id": "macos-helper",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "web-smoke",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests, Integration Tests, Lint, Typecheck & Package, Perf Nightly / Android Command Perf, Perf Nightly / iOS Command Perf)"
+    },
+    {
+      "id": "replay-compat",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:replay-compat"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/28.log",
+      "exitCode": 0,
+      "durationMs": 533,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "daemon-wire-compat",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:daemon-wire-compat"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/29.log",
+      "exitCode": 0,
+      "durationMs": 2599,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "affected-selector",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:affected:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/30.log",
+      "exitCode": 0,
+      "durationMs": 10896,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "gate-manifest",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:gate-manifest"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/31.log",
+      "exitCode": 0,
+      "durationMs": 574,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "gate-manifest-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:gate-manifest:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/32.log",
+      "exitCode": 0,
+      "durationMs": 2223,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "depgraph",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "depgraph:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/33.log",
+      "exitCode": 0,
+      "durationMs": 8334,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "tmpdir-leaks",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:tmpdir-leaks"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/34.log",
+      "exitCode": 0,
+      "durationMs": 387,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "tmpdir-leaks-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:tmpdir-leaks:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/35.log",
+      "exitCode": 0,
+      "durationMs": 6159,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/35.tests.27143.json",
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/35.tests.27183.json",
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/35.tests.27221.json"
+      ],
+      "tests": [
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "coverage-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:coverage-changed:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/36.log",
+      "exitCode": 0,
+      "durationMs": 1722,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "coverage-crap-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:coverage-crap:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/37.log",
+      "exitCode": 0,
+      "durationMs": 9456,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "wire-compat-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:daemon-wire-compat:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/38.log",
+      "exitCode": 0,
+      "durationMs": 549,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "production-exports",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:production-exports"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/39.log",
+      "exitCode": 0,
+      "durationMs": 1329,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "bundle-owner-files",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:bundle-owner-files"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/40.log",
+      "exitCode": 0,
+      "durationMs": 408,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "freerange",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Repo Guards & Compatibility)"
+    },
+    {
+      "id": "fixture-cache",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:fixture-cache"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/42.log",
+      "exitCode": 0,
+      "durationMs": 2969,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "fixture-fallback",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "test:fixture-fallback"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/43.log",
+      "exitCode": 0,
+      "durationMs": 7243,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "command-docs",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:command-docs"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/44.log",
+      "exitCode": 0,
+      "durationMs": 900,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/44.tests.45826.json"
+      ],
+      "tests": [
+        {
+          "passed": 12,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "capabilities-matrix",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:capabilities-matrix"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/45.log",
+      "exitCode": 0,
+      "durationMs": 1807,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/45.tests.45882.json"
+      ],
+      "tests": [
+        {
+          "passed": 12,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "docs-links",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:doc-links"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/46.log",
+      "exitCode": 0,
+      "durationMs": 5895,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "docs-prose",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:doc-prose"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/47.log",
+      "exitCode": 0,
+      "durationMs": 631,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "agent-guidance",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:agent-guidance"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/48.log",
+      "exitCode": 0,
+      "durationMs": 567,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "xctest-selection",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:xctest-selection"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/49.log",
+      "exitCode": 0,
+      "durationMs": 428,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "packaged-runner-swift",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:packaged-runner-swift"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/50.log",
+      "exitCode": 0,
+      "durationMs": 4623,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "maestro-conformance",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "maestro:conformance"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/51.log",
+      "exitCode": 0,
+      "durationMs": 766,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "maestro-differential",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Conformance Differential / iOS Conformance Differential)"
+    },
+    {
+      "id": "maestro-regenerate",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Conformance Regenerate Verify / Regenerate & Verify Fixtures)"
+    },
+    {
+      "id": "fuzz-parsers",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Replay Nightly / Parser Fuzz Lane)"
+    },
+    {
+      "id": "mutation",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Mutation Harness Canary / Mutants (${{ matrix.name }}), Mutation Weekly / Mutants (${{ matrix.name }}))"
+    },
+    {
+      "id": "mutation-affected",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Mutation Harness Canary / Select harness validation kernels)"
+    },
+    {
+      "id": "mutation-check",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Mutation Weekly / Mutation score report)"
+    },
+    {
+      "id": "mutation-model",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "mutation:test"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-EC0DuF/58.log",
+      "exitCode": 0,
+      "durationMs": 8120,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "concurrency-torture",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Concurrency Torture Nightly / Session/lease/lock torture sweep, Integration Tests)"
+    },
+    {
+      "id": "replay-ios",
+      "status": "skipped",
+      "reason": "parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)"
+    },
+    {
+      "id": "replay-ios-device",
+      "status": "skipped",
+      "reason": "parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)"
+    },
+    {
+      "id": "replay-macos",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Apple / Smoke Tests)"
+    },
+    {
+      "id": "replay-linux",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Linux / Smoke Tests)"
+    },
+    {
+      "id": "linux-command-evidence",
+      "status": "skipped",
+      "reason": "GitHub-authoritative (jobs: Linux / Smoke Tests)"
+    },
+    {
+      "id": "replay-android",
+      "status": "skipped",
+      "reason": "parked, workflow_dispatch only (Replay Manual / Android Full Emulator Suite)"
+    }
+  ],
+  "initial": {
+    "head": "d2c9b9fc16e221ecd68e0bc7d3358a0a2c57a7dc",
+    "status": "",
+    "fingerprint": "efaba3ea6d3d43b24b6650a270518d75127db111a5afbede28ba2373f2bdbd48"
+  },
+  "changedFiles": [
+    "LICENSES/xdelta3-wasm.txt",
+    "THIRD_PARTY_NOTICES.md",
+    "package.json",
+    "packages/platform-apple/src/launch-confirmation.test.ts",
+    "packages/provider-limrun/package.json",
+    "packages/provider-limrun/src/android.ts",
+    "packages/provider-limrun/src/deployment-runtime.ts",
+    "packages/provider-limrun/src/ios.ts",
+    "packages/provider-limrun/src/lease-release-observation.test.ts",
+    "packages/provider-limrun/src/lease-release.ts",
+    "packages/provider-limrun/src/request-cancellation.ts",
+    "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+    "packages/provider-limrun/src/runtime-dependencies.test.ts",
+    "packages/provider-limrun/src/runtime-dependencies.ts",
+    "packages/provider-limrun/src/runtime.test.ts",
+    "packages/provider-limrun/src/runtime.ts",
+    "packages/provider-limrun/src/sync-cache.test.ts",
+    "packages/provider-limrun/src/sync-cache.ts",
+    "packages/provider-limrun/tsconfig.json",
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml",
+    "scripts/__tests__/bundled-license-notices.test.ts",
+    "scripts/__tests__/fixtures/bundled-license-build.mts",
+    "scripts/layering/model.ts",
+    "scripts/lib/bundled-license-notices.ts",
+    "src/__tests__/limrun-runtime.test.ts",
+    "src/commands/schema/cli-help.ts",
+    "src/platform-runtime-gateway.fixtures.ts",
+    "src/sdk/limrun-host-scope.test.ts",
+    "src/sdk/limrun-runtime-dependencies.ts",
+    "src/vendor/limrun-delta-sync-omitted.ts",
+    "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+    "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+    "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+    "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+    "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+    "tsdown.config.ts",
+    "website/docs/docs/limrun.md"
+  ],
+  "plan": {
+    "failOpen": true,
+    "checks": [
+      "format",
+      "lint",
+      "typecheck",
+      "test-app-typecheck",
+      "test-app-security",
+      "layering",
+      "di-seams",
+      "fallow",
+      "native-dupes",
+      "native-dupes-model",
+      "mcp-metadata",
+      "build",
+      "package",
+      "integration-node",
+      "macos-coverage",
+      "ios-snapshot-differential",
+      "vitest-related",
+      "unit",
+      "unit-ci",
+      "coverage",
+      "coverage-crap",
+      "provider-integration",
+      "integration-progress",
+      "swift-runner-ios",
+      "swift-runner-macos",
+      "android-helpers",
+      "macos-helper",
+      "web-smoke",
+      "replay-compat",
+      "daemon-wire-compat",
+      "affected-selector",
+      "gate-manifest",
+      "gate-manifest-model",
+      "depgraph",
+      "tmpdir-leaks",
+      "tmpdir-leaks-model",
+      "coverage-model",
+      "coverage-crap-model",
+      "wire-compat-model",
+      "production-exports",
+      "bundle-owner-files",
+      "freerange",
+      "fixture-cache",
+      "fixture-fallback",
+      "command-docs",
+      "capabilities-matrix",
+      "docs-links",
+      "docs-prose",
+      "agent-guidance",
+      "xctest-selection",
+      "packaged-runner-swift",
+      "maestro-conformance",
+      "maestro-differential",
+      "maestro-regenerate",
+      "fuzz-parsers",
+      "mutation",
+      "mutation-affected",
+      "mutation-check",
+      "mutation-model",
+      "concurrency-torture",
+      "replay-ios",
+      "replay-ios-device",
+      "replay-macos",
+      "replay-linux",
+      "linux-command-evidence",
+      "replay-android"
+    ],
+    "reasons": [
+      {
+        "check": "format",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "unit",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "platform-package-contract",
+        "detail": "platform packages must satisfy the shared runtime contract scenarios"
+      },
+      {
+        "check": "provider-integration",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "platform-package-provider",
+        "detail": "platform packages participate in provider-first ownership scenarios"
+      },
+      {
+        "check": "coverage",
+        "path": "packages/platform-apple/src/launch-confirmation.test.ts",
+        "rule": "platform-package-coverage",
+        "detail": "platform package changes require affected contract coverage evidence"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/android.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/deployment-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/ios.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/lease-release-observation.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/lease-release-observation.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/lease-release-observation.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/lease-release-observation.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/lease-release-observation.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/lease-release-observation.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/lease-release.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/request-cancellation.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/runtime-dependencies.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/runtime-dependencies.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/runtime-dependencies.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/runtime-dependencies.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/runtime-dependencies.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/runtime-dependencies.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/runtime-dependencies.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/runtime.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/runtime.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/runtime.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/runtime.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/runtime.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/runtime.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/sync-cache.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/sync-cache.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/sync-cache.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/sync-cache.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/sync-cache.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/sync-cache.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/provider-limrun/src/sync-cache.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "src/__tests__/limrun-runtime.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "src/__tests__/limrun-runtime.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "src/__tests__/limrun-runtime.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "src/__tests__/limrun-runtime.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "src/__tests__/limrun-runtime.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "gate:layering",
+        "detail": "layering guard reads production src/ modules"
+      },
+      {
+        "check": "build",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "src-prod",
+        "detail": "production source is compiled by the build"
+      },
+      {
+        "check": "unit",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "vitest-related",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "src/commands/schema/cli-help.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "gate:layering",
+        "detail": "layering guard reads production src/ modules"
+      },
+      {
+        "check": "build",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "src-prod",
+        "detail": "production source is compiled by the build"
+      },
+      {
+        "check": "unit",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "vitest-related",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "src/platform-runtime-gateway.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "src/sdk/limrun-host-scope.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "src/sdk/limrun-host-scope.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "src/sdk/limrun-host-scope.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "src/sdk/limrun-host-scope.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "src/sdk/limrun-host-scope.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "gate:layering",
+        "detail": "layering guard reads production src/ modules"
+      },
+      {
+        "check": "build",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "src-prod",
+        "detail": "production source is compiled by the build"
+      },
+      {
+        "check": "unit",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "vitest-related",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "src/sdk/limrun-runtime-dependencies.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "gate:layering",
+        "detail": "layering guard reads production src/ modules"
+      },
+      {
+        "check": "build",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "src-prod",
+        "detail": "production source is compiled by the build"
+      },
+      {
+        "check": "unit",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "vitest-related",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "src/vendor/limrun-delta-sync-omitted.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "test/integration/provider-scenarios/limrun-ios-appstate.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "docs-links",
+        "path": "website/docs/docs/limrun.md",
+        "rule": "own:docs-links",
+        "detail": "internal docs links must land on an existing page and heading"
+      },
+      {
+        "check": "docs-prose",
+        "path": "website/docs/docs/limrun.md",
+        "rule": "own:docs-prose",
+        "detail": "user docs avoid filler, marketing, and time-relative words"
+      }
+    ],
+    "failOpenReasons": [
+      {
+        "path": "LICENSES/xdelta3-wasm.txt",
+        "rule": "unknown-path",
+        "detail": "path has no derivable owner; run the full set to stay safe"
+      },
+      {
+        "path": "package.json",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "packages/provider-limrun/package.json",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "packages/provider-limrun/tsconfig.json",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "scripts/__tests__/bundled-license-notices.test.ts",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "scripts/__tests__/fixtures/bundled-license-build.mts",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "scripts/layering/model.ts",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "scripts/lib/bundled-license-notices.ts",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      },
+      {
+        "path": "tsdown.config.ts",
+        "rule": "workflow-tooling",
+        "detail": "workflow/tooling change can alter any gate"
+      }
+    ],
+    "docsOnlyPaths": [
+      "THIRD_PARTY_NOTICES.md"
+    ]
+  },
+  "final": {
+    "head": "d2c9b9fc16e221ecd68e0bc7d3358a0a2c57a7dc",
+    "status": "",
+    "fingerprint": "efaba3ea6d3d43b24b6650a270518d75127db111a5afbede28ba2373f2bdbd48"
+  },
+  "finishedAt": "2026-11-05T20:58:26.846Z"
+}

@@ -1,0 +1,10 @@
+focused-isolated 0
+crlf-before 1
+crlf-after 0
+truncated-notice-old-test 0
+truncated-notice-new-test 1
+pruned-apk-old-test 0
+pruned-apk-new-test 1
+missing-lookup-notification 1
+focused-isolated-restored 0
+All expected detections proved; production mutations restored.

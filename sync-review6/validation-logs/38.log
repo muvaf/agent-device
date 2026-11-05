@@ -1,0 +1,23 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/wire-compat/model.test.ts
+✔ an unchanged wire surface passes (0.664792ms)
+✔ a changed wire declaration without a bump or ack fails, naming the symbol (0.434958ms)
+✔ the same change passes once the protocol version is bumped (0.068875ms)
+✔ the same change passes with a compatible-change ack at the new digest (0.065834ms)
+✔ an ack pinned to a superseded digest does not cover the next change (0.061375ms)
+✔ an ack with an empty rationale does not count as an ack (0.05575ms)
+✔ a removed wire declaration fails even when acked, because only a bump covers it (0.080917ms)
+✔ a removed wire declaration passes with a bump (0.051084ms)
+✔ a declaration moved to a new file unchanged is a move, not a removal (0.071666ms)
+✔ a move that changes the shape is a change, acked at the path it moved to (0.099875ms)
+✔ a name still owned by the baseline is not a move, so it remains a removal (0.053875ms)
+✔ two same-name removals cannot share one move destination, so both stay removals (0.052542ms)
+✔ a contested destination fails even when acked at the destination (0.050791ms)
+✔ a newly added wire declaration is additive and needs nothing (0.034208ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60.409792

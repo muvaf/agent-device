@@ -1,0 +1,36 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-sync-review6-experiment
+
+--------------xx·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| scripts/__tests__/bundled-license-notices.test.ts > bundled xdelta WASM 0.2.0 requires matching complete notices with LF line endings
+ FAIL  |unit-core| scripts/__tests__/bundled-license-notices.test.ts > bundled xdelta WASM 0.2.0 requires matching complete notices with CRLF line endings
+AssertionError: The expression evaluated to a falsy value:
+
+  ok(notices.includes(sourceNotices.replaceAll("\r\n", "\n").trim()))
+
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ scripts/__tests__/bundled-license-notices.test.ts:391:12
+    389|     await bundle(root);
+    390|     const notices = await fs.readFile(path.join(root, 'dist/THIRD_PART…
+    391|     assert.ok(notices.includes(sourceNotices.replaceAll('\r\n', '\n').…
+       |            ^
+    392|     assert.ok(notices.includes(apacheLicense.replaceAll('\r\n', '\n').…
+    393|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 1 passed | 14 skipped (17)
+   Start at  23:50:22
+   Duration  513ms (tests 78%, transform 10%, import 10%, setup 1%)
+

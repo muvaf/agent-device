@@ -1,0 +1,142 @@
+[
+  {
+    "case": "focused-isolated",
+    "exitCode": 0,
+    "expectedExit": 0,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "scripts/__tests__/bundled-license-notices.test.ts",
+      "packages/provider-limrun/src/sync-cache.test.ts",
+      "packages/platform-apple/src/launch-confirmation.test.ts"
+    ]
+  },
+  {
+    "case": "crlf-before",
+    "exitCode": 1,
+    "expectedExit": 1,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "scripts/__tests__/bundled-license-notices.test.ts",
+      "-t",
+      "bundled xdelta"
+    ]
+  },
+  {
+    "case": "crlf-after",
+    "exitCode": 0,
+    "expectedExit": 0,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "scripts/__tests__/bundled-license-notices.test.ts",
+      "-t",
+      "bundled xdelta"
+    ]
+  },
+  {
+    "case": "truncated-notice-old-test",
+    "exitCode": 0,
+    "expectedExit": 0,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "scripts/__tests__/bundled-license-notices.test.ts",
+      "-t",
+      "bundled xdelta"
+    ]
+  },
+  {
+    "case": "truncated-notice-new-test",
+    "exitCode": 1,
+    "expectedExit": 1,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "scripts/__tests__/bundled-license-notices.test.ts",
+      "-t",
+      "bundled xdelta"
+    ]
+  },
+  {
+    "case": "pruned-apk-old-test",
+    "exitCode": 0,
+    "expectedExit": 0,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "packages/provider-limrun/src/sync-cache.test.ts"
+    ]
+  },
+  {
+    "case": "pruned-apk-new-test",
+    "exitCode": 1,
+    "expectedExit": 1,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "packages/provider-limrun/src/sync-cache.test.ts"
+    ]
+  },
+  {
+    "case": "missing-lookup-notification",
+    "exitCode": 1,
+    "expectedExit": 1,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "packages/platform-apple/src/launch-confirmation.test.ts",
+      "-t",
+      "owner lookup is bounded as a whole"
+    ]
+  },
+  {
+    "case": "focused-isolated-restored",
+    "exitCode": 0,
+    "expectedExit": 0,
+    "command": [
+      "pnpm",
+      "exec",
+      "vitest",
+      "run",
+      "--project",
+      "unit-core",
+      "scripts/__tests__/bundled-license-notices.test.ts",
+      "packages/provider-limrun/src/sync-cache.test.ts",
+      "packages/platform-apple/src/launch-confirmation.test.ts"
+    ]
+  }
+]

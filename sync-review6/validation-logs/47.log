@@ -1,0 +1,27 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/__tests__/check-doc-prose.test.ts && node --experimental-strip-types scripts/check-doc-prose.ts
+✔ banned words match case-insensitively as whole words, with line and column (1.086667ms)
+✔ phrases match across any run of whitespace (0.321916ms)
+✔ bare new, now, and current are allowed (0.05925ms)
+✔ each violation names the file, position, matched text, and reason (0.06325ms)
+✔ every rule is a lowercase word or phrase with a reason (0.126208ms)
+✔ YAML frontmatter at the top is skipped, but a later thematic break is prose (0.072333ms)
+✔ fenced code is skipped until a matching closer of at least the opening length (0.06525ms)
+✔ a backtick fence is not closed by tildes (0.051125ms)
+✔ a fence inside a blockquote is skipped through its quoted closer (0.053208ms)
+✔ a fence inside an HTML comment does not swallow the prose after the comment (0.074291ms)
+✔ inline code spans are skipped, matching backtick run lengths (0.048583ms)
+✔ an inline code span that wraps across lines is skipped (0.040833ms)
+✔ a stray backtick does not mask past the end of its paragraph (0.031625ms)
+✔ a phrase wrapped across lines matches at its first word (0.027584ms)
+✔ HTML tags, comments, link destinations, and bare URLs are skipped (0.036083ms)
+✔ link text is prose (0.028291ms)
+✔ CRLF line endings are scanned like LF (0.044334ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 64.526125
+doc prose: 31 files clean.

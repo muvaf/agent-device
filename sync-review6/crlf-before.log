@@ -1,0 +1,35 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-sync-review6-experiment
+
+--------------x·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| scripts/__tests__/bundled-license-notices.test.ts > bundled xdelta WASM 0.2.0 requires the matching retained license
+AssertionError: The expression evaluated to a falsy value:
+
+  ok(notices.includes(apacheLicense.trim()))
+
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ scripts/__tests__/bundled-license-notices.test.ts:388:12
+    386|     const notices = await fs.readFile(path.join(root, 'dist/THIRD_PART…
+    387|     assert.ok(notices.includes('Copyright 2016 Joshua MacDonald'));
+    388|     assert.ok(notices.includes(apacheLicense.trim()));
+       |            ^
+    389|   },
+    390| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed | 14 skipped (16)
+   Start at  23:50:19
+   Duration  420ms (tests 68%, transform 17%, import 13%, setup 2%)
+

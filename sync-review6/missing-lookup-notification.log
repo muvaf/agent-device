@@ -1,0 +1,27 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-sync-review6-experiment
+
+-----------xx--------------------
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/platform-apple/src/launch-confirmation.test.ts > the owner lookup is bounded as a whole: one Info.plist read hangs after the app list answered and the open is left unanswered within its budget
+ FAIL  |unit-core| packages/platform-apple/src/launch-confirmation.test.ts > the owner lookup is bounded as a whole: the app list answered in a format only plutil can convert, and that conversion hangs and the open is left unanswered within its budget
+Error: Owner lookup did not start its second command
+ ❯ packages/platform-apple/src/launch-confirmation.test.ts:313:19
+    311|           }),
+    312|           realDelay(1_000, undefined, { signal: ioWait.signal }).then(…
+    313|             throw new Error('Owner lookup did not start its second com…
+       |                   ^
+    314|           }),
+    315|         ]);
+ ❯ packages/platform-apple/src/launch-confirmation.test.ts:307:9
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 31 skipped (33)
+   Start at  23:50:25
+   Duration  2.27s (tests 95%, transform 3%, import 2%)
+
