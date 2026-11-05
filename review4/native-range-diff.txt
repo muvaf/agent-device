@@ -1,0 +1,2362 @@
+-:  --------- > 1:  94a8d8cd9 refactor(apple): expose runner preparation and shared cancellation helpers
+1:  0ae3dc2a4 ! 2:  442a6ce44 feat(limrun): replace iOS AX automation with the shared XCTest runner
+    @@ Metadata
+      ## Commit message ##
+         feat(limrun): replace iOS AX automation with the shared XCTest runner
+     
+    - ## package.json ##
+    -@@
+    -     "oxc-parser": "^0.146.0",
+    -     "oxfmt": "^0.67.0",
+    -     "oxlint": "^1.79.0",
+    -+    "plist": "5.0.0",
+    -     "pngjs": "^7.0.0",
+    -     "publint": "^0.3.24",
+    -     "tar-stream": "^3.2.0",
+    -
+    - ## packages/apple-runner/src/index.ts ##
+    -@@
+    -  * imports so the entry evaluates only what a host-bound operation needs.
+    -  */
+    - 
+    -+export { RUNNER_STARTUP_TIMEOUT_MS } from './runner-startup-transport.ts';
+    -+export async function createLaunchedAppleRunnerProvider(
+    -+  ...args: Parameters<
+    -+    typeof import('./runner-launcher-provider.ts').createLaunchedAppleRunnerProvider
+    -+  >
+    -+) {
+    -+  const { createLaunchedAppleRunnerProvider } = await import('./runner-launcher-provider.ts');
+    -+  return createLaunchedAppleRunnerProvider(...args);
+    -+}
+    -+
+    - export {
+    -   bindAppleRunnerHost,
+    -   type AppleRunnerHost,
+    -@@ packages/apple-runner/src/index.ts: export type {
+    -   IosPhysicalDeviceRunnerControl,
+    - } from './runner-physical-device.ts';
+    - export {
+    -+  mintRunnerToken,
+    -   RUNNER_READY_PREFLIGHT_TIMEOUT_MS,
+    -   SCROLL_KEYBOARD_OCCLUDES_SURFACE_RUNNER_CODE,
+    -   buildRunnerSequenceCommand,
+    -@@ packages/apple-runner/src/index.ts: export async function restoreLegacyXctestDeviceSetRedirect(
+    -     await import('./legacy-xctest-device-set.ts');
+    -   await restore(...args);
+    - }
+    -+
+    -+export { runnerListenerEnv } from './runner-contract.ts';
+    -+
+    -+export { RUNNER_XCTESTRUN_CAPTURE_OPTIONS } from './runner-artifact-env.ts';
+    -
+    - ## packages/apple-runner/src/runner-artifact-env.ts ##
+    -@@ packages/apple-runner/src/runner-artifact-env.ts: function toXctestrunTarget(
+    -   return target;
+    - }
+    - 
+    --const RUNNER_XCTESTRUN_CAPTURE_OPTIONS = {
+    -+export const RUNNER_XCTESTRUN_CAPTURE_OPTIONS = {
+    -   PreferredScreenCaptureFormat: 'screenshots',
+    -   SystemAttachmentLifetime: 'keepNever',
+    -   UserAttachmentLifetime: 'keepNever',
+    + ## docs/adr/0004-ios-snapshot-backend-strategy.md ##
+    +@@ docs/adr/0004-ios-snapshot-backend-strategy.md: Thus, the pass returns that tree exactly as reported.
+    + This is a structural consequence of the same rule applied uniformly.
+    + It is not the per-tier omission that a hand-threaded space would have made it.
+    + 
+    +-The provider producers (`appium-source`, `limrun-ios-tree`) never see the app's windows either.
+    ++The provider producers (`appium-source`) never see the app's windows either.
+    + A capture from any of them publishes no keyboard fact.
+    + A consumer reads that silence as "this producer did not measure".
+    + Those paths publish what the platform reported.
+    +@@ docs/adr/0004-ios-snapshot-backend-strategy.md: Producers that report no UIKit class names or no dimming-view interaction state
+    + That is a fact about their output, not a backend exception in the fold:
+    + 
+    + - The runner already omits modal-contained content from its own queries.
+    +-- `appium-source` and `limrun-ios-tree` report element types and no classes.
+    ++- `appium-source` reports element types and no classes.
+    + - The macOS desktop surface arrives already presented.
+    + 
+    + A scope that names a modal-contained screen now publishes an empty projection.
+     
+      ## packages/capture-kit/src/ios-ax-tree.ts ##
+     @@ packages/capture-kit/src/ios-ax-tree.ts: function readIosNodeIdentifier(node: IosTreeNode): string | undefined {
+    @@ packages/capture-kit/src/ios-ax-tree.ts: function isFiniteNumber(value: unknown)
+      }
+      
+     
+    + ## packages/capture-kit/src/ios-snapshot-acquisition.ts ##
+    +@@ packages/capture-kit/src/ios-snapshot-acquisition.ts: const TREE_SOURCE_CAPABILITIES = Object.freeze({
+    +  */
+    + const IOS_PROVIDER_ACQUISITION_CAPABILITY_VALUES = {
+    +   'appium-source': { producer: 'appium-source', ...TREE_SOURCE_CAPABILITIES },
+    +-  'limrun-ios-tree': { producer: 'limrun-ios-tree', ...TREE_SOURCE_CAPABILITIES },
+    +   'revyl-ios-tree': { producer: 'revyl-ios-tree', ...TREE_SOURCE_CAPABILITIES },
+    + } as const satisfies Record<IosProviderAcquisitionProducer, IosProviderAcquisitionCapabilities>;
+    + 
+    +@@ packages/capture-kit/src/ios-snapshot-acquisition.ts: const IOS_SNAPSHOT_TRUNCATION_EVIDENCE = {
+    +   'apple-runner': 'available',
+    +   'simulator-ax-bridge': 'available',
+    +   'appium-source': 'unavailable',
+    +-  'limrun-ios-tree': 'unavailable',
+    +   'revyl-ios-tree': 'unavailable',
+    + } as const satisfies Record<IosSnapshotProducer, IosSnapshotEvidenceAvailability>;
+    + 
+    +
+    + ## packages/capture-kit/src/ios-snapshot-planning.test.ts ##
+    +@@ packages/capture-kit/src/ios-snapshot-planning.test.ts: test('normalization makes raw, scope, and absent values explicit', () => {
+    + });
+    + 
+    + test('acquisition derives unavailable provider facts from the registry', () => {
+    +-  for (const producer of ['appium-source', 'limrun-ios-tree'] as const) {
+    ++  for (const producer of ['appium-source', 'revyl-ios-tree'] as const) {
+    +     assert.deepEqual(
+    +       createIosSnapshotAcquisition({
+    +         producer,
+    +@@ packages/capture-kit/src/ios-snapshot-planning.test.ts: test('truncation evidence is declared for every iOS producer', () => {
+    +     'apple-runner': 'available',
+    +     'simulator-ax-bridge': 'available',
+    +     'appium-source': 'unavailable',
+    +-    'limrun-ios-tree': 'unavailable',
+    +     'revyl-ios-tree': 'unavailable',
+    +   } as const satisfies Record<IosSnapshotProducer, IosSnapshotEvidenceAvailability>;
+    + 
+    +@@ packages/capture-kit/src/ios-snapshot-planning.test.ts: test('truncation evidence is declared for every iOS producer', () => {
+    + test('comparison identity rejects every identity axis and residue mismatch', () => {
+    +   const base = comparisonIdentity();
+    +   const mismatches: IosSnapshotComparisonIdentity[] = [
+    +-    { ...base, producer: 'limrun-ios-tree' },
+    ++    { ...base, producer: 'revyl-ios-tree' },
+    +     { ...base, intent: 'surface-observation' },
+    +     { ...base, lineage: { targetId: 'simulator-1', generation: 'generation-2' } },
+    +     { ...base, presentationKey: { ...base.presentationKey, depth: 1 } },
+    +
+      ## packages/capture-kit/src/png-worker-client.test.ts ##
+     @@ packages/capture-kit/src/png-worker-client.test.ts: import {
+        encodePngAsync,
+    @@ packages/capture-kit/src/screenshot-image.ts: export function decodeScreenshotIm
+      function decodeJpegImage(bytes: Buffer, label: string, maxPixels?: number): PNG {
+        try {
+     
+    + ## packages/capture-kit/src/snapshot/__tests__/ios-snapshot-runtime-presentation-once.test.ts ##
+    +@@ packages/capture-kit/src/snapshot/__tests__/ios-snapshot-runtime-presentation-once.test.ts: const ROW: Rect = { x: 16, y: 80, width: 288, height: 52 };
+    + const ACQUISITION_PRODUCERS: readonly IosAcquisitionProducer[] = [
+    +   'simulator-ax-bridge',
+    +   'appium-source',
+    +-  'limrun-ios-tree',
+    +   'revyl-ios-tree',
+    + ];
+    + const PRODUCERS: readonly IosSnapshotProducer[] = ['apple-runner', ...ACQUISITION_PRODUCERS];
+    +
+    + ## packages/capture-kit/src/snapshot/__tests__/ios-snapshot-runtime-quality-notes.test.ts ##
+    +@@ packages/capture-kit/src/snapshot/__tests__/ios-snapshot-runtime-quality-notes.test.ts: const fixture = JSON.parse(
+    + };
+    + 
+    + test('host iOS presentation publishes shared clipping notes without inventing a capture verdict', () => {
+    +-  for (const producer of [
+    +-    'simulator-ax-bridge',
+    +-    'appium-source',
+    +-    'limrun-ios-tree',
+    +-    'revyl-ios-tree',
+    +-  ] as const) {
+    ++  for (const producer of ['simulator-ax-bridge', 'appium-source', 'revyl-ios-tree'] as const) {
+    +     for (const row of fixture.cases) {
+    +       const acquired = createIosSnapshotAcquisition({
+    +         producer: producer === 'simulator-ax-bridge' ? 'appium-source' : producer,
+    +
+      ## packages/command-registry/src/flag-definitions-target.ts ##
+     @@ packages/command-registry/src/flag-definitions-target.ts: export const TARGET_FLAG_DEFINITIONS: readonly FlagDefinition[] = [
+          type: 'string',
+    @@ packages/command-registry/src/flag-definitions-target.ts: export const TARGET_FL
+          recorded: false,
+        },
+     
+    + ## packages/command-runtime/src/commands/capture/runtime/snapshot.test.ts ##
+    +@@ packages/command-runtime/src/commands/capture/runtime/snapshot.test.ts: test('runtime snapshot upgrades an absent truncation flag only for producers tha
+    +     'apple-runner': false,
+    +     'simulator-ax-bridge': false,
+    +     'appium-source': undefined,
+    +-    'limrun-ios-tree': undefined,
+    +     'revyl-ios-tree': undefined,
+    +   } as const satisfies Record<IosSnapshotProducer, boolean | undefined>;
+    + 
+    +
+    + ## packages/command-runtime/src/commands/interaction/runtime/stable-capture.ts ##
+    +@@ packages/command-runtime/src/commands/interaction/runtime/stable-capture.ts: const DEFAULT_QUIET_MS_BY_PRODUCER = {
+    +   'apple-runner': DEFAULT_STABLE_QUIET_MS,
+    +   'simulator-ax-bridge': 300,
+    +   'appium-source': DEFAULT_STABLE_QUIET_MS,
+    +-  'limrun-ios-tree': DEFAULT_STABLE_QUIET_MS,
+    +   'revyl-ios-tree': DEFAULT_STABLE_QUIET_MS,
+    +   'android-uiautomator': DEFAULT_STABLE_QUIET_MS,
+    +   'cdp-dom': DEFAULT_STABLE_QUIET_MS,
+    +
+      ## packages/command-surface/src/management/app.ts ##
+     @@ packages/command-surface/src/management/app.ts: const openCommandMetadata = defineFieldCommandMetadata(
+          ),
+    @@ packages/command-surface/src/management/app.ts: export const openCommandFacet =
+            "metroHost, metroPort, and bundleUrl choose the app's Metro server and save its address for later reloads. launchUrl selects the app's launch URL and does not select the reload server. A fresh open without Metro hints clears an older same-name binding; close also clears it.",
+        },
+     
+    - ## packages/host-kit/src/internal/request-cancel.test.ts ##
+    -@@ packages/host-kit/src/internal/request-cancel.test.ts: import {
+    -   isRequestCanceledError,
+    - } from '@agent-device/kernel/errors';
+    - import {
+    -+  awaitWithSignal,
+    -   clearRequestAbortRegistration,
+    -   clearRequestCanceled,
+    -   markRequestCanceled,
+    -@@ packages/host-kit/src/internal/request-cancel.test.ts: import {
+    -   withRequestDeadline,
+    - } from './request-cancel.ts';
+    - 
+    -+test.each(['before', 'after'] as const)(
+    -+  'a throwing abort callback rejects when cancellation occurs %s listener registration',
+    -+  async (timing) => {
+    -+    const controller = new AbortController();
+    -+    const failure = new Error('operation stop failed');
+    -+    if (timing === 'before') controller.abort();
+    -+    const pending = awaitWithSignal(new Promise<never>(() => {}), controller.signal, () => {
+    -+      throw failure;
+    -+    });
+    -+    const rejected = assert.rejects(pending, (error) => error === failure);
+    -+    if (timing === 'after') controller.abort();
+    -+    await rejected;
+    -+  },
+    -+);
+    -+
+    - test('an early live request remains cancelable after more than 50,000 registrations', () => {
+    -   const requestId = 'early-live-request';
+    -   const registration = registerRequestAbort(requestId)!;
+    + ## packages/contracts/src/interactor-operation-catalog.ts ##
+    +@@ packages/contracts/src/interactor-operation-catalog.ts: export type CatalogInteractorOperation = (typeof INTERACTOR_OPERATIONS)[number][
+    + /**
+    +  * The operation-facts slice every caller already holds: an owner's full `RuntimeFacts.operations`
+    +  * (narrows structurally — extra keys are ignored), or, for an owner whose navigation facts are
+    +- * assembled standalone (see `platform-apple/src/navigation/runtime.ts`, `provider-limrun`'s
+    +- * `limrunNavigationOperationFacts`), that flat map directly — which may cover only the subset of
+    ++ * assembled standalone (see `platform-apple/src/navigation/runtime.ts`), that flat map directly — which may cover only the subset of
+    +  * operations the owner admits at all, so a missing key here is simply never bindable.
+    +  */
+    + type CatalogOperationFacts = Readonly<
+     
+    - ## packages/host-kit/src/internal/request-cancel.ts ##
+    -@@ packages/host-kit/src/internal/request-cancel.ts: export async function withRequestDeadline(
+    -     clearRequestAbortRegistration(ownedRegistration);
+    -   }
+    - }
+    -+
+    -+/** Cancels the wait; the caller supplies any operation-specific stop and error handling. */
+    -+export async function awaitWithSignal<T>(
+    -+  pending: Promise<T>,
+    -+  signal?: AbortSignal,
+    -+  onAbort: () => unknown = () => signal?.reason,
+    -+): Promise<T> {
+    -+  if (!signal) return await pending;
+    -+  return await new Promise<T>((resolve, reject) => {
+    -+    const aborted = () => {
+    -+      try {
+    -+        reject(onAbort());
+    -+      } catch (error) {
+    -+        reject(error);
+    -+      }
+    -+    };
+    -+    signal.addEventListener('abort', aborted, { once: true });
+    -+    if (signal.aborted) aborted();
+    -+    void pending.then(
+    -+      (value) => {
+    -+        signal.removeEventListener('abort', aborted);
+    -+        resolve(value);
+    -+      },
+    -+      (error: unknown) => {
+    -+        signal.removeEventListener('abort', aborted);
+    -+        reject(error);
+    -+      },
+    -+    );
+    -+  });
+    -+}
+    + ## packages/contracts/src/ios-snapshot.ts ##
+    +@@ packages/contracts/src/ios-snapshot.ts: export type IosSnapshotProducer =
+    +   | 'apple-runner'
+    +   | 'simulator-ax-bridge'
+    +   | 'appium-source'
+    +-  | 'limrun-ios-tree'
+    +   | 'revyl-ios-tree';
+    + 
+    + export type IosAcquisitionProducer = Exclude<IosSnapshotProducer, 'apple-runner'>;
+    + export type IosProviderAcquisitionProducer = Extract<
+    +   IosAcquisitionProducer,
+    +-  'appium-source' | 'limrun-ios-tree' | 'revyl-ios-tree'
+    ++  'appium-source' | 'revyl-ios-tree'
+    + >;
+    + export type IosAcquisitionIntent = 'full' | 'surface-observation';
+    + export type IosSnapshotProjection = 'regular' | 'raw';
+     
+    - ## packages/host-kit/src/request.ts ##
+    -@@
+    - export {
+    -+  awaitWithSignal,
+    -   cancelAllRequests,
+    -   clearRequestAbortRegistration,
+    -   clearRequestCanceled,
+    + ## packages/contracts/src/tap-keyboard-occlusion.ts ##
+    +@@ packages/contracts/src/tap-keyboard-occlusion.ts: import { normalizeType } from './snapshot-text.ts';
+    +  *
+    +  * Otherwise the band is derived from the captured tree every acting path already holds, so the guard
+    +  * costs no round trip. This is the path for Android captures that could not list every window and for
+    +- * the producers that never see the app's windows (`appium-source`, `limrun-ios-tree`, `revyl-ios-tree`, the runner's own query-sweep tier).
+    ++ * the producers that never see the app's windows (`appium-source`, `revyl-ios-tree`, the runner's own query-sweep tier).
+    +  * Derivation, the rules that decide whether reported geometry may be measured at all, and the verdict
+    +  * on a point are proven against `contracts/fixtures/tap-keyboard-occlusion-policy.json`; change a rule
+    +  * only through that table.
+    +@@ packages/contracts/src/tap-keyboard-occlusion.ts: function measureDockedKeyboardFrame(params: {
+    +   // (ADR 0004). A capture from either of those now answers this question from its own measured band
+    +   // and never reaches here (#2660), so what still does is a capture that declares no space at all:
+    +   // the runner's query-sweep tier, whose flat query has no window ancestry to read one from, and the
+    +-  // `appium-source`, `limrun-ios-tree` and `revyl-ios-tree` producers. Unnormalized landscape geometry measured on
+    ++  // `appium-source` and `revyl-ios-tree` producers. Unnormalized landscape geometry measured on
+    +   // iPhone 17 Pro reports a 162 x 327 key plane and a dock button at y 8 of a 402 pt viewport while
+    +   // the screenshot shows the keyboard full width across the bottom 327 pt. A band from that would
+    +   // refuse app content the keyboard is nowhere near while missing the keyboard itself, which is
+    +
+    + ## packages/kernel/src/snapshot-attach-refs.test.ts ##
+    +@@ packages/kernel/src/snapshot-attach-refs.test.ts: describe('snapshotRefMinting', () => {
+    +     { backend: 'xctest', producer: 'apple-runner' },
+    +     { backend: 'xctest', producer: 'simulator-ax-bridge' },
+    +     { backend: 'xctest', producer: 'appium-source' },
+    +-    { backend: 'xctest', producer: 'limrun-ios-tree' },
+    ++    { backend: 'xctest', producer: 'revyl-ios-tree' },
+    +     { backend: 'android', producer: 'android-uiautomator' },
+    +     { backend: 'android', producer: 'appium-source' },
+    +     { backend: 'harmonyos-arkui', producer: 'harmonyos-uitest' },
+    +
+    + ## packages/kernel/src/snapshot-provenance.test.ts ##
+    +@@ packages/kernel/src/snapshot-provenance.test.ts: test('the provenance table rejects cross-channel pairs at compile time', () => {
+    +   // @ts-expect-error the android channel cannot carry the apple-runner producer
+    +   const crossChannel: SnapshotProvenance = { backend: 'android', producer: 'apple-runner' };
+    +   // @ts-expect-error the web channel has exactly one producer
+    +-  const foreignProducer: SnapshotProvenance = { backend: 'web', producer: 'limrun-ios-tree' };
+    ++  const foreignProducer: SnapshotProvenance = { backend: 'web', producer: 'revyl-ios-tree' };
+    +   // @ts-expect-error a state pair may omit the producer but not carry a foreign one
+    +   const stateMismatch: SnapshotStateProvenance = {
+    +     backend: 'macos-helper',
+    +@@ packages/kernel/src/snapshot-provenance.test.ts: test('the provenance table rejects cross-channel pairs at compile time', () => {
+    + test('snapshotStateProvenance extracts exactly the pair', () => {
+    +   expect(snapshotStateProvenance(undefined)).toEqual({});
+    +   expect(snapshotStateProvenance({})).toEqual({});
+    +-  expect(snapshotStateProvenance({ backend: 'xctest', producer: 'limrun-ios-tree' })).toEqual({
+    ++  expect(snapshotStateProvenance({ backend: 'xctest', producer: 'revyl-ios-tree' })).toEqual({
+    +     backend: 'xctest',
+    +-    producer: 'limrun-ios-tree',
+    ++    producer: 'revyl-ios-tree',
+    +   });
+    + });
+    +
+    + ## packages/kernel/src/snapshot.ts ##
+    +@@ packages/kernel/src/snapshot.ts: export function formatRole(type: string): string {
+    + export type SnapshotProvenance =
+    +   | {
+    +       backend: 'xctest';
+    +-      producer:
+    +-        | 'apple-runner'
+    +-        | 'simulator-ax-bridge'
+    +-        | 'appium-source'
+    +-        | 'limrun-ios-tree'
+    +-        | 'revyl-ios-tree';
+    ++      producer: 'apple-runner' | 'simulator-ax-bridge' | 'appium-source' | 'revyl-ios-tree';
+    +     }
+    +   | { backend: 'android'; producer: 'android-uiautomator' | 'appium-source' | 'cdp-dom' }
+    +   | { backend: 'harmonyos-arkui'; producer: 'harmonyos-uitest' }
+     
+      ## packages/platform-apple/package.json ##
+     @@
+    @@ packages/platform-apple/package.json
+          "./simulator": {
+            "types": "./src/simulator-facade.ts",
+            "default": "./src/simulator-facade.ts"
+    -@@
+    -     }
+    -   },
+    -   "devDependencies": {
+    --    "@agent-device/test-kit": "workspace:*"
+    -+    "@agent-device/test-kit": "workspace:*",
+    -+    "plist": "5.0.0"
+    -   }
+    - }
+    -
+    - ## packages/platform-apple/src/core/plist.ts ##
+    -@@ packages/platform-apple/src/core/plist.ts: function readXmlPlistString(plist: string, key: string): string | undefined {
+    -   });
+    -   return result;
+    - }
+    -+
+    -+/** Parses downloaded app metadata on hosts without Apple's plist tools. */
+    -+export async function parseApplePlist(bytes: Uint8Array): Promise<Record<string, unknown> | null> {
+    -+  const { parse } = await import('plist');
+    -+  const binary = new TextDecoder().decode(bytes.subarray(0, 8)) === 'bplist00';
+    -+  const value = parse(binary ? bytes : new TextDecoder().decode(bytes));
+    -+  return value !== null && typeof value === 'object' && !Array.isArray(value)
+    -+    ? (value as Record<string, unknown>)
+    -+    : null;
+    -+}
+    -
+    - ## packages/platform-apple/src/core/runner-client.ts ##
+    -@@ packages/platform-apple/src/core/runner-client.ts: export async function runAppleRunnerCommand(
+    - }
+    - 
+    - export {
+    -+  RUNNER_STARTUP_TIMEOUT_MS,
+    -+  createLaunchedAppleRunnerProvider,
+    -+  mintRunnerToken,
+    -+  runnerListenerEnv,
+    -+  RUNNER_XCTESTRUN_CAPTURE_OPTIONS,
+    -   applyXctestRunnerAppIconFromDerivedPath,
+    -   cleanupRunnerLeasesForOwner,
+    -   detachIosRunnerSessionsForShutdown,
+    -
+    - ## packages/platform-apple/src/runner-operations-facade.ts ##
+    -@@
+    - export {
+    -+  RUNNER_STARTUP_TIMEOUT_MS,
+    -+  createLaunchedAppleRunnerProvider,
+    -+  mintRunnerToken,
+    -+  runnerListenerEnv,
+    -+  RUNNER_XCTESTRUN_CAPTURE_OPTIONS,
+    -   applyXctestRunnerAppIconFromDerivedPath,
+    -   detachIosRunnerSessionsForShutdown,
+    -   findRunnerXctestrun,
+     
+      ## packages/platform-apple/src/simctl-settings-facade.ts (deleted) ##
+     @@
+     -export { applySimctlSetting } from './core/simctl-settings.ts';
+     
+    - ## packages/platform-apple/src/tool-provider-facade.ts ##
+    -@@ packages/platform-apple/src/tool-provider-facade.ts: export {
+    -   runXcrun,
+    -   withAppleToolProvider,
+    - } from './core/tool-provider.ts';
+    -+
+    -+export async function parseApplePlist(bytes: Uint8Array): Promise<Record<string, unknown> | null> {
+    -+  const plist = await import('./core/plist.ts');
+    -+  return await plist.parseApplePlist(bytes);
+    -+}
+    - export type {
+    -   AppleMacOsHostProvider,
+    -   ApplePlistProvider,
+    -   AppleToolProvider,
+    -+  AppleToolExecOptions,
+    -   AppleToolSubcommandExecutor,
+    - } from './core/tool-provider.ts';
+    - 
+    -
+    - ## packages/provider-limrun/package.json ##
+    -@@
+    -     }
+    -   },
+    -   "devDependencies": {
+    -+    "@agent-device/platform-apple": "workspace:*",
+    -     "@limrun/api": "^0.68.1"
+    -   }
+    - }
+    -
+      ## packages/provider-limrun/src/alert-detection.fixtures.ts (deleted) ##
+     @@
+     -import type { IosTreeNode } from '@agent-device/capture-kit/ios-ax-tree';
+    @@ packages/provider-limrun/src/app-log-runtime-app-state.test.ts (new)
+     +  expect(getAppState).toHaveBeenCalledWith(device, scope.signal);
+     +});
+     +
+    -+test('iOS appstate propagates a failed runner read instead of falling back to cached session state', async () => {
+    ++test('iOS appstate propagates a failed runner read instead of falling back to the live instance probe', async () => {
+     +  const cause = new AppError('COMMAND_FAILED', 'Runner connection lost');
+     +  const runner = await createTestIosRunner(() => {
+     +    throw cause;
+    @@ packages/provider-limrun/src/app-log-runtime-app-state.test.ts (new)
+     
+      ## packages/provider-limrun/src/app-log-runtime.fixtures.ts ##
+     @@
+    ++import { setTimeout as sleep } from 'node:timers/promises';
+     +import { testIosRunner } from './ios-runner.fixtures.ts';
+      import type { PlatformRequestScope } from '@agent-device/contracts/platform-runtime-host';
+      import type { PlatformRuntimeHost } from '@agent-device/contracts/platform-runtime-operations';
+    @@ packages/provider-limrun/src/app-log-runtime.fixtures.ts: export function limrun
+          getInteractor: () => undefined,
+          getDeviceSession: () => undefined,
+          openCurrent: async () => undefined,
+    -@@ packages/provider-limrun/src/app-log-runtime.fixtures.ts: export function unusedLimrunHost(): PlatformRuntimeHost {
+    -   // These scenarios exercise validation and app-log ports only; every other host port is
+    -   // unreachable, so a narrow record beats restating the full platform-runtime host surface.
+    +@@ packages/provider-limrun/src/app-log-runtime.fixtures.ts: export function limrunOwnerOptions(
+    + }
+    + 
+    + export function unusedLimrunHost(): PlatformRuntimeHost {
+    +-  // These scenarios exercise validation and app-log ports only; every other host port is
+    +-  // unreachable, so a narrow record beats restating the full platform-runtime host surface.
+    ++  // Lifecycle scenarios use the clock; unrelated host ports remain inert.
+        return {
+    -+    clock: { now: () => Date.now(), sleep: async () => {} },
+    ++    clock: {
+    ++      now: () => Date.now(),
+    ++      sleep: async (milliseconds: number, signal?: AbortSignal) => {
+    ++        await sleep(milliseconds, undefined, { signal });
+    ++      },
+    ++    },
+          artifacts: {
+            resolveSession: (sessionId: string) => ({
+              outputPath: `/sessions/${sessionId}/app.log`,
+    @@ packages/provider-limrun/src/app-log-runtime.test.ts: test.each([
+     +      activity: '.MainActivity',
+     +    });
+     +  } else {
+    -+    expect(binding.operations.appState).toBeTypeOf('function');
+    ++    await expect(binding.operations.appState?.()).resolves.toEqual({});
+     +  }
+      });
+      
+    @@ packages/provider-limrun/src/deployment-runtime.test.ts: test.each([
+      });
+      
+      test.each([
+    +@@ packages/provider-limrun/src/deployment-runtime.test.ts: test.each([
+    +       installablePath: '/tmp/app.apk',
+    +       cleanup: async () => {},
+    +     }));
+    ++    const sendPushNotification = vi.fn(async () => ({}));
+    +     const base = unusedLimrunRuntimeHost();
+    +     const options = {
+    +       host: {
+     @@ packages/provider-limrun/src/deployment-runtime.test.ts: test.each([
+              androidDeployment: { ...base.androidDeployment, prepareArtifact: materializeAndroid },
+            },
+    @@ packages/provider-limrun/src/deployment-runtime.test.ts: test.each([
+     +      bindDeployment: async () => ({
+     +        deployApp,
+     +        deployMaterializedApp,
+    ++        sendPushNotification,
+     +        materializeAppSource: device.platform === 'apple' ? materializeApple : materializeAndroid,
+     +        uninstallApp: async () => ({ wasInstalled: false as const }),
+     +      }),
+    @@ packages/provider-limrun/src/deployment-runtime.test.ts: test.each([
+          }
+     -    expect(facts.sendPushNotification).toMatchObject({ available: false });
+     +    expect(facts.sendPushNotification).toMatchObject({ available: device.platform === 'apple' });
+    ++    if (device.platform === 'apple') {
+    ++      await operations.sendPushNotification?.({
+    ++        appId: 'com.example.app',
+    ++        payload: { aps: { alert: 'hello' } },
+    ++      });
+    ++      expect(sendPushNotification).toHaveBeenCalledOnce();
+    ++    }
+          await operations.deployApp?.({
+            app: 'com.example.app',
+            appPath: '/tmp/app',
+     @@ packages/provider-limrun/src/deployment-runtime.test.ts: test.each([
+    +   'aborts an in-flight Limrun %s callback with the binding signal',
+    +   async (_name, invoke) => {
+    +     const controller = new AbortController();
+    ++    let markStarted!: () => void;
+    ++    const started = new Promise<void>((resolve) => {
+    ++      markStarted = resolve;
+    ++    });
+    +     const abortReason = new Error('request cancelled during Limrun deployment');
+    +     const deployApp = vi.fn(async (_device, _input, signal?: AbortSignal) => {
+    +       expect(signal).toBe(controller.signal);
+    ++      markStarted();
+    +       return await rejectWhenAborted(signal);
+    +     });
+    +     const deployMaterializedApp = vi.fn(async (_device, _input, signal?: AbortSignal) => {
+    +       expect(signal).toBe(controller.signal);
+    ++      markStarted();
+    +       return await rejectWhenAborted(signal);
+    +     });
+    +     const operations = createLimrunAppDeploymentOperations(
+            {
+              host: unusedLimrunRuntimeHost(),
+              ownsDevice: () => true,
+    @@ packages/provider-limrun/src/deployment-runtime.test.ts: test.each([
+            },
+            limrunIosDevice,
+            controller.signal,
+    +     );
+    + 
+    +     const pending = invoke(operations);
+    ++    await started;
+    +     controller.abort(abortReason);
+    + 
+    +     await expect(pending).rejects.toBe(abortReason);
+     
+      ## packages/provider-limrun/src/deployment-runtime.ts ##
+     @@
+    @@ packages/provider-limrun/src/deployment-runtime.ts: export function createLimrun
+     
+      ## packages/provider-limrun/src/device-session.test.ts ##
+     @@
+    -+import { testIosRunner } from './ios-runner.fixtures.ts';
+    ++import { stubLimrunRuntimeDependencies } from './runtime-dependencies.fixtures.ts';
+      import assert from 'node:assert/strict';
+      import { test, vi } from 'vitest';
+    - import type { AppsFilter, DeviceLease } from '@agent-device/contracts/device';
+    -@@ packages/provider-limrun/src/device-session.test.ts: const downloadFile = vi.fn(async (_options: LimrunFileDownload) => undefined);
+    +-import type { AppsFilter, DeviceLease } from '@agent-device/contracts/device';
+    +-import type { Interactor } from '@agent-device/contracts/interactor-types';
+    ++import type { DeviceLease } from '@agent-device/contracts/device';
+    + import type { DeviceInfo } from '@agent-device/kernel/device';
+    +-import { AppError } from '@agent-device/kernel/errors';
+    +-import {
+    +-  androidAdbHostTarget,
+    +-  androidAdbInvocation,
+    +-  androidAdbSerialTarget,
+    +-} from '@agent-device/platform-android/mechanics';
+    ++import { testIosRunner } from './ios-runner.fixtures.ts';
+    + import type {
+    +   LimrunAdbExecutor,
+    +   LimrunAdbProvider,
+    +@@ packages/provider-limrun/src/device-session.test.ts: const IOS_APPS = [
+    + 
+    + const downloadFile = vi.fn(async (_options: LimrunFileDownload) => undefined);
+    + 
+    ++const baseDependencies = stubLimrunRuntimeDependencies();
+      const TEST_DEPENDENCIES = {
+    -   clientVersion: 'test-version',
+    +-  clientVersion: 'test-version',
+    ++  ...baseDependencies,
+        android: {
+    -+    bindDeployment: async () => {
+    -+      throw new Error('Unexpected deployment binding');
+    -+    },
+    -     createInteractor: () => ({}) as Interactor,
+    -     createPortReverse: async () => ({
+    -       ensure: async () => undefined,
+    +-    createInteractor: () => ({}) as Interactor,
+    +-    createPortReverse: async () => ({
+    +-      ensure: async () => undefined,
+    +-      remove: async () => undefined,
+    +-      removeAllOwned: async () => undefined,
+    +-    }),
+    +-    inferAppName: async () => 'Example',
+    +-    listApps: async (_adb: LimrunAdbExecutor, _filter: AppsFilter) => [
+    +-      { id: 'com.example.android', name: 'Example' },
+    +-    ],
+    +-    getForegroundApp: async () => ({
+    +-      appId: 'com.example.android',
+    +-      activity: '.MainActivity',
+    +-    }),
+    ++    ...baseDependencies.android,
+    ++    listApps: async () => [{ id: 'com.example.android', name: 'Example' }],
+    ++    getForegroundApp: async () => ({ appId: 'com.example.android', activity: '.MainActivity' }),
+    +     getKeyboardState: async () => ({ visible: false, inputOwner: 'unknown' as const }),
+    +     dismissKeyboard: async () => ({
+    +       visible: false,
+     @@ packages/provider-limrun/src/device-session.test.ts: const TEST_DEPENDENCIES = {
+    -     downloadFile,
+    -   },
+    -   ios: {
+    +       dismissed: false,
+    +     }),
+    +     readLogs: async () => 'log line\n',
+    +-    forceStopApp: async () => {},
+    +-    deviceAdbInvocation: (serial, command) =>
+    +-      androidAdbInvocation(androidAdbSerialTarget(serial), command),
+    +-    hostAdbInvocation: (command) => androidAdbInvocation(androidAdbHostTarget(), command),
+    +-    adbError: async (message) => new AppError('COMMAND_FAILED', message),
+    +-  },
+    +-  host: {
+    +-    runAdb: async () => adbResult(''),
+    +-    archiveDirectory: async () => undefined,
+    +-    downloadFile,
+    +-  },
+    +-  ios: {
+     -    applySimctlSetting: vi.fn(async () => undefined),
+    -+    createAppLogReader: ({ client }) => ({
+    -+      readLogs: async (app, limit) => client.appLogTail(app, limit),
+    -+      [Symbol.asyncDispose]: async () => {},
+    -+    }),
+    -+    createRunner: async () => {
+    -+      return testIosRunner;
+    -+    },
+    -     resolveAppAlias: async (app: string) => app,
+    -     readBundleAppName: async () => undefined,
+    +-    resolveAppAlias: async (app: string) => app,
+    +-    readBundleAppName: async () => undefined,
+        },
+    ++  host: { ...baseDependencies.host, runAdb: async () => adbResult(''), downloadFile },
+    + } satisfies LimrunRuntimeDependencies;
+    + 
+    + test('iOS device session exposes reusable capabilities without its raw client', async () => {
+     @@ packages/provider-limrun/src/device-session.test.ts: test('iOS device session exposes reusable capabilities without its raw client',
+        assert.equal('client' in session, false);
+      });
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: import type { Inter
+     +} from './facts-runtime.ts';
+     +import { limrunOwnerOptions } from './app-log-runtime.fixtures.ts';
+     +
+    -+function factsFor(device: DeviceInfo = iosDevice, unavailable?: unknown) {
+    -+  return (unavailable ? limrunAppLogRecoveryFacts : limrunAppLogFacts)(limrunOwnerOptions(), device)
+    ++function factsFor(device: DeviceInfo = iosDevice, liveSession = true) {
+    ++  return (liveSession ? limrunAppLogFacts : limrunAppLogRecoveryFacts)(limrunOwnerOptions(), device)
+     +    .operations;
+     +}
+      
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: test('the Android l
+      
+      test('a live session reads and writes the clipboard on both legs', () => {
+     -  const live = limrunClipboardOperationFacts();
+    -+  const live = factsFor();
+    -   expect(live.readClipboard).toEqual({ available: true });
+    -   expect(live.writeClipboard).toEqual({ available: true });
+    +-  expect(live.readClipboard).toEqual({ available: true });
+    +-  expect(live.writeClipboard).toEqual({ available: true });
+    ++  for (const device of [iosDevice, androidMobileDevice]) {
+    ++    const live = factsFor(device);
+    ++    expect(live.readClipboard).toEqual({ available: true });
+    ++    expect(live.writeClipboard).toEqual({ available: true });
+    ++  }
+      
+     -  const stale = limrunClipboardOperationFacts(liveSessionUnavailable);
+    -+  const stale = factsFor(iosDevice, liveSessionUnavailable);
+    ++  const stale = factsFor(iosDevice, false);
+        expect(stale.readClipboard).toEqual(liveSessionUnavailable);
+        expect(stale.writeClipboard).toEqual(liveSessionUnavailable);
+      });
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: test('home is admit
+     +  expect(ios.actionButton).toEqual({ available: true });
+      
+     -  const stale = limrunSystemButtonOperationFacts(androidMobileDevice, liveSessionUnavailable);
+    -+  const stale = factsFor(androidMobileDevice, liveSessionUnavailable);
+    ++  const stale = factsFor(androidMobileDevice, false);
+        expect(stale.home).toEqual(liveSessionUnavailable);
+        expect(stale.appSwitcher).toEqual(liveSessionUnavailable);
+        expect(stale.actionButton).toEqual(liveSessionUnavailable);
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: test('the Android l
+     -  expect(ios.mediaPlayPause).toEqual(ios.volumeUp);
+      
+     -  const stale = limrunSystemButtonOperationFacts(androidMobileDevice, liveSessionUnavailable);
+    -+  const stale = factsFor(androidMobileDevice, liveSessionUnavailable);
+    ++  const stale = factsFor(androidMobileDevice, false);
+        for (const cell of cells) {
+          expect(stale[cell]).toEqual(liveSessionUnavailable);
+        }
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: test('the Android l
+        });
+     -  expect(limrunAppEventOperationFacts(iosDevice).triggerAppEvent).toEqual({ available: true });
+     -  expect(limrunAppEventOperationFacts(iosDevice, liveSessionUnavailable).triggerAppEvent).toEqual(
+    +-    liveSessionUnavailable,
+    +-  );
+     +  expect(factsFor(iosDevice).triggerAppEvent).toEqual({ available: true });
+    -+  expect(factsFor(iosDevice, liveSessionUnavailable).triggerAppEvent).toEqual(
+    -     liveSessionUnavailable,
+    -   );
+    ++  expect(factsFor(iosDevice, false).triggerAppEvent).toEqual(liveSessionUnavailable);
+      });
+      
+     -test('the iOS leg serves the simctl settings only and reads nothing back', () => {
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: test('the iOS leg s
+     -      liveSessionUnavailable,
+     -    );
+     -    expect(limrunAlertOperationFacts(iosDevice, liveSessionUnavailable)[leg]).toEqual(
+    +-      liveSessionUnavailable,
+    +-    );
+     +    expect(factsFor(androidMobileDevice)[leg]).toEqual({ available: true });
+     +    expect(factsFor(iosDevice)[leg]).toEqual({ available: true });
+    -+    expect(factsFor(androidMobileDevice, liveSessionUnavailable)[leg]).toEqual(
+    -       liveSessionUnavailable,
+    -     );
+    -+    expect(factsFor(iosDevice, liveSessionUnavailable)[leg]).toEqual(liveSessionUnavailable);
+    ++    expect(factsFor(androidMobileDevice, false)[leg]).toEqual(liveSessionUnavailable);
+    ++    expect(factsFor(iosDevice, false)[leg]).toEqual(liveSessionUnavailable);
+        }
+      });
+      
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: test('the iOS leg s
+      
+      test('a dead session closes all three navigation cells with the same reason regardless of platform', () => {
+     -  const facts = limrunNavigationOperationFacts(androidTvDevice, liveSessionUnavailable);
+    -+  const facts = factsFor(androidTvDevice, liveSessionUnavailable);
+    ++  const facts = factsFor(androidTvDevice, false);
+        expect(facts.back).toEqual(liveSessionUnavailable);
+        expect(facts.setOrientation).toEqual(liveSessionUnavailable);
+        expect(facts.unlockOrientation).toEqual(liveSessionUnavailable);
+    @@ packages/provider-limrun/src/interaction-operations.test.ts: test('binding omits
+          available: true,
+        });
+     -  expect(limrunInteractionOperationFacts(iosDevice, liveSessionUnavailable).longPressPoint).toEqual(
+    -+  expect(factsFor(iosDevice, liveSessionUnavailable).longPressPoint).toEqual(
+    -     liveSessionUnavailable,
+    -   );
+    +-    liveSessionUnavailable,
+    +-  );
+    ++  expect(factsFor(iosDevice, false).longPressPoint).toEqual(liveSessionUnavailable);
+      });
+     
+      ## packages/provider-limrun/src/interaction-operations.ts ##
+    @@ packages/provider-limrun/src/ios-interactor-snapshot.test.ts
+     +import { createTestIosRunner, iosRunnerDevice } from './ios-runner.fixtures.ts';
+      
+     -test('limrun iOS snapshot stamps the xctest channel with its own producer', async () => {
+    -+test('an opened app remains the shared runner target across requests and home does not change it', async () => {
+    ++test('shared runner targets follow open, request overrides, home and close', async () => {
+     +  const commands: Record<string, unknown>[] = [];
+     +  const runner = await createTestIosRunner((command) => {
+     +    commands.push(command);
+    @@ packages/provider-limrun/src/ios-interactor-snapshot.test.ts
+     +      ],
+     +    };
+     +  });
+    ++  // Lifecycle effects are stubbed; this test exercises target propagation into shared snapshots.
+     +  const createInteractor = runner.createInteractor;
+     +  runner.createInteractor = (context) => ({
+     +    ...createInteractor(context),
+    @@ packages/provider-limrun/src/ios.ts: export async function installLimrunIosRemot
+     +    },
+     +  };
+     +  const shared = session.runner.createInteractor(context);
+    -+  const host = new LimrunIosHostInteractor(session, shared, runner?.signal);
+    ++  const host = new LimrunIosHostInteractor(session, shared, context);
+     +  return {
+     +    ...shared,
+     +    open: host.open.bind(host),
+    @@ packages/provider-limrun/src/ios.ts: export async function installLimrunIosRemot
+      
+     -  constructor(session: LimrunIosSession) {
+     +  private readonly signal?: AbortSignal;
+    ++  private readonly context: RunnerContext;
+     +  private readonly shared: Interactor;
+     +
+    -+  constructor(session: LimrunIosSession, shared: Interactor, signal?: AbortSignal) {
+    ++  constructor(session: LimrunIosSession, shared: Interactor, context: RunnerContext) {
+          this.session = session;
+     +    this.shared = shared;
+    -+    this.signal = signal;
+    ++    this.context = context;
+    ++    this.signal = context.signal;
+        }
+      
+     -  async open(app: string, options?: { url?: string; launchArgs?: string[] }): Promise<void> {
+    @@ packages/provider-limrun/src/ios.ts: export async function installLimrunIosRemot
+     +      (
+     +        await this.session.runner.applicationTools.resolveOpenTarget(this.session.device, {
+     +          target: app,
+    -+          currentAppBundleId: this.session.appBundleId,
+    ++          currentAppBundleId: this.context.appBundleId,
+     +          surface: 'app',
+     +        })
+     +      ).appBundleId;
+    @@ packages/provider-limrun/src/lifecycle.ts: type LimrunLifecycleParams = Readonly
+     
+      ## packages/provider-limrun/src/runtime-dependencies.fixtures.ts ##
+     @@
+    -+import { testIosRunner } from './ios-runner.fixtures.ts';
+    ++import { createTestIosRunner } from './ios-runner.fixtures.ts';
+      import type { AppsFilter } from '@agent-device/contracts/device';
+      import type { Interactor } from '@agent-device/contracts/interactor-types';
+      import { AppError } from '@agent-device/kernel/errors';
+    -@@ packages/provider-limrun/src/runtime-dependencies.fixtures.ts: export function stubLimrunRuntimeDependencies(): LimrunRuntimeDependencies {
+    +@@ packages/provider-limrun/src/runtime-dependencies.fixtures.ts: const NO_KEYBOARD = Object.freeze({
+    +  * fixed or a pass-through value, so a case that reaches one of them has left the path it means to drive. The
+    +  * pass-throughs are the ones that shape what they were handed into an invocation or an error, and they shape
+    +  * it the same way every time. A case with a reading of its own spreads this object and replaces the member it
+    +- * drives.
+    ++ * drives. The iOS factory binds a shared runtime to the session device and rejects unexpected commands.
+    +  */
+    + export function stubLimrunRuntimeDependencies(): LimrunRuntimeDependencies {
+        return {
+          clientVersion: 'test-version',
+          android: {
+    @@ packages/provider-limrun/src/runtime-dependencies.fixtures.ts: export function s
+     +        readLogs: async (app, limit) => client.appLogTail(app, limit),
+     +        [Symbol.asyncDispose]: async () => {},
+     +      }),
+    -+      createRunner: async () => testIosRunner,
+    ++      createRunner: async (session) =>
+    ++        createTestIosRunner(() => {
+    ++          throw new Error('Unexpected XCTest runner command');
+    ++        }, session.device),
+            resolveAppAlias: async (app) => app,
+            readBundleAppName: async () => undefined,
+          },
+    @@ packages/provider-revyl/src/interactor.test.ts: test('a screenshot canceled afte
+      
+      test('a canceled screenshot leaves the file unwritten', async () => {
+        // The worker is still composing the PNG when the caller hangs up. The request has to end there, and
+    +@@ packages/provider-revyl/src/interactor.test.ts: test('launch arguments are refused with the deep-link hint', async () => {
+    +     false,
+    +   );
+    + });
+    ++
+    ++test('a screenshot canceled while the local write is blocked removes its temporary file', async () => {
+    ++  const controller = new AbortController();
+    ++  const { interactor } = await liveInteractor('android', {}, { signal: controller.signal });
+    ++  const directory = await mkdtempForTest('agent-device-revyl-shot-blocked-');
+    ++  let started!: () => void;
+    ++  let release!: () => void;
+    ++  const entered = new Promise<void>((resolve) => {
+    ++    started = resolve;
+    ++  });
+    ++  const blocked = new Promise<void>((resolve) => {
+    ++    release = resolve;
+    ++  });
+    ++  const writeFile = fs.writeFile.bind(fs);
+    ++  const write = vi.spyOn(fs, 'writeFile').mockImplementation(async (...args) => {
+    ++    if (typeof args[0] === 'string' && path.dirname(args[0]) === directory) {
+    ++      started();
+    ++      await blocked;
+    ++    }
+    ++    return await writeFile(...args);
+    ++  });
+    ++  try {
+    ++    const pending = interactor.screenshot(path.join(directory, 'shot.png'));
+    ++    const rejected = assert.rejects(
+    ++      pending,
+    ++      (error: unknown) => error instanceof AppError && error.details?.reason === 'request_canceled',
+    ++    );
+    ++    await entered;
+    ++    controller.abort();
+    ++    release();
+    ++    await rejected;
+    ++    assert.deepEqual(await fs.readdir(directory), []);
+    ++  } finally {
+    ++    release();
+    ++    write.mockRestore();
+    ++  }
+    ++});
+     
+    - ## pnpm-lock.yaml ##
+    -@@ pnpm-lock.yaml: importers:
+    -       oxlint:
+    -         specifier: ^1.79.0
+    -         version: 1.79.0
+    -+      plist:
+    -+        specifier: 5.0.0
+    -+        version: 5.0.0
+    -       pngjs:
+    -         specifier: ^7.0.0
+    -         version: 7.0.0
+    -@@ pnpm-lock.yaml: importers:
+    -         version: link:../test-kit
+    -       vitest:
+    -         specifier: 5.0.4
+    --        version: 5.0.4(@types/node@22.20.1)(@vitest/coverage-v8@5.0.4)(vite@8.3.5(@types/node@22.20.1)(yaml@2.9.1))
+    -+        version: 5.0.4(@types/node@22.20.1)(@vitest/coverage-v8@5.0.4)(vite@8.3.5(@types/node@26.2.0)(yaml@2.9.1))
+    - 
+    -   packages/command-output:
+    -     dependencies:
+    -@@ pnpm-lock.yaml: importers:
+    -         version: link:../test-kit
+    -       vitest:
+    -         specifier: 5.0.4
+    --        version: 5.0.4(@types/node@22.20.1)(@vitest/coverage-v8@5.0.4)(vite@8.3.5(@types/node@22.20.1)(yaml@2.9.1))
+    -+        version: 5.0.4(@types/node@22.20.1)(@vitest/coverage-v8@5.0.4)(vite@8.3.5(@types/node@26.2.0)(yaml@2.9.1))
+    - 
+    -   packages/contracts:
+    -     dependencies:
+    -@@ pnpm-lock.yaml: importers:
+    -       '@agent-device/test-kit':
+    -         specifier: workspace:*
+    -         version: link:../test-kit
+    -+      plist:
+    -+        specifier: 5.0.0
+    -+        version: 5.0.0
+    - 
+    -   packages/platform-harmonyos:
+    -     dependencies:
+    -@@ pnpm-lock.yaml: importers:
+    -         specifier: workspace:*
+    -         version: link:../platform-android
+    -     devDependencies:
+    -+      '@agent-device/platform-apple':
+    -+        specifier: workspace:*
+    -+        version: link:../platform-apple
+    -       '@limrun/api':
+    -         specifier: ^0.68.1
+    -         version: 0.68.1(supports-color@7.2.0)
+    -@@ pnpm-lock.yaml: packages:
+    -   '@workflow/serde@4.1.0':
+    -     resolution: {integrity: sha512-pav4F2BoirECWR7Nf1TKt+2eETcBj7jj4cBefQ8VXQCA6NPkaKeLfj/zMgi+3zYV5ZIBT4GuUiphsj0/b9hPQQ==}
+    - 
+    -+  '@xmldom/xmldom@0.9.12':
+    -+    resolution: {integrity: sha512-5AXjrcMClTryPe9LgZrygpB1lj7s0S9E0+W+AHaVKAVyHanafK86iPSvG5xHVSp/jC+VH1UXu0TAEmY279xH7A==}
+    -+    engines: {node: '>=14.6'}
+    -+
+    -   '@yuku-codegen/binding-android-arm64@0.8.7':
+    -     resolution: {integrity: sha512-C/0zV5IhgVdYhGJTwrY0v8dknxlhiKwtVJkMUaexu9/QvRmzlV4vfU3hZlUSgqc2BxQHntL1mCVbDq8j0FRFDw==}
+    -     cpu: [arm64]
+    -@@ pnpm-lock.yaml: packages:
+    -     engines: {node: '>=20'}
+    -     hasBin: true
+    - 
+    -+  plist@5.0.0:
+    -+    resolution: {integrity: sha512-20N+g1DvMm/DFRbsvER7tT4wDryq0WunK7VMkDaiJcKNapAnUMkTsAnacFYf8n420F4Hf6/hefgmJRkMb1M0fg==}
+    -+    engines: {node: '>=18'}
+    -+
+    -   pngjs@7.0.0:
+    -     resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
+    -     engines: {node: '>=14.19.0'}
+    -@@ pnpm-lock.yaml: packages:
+    -     resolution: {integrity: sha512-9K2k72s4n7rV9s4bX0MyjbX9iBribvKZbBJKuEmTCZfeWJXs6Yh7bGpY4eoc7UufAjvpheBqwyZCOIPBvxCv0A==}
+    -     peerDependencies:
+    -       '@volar/language-service': ~2.4.0
+    --      typescript: '*'
+    -     peerDependenciesMeta:
+    -       '@volar/language-service':
+    -         optional: true
+    --      typescript:
+    --        optional: true
+    - 
+    -   volar-service-typescript@0.0.71:
+    -     resolution: {integrity: sha512-yTtM/BVT6hoyEYnDtaCyAtNhdNeS/mhTTABlBOdw3NNiRBUin3IznFJpgfjer4c6RYopiPjjQjc9VFhxVl1mLw==}
+    -     peerDependencies:
+    -       '@volar/language-service': ~2.4.0
+    --      typescript: '*'
+    -     peerDependenciesMeta:
+    -       '@volar/language-service':
+    -         optional: true
+    --      typescript:
+    --        optional: true
+    - 
+    -   volar-service-yaml@0.0.71:
+    -     resolution: {integrity: sha512-qYGWGuVpUTnZGu5P/CR4KLK4aIR8RrcVnmfZ2eRcj9q/I8VZCoC5yy9FtEvfNvnDp4MU17yhdJcvpQPIqhJS2Q==}
+    -@@ pnpm-lock.yaml: packages:
+    -       utf-8-validate:
+    -         optional: true
+    - 
+    -+  xmlbuilder@15.1.1:
+    -+    resolution: {integrity: sha512-yMqGBqtXyeN1e3TGYvgNgDVZ3j84W4cwkOXQswghol6APgZWaff9lnbvN7MHYJOiXsvGPXtjTYJEiC9J2wv9Eg==}
+    -+    engines: {node: '>=8.0'}
+    -+
+    -   xxhash-wasm@1.1.0:
+    -     resolution: {integrity: sha512-147y/6YNh+tlp6nd/2pWq38i9h6mz/EuQ6njIrmW8D1BS5nCqs0P6DG+m6zTGnNz5I+uhZ0SHxBs9BsPrwcKDA==}
+    - 
+    -@@ pnpm-lock.yaml: snapshots:
+    -       volar-service-emmet: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))
+    -       volar-service-html: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))
+    -       volar-service-prettier: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))(prettier@3.9.10)
+    --      volar-service-typescript: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))(typescript@5.9.3)
+    --      volar-service-typescript-twoslash-queries: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))(typescript@5.9.3)
+    -+      volar-service-typescript: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))
+    -+      volar-service-typescript-twoslash-queries: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))
+    -       volar-service-yaml: 0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))
+    -       vscode-html-languageservice: 5.6.2
+    -       vscode-uri: 3.2.0
+    -@@ pnpm-lock.yaml: snapshots:
+    -     optionalDependencies:
+    -       vite: 8.3.5(@types/node@22.20.1)(yaml@2.9.0)
+    - 
+    --  '@vitest/mocker@5.0.4(vite@8.3.5(@types/node@22.20.1)(yaml@2.9.1))':
+    -+  '@vitest/mocker@5.0.4(vite@8.3.5(@types/node@26.2.0)(yaml@2.9.1))':
+    -     dependencies:
+    -       '@jridgewell/trace-mapping': 0.3.31
+    -       '@vitest/spy': 5.0.4
+    -       estree-walker: 3.0.3
+    -       magic-string: 1.4.3
+    -     optionalDependencies:
+    --      vite: 8.3.5(@types/node@22.20.1)(yaml@2.9.1)
+    -+      vite: 8.3.5(@types/node@26.2.0)(yaml@2.9.1)
+    - 
+    -   '@vitest/spy@5.0.4': {}
+    - 
+    -@@ pnpm-lock.yaml: snapshots:
+    - 
+    -   '@workflow/serde@4.1.0': {}
+    - 
+    -+  '@xmldom/xmldom@0.9.12': {}
+    -+
+    -   '@yuku-codegen/binding-android-arm64@0.8.7':
+    -     optional: true
+    - 
+    -@@ pnpm-lock.yaml: snapshots:
+    - 
+    -   playwright-core@1.64.1: {}
+    - 
+    -+  plist@5.0.0:
+    -+    dependencies:
+    -+      '@xmldom/xmldom': 0.9.12
+    -+      xmlbuilder: 15.1.1
+    -+
+    -   pngjs@7.0.0: {}
+    - 
+    -   postcss-nested@7.0.2(postcss@8.5.23):
+    -@@ pnpm-lock.yaml: snapshots:
+    -       fsevents: 2.3.3
+    -       yaml: 2.9.1
+    - 
+    -+  vite@8.3.5(@types/node@26.2.0)(yaml@2.9.1):
+    -+    dependencies:
+    -+      lightningcss: 1.33.0
+    -+      picomatch: 4.0.7
+    -+      postcss: 8.5.23
+    -+      rolldown: 1.2.15
+    -+      tinyglobby: 0.2.17
+    -+    optionalDependencies:
+    -+      '@types/node': 26.2.0
+    -+      fsevents: 2.3.3
+    -+      yaml: 2.9.1
+    -+
+    -   vitefu@1.1.3(vite@8.3.5(@types/node@22.20.1)(yaml@2.9.1)):
+    -     optionalDependencies:
+    -       vite: 8.3.5(@types/node@22.20.1)(yaml@2.9.1)
+    -@@ pnpm-lock.yaml: snapshots:
+    -     transitivePeerDependencies:
+    -       - msw
+    - 
+    --  vitest@5.0.4(@types/node@22.20.1)(@vitest/coverage-v8@5.0.4)(vite@8.3.5(@types/node@22.20.1)(yaml@2.9.1)):
+    -+  vitest@5.0.4(@types/node@22.20.1)(@vitest/coverage-v8@5.0.4)(vite@8.3.5(@types/node@26.2.0)(yaml@2.9.1)):
+    -     dependencies:
+    -       '@types/chai': 5.2.3
+    --      '@vitest/mocker': 5.0.4(vite@8.3.5(@types/node@22.20.1)(yaml@2.9.1))
+    -+      '@vitest/mocker': 5.0.4(vite@8.3.5(@types/node@26.2.0)(yaml@2.9.1))
+    -       chai: 6.3.0
+    -       es-module-lexer: 2.3.2
+    -       expect-type: 1.4.0
+    -@@ pnpm-lock.yaml: snapshots:
+    -       tinybench: 6.2.2
+    -       tinyexec: 1.3.1
+    -       tinyglobby: 0.2.17
+    --      vite: 8.3.5(@types/node@22.20.1)(yaml@2.9.1)
+    -+      vite: 8.3.5(@types/node@26.2.0)(yaml@2.9.1)
+    -       why-is-node-running: 3.2.1
+    -     optionalDependencies:
+    -       '@types/node': 22.20.1
+    -@@ pnpm-lock.yaml: snapshots:
+    -       '@volar/language-service': 2.4.30(typescript@5.9.3)
+    -       prettier: 3.9.10
+    - 
+    --  volar-service-typescript-twoslash-queries@0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))(typescript@5.9.3):
+    -+  volar-service-typescript-twoslash-queries@0.0.71(@volar/language-service@2.4.30(typescript@5.9.3)):
+    -     dependencies:
+    -       vscode-uri: 3.2.0
+    -     optionalDependencies:
+    -       '@volar/language-service': 2.4.30(typescript@5.9.3)
+    --      typescript: 5.9.3
+    - 
+    --  volar-service-typescript@0.0.71(@volar/language-service@2.4.30(typescript@5.9.3))(typescript@5.9.3):
+    -+  volar-service-typescript@0.0.71(@volar/language-service@2.4.30(typescript@5.9.3)):
+    -     dependencies:
+    -       path-browserify: 1.0.1
+    -       semver: 7.8.5
+    -@@ pnpm-lock.yaml: snapshots:
+    -       vscode-uri: 3.2.0
+    -     optionalDependencies:
+    -       '@volar/language-service': 2.4.30(typescript@5.9.3)
+    --      typescript: 5.9.3
+    - 
+    -   volar-service-yaml@0.0.71(@volar/language-service@2.4.30(typescript@5.9.3)):
+    -     dependencies:
+    -@@ pnpm-lock.yaml: snapshots:
+    - 
+    -   ws@8.21.3: {}
+    - 
+    -+  xmlbuilder@15.1.1: {}
+    -+
+    -   xxhash-wasm@1.1.0: {}
+    - 
+    -   y18n@5.0.8: {}
+    + ## scripts/__tests__/eager-closure-budgets.ts ##
+    +@@ scripts/__tests__/eager-closure-budgets.ts: const APPLE_DOMAIN_MECHANICS_ENTRY_FILES: ReadonlySet<string> = new Set([
+    +   'packages/platform-apple/src/runner-operations-facade.ts',
+    +   'packages/platform-apple/src/runner-owner-facade.ts',
+    +   'packages/platform-apple/src/simctl-facade.ts',
+    +-  'packages/platform-apple/src/simctl-settings-facade.ts',
+    +   'packages/platform-apple/src/simulator-facade.ts',
+    +   'packages/platform-apple/src/tool-provider-facade.ts',
+    + ]);
+     
+      ## scripts/capability-matrix/annotations.ts ##
+     @@ scripts/capability-matrix/annotations.ts: export const MATRIX_SECTIONS: readonly MatrixSection[] = [
+    @@ scripts/capability-matrix/annotations.ts: export const MATRIX_SECTIONS: readonly
+              cells: {
+                'limrun-ios': {
+     -            text: 'Last opened app, once the instance answers; no foreground read',
+    -+            text: 'Session app state from XCTest; instance check when the runner is idle',
+    ++            text: 'XCTest foreground state; without runner state, checks the instance and returns session identity only',
+                },
+              },
+              note: 'On iOS and macOS a bound session that owns an app identity or surface answers this from its own state, even where the sessionless probe cannot see a foreground app.',
+    @@ scripts/capability-matrix/collect.ts: async function limrunSupport(
+          { includePlatformModule: true },
+        );
+     
+    + ## scripts/capability-matrix/seams.ts ##
+    +@@ scripts/capability-matrix/seams.ts: const limrunInstanceClientStub = `
+    + const handlers = {
+    +   deviceInfo: { screenWidth: 393, screenHeight: 852 },
+    +   disconnect: async () => {},
+    +-  elementTree: async () => ({ type: 'Application', children: [] }),
+    + };
+    + export const createInstanceClient = async () => handlers;
+    + export default { createInstanceClient };
+    +
+      ## scripts/layering/package-boundaries.test.ts ##
+     @@ scripts/layering/package-boundaries.test.ts: test('the real tree parses, declares, and passes R11', () => {
+          '@agent-device/platform-apple/runner/operations',
+    @@ scripts/layering/platform-package-policy.ts: const MECHANICS_FACET_SUBPATHS: Rea
+          '@agent-device/platform-apple/simulator-boot',
+          '@agent-device/platform-apple/tool-provider',
+     
+    - ## scripts/package-ios-simulator-runner.sh ##
+    -@@ scripts/package-ios-simulator-runner.sh: elif [ -d "$STAGED_APP_PATH/Frameworks/Testing.framework" ] &&
+    -   echo "Testing.framework requires lib_TestingInterop.dylib, but it was not found at $INTEROP_LIBRARY" >&2
+    -   exit 1
+    - fi
+    -+# Swift Testing loads overlays at runtime; keep them from the same toolchain as its bundled framework.
+    -+if [ -d "$STAGED_APP_PATH/Frameworks/Testing.framework" ]; then
+    -+  for FRAMEWORK in "$PLATFORM_PATH"/Developer/Library/Frameworks/_Testing_*.framework; do
+    -+    if [ -d "$FRAMEWORK" ]; then
+    -+      ditto "$FRAMEWORK" "$STAGED_APP_PATH/Frameworks/$(basename "$FRAMEWORK")"
+    -+    fi
+    -+  done
+    -+fi
+    - rm -f "$ARCHIVE_PATH"
+    - (
+    -   cd "$STAGE_DIR"
+    + ## scripts/layering/snapshot-assembly-presentation-policy.ts ##
+    +@@ scripts/layering/snapshot-assembly-presentation-policy.ts: const IOS_PROVENANCE_LITERALS: ReadonlySet<string> = new Set([
+    +   'apple-runner',
+    +   'simulator-ax-bridge',
+    +   'appium-source',
+    +-  'limrun-ios-tree',
+    +   'revyl-ios-tree',
+    + ]);
+    + 
+     
+      ## src/__tests__/limrun-runtime.test.ts ##
+     @@ src/__tests__/limrun-runtime.test.ts: const limrunMockState = vi.hoisted(() => {
+    @@ src/__tests__/limrun-runtime.test.ts: vi.mock('@limrun/api', () => ({
+     +  const actual = await importOriginal<typeof import('@limrun/api/ios-client')>();
+     +  limrunMockState.iosSimctl.mockImplementation((args: string[]) => {
+     +    const execution = new actual.SimctlExecution(() => {});
+    -+    if (args[0] === 'list')
+    -+      execution._handleStdout(
+    -+        Buffer.from(
+    -+          JSON.stringify({ devices: { ios: [{ udid: 'ios-device', state: 'Booted' }] } }),
+    -+        ),
+    -+      );
+    -+    execution._handleExit(0);
+    ++    vi.spyOn(execution, 'wait').mockResolvedValue({
+    ++      code: 0,
+    ++      stdout:
+    ++        args[0] === 'list'
+    ++          ? JSON.stringify({ devices: { ios: [{ udid: 'ios-device', state: 'Booted' }] } })
+    ++          : '',
+    ++      stderr: '',
+    ++    });
+     +    return execution;
+     +  });
+     +  return {
+    @@ src/__tests__/limrun-runtime.test.ts: test('Limrun iOS reads the bundle display
+        const runtime = new LimrunRuntime({
+          apiKey: 'lim_test_key',
+     
+    + ## src/__tests__/snapshot-desktop-surface.test.ts ##
+    +@@ src/__tests__/snapshot-desktop-surface.test.ts: test('iOS snapshot host presents provider facts and keeps raw truncation evidenc
+    +   const acquired: SnapshotRuntimeAcquiredResult = {
+    +     stage: 'acquired',
+    +     acquisition: {
+    +-      producer: 'limrun-ios-tree',
+    ++      producer: 'revyl-ios-tree',
+    +       intent: 'full',
+    +       nodes: [
+    +         {
+    +@@ src/__tests__/snapshot-desktop-surface.test.ts: test('iOS snapshot host presents provider facts and keeps raw truncation evidenc
+    + 
+    +   const host = createHost();
+    +   const regular = await host.presentIosAcquisition(acquired, {});
+    +-  expect(regular).toMatchObject({ backend: 'xctest', producer: 'limrun-ios-tree' });
+    ++  expect(regular).toMatchObject({ backend: 'xctest', producer: 'revyl-ios-tree' });
+    +   expect(regular.nodes?.map((node) => node.label)).toEqual(['App', 'Continue']);
+    +   expect(regular.nodes?.[1]).not.toHaveProperty('hittable');
+    +   expect(regular.warnings).toHaveLength(3);
+    +
+      ## src/commands/schema/cli-help-first-screen.test.ts ##
+     @@ src/commands/schema/cli-help-first-screen.test.ts: const FIRST_SCREEN_RULES: Record<string, readonly string[]> = {
+        debugging: [
+    @@ src/core/interactors/limrun-ios-app-logs.test.ts (new)
+     +    streams.push(value);
+     +    return value;
+     +  };
+    -+  const client = { streamAppLog: stream, streamSyslog: stream } as unknown as InstanceClient;
+    ++  const client = {
+    ++    streamAppLog: stream,
+    ++    streamSyslog: stream,
+    ++    appLogTail: vi.fn(async () => ''),
+    ++  } as unknown as InstanceClient;
+     +  const dependencies = createLimrunRuntimeDependencies({ env: {}, cwd: f.directory });
+     +  const reader = dependencies.ios.createAppLogReader({ ...f.session, client });
+     +  const read = () => reader.readLogs('com.example.app', 100, new AbortController().signal);
+    -+  return { reader, read, streams, storage: f.storage };
+    ++  return { reader, read, streams, storage: f.storage, client };
+     +}
+     +
+     +test('app logs retain repeated console lines and matching syslog without matching message text', async () => {
+    @@ src/core/interactors/limrun-ios-app-logs.test.ts (new)
+     +    }
+     +  },
+     +);
+    ++
+    ++test('a new log reader returns retained app output on its first poll', async () => {
+    ++  const f = await logFixture();
+    ++  vi.mocked(f.client.appLogTail).mockResolvedValue('before reconnect\nlast line');
+    ++  try {
+    ++    expect(await f.read()).toBe('before reconnect\nlast line');
+    ++  } finally {
+    ++    await f.reader[Symbol.asyncDispose]();
+    ++  }
+    ++});
+     
+      ## src/core/interactors/limrun-ios-app-logs.ts (new) ##
+     @@
+    ++import { awaitWithSignal } from '@agent-device/kernel/await-with-signal';
+     +import type { LimrunRuntimeDependencies } from '@agent-device/provider-limrun';
+     +import type { ProviderAppLogReader } from '@agent-device/capture-kit/provider-app-log';
+     +import type { LogStream } from '@limrun/api/ios-client';
+    @@ src/core/interactors/limrun-ios-app-logs.ts (new)
+     +          activeApp = app;
+     +        }
+     +        try {
+    ++          // Read retained console history before subscribing; restarting the collector must not lose it.
+    ++          const history = await awaitWithSignal(input.client.appLogTail(app, limit), bounded);
+    ++          lines.length = 0;
+    ++          bytes = 0;
+    ++          for (const line of history.split('\n')) if (line) append(line);
+     +          start(app);
+     +        } catch (error) {
+     +          stop();
+    @@ src/core/interactors/limrun-ios-files.fixtures.ts (new)
+     +  failFileMethod?: string;
+     +  failFileStatus?: number;
+     +  holdFileDownload?: boolean;
+    ++  invalidUploadReply?: boolean;
+     +  onFileDownload?: () => void;
+     +};
+     +
+    @@ src/core/interactors/limrun-ios-files.fixtures.ts (new)
+     +      if (key === name || key.startsWith(`${name}/`)) directories.delete(key);
+     +  };
+     +  const downloads: Array<() => void> = [];
+    ++  const serveDownload = (name: string, response: ServerResponse): void => {
+    ++    const bytes = files.get(name);
+    ++    if (!bytes) {
+    ++      response.writeHead(404).end('File not found');
+    ++      return;
+    ++    }
+    ++    response.writeHead(200, { 'Content-Type': 'application/octet-stream' });
+    ++    response.write(bytes);
+    ++    options.onFileDownload?.();
+    ++    if (options.holdFileDownload) downloads.push(() => response.end());
+    ++    else response.end();
+    ++  };
+     +  const serve = (request: IncomingMessage, response: ServerResponse, body: Buffer): boolean => {
+     +    const url = new URL(request.url!, 'http://fixture');
+     +    if (!['/v1/ios_test/api/files', '/v1/ios_test/api/files/list'].includes(url.pathname))
+    @@ src/core/interactors/limrun-ios-files.fixtures.ts (new)
+     +      response.end(JSON.stringify({ entries: [...names].map((name) => ({ name, path: name })) }));
+     +    } else if (method === 'PUT') {
+     +      put(root, name, body);
+    -+      response.end(JSON.stringify({ path: `/staging/${name}` }));
+    ++      response.end(
+    ++        options.invalidUploadReply ? 'invalid-json' : JSON.stringify({ path: `/staging/${name}` }),
+    ++      );
+     +    } else if (method === 'DELETE') {
+     +      remove(root + name);
+     +      response.end(JSON.stringify({ ok: true }));
+     +    } else {
+    -+      const bytes = files.get(root + name);
+    -+      if (!bytes) {
+    -+        response.writeHead(404).end('File not found');
+    -+        return true;
+    -+      }
+    -+      response.writeHead(200, { 'Content-Type': 'application/octet-stream' });
+    -+      response.write(bytes);
+    -+      options.onFileDownload?.();
+    -+      if (options.holdFileDownload) downloads.push(() => response.end());
+    -+      else response.end();
+    ++      serveDownload(root + name, response);
+     +    }
+     +    return true;
+     +  };
+    @@ src/core/interactors/limrun-ios-files.test.ts (new)
+     +  } finally {
+     +    timeout.mockRestore();
+     +  }
+    ++});
+    ++
+    ++test('a failed upload reply removes the staged file before rejecting', async () => {
+    ++  const f = await fixture({ invalidUploadReply: true });
+    ++  const local = path.join(f.directory, 'push.apns');
+    ++  await fs.writeFile(local, '{}');
+    ++  const tools = createLimrunAppleToolProvider(f.session, new AbortController().signal);
+    ++  await expect(tools.simulatorFiles.stageFile(local)).rejects.toThrow();
+    ++  expect([...f.storage.files.keys()]).toEqual([]);
+    ++  expect(f.storage.calls.map((call) => call.method)).toEqual(['PUT', 'DELETE']);
+    ++});
+    ++
+    ++test('concurrent metadata reads do not inherit another caller cancellation', async () => {
+    ++  const f = await fixture({
+    ++    holdFileDownload: true,
+    ++    containers: { 'com.example.app': { app: { 'Info.plist': plist('exp+example') } } },
+    ++  });
+    ++  const tools = createLimrunAppleToolProvider(f.session, new AbortController().signal);
+    ++  const canceled = new AbortController();
+    ++  const input = { device: f.device, bundleId: 'com.example.app', timeoutMs: 5000 };
+    ++  const first = tools.simulatorApps.readInfoPlist({ ...input, signal: canceled.signal });
+    ++  const failed = expect(first).rejects.toMatchObject({ details: { reason: 'request_canceled' } });
+    ++  const second = tools.simulatorApps.readInfoPlist(input);
+    ++  await vi.waitFor(() =>
+    ++    expect(f.storage.calls.filter((call) => call.method === 'GET')).toHaveLength(2),
+    ++  );
+    ++  canceled.abort();
+    ++  await failed;
+    ++  f.storage.finishDownloads();
+    ++  await expect(second).resolves.toMatchObject({ CFBundleExecutable: 'Example' });
+     +});
+     
+      ## src/core/interactors/limrun-ios-files.ts (new) ##
+    @@ src/core/interactors/limrun-ios-files.ts (new)
+     +    },
+     +    stageFile: async (localPath, inputSignal) => {
+     +      const url = urlFor('files', `agent-device-${randomUUID()}${path.extname(localPath)}`);
+    ++      const remove = () =>
+    ++        operation({ requestCancellation: 'ignore', timeoutMs: 15_000 }, async (signal) => {
+    ++          const response = await request('DELETE', url, signal);
+    ++          await response.body?.cancel();
+    ++        });
+     +      const result = await operation({ signal: inputSignal }, async (signal) => {
+     +        const response = await request(
+     +          'PUT',
+    @@ src/core/interactors/limrun-ios-files.ts (new)
+     +          await fs.readFile(localPath, { signal }),
+     +        );
+     +        return (await response.json()) as { path: string };
+    ++      }).catch(async (error: unknown) => {
+    ++        await remove().catch(() => {});
+    ++        throw error;
+     +      });
+     +      return {
+     +        path: result.path,
+    -+        [Symbol.asyncDispose]: () =>
+    -+          operation({ requestCancellation: 'ignore', timeoutMs: 15_000 }, async (signal) => {
+    -+            const response = await request('DELETE', url, signal);
+    -+            await response.body?.cancel();
+    -+          }),
+    ++        [Symbol.asyncDispose]: remove,
+     +      };
+     +    },
+     +  };
+    -+  const metadata = new Map<string, Promise<Record<string, unknown> | null>>();
+    ++  const metadata = new Map<string, Record<string, unknown> | null>();
+     +
+     +  return {
+     +    simulatorFiles: files,
+     +    readInfoPlist: async (input) => {
+     +      const key = input.bundleId;
+    -+      let pending = metadata.get(key);
+    -+      if (!pending) {
+    -+        pending = readLimrunAppInfo(
+    -+          session,
+    -+          input.bundleId,
+    -+          signalFor(input.signal),
+    -+          input.timeoutMs,
+    -+        );
+    -+        metadata.set(key, pending);
+    -+      }
+    -+      try {
+    -+        return await pending;
+    -+      } catch (error) {
+    -+        metadata.delete(key);
+    -+        throw error;
+    -+      }
+    ++      if (metadata.has(key)) return metadata.get(key)!;
+    ++      const info = await readLimrunAppInfo(
+    ++        session,
+    ++        input.bundleId,
+    ++        signalFor(input.signal),
+    ++        input.timeoutMs,
+    ++      );
+    ++      metadata.set(key, info);
+    ++      return info;
+     +    },
+     +  };
+     +}
+    @@ src/core/interactors/limrun-ios-files.ts (new)
+     +  } finally {
+     +    await fs.rm(directory, { recursive: true, force: true });
+     +  }
+    ++}
+    +
+    + ## src/core/interactors/limrun-ios-runner-errors.test.ts (new) ##
+    +@@
+    ++import { expect, test } from 'vitest';
+    ++import { AppError } from '@agent-device/kernel/errors';
+    ++import { withLimrunRunnerErrors } from './limrun-ios-runner-errors.ts';
+    ++
+    ++test.each(['capture-failed', 'budget'] as const)(
+    ++  'reports %s snapshot failure with a remote recovery hint',
+    ++  async (reasonCode) => {
+    ++    const error = new AppError('COMMAND_FAILED', 'invalid viewport', {
+    ++      reason: 'invalid-viewport',
+    ++      snapshotQuality: { state: 'sparse', reasonCode },
+    ++    });
+    ++    await expect(
+    ++      withLimrunRunnerErrors(async () => {
+    ++        throw error;
+    ++      }),
+    ++    ).rejects.toMatchObject({
+    ++      code: 'COMMAND_FAILED',
+    ++      details: {
+    ++        reason: 'limrun_runner_snapshot_unavailable',
+    ++        hint: expect.stringContaining('recreate the Limrun instance'),
+    ++        snapshotQuality: { reasonCode },
+    ++      },
+    ++      cause: error,
+    ++    });
+    ++  },
+    ++);
+    ++
+    ++test('does not classify matching text without capture-failure evidence', async () => {
+    ++  const error = new AppError(
+    ++    'COMMAND_FAILED',
+    ++    'the XCTest tree capture exceeded its 8s time slice',
+    ++    { reason: 'invalid-viewport' },
+    ++  );
+    ++  await expect(
+    ++    withLimrunRunnerErrors(async () => {
+    ++      throw error;
+    ++    }),
+    ++  ).rejects.toBe(error);
+    ++});
+    ++
+    ++test('shared startup failures retain their reason with a remote toolchain recovery hint', async () => {
+    ++  const error = new AppError('COMMAND_FAILED', 'Runner did not accept connection', {
+    ++    reason: 'IOS_RUNNER_CONNECT_TIMEOUT',
+    ++    runnerConnectFailureReason: 'runner_connect_refused',
+    ++  });
+    ++  await expect(
+    ++    withLimrunRunnerErrors(async () => {
+    ++      throw error;
+    ++    }),
+    ++  ).rejects.toMatchObject({
+    ++    details: {
+    ++      reason: 'IOS_RUNNER_CONNECT_TIMEOUT',
+    ++      hint: expect.stringContaining('instance’s Xcode'),
+    ++    },
+    ++    cause: error,
+    ++  });
+    ++});
+    +
+    + ## src/core/interactors/limrun-ios-runner-errors.ts (new) ##
+    +@@
+    ++import { AppError, type AppErrorCode } from '@agent-device/kernel/errors';
+    ++
+    ++const hints = {
+    ++  limrun_xctest_slot_occupied:
+    ++    'Another XCTest run owns this simulator. Stop its agent-device or Appium session, wait for its run stream to close, then retry. If the previous client died and the slot stays occupied, recreate the Limrun instance.',
+    ++  limrun_runner_launch_failed:
+    ++    'Inspect runner.log and the Limrun XCTest stream. Use a simulator runner built for this instance’s Xcode and iOS runtime.',
+    ++  limrun_runner_products_invalid:
+    ++    'Set AGENT_DEVICE_LIMRUN_IOS_RUNNER_APP to the simulator runner .app built for this instance’s Xcode and iOS runtime, or use a matching release runner.',
+    ++  limrun_runner_upload_failed:
+    ++    'Check the Limrun instance connection and retry preparing the runner.',
+    ++  limrun_runner_bind_address_missing:
+    ++    'The simulator must expose USE_IP for HTTP forwarding. Check the instance connection and simulator configuration.',
+    ++} as const;
+    ++
+    ++export function limrunRunnerError(
+    ++  reason: keyof typeof hints,
+    ++  message: string,
+    ++  details: Record<string, unknown> = {},
+    ++  code: AppErrorCode = 'COMMAND_FAILED',
+    ++): AppError {
+    ++  return new AppError(code, message, { ...details, reason, hint: hints[reason] });
+    ++}
+    ++
+    ++/** Preserve the shared capture failure while naming the remote recovery action. */
+    ++export async function withLimrunRunnerErrors<T>(task: () => Promise<T>): Promise<T> {
+    ++  try {
+    ++    return await task();
+    ++  } catch (error) {
+    ++    if (!(error instanceof AppError)) throw error;
+    ++    if (error.details?.runnerConnectFailureReason) {
+    ++      throw new AppError(
+    ++        error.code,
+    ++        error.message,
+    ++        {
+    ++          ...error.details,
+    ++          hint: hints.limrun_runner_launch_failed,
+    ++        },
+    ++        error,
+    ++      );
+    ++    }
+    ++    const quality = error.details?.snapshotQuality as
+    ++      | { state?: string; reasonCode?: string }
+    ++      | undefined;
+    ++    if (
+    ++      (error.details?.reason === 'invalid-viewport' ||
+    ++        error.details?.reason === 'missing-viewport') &&
+    ++      quality?.state === 'sparse' &&
+    ++      (quality.reasonCode === 'capture-failed' || quality.reasonCode === 'budget')
+    ++    ) {
+    ++      throw new AppError(
+    ++        error.code,
+    ++        'The Limrun XCTest runner could not capture the simulator screen',
+    ++        {
+    ++          ...error.details,
+    ++          reason: 'limrun_runner_snapshot_unavailable',
+    ++          hint: 'Close and reopen the agent-device session to restart its XCTest runner. If snapshots still fail on this reused simulator, recreate the Limrun instance. Use a screenshot and coordinate actions to inspect its current screen; do not reuse snapshot refs.',
+    ++        },
+    ++        error,
+    ++      );
+    ++    }
+    ++    throw error;
+    ++  }
+     +}
+     
+      ## src/core/interactors/limrun-ios-runner-parity.test.ts (new) ##
+    @@ src/core/interactors/limrun-ios-runner-parity.test.ts (new)
+     +  expect(calls).toContainEqual(['ui', 'booted', 'content_size']);
+     +  expect(calls).toContainEqual(['status_bar', 'booted', 'override', '--wifiMode', 'failed']);
+     +  expect(calls).toContainEqual([
+    ++    'status_bar',
+    ++    'booted',
+    ++    'override',
+    ++    '--dataNetwork',
+    ++    'hide',
+    ++    '--wifiMode',
+    ++    'failed',
+    ++    '--wifiBars',
+    ++    '0',
+    ++    '--cellularMode',
+    ++    'failed',
+    ++    '--cellularBars',
+    ++    '0',
+    ++    '--operatorName',
+    ++    '',
+    ++  ]);
+    ++  expect(calls).toContainEqual([
+     +    'spawn',
+     +    'booted',
+     +    'notifyutil',
+    @@ src/core/interactors/limrun-ios-runner-products.test.ts (new)
+     
+      ## src/core/interactors/limrun-ios-runner-products.ts (new) ##
+     @@
+    ++import { limrunRunnerError } from './limrun-ios-runner-errors.ts';
+     +import {
+     +  runnerListenerEnv,
+     +  RUNNER_XCTESTRUN_CAPTURE_OPTIONS,
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +import { Readable } from 'node:stream';
+     +import { pipeline } from 'node:stream/promises';
+     +import { createGzip } from 'node:zlib';
+    -+import { AppError } from '@agent-device/kernel/errors';
+     +import { extractArchiveSafely } from '@agent-device/host-kit/archive';
+     +import { escapeXmlTextAndAttribute } from '@agent-device/xml';
+     +import { downloadLimrunFile } from '../limrun-download-file.ts';
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +  signal: AbortSignal;
+     +}): Promise<string> {
+     +  if (isIP(input.bindAddress) !== 4 || input.bindAddress === '0.0.0.0') {
+    -+    throw new AppError('COMMAND_FAILED', 'Limrun USE_IP must be a concrete IPv4 address');
+    ++    throw limrunRunnerError(
+    ++      'limrun_runner_products_invalid',
+    ++      'Limrun USE_IP must be a concrete IPv4 address',
+    ++    );
+     +  }
+     +  const products = path.join(input.directory, `runner-${randomUUID()}`);
+     +  await fs.mkdir(products);
+     +  let appPath = input.appPath;
+     +  if (!appPath) {
+     +    if (!/^\d+\.\d+\.\d+$/.test(input.version)) {
+    -+      throw new AppError(
+    -+        'INVALID_ARGS',
+    ++      throw limrunRunnerError(
+    ++        'limrun_runner_products_invalid',
+     +        'Nightly and development builds require AGENT_DEVICE_LIMRUN_IOS_RUNNER_APP',
+     +        {
+     +          hint: 'Point it at the simulator runner .app built from this agent-device checkout.',
+     +        },
+    ++        'INVALID_ARGS',
+     +      );
+     +    }
+     +    const name = `agent-device-ios-runner-${input.version}`;
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +      typeof manifest.sha256 !== 'string' ||
+     +      !/^[a-f0-9]{64}$/.test(manifest.sha256)
+     +    ) {
+    -+      throw new AppError('COMMAND_FAILED', 'Invalid iOS runner release manifest');
+    ++      throw limrunRunnerError(
+    ++        'limrun_runner_products_invalid',
+    ++        'Invalid iOS runner release manifest',
+    ++      );
+     +    }
+     +    const archivePath = path.join(input.directory, 'runner.tar.gz');
+     +    await downloadLimrunFile({
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +    });
+     +    input.signal.throwIfAborted();
+     +    const digest = createHash('sha256')
+    -+      .update(await fs.readFile(archivePath))
+    ++      .update(await fs.readFile(archivePath, { signal: input.signal }))
+     +      .digest('hex');
+     +    if (digest !== manifest.sha256)
+    -+      throw new AppError('COMMAND_FAILED', 'iOS runner checksum mismatch');
+    ++      throw limrunRunnerError('limrun_runner_products_invalid', 'iOS runner checksum mismatch');
+     +    const extracted = path.join(input.directory, 'extracted');
+     +    await extractArchiveSafely({
+     +      archivePath,
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +    appPath = path.join(extracted, `${name}.app`);
+     +  }
+     +  input.signal.throwIfAborted();
+    -+  if (!appPath.endsWith('.app') || !(await fs.stat(appPath)).isDirectory()) {
+    -+    throw new AppError('INVALID_ARGS', 'The Limrun XCTest runner must be an iOS simulator .app');
+    ++  if (
+    ++    !appPath.endsWith('.app') ||
+    ++    !(
+    ++      await fs.stat(appPath).catch((error: NodeJS.ErrnoException) => {
+    ++        if (error.code === 'ENOENT' || error.code === 'ENOTDIR') return undefined;
+    ++        throw error;
+    ++      })
+    ++    )?.isDirectory()
+    ++  ) {
+    ++    throw limrunRunnerError(
+    ++      'limrun_runner_products_invalid',
+    ++      'The Limrun XCTest runner must be an iOS simulator .app',
+    ++      {},
+    ++      'INVALID_ARGS',
+    ++    );
+     +  }
+     +  const plugins = await fs
+     +    .readdir(path.join(appPath, 'PlugIns'))
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +      throw error;
+     +    });
+     +  if (!plugins.includes('AgentDeviceRunnerUITests.xctest')) {
+    -+    throw new AppError('INVALID_ARGS', 'The app does not contain AgentDeviceRunnerUITests.xctest');
+    ++    throw limrunRunnerError(
+    ++      'limrun_runner_products_invalid',
+    ++      'The app does not contain AgentDeviceRunnerUITests.xctest',
+    ++      {},
+    ++      'INVALID_ARGS',
+    ++    );
+     +  }
+     +  await fs.cp(appPath, path.join(products, 'Runner.app'), { recursive: true });
+     +  await writeLimrunRunnerConfiguration(products, input.bindAddress, input.endpoint);
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +        continue;
+     +      }
+     +      if (!entry.isFile())
+    -+        throw new AppError('INVALID_ARGS', 'Runner products must contain regular files');
+    ++        throw limrunRunnerError(
+    ++          'limrun_runner_products_invalid',
+    ++          'Runner products must contain regular files',
+    ++          {},
+    ++          'INVALID_ARGS',
+    ++        );
+     +      const file = path.join(directory, name);
+     +      const stat = await fs.stat(file);
+     +      const sha256 = createHash('sha256')
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +    const result = await upload(attempt === 0 ? selected : files);
+     +    if (result.ok === true && !result.needFull?.length) return;
+     +    if (!result.needFull?.length || attempt === 1) {
+    -+      throw new AppError('COMMAND_FAILED', 'Limrun runner products could not be synchronized', {
+    -+        needFull: result.needFull,
+    -+      });
+    ++      throw limrunRunnerError(
+    ++        'limrun_runner_upload_failed',
+    ++        'Limrun runner products could not be synchronized',
+    ++        {
+    ++          needFull: result.needFull,
+    ++        },
+    ++      );
+     +    }
+     +  }
+     +
+    @@ src/core/interactors/limrun-ios-runner-products.ts (new)
+     +      } as RequestInit & { duplex: 'half' });
+     +      if (!response.ok) {
+     +        await response.body?.cancel();
+    -+        throw new AppError('COMMAND_FAILED', `Limrun runner upload failed (${response.status})`, {
+    -+          status: response.status,
+    -+        });
+    ++        throw limrunRunnerError(
+    ++          'limrun_runner_upload_failed',
+    ++          `Limrun runner upload failed (${response.status})`,
+    ++          {
+    ++            status: response.status,
+    ++          },
+    ++        );
+     +      }
+     +      return (await response.json()) as { ok?: boolean; needFull?: string[] };
+     +    } finally {
+    @@ src/core/interactors/limrun-ios-runner.fixtures.ts (new)
+     +    launchStatus?: number;
+     +    holdLaunchErrorBody?: boolean;
+     +    syncStatus?: number;
+    ++    holdSync?: boolean;
+     +    holdReadiness?: boolean;
+     +    holdAdmission?: boolean;
+     +    canceledRunConflicts?: number;
+    @@ src/core/interactors/limrun-ios-runner.fixtures.ts (new)
+     +    if (request.headers['content-encoding'] === 'gzip') body = gunzipSync(body);
+     +    if (storage.serve(request, response, body)) return;
+     +    if (request.url === '/v1/ios_test/api/sync') {
+    ++      if (options.holdSync) return;
+     +      if (options.syncStatus) {
+     +        response.writeHead(options.syncStatus).end('upload unavailable');
+     +        return;
+    @@ src/core/interactors/limrun-ios-runner.test.ts (new)
+     +  ).rejects.toMatchObject({
+     +    code: 'COMMAND_FAILED',
+     +    message: 'Limrun XCTest launch failed (409)',
+    ++    details: { reason: 'limrun_xctest_slot_occupied', hint: expect.stringContaining('Appium') },
+     +  });
+     +  expect(f.requests.filter((p) => p.endsWith('/xctest/run'))).toHaveLength(1);
+     +});
+    @@ src/core/interactors/limrun-ios-runner.test.ts (new)
+     +    expect(f.requests.filter((p) => p.endsWith('/xctest/run'))).toHaveLength(2);
+     +  },
+     +);
+    ++
+    ++test('disposal removes staged products even when runner finalization fails', async () => {
+    ++  const f = await fixture();
+    ++  const directories: string[] = [];
+    ++  const mkdtemp = fs.mkdtemp.bind(fs);
+    ++  const spy = vi.spyOn(fs, 'mkdtemp').mockImplementation(async (...args) => {
+    ++    const directory = await mkdtemp(...args);
+    ++    if (typeof directory === 'string') directories.push(directory);
+    ++    return directory;
+    ++  });
+    ++  try {
+    ++    await f.runner.applicationTools.prewarmRunnerCache(f.device, {}, new AbortController().signal);
+    ++    expect(directories.length).toBeGreaterThan(0);
+    ++    const fail = vi
+    ++      .spyOn(f.runner.applicationTools, 'finalizeRunnerSessionsForShutdown')
+    ++      .mockRejectedValueOnce(new Error('finalization failed'));
+    ++    await expect(f.runner.dispose()).rejects.toThrow('finalization failed');
+    ++    fail.mockRestore();
+    ++    for (const directory of directories)
+    ++      await expect(fs.stat(directory)).rejects.toMatchObject({ code: 'ENOENT' });
+    ++  } finally {
+    ++    spy.mockRestore();
+    ++  }
+    ++});
+    ++
+    ++test('canceling one cache waiter keeps preparation owned by the other waiter', async () => {
+    ++  const options = { holdSync: true };
+    ++  const f = await fixture(options);
+    ++  const one = new AbortController();
+    ++  const two = new AbortController();
+    ++  const tools = f.runner.applicationTools;
+    ++  const first = tools.prewarmRunnerCache(f.device, {}, one.signal);
+    ++  const firstFailure = expect(first).rejects.toThrow('first canceled');
+    ++  await vi.waitFor(() => expect(f.requests.some((p) => p.endsWith('/sync'))).toBe(true));
+    ++  const second = tools.prewarmRunnerCache(f.device, {}, two.signal);
+    ++  const secondFailure = expect(second).rejects.toThrow('last canceled');
+    ++  one.abort(new Error('first canceled'));
+    ++  await firstFailure;
+    ++  expect(f.requests.filter((p) => p.endsWith('/sync'))).toHaveLength(1);
+    ++  two.abort(new Error('last canceled'));
+    ++  await secondFailure;
+    ++  options.holdSync = false;
+    ++  await tools.prewarmRunnerCache(f.device, {}, new AbortController().signal);
+    ++  expect(f.requests.filter((p) => p.endsWith('/sync'))).toHaveLength(2);
+    ++  expect(f.requests.filter((p) => p.endsWith('/xctest/run'))).toHaveLength(0);
+    ++});
+    ++
+    ++test('a new cache waiter retries after the canceled preparation finishes cleanup', async () => {
+    ++  const options = { holdSync: true };
+    ++  const f = await fixture(options);
+    ++  const controller = new AbortController();
+    ++  const first = f.runner.applicationTools.prewarmRunnerCache(f.device, {}, controller.signal);
+    ++  const failure = expect(first).rejects.toThrow('cancel old preparation');
+    ++  await vi.waitFor(() => expect(f.requests.some((p) => p.endsWith('/sync'))).toBe(true));
+    ++  let cleanupStarted!: () => void;
+    ++  let finishCleanup!: () => void;
+    ++  const entered = new Promise<void>((resolve) => {
+    ++    cleanupStarted = resolve;
+    ++  });
+    ++  const hold = new Promise<void>((resolve) => {
+    ++    finishCleanup = resolve;
+    ++  });
+    ++  const rm = fs.rm.bind(fs);
+    ++  const cleanup = vi.spyOn(fs, 'rm').mockImplementationOnce(async (target, options) => {
+    ++    cleanupStarted();
+    ++    await hold;
+    ++    await rm(target, options);
+    ++  });
+    ++  try {
+    ++    controller.abort(new Error('cancel old preparation'));
+    ++    await entered;
+    ++    const second = f.runner.applicationTools.prewarmRunnerCache(
+    ++      f.device,
+    ++      {},
+    ++      new AbortController().signal,
+    ++    );
+    ++    options.holdSync = false;
+    ++    finishCleanup();
+    ++    await failure;
+    ++    await second;
+    ++    expect(f.requests.filter((p) => p.endsWith('/sync'))).toHaveLength(2);
+    ++  } finally {
+    ++    finishCleanup();
+    ++    cleanup.mockRestore();
+    ++  }
+    ++});
+     
+      ## src/core/interactors/limrun-ios-runner.ts (new) ##
+     @@
+    -+import { awaitWithSignal } from '@agent-device/host-kit/request';
+    ++import { limrunRunnerError, withLimrunRunnerErrors } from './limrun-ios-runner-errors.ts';
+    ++import { awaitWithSignal } from '@agent-device/kernel/await-with-signal';
+     +import { retryWithPolicy } from '@agent-device/host-kit/retry';
+     +import { createLimrunAppleToolProvider } from './limrun-ios-tools.ts';
+     +import type { AppleApplicationTools } from '@agent-device/contracts/application-lifecycle-runtime';
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +  const { buildSimctlArgsForDevice } = await import('@agent-device/platform-apple/simctl');
+     +  const lifetime = new AbortController();
+     +  const withTools = <T>(task: () => Promise<T>, signal?: AbortSignal) =>
+    -+    withAppleToolProvider(createLimrunAppleToolProvider(session, lifetime.signal, signal), task);
+    ++    withAppleToolProvider(createLimrunAppleToolProvider(session, lifetime.signal, signal), () =>
+    ++      withLimrunRunnerErrors(task),
+    ++    );
+     +  const hostTools = withMethodScope({ ...appleApplications }, (task) =>
+     +    hasScopedAppleToolProvider() ? task() : withTools(task),
+     +  );
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +  const headers = { Authorization: `Bearer ${session.token}` };
+     +  let staging: string | undefined;
+     +  let products: Promise<{ directory: string; bindAddress: string }> | undefined;
+    ++  let preparationController: AbortController | undefined;
+    ++  let preparationWaiters = 0;
+    ++  let prepared = false;
+     +  let canceledRunMayHoldSlot = false;
+     +  const endpoint = { port, token: mintRunnerToken(), http: { url: commandUrl, headers } };
+     +  const provider = await createLaunchedAppleRunnerProvider(
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +  const isReady = provider.hasLiveSession;
+     +  const transport = await createAppleRunnerRuntime({ device: session.device, host, provider });
+     +
+    -+  const prepareProducts = async () => {
+    ++  const prepareProducts = async (callerSignal?: AbortSignal) => {
+    ++    const preparation = AbortSignal.any([lifetime.signal, ...(callerSignal ? [callerSignal] : [])]);
+     +    emitDiagnostic({ level: 'info', phase: 'limrun.runner.prepare' });
+     +    staging = await fs.mkdtemp(path.join(os.tmpdir(), 'agent-device-limrun-runner-'));
+    -+    const bind = await awaitWithSignal(
+    -+      session.client.simctl(['getenv', 'booted', 'USE_IP']).wait(),
+    -+      AbortSignal.any([lifetime.signal, AbortSignal.timeout(15_000)]),
+    -+    );
+    -+    if (bind.code !== 0) throw new AppError('COMMAND_FAILED', 'Limrun did not expose USE_IP');
+    ++    const bindCommand = session.client.simctl(['getenv', 'booted', 'USE_IP']);
+    ++    const bindSignal = AbortSignal.any([preparation, AbortSignal.timeout(15_000)]);
+    ++    const bind = await awaitWithSignal(bindCommand.wait(), bindSignal).finally(() => {
+    ++      if (bindSignal.aborted) bindCommand.stop();
+    ++    });
+    ++    if (bind.code !== 0)
+    ++      throw limrunRunnerError('limrun_runner_bind_address_missing', 'Limrun did not expose USE_IP');
+     +    const directory = await prepareLimrunRunnerProducts({
+     +      directory: staging,
+     +      version: readVersion(),
+     +      appPath: host.env.AGENT_DEVICE_LIMRUN_IOS_RUNNER_APP,
+     +      bindAddress: bind.stdout.trim(),
+     +      endpoint,
+    -+      signal: lifetime.signal,
+    ++      signal: preparation,
+     +    });
+    -+    lifetime.signal.throwIfAborted();
+    ++    preparation.throwIfAborted();
+     +    await uploadLimrunRunnerProducts(
+     +      directory,
+     +      apiUrl,
+     +      session.token,
+    -+      AbortSignal.any([lifetime.signal, AbortSignal.timeout(300_000)]),
+    ++      AbortSignal.any([preparation, AbortSignal.timeout(300_000)]),
+     +    );
+     +    return { directory, bindAddress: bind.stdout.trim() };
+     +  };
+    -+  const cachedProducts = () => {
+    ++  const cachedProducts = async (
+    ++    signal?: AbortSignal,
+    ++  ): Promise<{ directory: string; bindAddress: string }> => {
+     +    lifetime.signal.throwIfAborted();
+    -+    return (products ??= prepareProducts().catch(async (error: unknown) => {
+    -+      if (staging) await fs.rm(staging, { recursive: true, force: true });
+    -+      staging = undefined;
+    -+      products = undefined;
+    -+      throw error;
+    -+    }));
+    ++    signal?.throwIfAborted();
+    ++    if (products && preparationController?.signal.aborted) {
+    ++      await awaitWithSignal(
+    ++        products.catch(() => {}),
+    ++        signal,
+    ++      );
+    ++      return await cachedProducts(signal);
+    ++    }
+    ++    if (!products) {
+    ++      preparationController = new AbortController();
+    ++      products = prepareProducts(preparationController.signal)
+    ++        .then((value) => {
+    ++          prepared = true;
+    ++          return value;
+    ++        })
+    ++        .catch(async (error: unknown) => {
+    ++          if (staging) await fs.rm(staging, { recursive: true, force: true });
+    ++          staging = undefined;
+    ++          products = undefined;
+    ++          throw error;
+    ++        });
+    ++    }
+    ++    const pending = products;
+    ++    preparationWaiters++;
+    ++    try {
+    ++      return await awaitWithSignal(pending, signal);
+    ++    } finally {
+    ++      preparationWaiters--;
+    ++      // A shared upload belongs to its remaining waiters; the last canceled waiter drains it.
+    ++      if (signal?.aborted && preparationWaiters === 0 && !prepared) {
+    ++        preparationController?.abort(signal.reason);
+    ++        await pending.catch(() => {});
+    ++      }
+    ++    }
+     +  };
+     +
+     +  async function launch(ownedEndpoint: typeof endpoint, startupSignal: AbortSignal) {
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +    let runRequested = false;
+     +    try {
+     +      startupSignal.throwIfAborted();
+    -+      const { directory, bindAddress } = await awaitWithSignal(cachedProducts(), signal);
+    ++      emitDiagnostic({ level: 'info', phase: 'limrun.runner.prepare', data: { cached: prepared } });
+    ++      const { directory, bindAddress } = await cachedProducts(signal);
+     +      await writeLimrunRunnerConfiguration(directory, bindAddress, ownedEndpoint);
+     +      await uploadLimrunRunnerProducts(directory, apiUrl, session.token, signal, [
+     +        'Runner.xctestrun',
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +            launchSignal,
+     +          );
+     +          if (!result.ok)
+    -+            throw new AppError('COMMAND_FAILED', `Limrun XCTest launch failed (${result.status})`, {
+    -+              status: result.status,
+    -+              response: await awaitWithSignal(result.text(), launchSignal).catch(() => undefined),
+    -+            });
+    ++            throw limrunRunnerError(
+    ++              result.status === 409 ? 'limrun_xctest_slot_occupied' : 'limrun_runner_launch_failed',
+    ++              `Limrun XCTest launch failed (${result.status})`,
+    ++              {
+    ++                status: result.status,
+    ++                response: await awaitWithSignal(result.text(), launchSignal).catch(() => undefined),
+    ++              },
+    ++            );
+     +          return result;
+     +        },
+     +        {
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +        { signal: launchSignal, phase: 'limrun.runner.wait_for_canceled_run' },
+     +      );
+     +      if (!response.body)
+    -+        throw new AppError('COMMAND_FAILED', 'Limrun XCTest launch returned no stream');
+    ++        throw limrunRunnerError(
+    ++          'limrun_runner_launch_failed',
+    ++          'Limrun XCTest launch returned no stream',
+    ++        );
+     +      canceledRunMayHoldSlot = false;
+     +    } catch (error) {
+     +      // An interrupted HTTP request can reach the server before it returns the run stream.
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +    session.device,
+     +    {
+     +      prepareCache: async (signal) => {
+    -+        await awaitWithSignal(cachedProducts(), signal);
+    ++        await cachedProducts(signal);
+     +      },
+     +      prewarm: async (execution, signal, options) => {
+     +        const input = { ...execution, signal, speculative: true };
+    @@ src/core/interactors/limrun-ios-runner.ts (new)
+     +    },
+     +    resetTarget,
+     +    dispose: async () => {
+    -+      await applicationTools.finalizeRunnerSessionsForShutdown();
+    -+      lifetime.abort();
+    -+      await products?.catch(() => {});
+    -+      if (staging) await fs.rm(staging, { recursive: true, force: true });
+    ++      try {
+    ++        await applicationTools.finalizeRunnerSessionsForShutdown();
+    ++      } finally {
+    ++        lifetime.abort();
+    ++        await products?.catch(() => {});
+    ++        if (staging) await fs.rm(staging, { recursive: true, force: true });
+    ++      }
+     +    },
+     +  };
+     +}
+    @@ src/core/interactors/limrun-ios-tools.test.ts (new)
+     +test('malformed successful device inventory preserves the remote command output', async () => {
+     +  const f = await sessionWithClient();
+     +  const execution = new SimctlExecution(() => {});
+    -+  execution._handleStdout(Buffer.from('not JSON'));
+    -+  execution._handleStderr(Buffer.from('simulator warning'));
+    -+  execution._handleExit(0);
+    ++  vi.spyOn(execution, 'wait').mockResolvedValue({
+    ++    code: 0,
+    ++    stdout: 'not JSON',
+    ++    stderr: 'simulator warning',
+    ++  });
+     +  f.simctl.mockReturnValue(execution);
+     +  const tools = createLimrunAppleToolProvider(f.session, new AbortController().signal);
+     +  await expect(
+    @@ src/core/interactors/limrun-ios-tools.test.ts (new)
+     +    }
+     +  },
+     +);
+    ++
+    ++test.each([
+    ++  ['list', '-j'],
+    ++  ['list', '--json'],
+    ++  ['list', 'devices', '--json'],
+    ++])('normalizes the remote device identity for %j', async (...args) => {
+    ++  const f = await fixture();
+    ++  const tools = createLimrunAppleToolProvider(f.session, new AbortController().signal);
+    ++  const result = await tools.runCommand('xcrun', ['simctl', ...args], {});
+    ++  const inventory = JSON.parse(result.stdout);
+    ++  expect(inventory.devices.ios[0].udid).toBe(f.device.id);
+    ++});
+     
+      ## src/core/interactors/limrun-ios-tools.ts (new) ##
+     @@
+    -+import { awaitWithSignal } from '@agent-device/host-kit/request';
+    ++import { awaitWithSignal } from '@agent-device/kernel/await-with-signal';
+     +import { createLimrunSimulatorFiles } from './limrun-ios-files.ts';
+     +import type {
+     +  AppleToolProvider,
+    @@ src/core/interactors/limrun-ios-tools.ts (new)
+     +        });
+     +      });
+     +      let stdout = result.stdout;
+    -+      if (args[0] === 'list' && args.includes('devices') && result.code === 0) {
+    ++      if (
+    ++        args[0] === 'list' &&
+    ++        (args.includes('devices') || args.includes('-j') || args.includes('--json')) &&
+    ++        result.code === 0
+    ++      ) {
+     +        try {
+     +          stdout = normalizeDeviceInventory(stdout, session);
+     +        } catch (error) {
+    @@ src/core/interactors/limrun-ios-tools.ts (new)
+     +}
+     
+      ## src/sdk/limrun-download-file.test.ts => src/core/limrun-download-file.test.ts ##
+    -@@ src/core/limrun-download-file.test.ts: import http from 'node:http';
+    +@@ src/core/limrun-download-file.test.ts: import fs from 'node:fs';
+    + import http from 'node:http';
+      import path from 'node:path';
+      import type { AddressInfo } from 'node:net';
+    - import { afterEach, expect, test } from 'vitest';
+    +-import { afterEach, expect, test } from 'vitest';
+     -import { AppError } from '@agent-device/kernel/errors';
+    ++import { afterEach, expect, test, vi } from 'vitest';
+     +import { AppError, createRequestCanceledError } from '@agent-device/kernel/errors';
+      import { mkdtempForTest } from '@agent-device/test-kit';
+      import { downloadLimrunFile } from './limrun-download-file.ts';
+    @@ src/core/limrun-download-file.test.ts: test('an error body is read only up to th
+     +              code: 'COMMAND_FAILED',
+     +              details: { reason: 'request_canceled' },
+     +            })
+    -+          : expect(pending).rejects.toSatisfy(
+    -+              (error: AppError) =>
+    -+                error instanceof AppError &&
+    -+                error.code === 'COMMAND_FAILED' &&
+    -+                error.details?.reason !== 'request_canceled',
+    -+            );
+    ++          : expect(pending).rejects.toMatchObject({
+    ++              code: 'COMMAND_FAILED',
+    ++              message: 'Limrun download deadline expired',
+    ++              details: { reason: 'limrun_download_timeout', timeoutMs: 5000 },
+    ++            });
+     +    await started;
+    ++    await vi.waitFor(() => expect(fs.readFileSync(destinationPath, 'utf8')).toBe('partial'));
+     +    controller.abort(reason);
+     +    await outcome;
+     +    expect(fs.existsSync(destinationPath)).toBe(false);
+    @@ src/core/limrun-download-file.ts: export async function downloadLimrunFile(optio
+          );
+        } catch (error) {
+          await fs.promises.rm(options.destinationPath, { force: true }).catch(() => {});
+    -+    if (options.signal?.aborted && signal.reason === options.signal.reason) {
+    -+      const reason: unknown = options.signal.reason;
+    -+      if (reason instanceof AppError) throw reason;
+    -+      if (reason instanceof Error && reason.name === 'TimeoutError') {
+    -+        throw new AppError(
+    -+          'COMMAND_FAILED',
+    -+          'Limrun download deadline expired',
+    -+          { url: options.url },
+    -+          reason,
+    -+        );
+    -+      }
+    -+      throw createRequestCanceledError(undefined, reason);
+    +-    throw downloadFailure(error, options, timeout);
+    ++    throw downloadFailure(error, options, timeout, signal);
+    +   }
+    + }
+    + 
+    +@@ src/core/limrun-download-file.ts: async function httpFailure(response: Response, options: LimrunFileDownload): Pro
+    +   return new AppError('COMMAND_FAILED', `Limrun download failed with HTTP ${response.status}`, {
+    +     url: options.url,
+    +     statusCode: response.status,
+    ++    reason: 'limrun_download_http_error',
+    +     body: await readBodyPreview(response),
+    +   });
+    + }
+    +@@ src/core/limrun-download-file.ts: function downloadFailure(
+    +   error: unknown,
+    +   options: LimrunFileDownload,
+    +   timeout: AbortSignal,
+    ++  signal: AbortSignal,
+    + ): unknown {
+    ++  if (error instanceof AppError) return error;
+    ++  if (options.signal?.aborted && signal.reason === options.signal.reason) {
+    ++    const reason: unknown = options.signal.reason;
+    ++    if (reason instanceof AppError) return reason;
+    ++    if (!(reason instanceof Error && reason.name === 'TimeoutError')) {
+    ++      return createRequestCanceledError(undefined, reason);
+     +    }
+    -     throw downloadFailure(error, options, timeout);
+    ++    return new AppError(
+    ++      'COMMAND_FAILED',
+    ++      'Limrun download deadline expired',
+    ++      {
+    ++        url: options.url,
+    ++        reason: 'limrun_download_timeout',
+    ++        timeoutMs: options.timeoutMs,
+    ++      },
+    ++      reason,
+    ++    );
+    ++  }
+    +   if (timeout.aborted) {
+    +     return new AppError('COMMAND_FAILED', 'Limrun download timed out', {
+    +       url: options.url,
+    +       timeoutMs: options.timeoutMs,
+    ++      reason: 'limrun_download_timeout',
+    +     });
+        }
+    +-  if (error instanceof AppError) return error;
+    +   return new AppError('COMMAND_FAILED', 'Limrun download failed', {
+    +     url: options.url,
+    +-    reason: error instanceof Error ? error.message : String(error),
+    ++    reason: 'limrun_download_failed',
+    ++    cause: error instanceof Error ? error.message : String(error),
+    +   });
+      }
+     
+      ## src/platform-runtime-gateway.fixtures.ts ##
+    @@ test/integration/provider-scenarios/limrun-ios-appstate.test.ts: test('Limrun iO
+          };
+          assertRpcOk(await daemon.callCommand('open', [BUNDLE_ID], flags, { meta }));
+     -    assert.equal(limrunApiState.launchApp.mock.calls.length, 1);
+    -+    assert.ok(
+    -+      limrunApiState.simctl.mock.calls.some(
+    ++    assert.equal(
+    ++      limrunApiState.simctl.mock.calls.filter(
+     +        ([args]) => args[0] === 'launch' && args.includes(BUNDLE_ID),
+    -+      ),
+    ++      ).length,
+    ++      1,
+     +    );
+      
+          const live = assertRpcOk<{ appBundleId?: string; source?: string }>(
+    @@ test/integration/provider-scenarios/limrun-ios-appstate.test.ts: function limrun
+     +    ios: {
+     +      ...limrunTestDependencies.ios,
+     +      createRunner: async (session) => {
+    -+        const runner = await createTestLimrunIosRunner(session.device, async () => ({}));
+    -+        const tools = createLimrunAppleToolProvider(session, new AbortController().signal);
+    ++        const runner = await createTestLimrunIosRunner(session.device);
+    ++        const lifetime = new AbortController();
+     +        return {
+     +          ...runner,
+     +          createInteractor: (context) =>
+     +            withMethodScope(runner.createInteractor(context), (task) =>
+    -+              withAppleToolProvider(tools, task),
+    ++              withAppleToolProvider(
+    ++                createLimrunAppleToolProvider(session, lifetime.signal, context?.signal),
+    ++                task,
+    ++              ),
+     +            ),
+     +        };
+     +      },
+    @@ test/integration/provider-scenarios/limrun-ios-snapshot-owner.test.ts: function
+     +        const runner = await createTestLimrunIosRunner(session.device, (command) =>
+     +          limrunApiState.runnerCommand(command),
+     +        );
+    -+        const tools = createLimrunAppleToolProvider(session, new AbortController().signal);
+    ++        const lifetime = new AbortController();
+     +        return {
+     +          ...runner,
+     +          createInteractor: (context) =>
+     +            withMethodScope(runner.createInteractor(context), (task) =>
+    -+              withAppleToolProvider(tools, task),
+    ++              withAppleToolProvider(
+    ++                createLimrunAppleToolProvider(session, lifetime.signal, context?.signal),
+    ++                task,
+    ++              ),
+     +            ),
+     +        };
+     +      },
+    @@ test/integration/replays/ios/device/01-physical-lifecycle.ad
+     +wait "role=cell label=General || role=button label=General" 5000
+      is exists "role=cell label=General || role=button label=General"
+     
+    - ## tsdown.config.ts ##
+    -@@ tsdown.config.ts: export default defineConfig({
+    -     alwaysBundle: [/^@agent-device\//],
+    -     onlyBundle: [
+    -       '@limrun/api',
+    -+      '@xmldom/xmldom',
+    -       'agent-base',
+    -       'b4a',
+    -       'debug',
+    -@@ tsdown.config.ts: export default defineConfig({
+    -       'jpeg-js',
+    -       'ms',
+    -       'pend',
+    -+      'plist',
+    -       'pngjs',
+    -       'proxy-from-env',
+    -       'streamx',
+    -@@ tsdown.config.ts: export default defineConfig({
+    -       'undici',
+    -       'undici-types',
+    -       'ws',
+    -+      'xmlbuilder',
+    -       'yaml',
+    -       'yauzl',
+    -     ],
+    -
+      ## website/docs/docs/capabilities.md ##
+     @@ website/docs/docs/capabilities.md: What a **Yes** does not claim:
+      | [Type into the focused field](/docs/commands#interactions) | Yes | Yes | Yes | Yes | Yes | Yes | No | No |
+    @@ website/docs/docs/capabilities.md: What a **Yes** does not claim:
+      | [Installed app list](/docs/commands#app-state-and-app-lists) | No | No | No | No | Yes | Yes | No | No |
+     -| [Foreground app state](/docs/commands#app-state-and-app-lists) | No | No | No | No | Last opened app, once the instance answers; no foreground read | Yes | No | No |
+     -| [App switcher](/docs/commands#navigation) | Yes | Yes | Yes | Yes | No | Yes | No | No |
+    -+| [Foreground app state](/docs/commands#app-state-and-app-lists) | No | No | No | No | Session app state from XCTest; instance check when the runner is idle | Yes | No | No |
+    ++| [Foreground app state](/docs/commands#app-state-and-app-lists) | No | No | No | No | XCTest foreground state; without runner state, checks the instance and returns session identity only | Yes | No | No |
+     +| [App switcher](/docs/commands#navigation) | Yes | Yes | Yes | Yes | Yes | Yes | No | No |
+      | [Get the device ready and boot simulators and emulators](/docs/commands#navigation) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+      | [Shut down a simulator or emulator](/docs/commands#navigation) | No | No | No | No | No | No | No | No |
+    @@ website/docs/docs/snapshots.md: Android snapshot nodes and `get attrs` (includin
+      `hintShowing` and `placeholder` need Android API 26 or later, `heading` API 28 or later.
+      
+     -On iOS, the Apple runner, Simulator accessibility bridge, Appium, and Limrun publish native
+    -+On iOS, the Apple runner, including on Limrun, Simulator accessibility bridge, and Appium publish native
+    - `checked`, `password`, and `editable` facts when available. macOS runner snapshots publish the
+    +-`checked`, `password`, and `editable` facts when available. macOS runner snapshots publish the
+    ++On iOS, the Apple runner publishes native `checked`, `password`, and `editable` facts when available,
+    ++including on Limrun. The Simulator accessibility bridge and Appium also publish these facts. macOS runner snapshots publish the
+      same native facts.
+      
+    + - `selected` is the accessibility selected state an app sets on a control — the active bottom-tab or
+     @@ website/docs/docs/snapshots.md: same native facts.
+        password flag.
+      - `heading` is the accessibility heading flag an app sets on a node, the way React Native's
+2:  5ac1a5f98 < -:  --------- fix(limrun): address native runner review findings

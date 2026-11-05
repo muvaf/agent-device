@@ -1,0 +1,42 @@
+$ node --experimental-strip-types scripts/check-affected/run.ts --run --full
+[receipt] /Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/receipt.json
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":53801,"startTime":"Thu Nov  5 13:00:53 2026","acquiredAtMs":1793872853577},"liveness":"live"}; Ctrl-C cancels this waiter
+[wait] host validation: {"state":"held","owner":{"pid":54050,"startTime":"Thu Nov  5 13:00:54 2026","acquiredAtMs":1793872854674},"liveness":"live"}; Ctrl-C cancels this waiter
+[run] check:tooling; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/0.log
+[running] check:tooling 15s
+[running] check:tooling 30s
+[running] check:tooling 45s
+[running] check:tooling 60s
+[passed] check:tooling; exit=0
+[run] check:fallow; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/1.log
+[passed] check:fallow; exit=0
+[run] check:unit; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/2.log
+[running] check:unit 15s
+[running] check:unit 30s
+[running] check:unit 45s
+[running] check:unit 60s
+[running] check:unit 75s
+[running] check:unit 90s
+[running] check:unit 105s
+[running] check:unit 120s
+[running] check:unit 135s
+[passed] check:unit; exit=0
+[passed] exactCommit=true; receipt=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/receipt.json

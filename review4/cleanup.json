@@ -1,0 +1,76 @@
+{
+  "instances": [
+    {
+      "id": "ios_euna_01m6ng61geftcr26p1gj42axft",
+      "deleted": true
+    },
+    {
+      "id": "android_euna_01m6nj4nfse7bsptsgtn5be6zc",
+      "deleted": true
+    }
+  ],
+  "daemons": [
+    {
+      "stateDirectory": "base-active-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "base-debug-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "base-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "delta-android-base-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "delta-android-head-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "delta-android-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "delta-ios-base-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "delta-ios-head-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "delta-ios-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "final-debug-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "final-head-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "final-state",
+      "status": "stopped"
+    },
+    {
+      "stateDirectory": "head-state",
+      "status": "stopped"
+    }
+  ],
+  "basisCaches": [
+    {
+      "path": "/var/folders/hg/_l20wr051cqfybfsv_bdy59r0000gn/T/limsync-cache-E2EFixture.app-5ff1ba59",
+      "removed": true
+    },
+    {
+      "path": "/var/folders/hg/_l20wr051cqfybfsv_bdy59r0000gn/T/limsync-cache-android-fixture.apk-b08844ee",
+      "removed": true
+    }
+  ]
+}

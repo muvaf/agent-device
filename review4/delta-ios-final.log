@@ -1,0 +1,73 @@
+source 62536e91c5b478b8a90f16ad531ec1759f583e27 instance ios_euna_01m6ng61geftcr26p1gj42axft
+binary one 119664 8764c0afded25b5015d12c0b153400e0ac3a795562a5092a60fe0e9e48706607
+install {
+  app: 'com.limrun.e2e-fixture',
+  appPath: '/private/tmp/agent-device-review4-evidence/delta-working-ios/E2EFixture.app',
+  platform: 'ios',
+  appId: 'com.limrun.e2e-fixture',
+  bundleId: 'com.limrun.e2e-fixture',
+  package: undefined,
+  identifiers: {
+    session: 'delta-app',
+    appId: 'com.limrun.e2e-fixture',
+    appBundleId: 'com.limrun.e2e-fixture',
+    package: undefined
+  }
+}
+PASS stopped after install one
+PASS rebuilt UI one
+binary two 119664 648d23e46ee53f6f8e22e30a9c5a790aaf13edbb924bd5282f0d57039c86ed96
+install {
+  app: 'com.limrun.e2e-fixture',
+  appPath: '/private/tmp/agent-device-review4-evidence/delta-working-ios/E2EFixture.app',
+  platform: 'ios',
+  appId: 'com.limrun.e2e-fixture',
+  bundleId: 'com.limrun.e2e-fixture',
+  package: undefined,
+  identifiers: {
+    session: 'delta-app',
+    appId: 'com.limrun.e2e-fixture',
+    appBundleId: 'com.limrun.e2e-fixture',
+    package: undefined
+  }
+}
+PASS stopped after install two
+PASS rebuilt UI two
+binary one 119664 8764c0afded25b5015d12c0b153400e0ac3a795562a5092a60fe0e9e48706607
+reinstall {
+  app: 'com.limrun.e2e-fixture',
+  appPath: '/private/tmp/agent-device-review4-evidence/delta-working-ios/E2EFixture.app',
+  platform: 'ios',
+  appId: 'com.limrun.e2e-fixture',
+  bundleId: 'com.limrun.e2e-fixture',
+  package: undefined,
+  identifiers: {
+    session: 'delta-app',
+    appId: 'com.limrun.e2e-fixture',
+    appBundleId: 'com.limrun.e2e-fixture',
+    package: undefined
+  }
+}
+PASS stopped after reinstall one
+PASS rebuilt UI one
+PASS ios dist changed-binary install/reinstall
+cleanup {
+  "success": true,
+  "data": {
+    "stopped": true,
+    "mode": "graceful",
+    "cleanupConfidence": "known",
+    "claimsReleased": [],
+    "claimsOrphaned": [],
+    "claimsSuperseded": [],
+    "claimsUnattributable": [],
+    "providerReleases": {
+      "status": "completed",
+      "released": [],
+      "pending": []
+    },
+    "warnings": [],
+    "clean": true
+  }
+}
+

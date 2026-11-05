@@ -1,0 +1,2 @@
+$ node --experimental-strip-types scripts/check-replay-compat-provenance.ts
+Verified 10 mined replay-compat scripts against their released blobs across 7 tags (14 derived entries are digest-pinned).

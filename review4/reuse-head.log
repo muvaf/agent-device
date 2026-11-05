@@ -1,0 +1,11 @@
+source 0ae3dc2a41de9f17743bb3f04eab91f516482a9f instance ios_euna_01m6ng61geftcr26p1gj42axft
+open 1
+snapshot -i 1 21
+open 2
+snapshot -i 2 21
+daemon status before kill {"success":true,"data":{"state":"running","stateDir":"/private/tmp/agent-device-review4-evidence/head-state","pid":3870,"ownership":"detached","version":"0.21.37-dev","transport":"socket","plugins":[{"provider":"browserstack","source":"builtin","credentials":{"variables":["BROWSERSTACK_USERNAME","BROWSERSTACK_ACCESS_KEY"],"byBackend":{}},"state":"active"},{"provider":"aws-device-farm","source":"builtin","credentials":{"variables":[],"byBackend":{}},"state":"active"},{"provider":"limrun","source":"builtin","credentials":{"variables":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_IOS_INSTANCE_URL","LIM_IOS_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_URL","LIM_ANDROID_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_ADB_URL"],"byBackend":{"ios-instance":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_IOS_INSTANCE_URL","LIM_IOS_INSTANCE_TOKEN"],"android-instance":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_ANDROID_INSTANCE_URL","LIM_ANDROID_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_ADB_URL"]}},"state":"active"}]}}
+killed owned daemon 3870
+Replacing daemon (pid 3870, v0.21.37-dev) in /private/tmp/agent-device-review4-evidence/head-state: unreachable
+open 3
+FAIL 3 COMMAND_FAILED Limrun XCTest launch failed (409) {"status":409,"response":"{\n  \"message\" : \"A test run is already in progress\"\n}","reason":"limrun_xctest_slot_occupied","dispatched":"no","hint":"Another XCTest run owns this simulator. Stop its agent-device or Appium session, wait for its run stream to close, then retry. If the previous client died and the slot stays occupied, recreate the Limrun instance.","diagnosticId":"mw3cnolh-fafb3300","logPath":"/private/tmp/agent-device-review4-evidence/head-state/sessions/limrun_reuse-app-3/requests/867f3c1c625a96b1.ndjson","diagnosticsRecord":{"session":"limrun:reuse-app-3","requestId":"867f3c1c625a96b1"}}
+cleanup {"success":true,"data":{"stopped":true,"mode":"graceful","cleanupConfidence":"known","claimsReleased":[],"claimsOrphaned":[],"claimsSuperseded":[],"claimsUnattributable":[],"providerReleases":{"status":"completed","released":[],"pending":[]},"warnings":[],"clean":true}}

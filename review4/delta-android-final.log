@@ -1,0 +1,73 @@
+source 62536e91c5b478b8a90f16ad531ec1759f583e27 instance android_euna_01m6nj4nfse7bsptsgtn5be6zc
+binary one 143816 71659bc1c69413e7cd3cc4f52605a9c9415e960ba003f7a7d2883933b235449f
+install {
+  app: 'com.limrun.e2e.fixture',
+  appPath: '/private/tmp/agent-device-review4-evidence/delta-working-android/fixture.apk',
+  platform: 'android',
+  appId: 'com.limrun.e2e.fixture',
+  bundleId: undefined,
+  package: 'com.limrun.e2e.fixture',
+  identifiers: {
+    session: 'delta-app',
+    appId: 'com.limrun.e2e.fixture',
+    appBundleId: undefined,
+    package: 'com.limrun.e2e.fixture'
+  }
+}
+PASS stopped after install one
+PASS installed APK bytes match rebuilt binary one
+binary two 143816 5a6f7d19e775415e5f898d02973dfe8ea3dffaab0ab663ad30823a175c303a84
+install {
+  app: 'com.limrun.e2e.fixture',
+  appPath: '/private/tmp/agent-device-review4-evidence/delta-working-android/fixture.apk',
+  platform: 'android',
+  appId: 'com.limrun.e2e.fixture',
+  bundleId: undefined,
+  package: 'com.limrun.e2e.fixture',
+  identifiers: {
+    session: 'delta-app',
+    appId: 'com.limrun.e2e.fixture',
+    appBundleId: undefined,
+    package: 'com.limrun.e2e.fixture'
+  }
+}
+PASS stopped after install two
+PASS installed APK bytes match rebuilt binary two
+binary one 143816 71659bc1c69413e7cd3cc4f52605a9c9415e960ba003f7a7d2883933b235449f
+reinstall {
+  app: 'com.limrun.e2e.fixture',
+  appPath: '/private/tmp/agent-device-review4-evidence/delta-working-android/fixture.apk',
+  platform: 'android',
+  appId: 'com.limrun.e2e.fixture',
+  bundleId: undefined,
+  package: 'com.limrun.e2e.fixture',
+  identifiers: {
+    session: 'delta-app',
+    appId: 'com.limrun.e2e.fixture',
+    appBundleId: undefined,
+    package: 'com.limrun.e2e.fixture'
+  }
+}
+PASS stopped after reinstall one
+PASS installed APK bytes match rebuilt binary one
+PASS android dist changed-binary install/reinstall
+cleanup {
+  "success": true,
+  "data": {
+    "stopped": true,
+    "mode": "graceful",
+    "cleanupConfidence": "known",
+    "claimsReleased": [],
+    "claimsOrphaned": [],
+    "claimsSuperseded": [],
+    "claimsUnattributable": [],
+    "providerReleases": {
+      "status": "completed",
+      "released": [],
+      "pending": []
+    },
+    "warnings": [],
+    "clean": true
+  }
+}
+

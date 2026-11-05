@@ -1,0 +1,4 @@
+
+
+{"type":"case","durationMs":18441,"testClass":"AgentDeviceRunnerUITests.RunnerTests","method":"testCommand","passed":true}
+{"failed":0,"type":"summary","passed":1,"planFinished":true}

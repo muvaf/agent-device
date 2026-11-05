@@ -1,0 +1,30 @@
+1:  a95049b9a ! 1:  815e2e790 feat(limrun): sync local app installs with SDK 0.69.1
+    @@ packages/provider-limrun/src/deployment-runtime.ts: export function createLimrun
+          deployMaterializedApp: async (input) => (await load()).deployMaterializedApp(input),
+          uninstallApp: async (input) => (await load()).uninstallApp(input),
+     
+    - ## packages/provider-limrun/src/device-session.test.ts ##
+    -@@ packages/provider-limrun/src/device-session.test.ts: const TEST_DEPENDENCIES = {
+    -   },
+    -   host: {
+    -     runAdb: async () => adbResult(''),
+    --    archiveDirectory: async () => undefined,
+    -+
+    -     downloadFile,
+    -   },
+    -   ios: {
+    -
+      ## packages/provider-limrun/src/ios.ts ##
+     @@ packages/provider-limrun/src/ios.ts: import type {
+      import type { Interactor, RunnerContext } from '@agent-device/contracts/interactor-types';
+    @@ packages/provider-limrun/src/ios.ts: class LimrunIosHostInteractor {
+     
+      ## packages/provider-limrun/src/request-cancellation.ts ##
+     @@
+    + import { awaitWithSignal } from '@agent-device/kernel/await-with-signal';
+      /**
+     - * The Limrun WebSocket client does not expose an AbortSignal parameter. Keep the request-bound
+     + * The Limrun SDK does not expose an AbortSignal parameter. Keep the request-bound
+-:  --------- > 2:  8d93a3f1e fix(limrun): bundle delta encoder and own sync cache lifetime
+-:  --------- > 3:  8f01e5cd7 chore(gates): align sync fixtures and remove the deleted vendor zone
+-:  --------- > 4:  a6a2a7c51 test(limrun): mock the public simctl execution interface

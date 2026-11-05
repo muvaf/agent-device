@@ -1,0 +1,11 @@
+source 442a6ce44414fcc88ee8a3d5c4bad6de7dfda324 instance ios_euna_01m6ng61geftcr26p1gj42axft
+open 1
+snapshot -i 1 21
+open 2
+snapshot -i 2 21
+daemon status before kill {"success":true,"data":{"state":"running","stateDir":"/private/tmp/agent-device-review4-evidence/final-head-state","pid":61270,"ownership":"detached","version":"0.21.37-dev","transport":"socket","plugins":[{"provider":"browserstack","source":"builtin","credentials":{"variables":["BROWSERSTACK_USERNAME","BROWSERSTACK_ACCESS_KEY"],"byBackend":{}},"state":"active"},{"provider":"aws-device-farm","source":"builtin","credentials":{"variables":[],"byBackend":{}},"state":"active"},{"provider":"limrun","source":"builtin","credentials":{"variables":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_IOS_INSTANCE_URL","LIM_IOS_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_URL","LIM_ANDROID_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_ADB_URL"],"byBackend":{"ios-instance":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_IOS_INSTANCE_URL","LIM_IOS_INSTANCE_TOKEN"],"android-instance":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_ANDROID_INSTANCE_URL","LIM_ANDROID_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_ADB_URL"]}},"state":"active"}]}}
+killed owned daemon 61270
+Replacing daemon (pid 61270, v0.21.37-dev) in /private/tmp/agent-device-review4-evidence/final-head-state: unreachable
+open 3
+FAIL 3 COMMAND_FAILED Limrun XCTest launch failed (409) {"status":409,"response":"{\n  \"message\" : \"A test run is already in progress\"\n}","reason":"limrun_xctest_slot_occupied","dispatched":"no","hint":"Another XCTest run owns this simulator. Stop its agent-device or Appium session, wait for its run stream to close, then retry. If the previous client died and the slot stays occupied, recreate the Limrun instance.","diagnosticId":"mw3do10o-86a3b9af","logPath":"/private/tmp/agent-device-review4-evidence/final-head-state/sessions/limrun_reuse-app-3/requests/7933a283a82b9264.ndjson","diagnosticsRecord":{"session":"limrun:reuse-app-3","requestId":"7933a283a82b9264"}}
+cleanup {"success":true,"data":{"stopped":true,"mode":"graceful","cleanupConfidence":"known","claimsReleased":[],"claimsOrphaned":[],"claimsSuperseded":[],"claimsUnattributable":[],"providerReleases":{"status":"completed","released":[],"pending":[]},"warnings":[],"clean":true}}

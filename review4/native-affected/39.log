@@ -1,0 +1,6 @@
+$ fallow dead-code --config fallow-production-exports.json --production --unused-exports --fail-on-issues
+loaded config: fallow-production-exports.json
+   0.302499208s  WARN Graph cache decoded but not reused: resolver, entry points, or plugins changed
+  699 entry points detected (580 package.json, 75 plugin, 38 manual entry, 6 dynamically loaded)
+
+✓ No issues found (1.04s)

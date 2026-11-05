@@ -1,0 +1,14 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/__tests__/agent-guidance-contract.test.ts
+✔ high-traffic guidance stays within its reviewed context budget (7.855125ms)
+✔ task guidance stays focused instead of growing another handbook (2.97375ms)
+✔ CONTEXT.md remains a glossary rather than an architecture or workflow document (0.806208ms)
+✔ AGENTS.md routes each shared primitive to a package that publishes it (3.975166ms)
+✔ the AGENTS.md task router points only at files that exist (1.7225ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 72.736917

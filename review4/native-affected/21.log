@@ -1,0 +1,11 @@
+$ vitest run --project provider-integration
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-native-upstream
+
+······················································································································································································································································
+
+ Test Files  69 passed (69)
+      Tests  246 passed (246)
+   Start at  13:05:12
+   Duration  34.57s (tests 87%, import 10%, transform 3%)
+

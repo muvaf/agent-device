@@ -1,0 +1,40 @@
+source a95049b9a1a86413d2703c91a6cc7f08ff136f65 instance android_euna_01m6nj4nfse7bsptsgtn5be6zc
+binary one 143816 71659bc1c69413e7cd3cc4f52605a9c9415e960ba003f7a7d2883933b235449f
+install {
+  app: 'com.limrun.e2e.fixture',
+  appPath: '/private/tmp/agent-device-review4-evidence/delta-working-android/fixture.apk',
+  platform: 'android',
+  appId: 'com.limrun.e2e.fixture',
+  bundleId: undefined,
+  package: 'com.limrun.e2e.fixture',
+  identifiers: {
+    session: 'delta-app',
+    appId: 'com.limrun.e2e.fixture',
+    appBundleId: undefined,
+    package: 'com.limrun.e2e.fixture'
+  }
+}
+PASS stopped after install one
+PASS installed APK bytes match rebuilt binary one
+binary two 143816 5a6f7d19e775415e5f898d02973dfe8ea3dffaab0ab663ad30823a175c303a84
+cleanup {
+  "success": true,
+  "data": {
+    "stopped": true,
+    "mode": "graceful",
+    "cleanupConfidence": "known",
+    "claimsReleased": [],
+    "claimsOrphaned": [],
+    "claimsSuperseded": [],
+    "claimsUnattributable": [],
+    "providerReleases": {
+      "status": "completed",
+      "released": [],
+      "pending": []
+    },
+    "warnings": [],
+    "clean": true
+  }
+}
+
+{"error":"agent-device omits @limrun/xdelta3-wasm, which Limrun loads only from client.syncApp. Restore it in tsdown.config.ts to use folder delta sync.","code":"UNKNOWN","details":{"dispatched":"unknown","hint":"Unexpected internal error. Retry with --debug and report the diagnostics log if it persists.","diagnosticId":"mw3dhpzg-33fccfb4","logPath":"/private/tmp/agent-device-review4-evidence/delta-android-base-state/sessions/limrun_delta-app/requests/c7155be95971874e.ndjson","diagnosticsRecord":{"session":"limrun:delta-app","requestId":"c7155be95971874e"}}}

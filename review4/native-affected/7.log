@@ -1,0 +1,60 @@
+$ fallow audit --base 4abff15edaf7a2634f1b2a00edd742a14e808630
+loaded config: /Users/muvaf/github.com/callstack/agent-device-native-upstream/.fallowrc.json
+   0.762383042s  WARN Skipped 2 package.json entry points outside project root or containing parent directory traversal: ./node_modules/oxfmt/bin/oxfmt (2x)
+Comparing against health baseline: /Users/muvaf/github.com/callstack/agent-device-native-upstream/fallow-baselines/health.json
+
+Audit scope: 136 changed files vs 4abff15edaf7a2634f1b2a00edd742a14e808630 (442a6ce44..HEAD)
+
+── Dead Code ──────────────────────────────────────
+
+■ Metrics: dead code 8 · complexity 0 · duplication 4
+⚠ 7 dev/optional dependencies · 1 dev dependency in production (2.24s)
+  8 issues · 7 suppressed · 0 stale suppressions
+
+── Duplication ────────────────────────────────────
+note: module wiring excluded from clones
+  (duplicates.ignoreImports: false to include it)
+
+── Dependencies ─────────────────────────────────────
+
+● Unused devDependencies (7)
+  @types/json-schema
+  ipaddr.js (package.json; declared and imported in packages/provision-kit)
+  jpeg-js (package.json; declared and imported in packages/capture-kit)
+  plist (package.json; declared and imported in packages/platform-apple)
+  pngjs (package.json; declared and imported in packages/capture-kit)
+  undici (package.json; declared and imported in packages/maestro +1 more)
+  yauzl (package.json; declared and imported in packages/host-kit)
+  Listed in devDependencies but never imported or referenced
+  https://fallow.tools/docs/explanations/dead-code/#unused-dependencies
+
+● Dev dependencies used in production (consider moving to dependencies) (1)
+  oxc-parser
+
+● Duplicates (4 clone groups)
+
+     13 lines  2 instances  spread 4  dup:fd5a4cf4
+    packages/provider-limrun/src/app-log-runtime.ts:89-98
+    packages/provider-revyl/src/platform-runtime.ts:41-53
+
+      6 lines  2 instances  spread 4  dup:ce899a84
+    packages/provider-limrun/src/runtime.ts:849-854
+    packages/provider-revyl/src/runtime.ts:336-341
+
+     13 lines  2 instances  spread 4  dup:de3ce332
+    packages/provider-limrun/src/interaction-operations.ts:132-144
+    packages/provider-revyl/src/interaction-operations.ts:230-242
+
+     11 lines  2 instances  spread 4  dup:10e41626
+    packages/provider-limrun/src/runtime-dependencies.fixtures.ts:56-66
+    src/platform-runtime-gateway.fixtures.ts:249-259
+
+  Duplicate code blocks
+  https://fallow.tools/docs/explanations/duplication/#clone-groups
+
+  31 styling candidates (run `fallow health --css` for detail)
+⚠ 83 lines (0.0%) duplicated across 8 files (0.14s)
+
+── Styling ────────────────────────────────────────
+⚠ dead code: 8 issues · duplication: 4 clone groups (warn) · 136 changed files (3.50s)
+  audit gate excluded 8 inherited findings (run with --gate all to enforce)

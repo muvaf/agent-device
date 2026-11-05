@@ -1,0 +1,9 @@
+$ node --experimental-strip-types scripts/check-package.ts
+Packing and verifying agent-device in /private/var/folders/hg/_l20wr051cqfybfsv_bdy59r0000gn/T/agent-device-package-YemsDm
+Linted the tarball with publint and attw.
+Confirmed the installed tree carries no daemon source, so its version pins its code.
+Confirmed no test code in the 684 packed files.
+Verified the dependency closure: ai.
+Imported all 15 published entry points from a clean install.
+Ran the published CLI 0.21.37-dev on Node 26.5.0.
+The package npm would publish is sound.

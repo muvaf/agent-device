@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-sync-upstream
+
+················
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  12:48:27
+   Duration  2.01s (tests 94%, transform 4%, import 2%)
+

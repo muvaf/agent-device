@@ -1,0 +1,22 @@
+$ node --experimental-strip-types scripts/check-affected/run.ts --run --base 8f01e5cd710454ee4dc71aa547a33194840cdbb4 --head HEAD
+[receipt] /Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-pXfAvW/receipt.json
+Selected 12 checks.
+[skip] web-smoke — GitHub-authoritative (jobs: Apple / Smoke Tests, Integration Tests, Lint, Typecheck & Package, Perf Nightly / Android Command Perf, Perf Nightly / iOS Command Perf)
+[skip] replay-ios — parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)
+[skip] replay-ios-device — parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)
+[skip] replay-macos — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] replay-linux — GitHub-authoritative (jobs: Linux / Smoke Tests)
+[skip] linux-command-evidence — GitHub-authoritative (jobs: Linux / Smoke Tests)
+[skip] replay-android — parked, workflow_dispatch only (Replay Manual / Android Full Emulator Suite)
+[run] format; log=/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-pXfAvW/0.log
+[passed] format; exit=0
+[run] lint; log=/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-pXfAvW/1.log
+[passed] lint; exit=0
+[run] typecheck; log=/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-pXfAvW/2.log
+[passed] typecheck; exit=0
+[run] fallow; log=/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-pXfAvW/3.log
+[passed] fallow; exit=0
+[run] vitest-related; log=/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-pXfAvW/4.log
+[passed] vitest-related; exit=0
+check:affected: all runnable checks passed.
+[passed] exactCommit=true; receipt=/Users/muvaf/github.com/callstack/agent-device-sync-upstream/.tmp/validation/run-pXfAvW/receipt.json

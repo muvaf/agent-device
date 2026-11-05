@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "cwd": "/Users/muvaf/github.com/callstack/agent-device-native-upstream",
+  "startedAt": "2026-11-05T10:02:35.593Z",
+  "status": "passed",
+  "exitCode": 0,
+  "refs": {
+    "base": "origin/main",
+    "head": "HEAD",
+    "resolvedHead": "442a6ce44414fcc88ee8a3d5c4bad6de7dfda324"
+  },
+  "checkoutChanged": false,
+  "exactCommit": true,
+  "results": [
+    {
+      "id": "check:tooling",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:tooling"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/0.log",
+      "exitCode": 0,
+      "durationMs": 63055,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/0.tests.28253.json",
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/0.tests.28300.json",
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/0.tests.28341.json"
+      ],
+      "tests": [
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        },
+        {
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    },
+    {
+      "id": "check:fallow",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:fallow"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/1.log",
+      "exitCode": 0,
+      "durationMs": 4120,
+      "testReportPaths": [],
+      "tests": []
+    },
+    {
+      "id": "check:unit",
+      "status": "passed",
+      "command": [
+        "pnpm",
+        "run",
+        "check:unit"
+      ],
+      "logPath": "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/2.log",
+      "exitCode": 0,
+      "durationMs": 147302,
+      "testReportPaths": [
+        "/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-DEDAFg/2.tests.30079.json"
+      ],
+      "tests": [
+        {
+          "passed": 17290,
+          "failed": 0,
+          "skipped": 1,
+          "pending": 0,
+          "failedModules": 0,
+          "unhandledErrors": 0,
+          "failures": [],
+          "omittedFailures": 0
+        }
+      ]
+    }
+  ],
+  "initial": {
+    "head": "442a6ce44414fcc88ee8a3d5c4bad6de7dfda324",
+    "status": "",
+    "fingerprint": "dc00e6d3e2004024366d2a97d1128b584d73db2844749246ffabe51a3c8643fd"
+  },
+  "final": {
+    "head": "442a6ce44414fcc88ee8a3d5c4bad6de7dfda324",
+    "status": "",
+    "fingerprint": "dc00e6d3e2004024366d2a97d1128b584d73db2844749246ffabe51a3c8643fd"
+  },
+  "finishedAt": "2026-11-05T10:11:02.818Z"
+}

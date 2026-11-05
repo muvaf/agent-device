@@ -1,0 +1,11 @@
+$ vitest run --project provider-integration
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-sync-upstream
+
+·····························································································································································································································································
+
+ Test Files  69 passed (69)
+      Tests  253 passed (253)
+   Start at  13:31:13
+   Duration  34.12s (tests 87%, import 10%, transform 2%)
+
