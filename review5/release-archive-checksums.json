@@ -1,0 +1,12 @@
+[
+  {
+    "archive": "agent-device-ios-runner-review5-xcode26.app.tar.gz",
+    "size": 8800489,
+    "sha256": "5e6f94b212231a1b6e1a71764b5e08479c27c846dc5aae6d2a5e0f541030b82d"
+  },
+  {
+    "archive": "agent-device-ios-runner-review5.app.tar.gz",
+    "size": 3019881,
+    "sha256": "55873f213c8ac14cc49f33f891dc855ed349247923a77be6f7a3e0fd8c5dd4ff"
+  }
+]

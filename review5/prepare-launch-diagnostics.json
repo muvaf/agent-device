@@ -1,0 +1,77 @@
+[
+  {
+    "session": "limrun:reuse-app-1",
+    "request": "83f2aeea319ff851",
+    "ts": "2026-11-05T12:35:02.316Z",
+    "level": "info",
+    "phase": "limrun.runner.prepare",
+    "requestId": "83f2aeea319ff851",
+    "command": "open",
+    "data": {
+      "cached": false
+    }
+  },
+  {
+    "session": "limrun:reuse-app-1",
+    "request": "83f2aeea319ff851",
+    "ts": "2026-11-05T12:35:07.867Z",
+    "level": "info",
+    "phase": "limrun.runner.launch",
+    "requestId": "83f2aeea319ff851",
+    "command": "open",
+    "data": {
+      "path": "/xctest/run",
+      "port": 22487
+    }
+  },
+  {
+    "session": "limrun:reuse-app-2",
+    "request": "76f1ad99851d606c",
+    "ts": "2026-11-05T12:35:21.960Z",
+    "level": "info",
+    "phase": "limrun.runner.prepare",
+    "requestId": "76f1ad99851d606c",
+    "command": "open",
+    "data": {
+      "cached": false
+    }
+  },
+  {
+    "session": "limrun:reuse-app-2",
+    "request": "76f1ad99851d606c",
+    "ts": "2026-11-05T12:35:29.983Z",
+    "level": "info",
+    "phase": "limrun.runner.launch",
+    "requestId": "76f1ad99851d606c",
+    "command": "open",
+    "data": {
+      "path": "/xctest/run",
+      "port": 45192
+    }
+  },
+  {
+    "session": "limrun:reuse-app-3",
+    "request": "d9e6d5a608f503dc",
+    "ts": "2026-11-05T12:35:44.848Z",
+    "level": "info",
+    "phase": "limrun.runner.prepare",
+    "requestId": "d9e6d5a608f503dc",
+    "command": "open",
+    "data": {
+      "cached": false
+    }
+  },
+  {
+    "session": "limrun:reuse-app-3",
+    "request": "d9e6d5a608f503dc",
+    "ts": "2026-11-05T12:35:51.051Z",
+    "level": "info",
+    "phase": "limrun.runner.launch",
+    "requestId": "d9e6d5a608f503dc",
+    "command": "open",
+    "data": {
+      "path": "/xctest/run",
+      "port": 49994
+    }
+  }
+]

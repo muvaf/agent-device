@@ -1,0 +1,16 @@
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-native-upstream
+
+----·--··----····----------------------------
+
+ Test Files  2 passed (2)
+      Tests  7 passed | 38 skipped (45)
+   Start at  15:33:04
+   Duration  12.57s (tests 98%, transform 1%, import 1%)
+
+
+Slow-test gate: 4 test(s) over budget (within the 2x load-variance band, not failing):
+  3.02s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles admission timeout
+  3.02s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles short startup budget
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles caller cancellation
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles retry deadline

@@ -1,0 +1,14 @@
+source 7e18ad0a6fcdb4b677df5b94602afddaaf8fedcb instance ios_euna_01m6nv2xv5evzv5tsxabp0f1qf
+open 1
+snapshot -i 1 21
+appstate 1 {"platform":"ios","appName":"com.limrun.e2e-fixture","appBundleId":"com.limrun.e2e-fixture","source":"runner","state":"runningForeground","surface":"app","device_udid":"limrun:ios:446d15d7c4137e77e003748c6258482f","ios_simulator_device_set":null}
+open 2
+snapshot -i 2 21
+appstate 2 {"platform":"ios","appName":"com.limrun.e2e-fixture","appBundleId":"com.limrun.e2e-fixture","source":"runner","state":"runningForeground","surface":"app","device_udid":"limrun:ios:277d3b0b32c04d79787ac973447eccae","ios_simulator_device_set":null}
+daemon status before kill {"success":true,"data":{"state":"running","stateDir":"/private/tmp/agent-device-review5-evidence/head-state","pid":46558,"ownership":"detached","version":"0.21.37-dev","transport":"socket","plugins":[{"provider":"browserstack","source":"builtin","credentials":{"variables":["BROWSERSTACK_USERNAME","BROWSERSTACK_ACCESS_KEY"],"byBackend":{}},"state":"active"},{"provider":"aws-device-farm","source":"builtin","credentials":{"variables":[],"byBackend":{}},"state":"active"},{"provider":"limrun","source":"builtin","credentials":{"variables":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_IOS_INSTANCE_URL","LIM_IOS_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_URL","LIM_ANDROID_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_ADB_URL"],"byBackend":{"ios-instance":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_IOS_INSTANCE_URL","LIM_IOS_INSTANCE_TOKEN"],"android-instance":["LIMRUN_API_KEY","LIMRUN_REGION","LIM_ANDROID_INSTANCE_URL","LIM_ANDROID_INSTANCE_TOKEN","LIM_ANDROID_INSTANCE_ADB_URL"]}},"state":"active"}]}}
+killed owned daemon 46558
+Replacing daemon (pid 46558, v0.21.37-dev) in /private/tmp/agent-device-review5-evidence/head-state: unreachable
+open 3
+snapshot -i 3 21
+appstate 3 {"platform":"ios","appName":"com.limrun.e2e-fixture","appBundleId":"com.limrun.e2e-fixture","source":"runner","state":"runningForeground","surface":"app","device_udid":"limrun:ios:5d6eb4ce653e02c377635b46872fa710","ios_simulator_device_set":null}
+cleanup {"success":true,"data":{"stopped":true,"mode":"graceful","cleanupConfidence":"known","claimsReleased":[],"claimsOrphaned":[],"claimsSuperseded":[],"claimsUnattributable":[],"providerReleases":{"status":"completed","released":[],"pending":[]},"warnings":[],"clean":true}}

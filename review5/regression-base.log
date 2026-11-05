@@ -1,0 +1,115 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-review5-base
+
+----x--x·----xxx·----------------------------
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| src/core/interactors/limrun-ios-runner-errors.test.ts > retains product-specific recovery instructions over the default hint
+AssertionError: expected 'Set AGENT_DEVICE_LIMRUN_IOS_RUNNER_AP…' to be 'Use the simulator product from this b…' // Object.is equality
+
+Expected: "Use the simulator product from this build."
+Received: "Set AGENT_DEVICE_LIMRUN_IOS_RUNNER_APP to the simulator runner .app built for this instance’s Xcode and iOS runtime, or use a matching release runner."
+
+ ❯ src/core/interactors/limrun-ios-runner-errors.test.ts:64:5
+     62|       hint: 'Use the simulator product from this build.',
+     63|     }).details?.hint,
+     64|   ).toBe('Use the simulator product from this build.');
+       |     ^
+     65|   expect(
+     66|     limrunRunnerError('limrun_runner_products_invalid', 'Invalid runne…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  |unit-core| src/core/interactors/limrun-ios-runner.test.ts > classifies a sparse capture failure with nodes {"nodes":[]} over forwarded runner HTTP
+AssertionError: expected Error: XCTest snapshot returned 0 nodes o… { …(2) } to match object { code: 'COMMAND_FAILED', …(1) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+- {
++ AppError {
+    "code": "COMMAND_FAILED",
+-   "details": {
+-     "hint": StringContaining "Close and reopen",
+-     "reason": "limrun_runner_snapshot_unavailable",
+-     "snapshotQuality": {
+-       "reasonCode": "capture-failed",
+-       "state": "sparse",
+-     },
+-   },
++   "details": undefined,
+  }
+
+ ❯ src/core/interactors/limrun-ios-runner.test.ts:72:6
+     70|     await expect(
+     71|       f.runner.createInteractor({ appBundleId: 'com.apple.Preferences'…
+     72|     ).rejects.toMatchObject({
+       |      ^
+     73|       code: 'COMMAND_FAILED',
+     74|       details: {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  |unit-core| src/core/interactors/limrun-ios-runner.test.ts > a canceled run that keeps its slot handles retry deadline
+ FAIL  |unit-core| src/core/interactors/limrun-ios-runner.test.ts > a canceled run that keeps its slot handles short startup budget
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/core/interactors/limrun-ios-runner.test.ts:261:23
+    259|     }
+    260|     if (ending === 'retry deadline' || ending === 'short startup budge…
+    261|       expect(settled).toBe(true);
+       |                       ^
+    262|     }
+    263|     timeout.abort(new DOMException('Admission expired', 'TimeoutError'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  |unit-core| src/core/interactors/limrun-ios-runner.test.ts > a canceled run that keeps its slot handles admission timeout
+AssertionError: expected Error: request canceled { …(2) } to match object { code: 'COMMAND_FAILED', …(1) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+- {
++ AppError {
+    "code": "COMMAND_FAILED",
+    "details": {
+-     "hint": StringContaining "recreate",
+-     "reason": "limrun_xctest_slot_occupied",
+-     "status": 409,
++     "hint": "The request was canceled intentionally (explicit cancel or client disconnect) — no retry is needed unless the cancellation was unintended.",
++     "reason": "request_canceled",
+    },
+  }
+
+ ❯ src/core/interactors/limrun-ios-runner.test.ts:265:27
+    263|     timeout.abort(new DOMException('Admission expired', 'TimeoutError'…
+    264|     if (ending === 'admission timeout') await vi.advanceTimersByTimeAs…
+    265|     expect(await outcome).toMatchObject(
+       |                           ^
+    266|       ending === 'caller cancellation'
+    267|         ? { details: { reason: 'request_canceled' } }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  5 failed | 2 passed | 38 skipped (45)
+   Start at  15:40:59
+   Duration  12.62s (tests 98%, transform 1%, import 1%)
+
+
+Slow-test gate: 4 test(s) over budget (within the 2x load-variance band, not failing):
+  3.02s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles short startup budget
+  3.02s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles retry deadline
+  3.02s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles admission timeout
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles caller cancellation

@@ -1,0 +1,424 @@
+{
+  "nodes": [
+    {
+      "label": "E2E Fixture",
+      "hittable": false,
+      "enabled": true,
+      "type": "Application",
+      "depth": 0,
+      "index": 0,
+      "rect": {
+        "width": 402,
+        "x": 0,
+        "y": 0,
+        "height": 874
+      },
+      "ref": "e1",
+      "kind": "application"
+    },
+    {
+      "label": "E2E Fixture",
+      "hittable": true,
+      "enabled": true,
+      "type": "Other",
+      "depth": 1,
+      "parentIndex": 0,
+      "index": 1,
+      "rect": {
+        "width": 402,
+        "x": 0,
+        "y": 0,
+        "height": 874
+      },
+      "ref": "e2",
+      "kind": "other"
+    },
+    {
+      "identifier": "e2e-text-field",
+      "hittable": true,
+      "enabled": true,
+      "type": "TextField",
+      "depth": 3,
+      "parentIndex": 1,
+      "placeholder": "Type here",
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 191.66666666666663,
+        "height": 34
+      },
+      "index": 2,
+      "password": false,
+      "editable": true,
+      "ref": "e3",
+      "kind": "text-field"
+    },
+    {
+      "identifier": "e2e-keyboard",
+      "label": "hidden",
+      "hittable": true,
+      "enabled": true,
+      "type": "StaticText",
+      "depth": 3,
+      "parentIndex": 1,
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 241.66666666666663,
+        "height": 20.333333333333314
+      },
+      "index": 3,
+      "ref": "e4",
+      "kind": "text"
+    },
+    {
+      "identifier": "e2e-slider",
+      "label": "50%",
+      "hittable": true,
+      "value": "50%",
+      "enabled": true,
+      "type": "Slider",
+      "depth": 3,
+      "parentIndex": 1,
+      "index": 4,
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 278,
+        "height": 34
+      },
+      "ref": "e5",
+      "kind": "slider"
+    },
+    {
+      "identifier": "e2e-slider-value",
+      "label": "50",
+      "hittable": true,
+      "enabled": true,
+      "type": "StaticText",
+      "depth": 3,
+      "parentIndex": 1,
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 328,
+        "height": 20.333333333333314
+      },
+      "index": 5,
+      "ref": "e6",
+      "kind": "text"
+    },
+    {
+      "label": "r0c0",
+      "hittable": true,
+      "enabled": true,
+      "type": "Other",
+      "depth": 3,
+      "parentIndex": 1,
+      "index": 6,
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 364.3333333333333,
+        "height": 106
+      },
+      "ref": "e7",
+      "kind": "other"
+    },
+    {
+      "identifier": "e2e-grid-r0c0",
+      "label": "r0c0",
+      "hittable": true,
+      "enabled": true,
+      "type": "Button",
+      "depth": 5,
+      "parentIndex": 6,
+      "rect": {
+        "width": 107.33333333333331,
+        "x": 32,
+        "y": 364.3333333333333,
+        "height": 30
+      },
+      "index": 7,
+      "ref": "e8",
+      "kind": "button"
+    },
+    {
+      "identifier": "e2e-grid-r0c1",
+      "label": "r0c1",
+      "hittable": true,
+      "enabled": true,
+      "type": "Button",
+      "depth": 5,
+      "parentIndex": 6,
+      "rect": {
+        "width": 107.33333333333334,
+        "x": 147.33333333333334,
+        "y": 364.3333333333333,
+        "height": 30
+      },
+      "index": 8,
+      "ref": "e9",
+      "kind": "button"
+    },
+    {
+      "identifier": "e2e-grid-r0c2",
+      "label": "r0c2",
+      "hittable": true,
+      "enabled": true,
+      "type": "Button",
+      "depth": 5,
+      "parentIndex": 6,
+      "rect": {
+        "width": 107.33333333333331,
+        "x": 262.66666666666674,
+        "y": 364.3333333333333,
+        "height": 30
+      },
+      "index": 9,
+      "ref": "e10",
+      "kind": "button"
+    },
+    {
+      "label": "r1c0",
+      "hittable": true,
+      "enabled": true,
+      "type": "Other",
+      "depth": 4,
+      "parentIndex": 6,
+      "index": 10,
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 402.3333333333333,
+        "height": 30
+      },
+      "ref": "e11",
+      "kind": "other"
+    },
+    {
+      "identifier": "e2e-grid-r1c0",
+      "label": "r1c0",
+      "hittable": true,
+      "enabled": true,
+      "type": "Button",
+      "depth": 5,
+      "parentIndex": 10,
+      "rect": {
+        "width": 107.33333333333331,
+        "x": 32,
+        "y": 402.3333333333333,
+        "height": 30
+      },
+      "index": 11,
+      "ref": "e12",
+      "kind": "button"
+    },
+    {
+      "identifier": "e2e-grid-r1c1",
+      "label": "r1c1",
+      "hittable": true,
+      "enabled": true,
+      "type": "Button",
+      "depth": 5,
+      "parentIndex": 10,
+      "rect": {
+        "width": 107.33333333333334,
+        "x": 147.33333333333334,
+        "y": 402.3333333333333,
+        "height": 30
+      },
+      "index": 12,
+      "ref": "e13",
+      "kind": "button"
+    },
+    {
+      "identifier": "e2e-grid-r1c2",
+      "hittable": true,
+      "parentIndex": 10,
+      "type": "Button",
+      "rect": {
+        "width": 107.33333333333331,
+        "x": 262.66666666666674,
+        "y": 402.3333333333333,
+        "height": 30
+      },
+      "label": "r1c2",
+      "index": 13,
+      "depth": 5,
+      "enabled": true,
+      "ref": "e14",
+      "kind": "button"
+    },
+    {
+      "hittable": true,
+      "parentIndex": 6,
+      "type": "Other",
+      "label": "r2c0",
+      "index": 14,
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 440.3333333333333,
+        "height": 30
+      },
+      "depth": 4,
+      "enabled": true,
+      "ref": "e15",
+      "kind": "other"
+    },
+    {
+      "identifier": "e2e-grid-r2c0",
+      "hittable": true,
+      "parentIndex": 14,
+      "type": "Button",
+      "rect": {
+        "width": 107.33333333333331,
+        "x": 32,
+        "y": 440.3333333333333,
+        "height": 30
+      },
+      "label": "r2c0",
+      "index": 15,
+      "depth": 5,
+      "enabled": true,
+      "ref": "e16",
+      "kind": "button"
+    },
+    {
+      "identifier": "e2e-grid-r2c1",
+      "hittable": true,
+      "parentIndex": 14,
+      "type": "Button",
+      "rect": {
+        "width": 107.33333333333334,
+        "x": 147.33333333333334,
+        "y": 440.3333333333333,
+        "height": 30
+      },
+      "label": "r2c1",
+      "index": 16,
+      "depth": 5,
+      "enabled": true,
+      "ref": "e17",
+      "kind": "button"
+    },
+    {
+      "identifier": "e2e-grid-r2c2",
+      "hittable": true,
+      "parentIndex": 14,
+      "type": "Button",
+      "rect": {
+        "width": 107.33333333333331,
+        "x": 262.66666666666674,
+        "y": 440.3333333333333,
+        "height": 30
+      },
+      "label": "r2c2",
+      "index": 17,
+      "depth": 5,
+      "enabled": true,
+      "ref": "e18",
+      "kind": "button"
+    },
+    {
+      "identifier": "e2e-tap-result",
+      "hittable": true,
+      "parentIndex": 1,
+      "type": "StaticText",
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 486.3333333333333,
+        "height": 20.333333333333314
+      },
+      "label": "none",
+      "index": 18,
+      "depth": 3,
+      "enabled": true,
+      "ref": "e19",
+      "kind": "text"
+    },
+    {
+      "identifier": "e2e-touch-pad",
+      "hittable": true,
+      "parentIndex": 1,
+      "type": "Other",
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 522.6666666666665,
+        "height": 160
+      },
+      "label": "touch pad",
+      "index": 19,
+      "depth": 3,
+      "enabled": true,
+      "ref": "e20",
+      "kind": "other"
+    },
+    {
+      "identifier": "e2e-touch-count",
+      "hittable": true,
+      "parentIndex": 1,
+      "type": "StaticText",
+      "rect": {
+        "width": 338,
+        "x": 32,
+        "y": 698.6666666666665,
+        "height": 20.33333333333337
+      },
+      "label": "0",
+      "index": 20,
+      "depth": 3,
+      "enabled": true,
+      "ref": "e21",
+      "kind": "text"
+    }
+  ],
+  "truncated": false,
+  "appName": "com.limrun.e2e-fixture",
+  "appBundleId": "com.limrun.e2e-fixture",
+  "keyboard": {
+    "kind": "absent",
+    "treeBound": true
+  },
+  "viewport": {
+    "width": 402,
+    "height": 874
+  },
+  "presentedSurface": "unknown",
+  "visibility": {
+    "partial": false,
+    "visibleNodeCount": 21,
+    "totalNodeCount": 21,
+    "reasons": []
+  },
+  "snapshotQuality": {
+    "state": "healthy",
+    "backend": "tree",
+    "timing": {
+      "acquisitionMs": 46.45800590515137,
+      "presentationMs": 0.16200542449951172
+    }
+  },
+  "snapshotDiagnostics": {
+    "stats": {
+      "count": 1,
+      "p50Ms": 16452,
+      "p95Ms": 16452,
+      "maxMs": 16452,
+      "slowThresholdMs": 1500,
+      "platform": "ios",
+      "backends": {
+        "apple-runner": 1
+      }
+    }
+  },
+  "refsGeneration": 261272,
+  "identifiers": {
+    "session": "reuse-app-3",
+    "appId": "com.limrun.e2e-fixture",
+    "appBundleId": "com.limrun.e2e-fixture"
+  }
+}

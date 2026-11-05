@@ -1,0 +1,82 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/integration-progress-model.test.ts && node --experimental-strip-types scripts/integration-progress.ts --check
+✔ integration progress counts explicit generic Apple host-tool usage only (6.104667ms)
+✔ integration progress maps a parameterless facet to its client method (2.842959ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 167.127708
+Provider-backed integration status
+
+| Measure | Value |
+| --- | ---: |
+| Handler unit test files | 44 |
+| Handler unit test LOC | 12233 |
+| Handler unit tests | 299 |
+| Handler files with vi.mock | 8 |
+| Provider scenario files | 69 |
+| Provider scenario LOC | 19868 |
+| Provider scenario tests | 208 |
+| Provider scenario support files | 32 |
+| Provider scenario support LOC | 6157 |
+| Provider scenario / handler LOC | 162.4% |
+| Public commands covered by provider-backed integration | 59/59 |
+| Public commands missing provider-backed integration coverage | 0 |
+| Device-observable workflow flags covered by provider-backed integration | 70/70 |
+| Device-observable workflow flags missing provider-backed integration coverage | 0 |
+| Public CLI flags intentionally outside provider-backed integration | 103 |
+| Public CLI flags unclassified by progress script | 0 |
+| Coverage summary | not available; run pnpm test:coverage first |
+
+Mock-heavy handler unit tests
+
+| Tests | LOC | File |
+| ---: | ---: | --- |
+| 14 | 881 | packages/daemon/src/execution/handlers/__tests__/react-native.test.ts |
+| 24 | 734 | packages/daemon/src/execution/handlers/__tests__/snapshot-settings-handler.test.ts |
+| 13 | 725 | packages/daemon/src/sessions/handlers/__tests__/session-device-claims.test.ts |
+| 19 | 541 | packages/daemon/src/sessions/handlers/__tests__/record-runtime-stop-recovery.test.ts |
+| 7 | 430 | packages/daemon/src/sessions/handlers/__tests__/session-reinstall.test.ts |
+| 6 | 326 | packages/daemon/src/sessions/handlers/__tests__/session-prepare.test.ts |
+| 7 | 193 | packages/daemon/src/execution/handlers/__tests__/snapshot-alert.test.ts |
+| 2 | 182 | packages/daemon/src/sessions/handlers/__tests__/session-doctor-app-runtime.test.ts |
+
+Public CLI flag coverage outside provider-backed integration
+
+| Bucket | Flags | Coverage owner |
+| --- | --- | --- |
+| config, output, diagnostics, and transport | config, remoteConfig, stateDir, daemonBaseUrl, daemonAuthToken, daemonTransport, daemonServerMode, remote, tenant, sessionIsolation, runId, leaseId, leaseBackend, json, help, version, verbose, cost, responseLevel | args/CLI transport/auth tests |
+| remote connection and session-lock policy | force, noLogin, sessionLock | connection/runtime/request policy tests |
+| proxy lease device spec | osVersion, imageTag, physical | proxy allocate-by-spec, request-router refusal, and lease-scope tests |
+| cloud artifact provider lookup | provider, providerSessionId, providerApp, providerOsVersion, providerDeviceType, providerProject, providerBuild, providerSessionName, providerDeviceOrientation, providerGeoLocation, providerTimezone, providerAppiumVersion, providerLanguage, providerLocale, providerNetworkProfile, providerCustomNetwork, providerNoResignApp, providerNetworkLogs, providerNetworkHosts, awsProjectArn, awsDeviceArn, awsAppArn, awsRegion, awsInteractionMode | cloud provider profile, artifact provider, CLI output, and cloud WebDriver provider scenario tests |
+| Metro and React Native runtime preparation | metroHost, metroPort, metroProjectRoot, metroKind, metroPublicBaseUrl, metroProxyBaseUrl, metroBearerToken, metroPreparePort, metroListenHost, metroStatusHost, metroStartupTimeoutMs, metroProbeTimeoutMs, metroRuntimeFile, metroNoReuseExisting, metroNoInstallDeps, bundleUrl, launchUrl | Metro companion integration and parser tests |
+| Apple launch and perf artifact options | kind, launchArgs, perfTemplate, iosXctestrunFile, iosXctestDerivedDataPath, iosXctestEnvDir | iOS platform, observability command, and parser tests |
+| parser/client-only command flags | artifact, dsym, githubActionsArtifact, snapshotDiff, snapshotForceFull, baseline, threshold, reporter, reportJunit, replayMaestro, recordVideo, shardAll, shardSplit, searchPath, stepsFile, textStdin, proxyHost, proxyPort, stale | args, CLI, debug-symbols, screenshot-diff, and batch tests |
+| daemon lifecycle control | clean | daemon CLI lifecycle tests |
+| platform boot fallback without provider seam | headless, testIme | handler and Android platform unit tests |
+| local boot tie-break | pick | device-selection resolver and boot handler unit tests |
+| open foreground auto-resolution (RFC prototype) | foreground | daemon session-open-foreground lifecycle unit tests |
+| local device contention waiting | waitMs | daemon session-open contention unit tests |
+| Apple simulator screenshot rendering options | screenshotNormalizeStatusBar, screenshotPixelDensity, screenshotScreenMask | iOS platform and screenshot-diff runtime tests |
+| Apple simulator private-AX capture options | snapshotCustomActions | runner XCTest unit, snapshot-lines, and snapshot-quality tests |
+| local iOS observe-only snapshot | snapshotObserveOnly | Apple interactor observe-only and runner XCTest dispatch tests |
+| daemon screenshot selector crop | screenshotCropOn | daemon screenshot-crop unit and live device verification |
+
+Provider transcript pressure
+
+| Contract surface | References | Files |
+| --- | ---: | ---: |
+| Android ADB provider | 85 | 18 |
+| Apple runner provider | 209 | 23 |
+| Apple simctl/devicectl provider | 105 | 25 |
+| Apple macOS helper provider | 30 | 4 |
+| Apple macOS host provider | 75 | 12 |
+| Linux semantic desktop provider | 46 | 8 |
+| Linux semantic accessibility/clipboard/screenshot provider | 101 | 18 |
+| Linux semantic input provider | 41 | 14 |
+| Linux generic tool provider | 34 | 11 |
+| Web semantic provider | 38 | 5 |
+| Recording provider | 1 | 1 |

@@ -1,0 +1,29 @@
+{
+  "sourceOverlays": [
+    "_Testing_CoreGraphics.framework",
+    "_Testing_CoreImage.framework",
+    "_Testing_Foundation.framework",
+    "_Testing_UIKit.framework"
+  ],
+  "packagedOverlays": [
+    "_Testing_CoreGraphics.framework",
+    "_Testing_CoreImage.framework",
+    "_Testing_Foundation.framework",
+    "_Testing_UIKit.framework"
+  ],
+  "frameworks": [
+    "Testing.framework",
+    "XCTAutomationSupport.framework",
+    "XCTest.framework",
+    "XCTestCore.framework",
+    "XCTestSupport.framework",
+    "XCUIAutomation.framework",
+    "XCUnit.framework",
+    "_Testing_CoreGraphics.framework",
+    "_Testing_CoreImage.framework",
+    "_Testing_Foundation.framework",
+    "_Testing_UIKit.framework",
+    "libXCTestSwiftSupport.dylib",
+    "lib_TestingInterop.dylib"
+  ]
+}

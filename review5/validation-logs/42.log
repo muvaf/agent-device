@@ -1,0 +1,25 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --test test/ci/trusted-fixture-artifact.test.mjs
+✔ producer, consumers, upload, and concurrency use the canonical platform-scoped artifact name (7.063041ms)
+✔ resolve-artifact-name.sh fingerprints examples/test-app, not the workspace root (332.1255ms)
+✔ Android smoke consumes the restored APK through catalog fixture E2E (59.269084ms)
+✔ Android APK locator emits an exact APK path and package id, and rejects collisions or malformed artifacts (409.484959ms)
+✔ Android APK repack signs the output and preserves its package id (1076.469791ms)
+✔ producer maps each platform to its resolved lookup and matrix artifact name, and gates has-work when both are cached (367.74075ms)
+✔ artifact name resolver scopes both platforms and rejects invalid output (387.579917ms)
+✔ same-name artifact from an untrusted repository cannot suppress a trusted candidate (0.144458ms)
+✔ same-name artifact from another workflow falls back instead of being executed (0.059875ms)
+✔ same-repository artifact from an unrelated feature head is rejected (0.0735ms)
+✔ default-branch producer artifacts remain reusable across native-equivalent heads (0.046959ms)
+✔ producer state is derived only from the trusted exact-head workflow run (0.099042ms)
+✔ a run that flickers to queued while its platform job is already running classifies as in_progress, not queued (0.032417ms)
+✔ a platform job that has not been scheduled yet classifies by the run instead of going absent (0.031875ms)
+✔ the iOS platform job is looked up by its own matrix name, independent of the Android job (0.029458ms)
+✔ an unrecognized fixture platform is rejected rather than silently matching no job (0.045334ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2688.183

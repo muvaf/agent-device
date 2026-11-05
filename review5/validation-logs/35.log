@@ -1,0 +1,37 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test --test-concurrency=1 scripts/check-tmpdir-leaks-model.test.ts scripts/vitest-tmpdir-global-setup.test.ts scripts/node-test-tmpdir.test.ts scripts/swift-toolchain-tmpdir.test.ts
+✔ a directory owned by a still-running process is not reported as a leak (1.009292ms)
+✔ a directory whose owning process has exited is reported as a leak (0.340125ms)
+✔ a concurrent run from another worktree does not fail the check for this one (0.373209ms)
+✔ a mix of active and abandoned directories reports only the abandoned one (0.418083ms)
+✔ a directory with no parseable pid is conservatively reported as a leak (0.259375ms)
+✔ non-matching directories and files are ignored (0.381708ms)
+✔ pruning removes only abandoned directories and returns their names (0.851459ms)
+✔ pruning nothing is a no-op that reports nothing (0.365958ms)
+✔ a directory whose owner is dead but which some live process still holds as TMPDIR is not a leak (0.569542ms)
+✔ a consumer is identified by the run directory its TMPDIR sits inside, at any depth (0.113ms)
+✔ the wrapper redirects a node --test child TMPDIR and removes it after the run (314.673292ms)
+✔ the wrapper stops an orphaned Node fixture tree still using the run directory, not a shared tool (649.739375ms)
+✔ an interrupted wrapper waits for its child, then stops the leftovers and exits 130 (470.647084ms)
+✔ the wrapper still cleans up and forwards a nonzero exit code when the child fails (326.503167ms)
+✔ the wrapper keeps AGENT_DEVICE_SWIFT_CACHE_DIR outside the disposable TMPDIR (331.789375ms)
+✔ the wrapper isolates advisory device claims inside its disposable run directory (340.65525ms)
+✔ every node --test package.json script routes through scripts/node-test-tmpdir.ts (0.799583ms)
+✔ lanes that sweep the shared run-directory root serialize their files (0.281833ms)
+✔ the wrapper prunes a run directory abandoned by an earlier killed run and keeps a live one (314.194459ms)
+✔ a run whose owner alone was killed keeps its directory while a child still uses it, and loses it once the child exits (568.069958ms)
+✔ the Swift toolchain wrapper removes its TMPDIR after success (88.854958ms)
+✔ the Swift toolchain wrapper cleans up and forwards a failure (82.654459ms)
+✔ the Swift toolchain wrapper keeps TMPDIR until a signaled child exits (290.486333ms)
+✔ the Swift toolchain wrapper keeps TMPDIR until signaled descendants exit (340.783958ms)
+✔ Apple build lanes route toolchain commands through the cleanup wrapper (1.227917ms)
+✔ the configured Vitest lifecycle redirects worker TMPDIR and removes it after the run (566.213ms)
+✔ global setup prunes a run directory abandoned by an earlier killed run and keeps a live one (573.200958ms)
+✔ global teardown stops a detached child a test left running in the run directory (570.045958ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6135.803041

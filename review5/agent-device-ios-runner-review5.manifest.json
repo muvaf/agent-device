@@ -1,0 +1,12 @@
+{
+  "version": "review5",
+  "release_tag": "review5",
+  "asset_name": "agent-device-ios-runner-review5.app.tar.gz",
+  "asset_url": null,
+  "sha256": "55873f213c8ac14cc49f33f891dc855ed349247923a77be6f7a3e0fd8c5dd4ff",
+  "checksum_name": "agent-device-ios-runner-review5.app.tar.gz.sha256",
+  "bundle_id": "com.callstack.agentdevice.runner.uitests.xctrunner",
+  "bundle_name": "AgentDeviceRunnerUITests-Runner",
+  "platform_target": "iphonesimulator",
+  "archive_format": "tar.gz"
+}

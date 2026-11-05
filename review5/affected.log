@@ -1,0 +1,131 @@
+$ node --experimental-strip-types scripts/check-affected/run.ts --run --head HEAD
+[receipt] /Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/receipt.json
+Selected 66 checks; FAIL-OPEN: full set (see receipt.plan.failOpenReasons).
+[skip] test-app-typecheck — GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)
+[skip] test-app-security — GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)
+[skip] ios-snapshot-differential — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] unit-ci — GitHub-authoritative (jobs: Coverage, Integration Tests)
+[skip] coverage — GitHub-authoritative (jobs: Coverage)
+[skip] coverage-crap — GitHub-authoritative (jobs: Coverage)
+[skip] swift-runner-ios — GitHub-authoritative (jobs: Apple / Smoke Tests, Conformance Differential / iOS Conformance Differential, Perf Nightly / iOS Command Perf, XCTest Nightly / iOS Runner Full XCTest Suite (${{ matrix.leg.name }}))
+[skip] swift-runner-macos — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] android-helpers — GitHub-authoritative (jobs: Android / Smoke Tests, Perf Nightly / Android Command Perf)
+[skip] macos-helper — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] web-smoke — GitHub-authoritative (jobs: Apple / Smoke Tests, Integration Tests, Lint, Typecheck & Package, Perf Nightly / Android Command Perf, Perf Nightly / iOS Command Perf)
+[skip] freerange — GitHub-authoritative (jobs: Repo Guards & Compatibility)
+[skip] maestro-differential — GitHub-authoritative (jobs: Conformance Differential / iOS Conformance Differential)
+[skip] maestro-regenerate — GitHub-authoritative (jobs: Conformance Regenerate Verify / Regenerate & Verify Fixtures)
+[skip] fuzz-parsers — GitHub-authoritative (jobs: Replay Nightly / Parser Fuzz Lane)
+[skip] mutation — GitHub-authoritative (jobs: Mutation Harness Canary / Mutants (${{ matrix.name }}), Mutation Weekly / Mutants (${{ matrix.name }}))
+[skip] mutation-affected — GitHub-authoritative (jobs: Mutation Harness Canary / Select harness validation kernels)
+[skip] mutation-check — GitHub-authoritative (jobs: Mutation Weekly / Mutation score report)
+[skip] concurrency-torture — GitHub-authoritative (jobs: Concurrency Torture Nightly / Session/lease/lock torture sweep, Integration Tests)
+[skip] replay-ios — parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)
+[skip] replay-ios-device — parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)
+[skip] replay-macos — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] replay-linux — GitHub-authoritative (jobs: Linux / Smoke Tests)
+[skip] linux-command-evidence — GitHub-authoritative (jobs: Linux / Smoke Tests)
+[skip] replay-android — parked, workflow_dispatch only (Replay Manual / Android Full Emulator Suite)
+[run] format; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/0.log
+[passed] format; exit=0
+[run] lint; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/1.log
+[passed] lint; exit=0
+[run] typecheck; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/2.log
+[passed] typecheck; exit=0
+[run] layering; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/5.log
+[running] layering 15s
+[passed] layering; exit=0
+[run] di-seams; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/6.log
+[passed] di-seams; exit=0
+[run] fallow; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/7.log
+[passed] fallow; exit=0
+[run] native-dupes; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/8.log
+[passed] native-dupes; exit=0
+[run] native-dupes-model; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/9.log
+[passed] native-dupes-model; exit=0
+[run] mcp-metadata; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/10.log
+[passed] mcp-metadata; exit=0
+[run] build; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/11.log
+[passed] build; exit=0
+[run] package; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/12.log
+[passed] package; exit=0
+[run] integration-node; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/13.log
+[running] integration-node 15s
+[passed] integration-node; exit=0
+[run] macos-coverage; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/14.log
+[passed] macos-coverage; exit=0
+[run] vitest-related; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/16.log
+[running] vitest-related 15s
+[running] vitest-related 30s
+[running] vitest-related 45s
+[passed] vitest-related; exit=0
+[run] unit; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/17.log
+[running] unit 15s
+[running] unit 30s
+[running] unit 45s
+[running] unit 60s
+[running] unit 75s
+[running] unit 90s
+[running] unit 105s
+[running] unit 120s
+[running] unit 135s
+[running] unit 150s
+[running] unit 165s
+[running] unit 180s
+[passed] unit; exit=0
+[run] provider-integration; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/21.log
+[running] provider-integration 15s
+[running] provider-integration 30s
+[passed] provider-integration; exit=0
+[run] integration-progress; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/22.log
+[passed] integration-progress; exit=0
+[run] replay-compat; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/28.log
+[passed] replay-compat; exit=0
+[run] daemon-wire-compat; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/29.log
+[passed] daemon-wire-compat; exit=0
+[run] affected-selector; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/30.log
+[passed] affected-selector; exit=0
+[run] gate-manifest; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/31.log
+[passed] gate-manifest; exit=0
+[run] gate-manifest-model; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/32.log
+[passed] gate-manifest-model; exit=0
+[run] depgraph; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/33.log
+[passed] depgraph; exit=0
+[run] tmpdir-leaks; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/34.log
+[passed] tmpdir-leaks; exit=0
+[run] tmpdir-leaks-model; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/35.log
+[passed] tmpdir-leaks-model; exit=0
+[run] coverage-model; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/36.log
+[passed] coverage-model; exit=0
+[run] coverage-crap-model; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/37.log
+[passed] coverage-crap-model; exit=0
+[run] wire-compat-model; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/38.log
+[passed] wire-compat-model; exit=0
+[run] production-exports; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/39.log
+[passed] production-exports; exit=0
+[run] bundle-owner-files; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/40.log
+[passed] bundle-owner-files; exit=0
+[run] fixture-cache; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/42.log
+[passed] fixture-cache; exit=0
+[run] fixture-fallback; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/43.log
+[passed] fixture-fallback; exit=0
+[run] command-docs; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/44.log
+[passed] command-docs; exit=0
+[run] capabilities-matrix; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/45.log
+[passed] capabilities-matrix; exit=0
+[run] docs-links; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/46.log
+[passed] docs-links; exit=0
+[run] docs-prose; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/47.log
+[passed] docs-prose; exit=0
+[run] agent-guidance; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/48.log
+[passed] agent-guidance; exit=0
+[run] xctest-selection; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/49.log
+[passed] xctest-selection; exit=0
+[run] packaged-runner-swift; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/50.log
+[passed] packaged-runner-swift; exit=0
+[run] maestro-conformance; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/51.log
+[passed] maestro-conformance; exit=0
+[run] mutation-model; log=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/58.log
+[passed] mutation-model; exit=0
+check:affected: all runnable checks passed.
+[passed] exactCommit=true; receipt=/Users/muvaf/github.com/callstack/agent-device-native-upstream/.tmp/validation/run-wVoR5o/receipt.json

@@ -1,0 +1,177 @@
+diff --git a/src/core/interactors/limrun-ios-runner-errors.test.ts b/src/core/interactors/limrun-ios-runner-errors.test.ts
+index 11569cdd5..2abb40857 100644
+--- a/src/core/interactors/limrun-ios-runner-errors.test.ts
++++ b/src/core/interactors/limrun-ios-runner-errors.test.ts
+@@ -1,6 +1,6 @@
+ import { expect, test } from 'vitest';
+ import { AppError } from '@agent-device/kernel/errors';
+-import { withLimrunRunnerErrors } from './limrun-ios-runner-errors.ts';
++import { limrunRunnerError, withLimrunRunnerErrors } from './limrun-ios-runner-errors.ts';
+ 
+ test.each(['capture-failed', 'budget'] as const)(
+   'reports %s snapshot failure with a remote recovery hint',
+@@ -55,3 +55,14 @@ test('shared startup failures retain their reason with a remote toolchain recove
+     cause: error,
+   });
+ });
++
++test('retains product-specific recovery instructions over the default hint', () => {
++  expect(
++    limrunRunnerError('limrun_runner_products_invalid', 'Invalid runner', {
++      hint: 'Use the simulator product from this build.',
++    }).details?.hint,
++  ).toBe('Use the simulator product from this build.');
++  expect(
++    limrunRunnerError('limrun_runner_products_invalid', 'Invalid runner').details?.hint,
++  ).toContain('AGENT_DEVICE_LIMRUN_IOS_RUNNER_APP');
++});
+diff --git a/src/core/interactors/limrun-ios-runner.fixtures.ts b/src/core/interactors/limrun-ios-runner.fixtures.ts
+index bde3fc7ab..155622d3d 100644
+--- a/src/core/interactors/limrun-ios-runner.fixtures.ts
++++ b/src/core/interactors/limrun-ios-runner.fixtures.ts
+@@ -58,6 +58,7 @@ export async function fixture(
+     loseTapReply?: 'completed' | 'started';
+     busyTap?: boolean;
+     screenshot?: Record<string, unknown>;
++    snapshot?: Record<string, unknown>;
+   } & FileStoreOptions = {},
+ ): Promise<RunnerFixture> {
+   const directory = await mkdtempForTest('limrun-runner-');
+@@ -111,7 +112,7 @@ export async function fixture(
+     return false;
+   };
+   const commandResults: Record<string, unknown> = {
+-    snapshot: {
++    snapshot: options.snapshot ?? {
+       nodes: [
+         {
+           index: 0,
+diff --git a/src/core/interactors/limrun-ios-runner.test.ts b/src/core/interactors/limrun-ios-runner.test.ts
+index 437c195b3..6009aeec7 100644
+--- a/src/core/interactors/limrun-ios-runner.test.ts
++++ b/src/core/interactors/limrun-ios-runner.test.ts
+@@ -55,6 +55,32 @@ test('reports an occupied XCTest slot instead of falling back to AX', async () =
+   expect(f.requests.filter((p) => p.endsWith('/xctest/run'))).toHaveLength(1);
+ });
+ 
++test.each([
++  { nodes: [] },
++  { nodes: [{ index: 0, type: 'Application', rect: { x: 0, y: 0, width: 0, height: 0 } }] },
++])(
++  'classifies a sparse capture failure with nodes %j over forwarded runner HTTP',
++  async ({ nodes }) => {
++    const f = await fixture({
++      snapshot: {
++        nodes,
++        snapshotQuality: { state: 'sparse', backend: 'tree', reasonCode: 'capture-failed' },
++      },
++    });
++    await expect(
++      f.runner.createInteractor({ appBundleId: 'com.apple.Preferences' }).snapshot(),
++    ).rejects.toMatchObject({
++      code: 'COMMAND_FAILED',
++      details: {
++        reason: 'limrun_runner_snapshot_unavailable',
++        snapshotQuality: { state: 'sparse', reasonCode: 'capture-failed' },
++        hint: expect.stringContaining('Close and reopen'),
++      },
++    });
++    expect(f.commands.some((command) => command.command === 'snapshot')).toBe(true);
++  },
++);
++
+ test('rejects a forwarded response that does not prove runner token enforcement', async () => {
+   const f = await fixture({ proof: false });
+   await expect(
+@@ -172,6 +198,91 @@ test('an admission timeout waits for its uncertain XCTest slot before restarting
+   }
+ });
+ 
++test.each([
++  'retry deadline',
++  'short startup budget',
++  'admission timeout',
++  'caller cancellation',
++] as const)('a canceled run that keeps its slot handles %s', async (ending) => {
++  const options = { holdAdmission: true, canceledRunConflicts: 1000 };
++  const f = await fixture(options);
++  const controller = new AbortController();
++  const pending = f.runner
++    .createInteractor({ appBundleId: 'com.apple.Preferences', signal: controller.signal })
++    .snapshot();
++  const canceled = expect(pending).rejects.toThrow();
++  await vi.waitFor(() => expect(f.requests.some((p) => p.endsWith('/xctest/run'))).toBe(true));
++  controller.abort(new Error('stop cold launch'));
++  await canceled;
++  await vi.waitFor(() => expect(f.admissionClosed).toBe(true));
++  options.holdAdmission = false;
++  const timeout = new AbortController();
++  const realTimeout = AbortSignal.timeout.bind(AbortSignal);
++  const timer = vi
++    .spyOn(AbortSignal, 'timeout')
++    .mockImplementation((ms) => (ms === 90_000 ? timeout.signal : realTimeout(ms)));
++  let conflictRead!: () => void;
++  const conflict = new Promise<void>((resolve) => {
++    conflictRead = resolve;
++  });
++  const originalText = Response.prototype.text;
++  const responseBody = vi
++    .spyOn(Response.prototype, 'text')
++    .mockImplementation(async function (this: Response) {
++      const body = await originalText.call(this);
++      if (this.status === 409) conflictRead();
++      return body;
++    });
++  vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'Date'] });
++  try {
++    const restart = new AbortController();
++    const restarted = f.runner.applicationTools.prepareRunner(
++      f.device,
++      { execution: {}, timeoutMs: ending === 'short startup budget' ? 5_000 : 120_000 },
++      restart.signal,
++    );
++    let settled = false;
++    const outcome = restarted.then(
++      () => undefined,
++      (error: unknown) => error,
++    );
++    void outcome.then(() => {
++      settled = true;
++    });
++    await conflict;
++    // Let the launch continuation schedule its bounded retry after reading the response.
++    await vi.advanceTimersByTimeAsync(0);
++    if (ending === 'caller cancellation') restart.abort(new Error('stop retrying'));
++    else if (ending !== 'admission timeout') {
++      vi.setSystemTime(Date.now() + (ending === 'short startup budget' ? 2_501 : 60_001));
++      await vi.advanceTimersByTimeAsync(1_000);
++    }
++    if (ending === 'retry deadline' || ending === 'short startup budget') {
++      expect(settled).toBe(true);
++    }
++    timeout.abort(new DOMException('Admission expired', 'TimeoutError'));
++    if (ending === 'admission timeout') await vi.advanceTimersByTimeAsync(1_000);
++    expect(await outcome).toMatchObject(
++      ending === 'caller cancellation'
++        ? { details: { reason: 'request_canceled' } }
++        : {
++            code: 'COMMAND_FAILED',
++            details: {
++              reason: 'limrun_xctest_slot_occupied',
++              status: 409,
++              hint: expect.stringContaining('recreate'),
++            },
++          },
++    );
++    expect(f.requests.filter((p) => p.endsWith('/xctest/run')).length).toBeLessThan(90);
++  } finally {
++    timeout.abort(new DOMException('Admission expired', 'TimeoutError'));
++    vi.useRealTimers();
++    timer.mockRestore();
++    responseBody.mockRestore();
++  }
++});
++
+ test('cancels an in-flight snapshot while keeping the runner available for lease cleanup', async () => {
+   const options = { holdSnapshot: false };
+   const f = await fixture(options);

@@ -1,0 +1,3 @@
+Independent read-only review covered 442a6ce44414fcc88ee8a3d5c4bad6de7dfda324 through 7e18ad0a6fcdb4b677df5b94602afddaaf8fedcb. No production findings remain. The reviewer requested an explicit settlement assertion before firing the admission timeout and an accurate name for the short-budget case; both were added. The final typing and fixture-row corrections were reviewed separately, with no findings.
+
+The reviewer also compared the preparation waiters with artifact-start admission and video-recording waiters. Their ownership, retry retention, and cleanup/draining policies differ. Generic waiter extraction was deferred; the shared awaitWithSignal primitive remains reused.

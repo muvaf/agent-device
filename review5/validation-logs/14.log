@@ -1,0 +1,16 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --test test/integration/smoke-macos-coverage.test.ts
+✔ macOS coverage declarations cover exactly the public catalog with an assertion and owner (0.658542ms)
+✔ macOS coverage classification summary is the rollup of the manifest declarations (0.102833ms)
+✔ macOS live declarations equal the commands named in live scenario sources (1.068584ms)
+✔ macOS live declarations name commands present in their scenario source files (0.312584ms)
+✔ macOS non-live evidence declarations name an existing file containing the evidence test text (0.948ms)
+✔ macOS known gaps use one grouped tracking issue (0.060333ms)
+✔ macOS coverage report persists the manifest rollup and live command list (1.879625ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 172.099375

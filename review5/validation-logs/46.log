@@ -1,0 +1,128 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/__tests__/check-doc-links.test.ts && pnpm --dir website build && node --experimental-strip-types scripts/check-doc-links.ts
+✔ links to rendered pages and IDs pass (2.149042ms)
+✔ a link to a page that was not built fails (0.839083ms)
+✔ a link to an ID the target page does not render fails (0.619375ms)
+✔ a same-page fragment must name an ID on that page (0.557792ms)
+✔ a heading ID rendered twice on one page fails; repeated non-heading IDs do not (0.535584ms)
+✔ external URLs are skipped and asset links must exist (0.505667ms)
+✔ README links into the published docs are checked against the built pages (0.477458ms)
+✔ a docs page without its Markdown twin fails (0.479875ms)
+✔ the base is read from the asset paths and proven by the home link (0.458083ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.478958
+$ astro build --force && node --experimental-strip-types scripts/build-depgraph.mjs
+15:40:19 [WARN] [content] data store cleared (force)
+15:40:19 [content] Syncing content
+15:40:20 [content] Synced content
+15:40:20 [types] Generated 824ms
+15:40:20 [build] output: "static"
+15:40:20 [build] mode: "static"
+15:40:20 [build] directory: /Users/muvaf/github.com/callstack/agent-device-native-upstream/website/dist/
+15:40:20 [build] Collecting build info...
+15:40:20 [build] ✓ Completed in 883ms.
+15:40:20 [build] Building static entrypoints...
+15:40:20 [vite] ✓ built in 388ms
+15:40:20 [vite] ✓ built in 39ms
+15:40:20 [build] Rearranging server assets...
+
+ generating static routes 
+15:40:20 [WARN] [content] The collection "i18n" does not exist or is empty. Please check your content config file for errors.
+15:40:20   ├─ /.well-known/mcp.json (+294ms) 
+15:40:20   ├─ /404.html (+512ms) 
+15:40:21   ├─ /cloud.html (+6ms) 
+15:40:21   ├─ /contact.html (+2ms) 
+15:40:21   ├─ /docs/agent-setup.md (+1ms) 
+15:40:21   ├─ /docs/ai-sdk.md (+1ms) 
+15:40:21   ├─ /docs/aws-device-farm.md (+1ms) 
+15:40:21   ├─ /docs/batching.md (+1ms) 
+15:40:21   ├─ /docs/browserstack.md (+1ms) 
+15:40:21   ├─ /docs/build-an-integration.md (+1ms) 
+15:40:21   ├─ /docs/capabilities.md (+0ms) 
+15:40:21   ├─ /docs/client-api.md (+0ms) 
+15:40:21   ├─ /docs/commands.md (+1ms) 
+15:40:21   ├─ /docs/configuration.md (+1ms) 
+15:40:21   ├─ /docs/debugging-profiling.md (+0ms) 
+15:40:21   ├─ /docs/device-clouds.md (+1ms) 
+15:40:21   ├─ /docs/eve.md (+0ms) 
+15:40:21   ├─ /docs/installation.md (+0ms) 
+15:40:21   ├─ /docs/introduction.md (+0ms) 
+15:40:21   ├─ /docs/known-limitations.md (+0ms) 
+15:40:21   ├─ /docs/limrun.md (+0ms) 
+15:40:21   ├─ /docs/migrating-gestures.md (+0ms) 
+15:40:21   ├─ /docs/plugins.md (+0ms) 
+15:40:21   ├─ /docs/quick-start.md (+0ms) 
+15:40:21   ├─ /docs/remote-proxy.md (+0ms) 
+15:40:21   ├─ /docs/replay-e2e.md (+0ms) 
+15:40:21   ├─ /docs/revyl.md (+1ms) 
+15:40:21   ├─ /docs/run-maestro-flows.md (+0ms) 
+15:40:21   ├─ /docs/security-trust.md (+0ms) 
+15:40:21   ├─ /docs/selectors.md (+0ms) 
+15:40:21   ├─ /docs/sessions.md (+0ms) 
+15:40:21   ├─ /docs/snapshots.md (+0ms) 
+15:40:21   ├─ /docs/testmu.md (+0ms) 
+15:40:21   ├─ /docs/webos.md (+0ms) 
+15:40:21   ├─ /llms-full.txt (+463ms) 
+15:40:21   ├─ /llms-small.txt (+225ms) 
+15:40:22   ├─ /llms.txt (+4ms) 
+15:40:22   ├─ /robots.txt (+1ms) 
+15:40:22   ├─ /showcase.html (+1ms) 
+15:40:22   ├─ /version.txt (+1ms) 
+15:40:22   ├─ /index.html (+324ms) 
+15:40:22   ├─ /docs/agent-setup.html (+12ms) 
+15:40:22   ├─ /docs/ai-sdk.html (+4ms) 
+15:40:22   ├─ /docs/aws-device-farm.html (+3ms) 
+15:40:22   ├─ /docs/batching.html (+3ms) 
+15:40:22   ├─ /docs/browserstack.html (+2ms) 
+15:40:22   ├─ /docs/build-an-integration.html (+3ms) 
+15:40:22   ├─ /docs/capabilities.html (+2ms) 
+15:40:22   ├─ /docs/client-api.html (+2ms) 
+15:40:22   ├─ /docs/commands.html (+4ms) 
+15:40:22   ├─ /docs/configuration.html (+2ms) 
+15:40:22   ├─ /docs/debugging-profiling.html (+2ms) 
+15:40:22   ├─ /docs/device-clouds.html (+2ms) 
+15:40:22   ├─ /docs/eve.html (+1ms) 
+15:40:22   ├─ /docs/installation.html (+1ms) 
+15:40:22   ├─ /docs/introduction.html (+1ms) 
+15:40:22   ├─ /docs/known-limitations.html (+1ms) 
+15:40:22   ├─ /docs/limrun.html (+1ms) 
+15:40:22   ├─ /docs/migrating-gestures.html (+1ms) 
+15:40:22   ├─ /docs/plugins.html (+1ms) 
+15:40:22   ├─ /docs/quick-start.html (+1ms) 
+15:40:22   ├─ /docs/remote-proxy.html (+1ms) 
+15:40:22   ├─ /docs/replay-e2e.html (+1ms) 
+15:40:22   ├─ /docs/revyl.html (+1ms) 
+15:40:22   ├─ /docs/run-maestro-flows.html (+1ms) 
+15:40:22   ├─ /docs/security-trust.html (+1ms) 
+15:40:22   ├─ /docs/selectors.html (+1ms) 
+15:40:22   ├─ /docs/sessions.html (+1ms) 
+15:40:22   ├─ /docs/snapshots.html (+1ms) 
+15:40:22   ├─ /docs/testmu.html (+1ms) 
+15:40:22   ├─ /docs/webos.html (+2ms) 
+15:40:22 ✓ Completed in 1.96s.
+
+15:40:22 [build] ✓ Completed in 2.42s.
+15:40:22 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+15:40:22 [starlight:pagefind] Building search index with Pagefind...
+15:40:22 [starlight:pagefind] Found 35 HTML files.
+15:40:22 [starlight:pagefind] Finished building search index in 104ms.
+15:40:22 [build] 35 page(s) built in 3.43s
+15:40:22 [build] Complete!
+Dependency graph: 1952 files, 11143 edges, 49 zones
+  value-import cycles (R4): 0
+  type-only/dynamic cycles (not gate-rejected): 20
+  spine back-edges (R5): 0
+  type-only spine inversions (R6): 4
+  value edges whose target is also reachable at distance >= 2: 2719
+  declared-authority labels: vocabulary=195, capability=51, live-state-shape=103, live-state-authority=71, executable-policy=73, ordinary=10653
+    (reachability only — not a removability claim, see scripts/depgraph/README.md)
+  dominator summary for src/daemon.ts: 356 of 1952 files loaded eagerly, biggest branch packages/daemon/src/index.ts (332 files, 60935 loc)
+  zone-level SCCs: 0 cyclic group(s) across 49 zones
+  modularity: declared zones 0.367, detected communities 0.549, least cohesive zone sdk (19%)
+  wrote website/dist/depgraph/graph.json
+doc links: every internal link resolves (base /).

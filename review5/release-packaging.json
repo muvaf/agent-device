@@ -1,0 +1,14 @@
+{
+  "xcode": "Xcode 27.1\nBuild version 27A9269",
+  "sourceOverlays": [
+    "_Testing_CoreGraphics.framework",
+    "_Testing_CoreImage.framework",
+    "_Testing_CoreTransferable.framework",
+    "_Testing_Foundation.framework",
+    "_Testing_UIKit.framework"
+  ],
+  "packagedOverlays": [],
+  "testingFramework": false,
+  "testingInterop": true,
+  "archiveBytes": 3019881
+}

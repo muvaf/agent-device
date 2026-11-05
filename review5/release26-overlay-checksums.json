@@ -1,0 +1,18 @@
+[
+  {
+    "framework": "_Testing_CoreGraphics.framework",
+    "sha256": "8751624984c2624ffd72c6445713d7f180dde2317982ec2c5e3189c3bee98646"
+  },
+  {
+    "framework": "_Testing_CoreImage.framework",
+    "sha256": "6a85dceda28aeaf0aef978a4780445b7a248170ecfb4fba48f74895276e92bfd"
+  },
+  {
+    "framework": "_Testing_Foundation.framework",
+    "sha256": "01ea4895607ba92c5af46d9563ab848dfa387f614a67cb74ce9fc0a381880da9"
+  },
+  {
+    "framework": "_Testing_UIKit.framework",
+    "sha256": "ee413b8154282970cb405f2a4ef11cc6844406098acd085f4009e3d32d02e1b9"
+  }
+]
