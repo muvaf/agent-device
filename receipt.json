@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "cwd": "/Users/muvaf/github.com/callstack/agent-device-android-parity",
-  "startedAt": "2026-11-06T12:15:00.871Z",
+  "cwd": "<checkout>",
+  "startedAt": "2026-11-06T15:02:20.955Z",
   "status": "passed",
   "exitCode": 0,
   "refs": {
     "base": "origin/main",
     "head": "HEAD",
-    "resolvedBase": "0a3b01890d53a772e952a5a5bdcbaf77173fe972",
-    "resolvedHead": "7ba110ad70704bc88616498beb32e81d7b809d47",
+    "resolvedBase": "a68693c72e7cb5f640f4a64fea8e4441fa223e72",
+    "resolvedHead": "99be56862fdadcbbfa38aebbf48b2dbac7964dcc",
     "mergeBase": "0a3b01890d53a772e952a5a5bdcbaf77173fe972"
   },
   "checkoutChanged": false,
@@ -22,9 +22,9 @@
         "run",
         "format:check"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/0.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/0.log",
       "exitCode": 0,
-      "durationMs": 444,
+      "durationMs": 464,
       "testReportPaths": [],
       "tests": []
     },
@@ -36,9 +36,9 @@
         "run",
         "lint"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/1.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/1.log",
       "exitCode": 0,
-      "durationMs": 1795,
+      "durationMs": 1814,
       "testReportPaths": [],
       "tests": []
     },
@@ -50,9 +50,9 @@
         "run",
         "typecheck"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/2.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/2.log",
       "exitCode": 0,
-      "durationMs": 519,
+      "durationMs": 7007,
       "testReportPaths": [],
       "tests": []
     },
@@ -74,9 +74,9 @@
         "run",
         "check:layering"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/5.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/5.log",
       "exitCode": 0,
-      "durationMs": 18941,
+      "durationMs": 18833,
       "testReportPaths": [],
       "tests": []
     },
@@ -88,9 +88,9 @@
         "run",
         "check:di-seams"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/6.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/6.log",
       "exitCode": 0,
-      "durationMs": 793,
+      "durationMs": 901,
       "testReportPaths": [],
       "tests": []
     },
@@ -102,11 +102,11 @@
         "run",
         "check:fallow",
         "--base",
-        "0a3b01890d53a772e952a5a5bdcbaf77173fe972"
+        "a68693c72e7cb5f640f4a64fea8e4441fa223e72"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/7.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/7.log",
       "exitCode": 0,
-      "durationMs": 3897,
+      "durationMs": 4487,
       "testReportPaths": [],
       "tests": []
     },
@@ -118,9 +118,9 @@
         "run",
         "check:native-dupes"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/8.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/8.log",
       "exitCode": 0,
-      "durationMs": 1370,
+      "durationMs": 429,
       "testReportPaths": [],
       "tests": []
     },
@@ -132,9 +132,9 @@
         "run",
         "check:native-dupes:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/9.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/9.log",
       "exitCode": 0,
-      "durationMs": 1908,
+      "durationMs": 2123,
       "testReportPaths": [],
       "tests": []
     },
@@ -146,9 +146,9 @@
         "run",
         "check:mcp-metadata"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/10.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/10.log",
       "exitCode": 0,
-      "durationMs": 273,
+      "durationMs": 296,
       "testReportPaths": [],
       "tests": []
     },
@@ -160,9 +160,9 @@
         "run",
         "build"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/11.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/11.log",
       "exitCode": 0,
-      "durationMs": 4240,
+      "durationMs": 4523,
       "testReportPaths": [],
       "tests": []
     },
@@ -174,9 +174,9 @@
         "run",
         "check:package"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/12.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/12.log",
       "exitCode": 0,
-      "durationMs": 5881,
+      "durationMs": 5226,
       "testReportPaths": [],
       "tests": []
     },
@@ -188,9 +188,9 @@
         "run",
         "test:integration:node"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/13.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/13.log",
       "exitCode": 0,
-      "durationMs": 20501,
+      "durationMs": 19958,
       "testReportPaths": [],
       "tests": []
     },
@@ -202,7 +202,7 @@
         "run",
         "test:integration:macos-coverage"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/14.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/14.log",
       "exitCode": 0,
       "durationMs": 679,
       "testReportPaths": [],
@@ -225,6 +225,8 @@
         "--passWithNoTests",
         "--project=!unit-core",
         "--project=!fuzz-worker",
+        "packages/contracts/src/element-text-runtime.test.ts",
+        "packages/contracts/src/element-text-runtime.ts",
         "packages/platform-android/src/mechanics.ts",
         "packages/provider-limrun/src/android-perf-runtime.test.ts",
         "packages/provider-limrun/src/android-perf-runtime.ts",
@@ -241,20 +243,21 @@
         "src/platform-runtime-gateway.fixtures.ts",
         "src/sdk/limrun-android-performance.test.ts",
         "src/sdk/limrun-runtime-dependencies.ts",
+        "test/integration/provider-scenarios/limrun-android-performance.test.ts",
         "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
         "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
         "website/docs/docs/capabilities.md",
         "website/docs/docs/limrun.md"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/16.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/16.log",
       "exitCode": 0,
-      "durationMs": 39015,
+      "durationMs": 46470,
       "testReportPaths": [
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/16.tests.17576.json"
+        "<checkout>/.tmp/validation/run-X1gbHy/16.tests.80378.json"
       ],
       "tests": [
         {
-          "passed": 339,
+          "passed": 1290,
           "failed": 0,
           "skipped": 0,
           "pending": 0,
@@ -273,15 +276,15 @@
         "run",
         "check:unit"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/17.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/17.log",
       "exitCode": 0,
-      "durationMs": 153953,
+      "durationMs": 150904,
       "testReportPaths": [
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/17.tests.22025.json"
+        "<checkout>/.tmp/validation/run-X1gbHy/17.tests.85468.json"
       ],
       "tests": [
         {
-          "passed": 17524,
+          "passed": 17526,
           "failed": 0,
           "skipped": 1,
           "pending": 0,
@@ -315,15 +318,15 @@
         "run",
         "test:integration:provider"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/21.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/21.log",
       "exitCode": 0,
-      "durationMs": 32440,
+      "durationMs": 32029,
       "testReportPaths": [
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/21.tests.43586.json"
+        "<checkout>/.tmp/validation/run-X1gbHy/21.tests.7881.json"
       ],
       "tests": [
         {
-          "passed": 256,
+          "passed": 257,
           "failed": 0,
           "skipped": 0,
           "pending": 0,
@@ -342,9 +345,9 @@
         "run",
         "test:integration:progress:check"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/22.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/22.log",
       "exitCode": 0,
-      "durationMs": 899,
+      "durationMs": 921,
       "testReportPaths": [],
       "tests": []
     },
@@ -381,9 +384,9 @@
         "run",
         "check:replay-compat"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/28.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/28.log",
       "exitCode": 0,
-      "durationMs": 543,
+      "durationMs": 551,
       "testReportPaths": [],
       "tests": []
     },
@@ -395,9 +398,9 @@
         "run",
         "check:daemon-wire-compat"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/29.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/29.log",
       "exitCode": 0,
-      "durationMs": 2547,
+      "durationMs": 2429,
       "testReportPaths": [],
       "tests": []
     },
@@ -409,9 +412,9 @@
         "run",
         "check:affected:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/30.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/30.log",
       "exitCode": 0,
-      "durationMs": 10340,
+      "durationMs": 9459,
       "testReportPaths": [],
       "tests": []
     },
@@ -423,9 +426,9 @@
         "run",
         "check:gate-manifest"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/31.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/31.log",
       "exitCode": 0,
-      "durationMs": 594,
+      "durationMs": 581,
       "testReportPaths": [],
       "tests": []
     },
@@ -437,9 +440,9 @@
         "run",
         "check:gate-manifest:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/32.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/32.log",
       "exitCode": 0,
-      "durationMs": 2378,
+      "durationMs": 2247,
       "testReportPaths": [],
       "tests": []
     },
@@ -451,9 +454,9 @@
         "run",
         "depgraph:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/33.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/33.log",
       "exitCode": 0,
-      "durationMs": 8597,
+      "durationMs": 8382,
       "testReportPaths": [],
       "tests": []
     },
@@ -465,7 +468,7 @@
         "run",
         "check:tmpdir-leaks"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/34.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/34.log",
       "exitCode": 0,
       "durationMs": 405,
       "testReportPaths": [],
@@ -479,13 +482,13 @@
         "run",
         "check:tmpdir-leaks:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/35.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/35.log",
       "exitCode": 0,
-      "durationMs": 6387,
+      "durationMs": 6527,
       "testReportPaths": [
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/35.tests.56453.json",
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/35.tests.56490.json",
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/35.tests.56533.json"
+        "<checkout>/.tmp/validation/run-X1gbHy/35.tests.20601.json",
+        "<checkout>/.tmp/validation/run-X1gbHy/35.tests.20750.json",
+        "<checkout>/.tmp/validation/run-X1gbHy/35.tests.20802.json"
       ],
       "tests": [
         {
@@ -528,9 +531,9 @@
         "run",
         "check:coverage-changed:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/36.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/36.log",
       "exitCode": 0,
-      "durationMs": 1884,
+      "durationMs": 1813,
       "testReportPaths": [],
       "tests": []
     },
@@ -542,9 +545,9 @@
         "run",
         "check:coverage-crap:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/37.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/37.log",
       "exitCode": 0,
-      "durationMs": 10436,
+      "durationMs": 10570,
       "testReportPaths": [],
       "tests": []
     },
@@ -556,9 +559,9 @@
         "run",
         "check:daemon-wire-compat:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/38.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/38.log",
       "exitCode": 0,
-      "durationMs": 579,
+      "durationMs": 574,
       "testReportPaths": [],
       "tests": []
     },
@@ -570,9 +573,9 @@
         "run",
         "check:production-exports"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/39.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/39.log",
       "exitCode": 0,
-      "durationMs": 1372,
+      "durationMs": 1341,
       "testReportPaths": [],
       "tests": []
     },
@@ -584,9 +587,9 @@
         "run",
         "check:bundle-owner-files"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/40.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/40.log",
       "exitCode": 0,
-      "durationMs": 437,
+      "durationMs": 434,
       "testReportPaths": [],
       "tests": []
     },
@@ -603,9 +606,9 @@
         "run",
         "test:fixture-cache"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/42.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/42.log",
       "exitCode": 0,
-      "durationMs": 3180,
+      "durationMs": 3040,
       "testReportPaths": [],
       "tests": []
     },
@@ -617,9 +620,9 @@
         "run",
         "test:fixture-fallback"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/43.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/43.log",
       "exitCode": 0,
-      "durationMs": 7610,
+      "durationMs": 7336,
       "testReportPaths": [],
       "tests": []
     },
@@ -631,11 +634,11 @@
         "run",
         "check:command-docs"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/44.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/44.log",
       "exitCode": 0,
-      "durationMs": 930,
+      "durationMs": 981,
       "testReportPaths": [
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/44.tests.75261.json"
+        "<checkout>/.tmp/validation/run-X1gbHy/44.tests.39558.json"
       ],
       "tests": [
         {
@@ -658,11 +661,11 @@
         "run",
         "check:capabilities-matrix"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/45.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/45.log",
       "exitCode": 0,
-      "durationMs": 1792,
+      "durationMs": 1751,
       "testReportPaths": [
-        "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/45.tests.75322.json"
+        "<checkout>/.tmp/validation/run-X1gbHy/45.tests.39621.json"
       ],
       "tests": [
         {
@@ -685,9 +688,9 @@
         "run",
         "check:doc-links"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/46.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/46.log",
       "exitCode": 0,
-      "durationMs": 8989,
+      "durationMs": 6513,
       "testReportPaths": [],
       "tests": []
     },
@@ -699,9 +702,9 @@
         "run",
         "check:doc-prose"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/47.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/47.log",
       "exitCode": 0,
-      "durationMs": 671,
+      "durationMs": 623,
       "testReportPaths": [],
       "tests": []
     },
@@ -713,9 +716,9 @@
         "run",
         "check:agent-guidance"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/48.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/48.log",
       "exitCode": 0,
-      "durationMs": 585,
+      "durationMs": 586,
       "testReportPaths": [],
       "tests": []
     },
@@ -727,9 +730,9 @@
         "run",
         "check:xctest-selection"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/49.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/49.log",
       "exitCode": 0,
-      "durationMs": 459,
+      "durationMs": 442,
       "testReportPaths": [],
       "tests": []
     },
@@ -741,9 +744,9 @@
         "run",
         "check:packaged-runner-swift"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/50.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/50.log",
       "exitCode": 0,
-      "durationMs": 4836,
+      "durationMs": 4815,
       "testReportPaths": [],
       "tests": []
     },
@@ -755,7 +758,7 @@
         "run",
         "maestro:conformance"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/51.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/51.log",
       "exitCode": 0,
       "durationMs": 798,
       "testReportPaths": [],
@@ -799,9 +802,9 @@
         "run",
         "mutation:test"
       ],
-      "logPath": "/Users/muvaf/github.com/callstack/agent-device-android-parity/.tmp/validation/run-v5P7zq/58.log",
+      "logPath": "<checkout>/.tmp/validation/run-X1gbHy/58.log",
       "exitCode": 0,
-      "durationMs": 8306,
+      "durationMs": 8745,
       "testReportPaths": [],
       "tests": []
     },
@@ -842,11 +845,13 @@
     }
   ],
   "initial": {
-    "head": "7ba110ad70704bc88616498beb32e81d7b809d47",
+    "head": "99be56862fdadcbbfa38aebbf48b2dbac7964dcc",
     "status": "",
-    "fingerprint": "d19cf509bb406174593ec0d4128ebd76b0cfd0ec4ad94d6d04091465af92c872"
+    "fingerprint": "0ecc51c8e548bedc2faf7dfe3fb97e91ba6f68fc96351ad454791f242c6e981b"
   },
   "changedFiles": [
+    "packages/contracts/src/element-text-runtime.test.ts",
+    "packages/contracts/src/element-text-runtime.ts",
     "packages/platform-android/src/mechanics.ts",
     "packages/provider-limrun/src/android-perf-runtime.test.ts",
     "packages/provider-limrun/src/android-perf-runtime.ts",
@@ -863,6 +868,7 @@
     "src/platform-runtime-gateway.fixtures.ts",
     "src/sdk/limrun-android-performance.test.ts",
     "src/sdk/limrun-runtime-dependencies.ts",
+    "test/integration/provider-scenarios/limrun-android-performance.test.ts",
     "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
     "test/integration/provider-scenarios/stale-provider-runtime-admission.test.ts",
     "website/docs/docs/capabilities.md",
@@ -939,6 +945,132 @@
       "replay-android"
     ],
     "reasons": [
+      {
+        "check": "format",
+        "path": "packages/contracts/src/element-text-runtime.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/contracts/src/element-text-runtime.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/contracts/src/element-text-runtime.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/contracts/src/element-text-runtime.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/contracts/src/element-text-runtime.test.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/contracts/src/element-text-runtime.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "format",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers packages/"
+      },
+      {
+        "check": "lint",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers packages/"
+      },
+      {
+        "check": "typecheck",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes packages/"
+      },
+      {
+        "check": "fallow",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "layering",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "package-src",
+        "detail": "layering R11 guards workspace package boundaries"
+      },
+      {
+        "check": "vitest-related",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "build",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "package-src",
+        "detail": "package source is bundled into the published artifact"
+      },
+      {
+        "check": "unit",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:unit-text-gates",
+        "detail": "unit-suite gates read production sources as text, which the Vitest module graph cannot trace"
+      },
+      {
+        "check": "replay-ios",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "packages/contracts/src/element-text-runtime.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
       {
         "check": "format",
         "path": "packages/platform-android/src/mechanics.ts",
@@ -2051,6 +2183,78 @@
       },
       {
         "check": "format",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "gate:format",
+        "detail": "oxfmt covers src/ and test/"
+      },
+      {
+        "check": "lint",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "gate:lint",
+        "detail": "oxlint covers the source tree"
+      },
+      {
+        "check": "typecheck",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "gate:typecheck",
+        "detail": "tsc includes src/ and test/"
+      },
+      {
+        "check": "fallow",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "gate:fallow",
+        "detail": "fallow audits changed TypeScript for dead code"
+      },
+      {
+        "check": "vitest-related",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "vitest:related",
+        "detail": "Vitest resolves affected tests through its static module graph"
+      },
+      {
+        "check": "replay-ios",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-ios-device",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-macos",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-android",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "replay-linux",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "linux-command-evidence",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "web-smoke",
+        "path": "test/integration/provider-scenarios/limrun-android-performance.test.ts",
+        "rule": "own:device-lane:shared",
+        "detail": "shared runtime surface: every device lane drives the CLI and daemon through it"
+      },
+      {
+        "check": "format",
         "path": "test/integration/provider-scenarios/limrun-deployment-cancellation.fixtures.ts",
         "rule": "gate:format",
         "detail": "oxfmt covers src/ and test/"
@@ -2234,9 +2438,9 @@
     "docsOnlyPaths": []
   },
   "final": {
-    "head": "7ba110ad70704bc88616498beb32e81d7b809d47",
+    "head": "99be56862fdadcbbfa38aebbf48b2dbac7964dcc",
     "status": "",
-    "fingerprint": "d19cf509bb406174593ec0d4128ebd76b0cfd0ec4ad94d6d04091465af92c872"
+    "fingerprint": "0ecc51c8e548bedc2faf7dfe3fb97e91ba6f68fc96351ad454791f242c6e981b"
   },
-  "finishedAt": "2026-11-06T12:21:13.496Z"
+  "finishedAt": "2026-11-06T15:08:39.362Z"
 }

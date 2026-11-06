@@ -1,0 +1,57 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-android-review-base
+
+xx
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/android-perf-runtime.test.ts > a live Android owner binds reads and rejects a lease lost after binding
+AssertionError: expected Error: Limrun Android interactor is unava… { …(2) } to match object { code: 'DEVICE_NOT_FOUND' }
+(4 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "DEVICE_NOT_FOUND",
++ AppError {
++   "code": "COMMAND_FAILED",
+  }
+
+ ❯ packages/provider-limrun/src/android-perf-runtime.test.ts:78:4
+     76|   await expect(
+     77|     binding.operations.readTextAtPoint!({ point: { x: 10, y: 20 } }),
+     78|   ).rejects.toMatchObject({ code: 'DEVICE_NOT_FOUND' });
+       |    ^
+     79|   await expect(
+     80|     binding.operations.perfMemorySample!({ appId: 'com.example.app' }),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/android-perf-runtime.test.ts > cancellation while binding prevents a performance operation from starting
+AssertionError: promise resolved "undefined" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+undefined
+
+ ❯ packages/provider-limrun/src/android-perf-runtime.test.ts:101:24
+     99|     artifactsDir: '/tmp/artifacts',
+    100|   });
+    101|   await expect(capture).rejects.toBe(reason);
+       |                        ^
+    102|   expect(perfMemorySnapshot).not.toHaveBeenCalled();
+    103| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  17:51:39
+   Duration  884ms (transform 81%, import 17%, tests 1%, setup 1%)
+

@@ -1,0 +1,12 @@
+$ node --experimental-strip-types scripts/coverage-changed/run.ts --base origin/main
+## Changed-line coverage gate: PASS
+
+| Metric | Value |
+| --- | --- |
+| Changed-line coverage (gating, threshold 70%) | 26/26 (100.00%) |
+| Changed-branch coverage (non-gating) | 13/14 (92.86%) |
+| Changed executable lines excluded (non-gating) | 17 |
+- excluded `packages/provider-limrun/src/app-log-runtime.fixtures.ts` [excluded-path]: 32
+- excluded `packages/provider-limrun/src/runtime-dependencies.fixtures.ts` [excluded-path]: 29, 30, 31
+- excluded `src/platform-runtime-gateway.fixtures.ts` [excluded-path]: 215, 216, 217
+- excluded `src/sdk/limrun-runtime-dependencies.ts` [excluded-path]: 24, 25, 26, 27, 28, 29, 30, 31, 32, 33

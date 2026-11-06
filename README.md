@@ -1,34 +1,25 @@
 # Limrun Android shared reads
 
-Final source: `7ba110ad70704bc88616498beb32e81d7b809d47`.
-Base: `0a3b01890`.
+Final source: `99be56862fdadcbbfa38aebbf48b2dbac7964dcc`. PR: [#4268](https://github.com/callstack/agent-device/pull/4268). All current live results and validation below were collected from this exact commit on November 6, 2026.
 
-`pnpm check:affected --run --head HEAD` passed with `exactCommit: true`. See [receipt](receipt.json), [gate output](gate-final3.log), and [unit summary](unit-summary.txt). All runnable checks passed, including 17,524 unit tests, provider integration, replay compatibility, wire compatibility, and capability documentation. Skipped checks remain owned by CI or manual lanes; they are not claimed as passed.
+## Validation
 
-## Live verification
+`pnpm test:coverage` passed the complete coverage suite and repository-wide thresholds. [Full output](coverage-full.log). `pnpm check:coverage-changed --base origin/main` passed at 100% changed-line coverage. [Changed-line report](changed-coverage.log).
 
-[live.json](live.json) records the built runtime at `be921a195914e10bca4f78440cc0406b1d91a0db`. The final commit differs only in the capability annotation and generated capability documentation. A Limrun Android 15 emulator ran a debuggable native app. The snapshot used `android-helper` with matching version `0.21.37-dev`. `get text` returned the expected app label, with zero `interaction_read_fallback` diagnostics. Frame and process-memory samples were available. The heap download contained 33,521,897 bytes and the `JAVA PROFILE 1.0.3` header. The session, retained lease, daemon, and test instance were cleaned up.
+`pnpm check:affected --run --head HEAD` passed with `exactCommit: true`, including 17,526 unit tests and provider integration. See the [receipt](receipt.json) and [gate output](gate-final.log). GitHub-owned device and compatibility checks skipped locally remain CI obligations. They are not claimed as passed.
 
-The [verification script](live.mjs) uses private instance credentials from an untracked JSON file; that file and the heap are intentionally absent. Commands use the built Node client through the daemon and provider, not direct ADB sampling.
+## Live validation at the final commit
 
-## Regression checks
+[live.json](live.json) records the final source SHA, a native Android app, and the SDK commands through the daemon and actual Limrun runtime. The snapshot used `android-helper` with version `0.21.37-dev`, matching package.json. `get text` returned the expected label with **zero `interaction_read_fallback` diagnostics**. Its debug trace contains 13 events, including `android_snapshot_helper_capture`, proving the live helper read ran. Both frame and memory samples were available. The HPROF download contained **33,515,185 bytes** and began with **JAVA PROFILE 1.0.3**. The app session, retained lease, daemon, and emulator were cleaned up.
 
-In an isolated worktree, copy the new `packages/provider-limrun/src/android-perf-runtime.test.ts` to the unchanged base, then run:
+The [harness](live.mjs) can be copied with [fixture](fixture) under `.tmp/limrun-review-evidence` in a checkout at the named SHA. Install and build agent-device first, then set `LIMRUN_API_KEY` and `ANDROID_HOME` and run `node .tmp/limrun-review-evidence/live.mjs`. It creates a temporary billable emulator and deletes it after validation. The harness differs from the executed copy only in host paths and credential loading. No credentials or heap contents are published.
 
-```sh
-pnpm exec vitest run --project unit-core packages/provider-limrun/src/android-perf-runtime.test.ts
-```
+## Review regressions and production routing
 
-[Base](regression-base.log): one failure because the owner refuses the live text operation. [Head](regression-head.log): one pass.
+The updated `packages/provider-limrun/src/android-perf-runtime.test.ts` has two tests. Copying it into unchanged PR head `7ba110ad7`, after installing and building that isolated checkout, makes both fail: a lost lease reports the wrong error class, and cancellation during binding still starts work. [Previous-head output](review-regression-base.log). Both pass on the final head; the [focused run](review-focused.log) also passed 908 checks including eager-import budgets, shared text semantics, and the provider scenario.
 
-For the ADB-routing test, run:
+`test/integration/provider-scenarios/limrun-android-performance.test.ts` allocates a Limrun lease, opens Settings, and dispatches `perf memory sample` through the real daemon and provider runtime. Only cloud SDK and ADB transport boundaries are substituted. It asserts parsed memory values and the session tunnel serial. No test manually binds performance operations on this path.
 
-```sh
-pnpm exec vitest run --project unit-core src/sdk/limrun-android-performance.test.ts
-```
+The binding tests also execute frame reads and HPROF snapshots with complete inputs, including `artifactsDir`, and check text reads after lease loss. The provider uses the shared element-text binder and capability facts for admission. Cancellation propagation into already-running native ADB performance commands remains a separate cross-platform change, as discussed in review.
 
-The [unmodified head](routing-unmutated.log) passes. Removing the provider scope with [this mutation](routing-mutation.patch) makes the [same test fail](routing-mutated.log): sampling becomes unavailable instead of returning the expected remote metric. The isolated worktree was removed; the reviewed source stayed clean.
-
-## Review and deferred work
-
-[Independent review](review.md) found no actionable issues. Native profiling remains disabled. The [live profiling probes](native-followup.json) failed on the tested image: Simpleperf rejected its event and Perfetto startup timed out. Neither success nor full native profiling parity is claimed.
+[Independent review](review.md) found no outstanding issues. Earlier evidence remains in this branch's history; this final-commit run supersedes the earlier orphaned-commit live run. Native profiling remains outside this PR.
