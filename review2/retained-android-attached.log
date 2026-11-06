@@ -1,0 +1,11 @@
+PASS android attached allocate-retained
+PASS android attached boot
+PASS android attached open
+PASS android attached snapshot
+PASS android attached close-shutdown
+PASS android attached lease-already-released
+PASS android attached reattach
+PASS android attached attached-boot
+PASS android attached shutdown-detach
+PASS android attached attached-instance-still-ready
+cleanup-instance android_euna_01m6rtda1mebzshaxsq984f65x

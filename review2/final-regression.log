@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 <checkout>
+
+··············
+
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
+   Start at  19:18:59
+   Duration  734ms (transform 58%, import 38%, tests 3%, setup 1%)
+

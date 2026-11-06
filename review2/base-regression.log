@@ -1,0 +1,239 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-regression-base
+
+··x···················x·····x··xxxxxx
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/app-log-runtime.test.ts > pending release preserves runtime-hint support for android
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ packages/provider-limrun/src/app-log-runtime.test.ts:664:94
+    662|     });
+    663|     const available = runtimeDevice.platform === 'apple';
+    664|     expect((await owner.inspectFacts(runtimeDevice)).operations.clearR…
+       |                                                                                              ^
+    665|       available,
+    666|     );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  |unit-core| src/cli/connection/ended-lease.test.ts > an ended host-allocated lease stays stored
+AssertionError: Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- 'abc123abc123abc1'
+
+
+simple
+
+ ❯ src/cli/connection/ended-lease.test.ts:85:12
+     83|   assert.equal(storedLeaseIdAfter(reply, { leaseProvider: 'limrun' }),…
+     84|   for (const leaseProvider of [undefined, 'revyl', 'browserstack', 'cu…
+     85|     assert.equal(storedLeaseIdAfter(reply, { leaseProvider }), LEASE_I…
+       |            ^
+     86|   }
+     87| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts > standalone shutdown identifies the scoped session using its target
+AssertionError: expected { ok: false, error: { …(3) } } to match object { ok: false, error: { …(2) } }
+(6 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "error": {
+      "code": "DEVICE_IN_USE",
+      "details": {
+-       "hint": "Run agent-device close --shutdown --session cwd:abc123:test",
+-       "session": "cwd:abc123:test",
++       "hint": "Run agent-device close --shutdown --session test",
++       "session": "test",
+      },
+    },
+    "ok": false,
+  }
+
+ ❯ packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts:194:20
+    192|     inspectFacts: async () => world.binding.facts,
+    193|   });
+    194|   expect(response).toMatchObject({
+       |                    ^
+    195|     ok: false,
+    196|     error: {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts > failed shutdown preparation keeps the session and retained lease for retry
+AssertionError: expected { ok: false, error: { …(7) } } to match object { ok: false, error: { …(3) } }
+(5 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "error": {
+      "details": {
+-       "failedSteps": [
+-         "application_lifecycle",
+-       ],
+-       "reason": "session_cleanup_incomplete",
++       "session": "test",
+      },
+-     "message": StringContaining "IME restore failed",
++     "message": "Target shutdown preparation failed. Retry close.",
+      "retriable": true,
+    },
+    "ok": false,
+  }
+
+ ❯ packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts:231:29
+    229|     new Error('IME restore failed'),
+    230|   );
+    231|   expect(await world.run()).toMatchObject({
+       |                             ^
+    232|     ok: false,
+    233|     error: {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts > ios unallocated provider shutdown cannot select a booted local device
+AssertionError: promise resolved "{ ok: true, data: { …(7) } }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "data": {
++     "appleOs": "ios",
++     "device": "Provider device",
++     "id": "local-device",
++     "kind": "simulator",
++     "platform": "ios",
++     "shutdown": {
++       "exitCode": 0,
++       "stderr": "",
++       "stdout": "",
++       "success": true,
++     },
++     "target": "mobile",
++   },
++   "ok": true,
+  }
+
+ ❯ packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts:281:6
+    279|         bindDevice,
+    280|       }),
+    281|     ).rejects.toMatchObject({
+       |      ^
+    282|       code: 'DEVICE_NOT_FOUND',
+    283|       details: { reason: 'provider_instance_unallocated' },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts > android unallocated provider shutdown cannot select a booted local device
+AssertionError: promise resolved "{ ok: true, data: { …(6) } }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "data": {
++     "device": "Provider device",
++     "id": "local-device",
++     "kind": "emulator",
++     "platform": "android",
++     "shutdown": {
++       "exitCode": 0,
++       "stderr": "",
++       "stdout": "",
++       "success": true,
++     },
++     "target": "mobile",
++   },
++   "ok": true,
+  }
+
+ ❯ packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts:281:6
+    279|         bindDevice,
+    280|       }),
+    281|     ).rejects.toMatchObject({
+       |      ^
+    282|       code: 'DEVICE_NOT_FOUND',
+    283|       details: { reason: 'provider_instance_unallocated' },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts > shutdown hides a holder outside the caller tenant scope
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts > shutdown hides a holder outside the caller cwd scope
+AssertionError: expected { …(7) } to not have property "hint"
+
+- Expected:
+undefined
+
++ Received:
+"Run agent-device close --shutdown --session test"
+
+ ❯ packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts:315:42
+    313|     expect(response).toMatchObject({ ok: false, error: { code: 'DEVICE…
+    314|     if (!response.ok) {
+    315|       expect(response.error.details).not.toHaveProperty('hint');
+       |                                          ^
+    316|       expect(response.error.details).not.toHaveProperty('session');
+    317|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts > local finalization failure retires the session instead of offering a provider retry
+AssertionError: promise resolved "{ ok: false, error: { …(7) } }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "error": {
++     "code": "COMMAND_FAILED",
++     "details": {
++       "session": "test",
++     },
++     "diagnosticId": undefined,
++     "hint": "The target could not be shut down or released. Retry close after resolving the failure.",
++     "logPath": undefined,
++     "message": "Target shutdown preparation failed. Retry close.",
++     "retriable": true,
++   },
++   "ok": false,
+  }
+
+ ❯ packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts:330:28
+    328|     new Error('Local cleanup failed'),
+    329|   );
+    330|   await expect(world.run()).rejects.toMatchObject({
+       |                            ^
+    331|     code: 'COMMAND_FAILED',
+    332|     message: expect.stringContaining('Local cleanup failed'),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  9 failed | 28 passed (37)
+   Start at  19:20:51
+   Duration  1.27s (transform 63%, import 32%, tests 4%, setup 2%)
+

@@ -1,0 +1,13 @@
+PASS ios boot
+PASS ios connect-empty-provider
+PASS ios unallocated-provider-shutdown
+PASS ios unallocated-sdk-provider-shutdown
+PASS ios local-survives-provider-shutdown
+PASS ios disconnect-empty-provider
+PASS ios open
+PASS ios snapshot
+PASS ios close-shutdown
+PASS ios close-native-state
+PASS ios boot-for-standalone
+PASS ios standalone-shutdown
+PASS ios standalone-native-state

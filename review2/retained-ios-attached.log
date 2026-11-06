@@ -1,0 +1,11 @@
+PASS ios attached allocate-retained
+PASS ios attached boot
+PASS ios attached open
+PASS ios attached snapshot
+PASS ios attached close-shutdown
+PASS ios attached lease-already-released
+PASS ios attached reattach
+PASS ios attached attached-boot
+PASS ios attached shutdown-detach
+PASS ios attached attached-instance-still-ready
+cleanup-instance ios_euna_01m6rte5fcebztwh2wzk09174c

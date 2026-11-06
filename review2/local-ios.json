@@ -1,0 +1,663 @@
+{
+  "sha": "139db478bf7a342366bc1598c5dc44d70921e0f9",
+  "platform": "ios",
+  "udid": "CCB8D3A5-CC33-4D10-AE7F-C62F6CA6002E",
+  "steps": [
+    {
+      "name": "boot",
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Agent Device Review Lifecycle",
+          "id": "CCB8D3A5-CC33-4D10-AE7F-C62F6CA6002E",
+          "kind": "simulator",
+          "booted": true,
+          "selection": {
+            "reason": "explicit-selector",
+            "source": "local",
+            "candidateCount": 1,
+            "bootOccurred": true
+          },
+          "appleOs": "ios"
+        }
+      }
+    },
+    {
+      "name": "connect-empty-provider",
+      "result": {
+        "success": true,
+        "data": {
+          "connected": true,
+          "session": "unallocated-provider",
+          "tenant": "limrun",
+          "runId": "cli-mw56g2er",
+          "leaseAllocated": false,
+          "leaseBackend": "ios-instance",
+          "leaseProvider": "limrun",
+          "platform": "ios",
+          "target": "mobile",
+          "remoteConfig": "<checkout>2-evidence/state-unallocated-ios/remote-connections/generated/limrun-63551a015258c9d1.json",
+          "remoteConfigHash": "f04fae23047dd4b9d8ff00eb22d23e2f774dc4826baa284d22440af39b9b8fa8",
+          "liveSession": {
+            "status": "not-created"
+          },
+          "verification": {
+            "status": "verified",
+            "service": "Limrun",
+            "message": "Credentials and iOS instance access verified."
+          },
+          "device": {
+            "status": "deferred",
+            "name": "Provider-selected iOS simulator",
+            "platform": "ios"
+          },
+          "app": {
+            "status": "missing",
+            "message": "Run apps to choose an uploaded asset before allocation."
+          },
+          "nextSteps": [
+            "agent-device apps --session unallocated-provider",
+            "agent-device open <uploaded-asset-name> --session unallocated-provider"
+          ],
+          "metro": {
+            "prepared": false
+          },
+          "leasePreparation": {
+            "status": "deferred",
+            "nextSteps": [
+              "agent-device apps --session unallocated-provider",
+              "agent-device open <uploaded-asset-name> --session unallocated-provider"
+            ],
+            "message": "No live device session has been created. Run apps to inspect uploaded assets without allocating; open <uploaded-asset-name> creates the instance."
+          },
+          "connectedAt": "2026-11-06T16:16:43.530Z",
+          "updatedAt": "2026-11-06T16:16:43.530Z"
+        }
+      }
+    },
+    {
+      "name": "unallocated-provider-shutdown",
+      "result": {
+        "success": false,
+        "error": {
+          "code": "INVALID_ARGS",
+          "message": "tenant isolation requires lease id.",
+          "hint": "Allocate a lease with leases.allocate and pass its leaseId.",
+          "diagnosticId": "mw56g38a-3fe97cf1",
+          "logPath": "<checkout>2-evidence/state-unallocated-ios/sessions/limrun_unallocated-provider/requests/2015f5d58768b063.ndjson",
+          "diagnosticsRecord": {
+            "session": "limrun:unallocated-provider",
+            "requestId": "2015f5d58768b063"
+          }
+        }
+      }
+    },
+    {
+      "name": "unallocated-sdk-provider-shutdown",
+      "result": {
+        "code": "DEVICE_NOT_FOUND",
+        "details": {
+          "reason": "provider_instance_unallocated",
+          "leaseProvider": "limrun",
+          "hint": "Verify the target device is booted/connected and selectors match.",
+          "diagnosticId": "mw56g6vb-6abf1f6c",
+          "logPath": "<checkout>2-evidence/state-local-ios/sessions/unallocated-sdk/requests/ebe5c6b1269ae149.ndjson",
+          "diagnosticsRecord": {
+            "session": "unallocated-sdk",
+            "requestId": "ebe5c6b1269ae149"
+          }
+        }
+      }
+    },
+    {
+      "name": "local-survives-provider-shutdown",
+      "result": {
+        "state": "Booted"
+      }
+    },
+    {
+      "name": "disconnect-empty-provider",
+      "result": {
+        "success": true,
+        "data": {
+          "connected": false,
+          "session": "unallocated-provider",
+          "released": false
+        }
+      }
+    },
+    {
+      "name": "open",
+      "result": {
+        "success": true,
+        "data": {
+          "session": "local-review",
+          "sessionStateDir": "<checkout>2-evidence/state-local-ios/sessions/local-review",
+          "runnerLogPath": "<checkout>2-evidence/state-local-ios/sessions/local-review/runner.log",
+          "requestLogPath": "<checkout>2-evidence/state-local-ios/sessions/local-review/requests/c93732bef884d897.ndjson",
+          "eventLogPath": "<checkout>2-evidence/state-local-ios/sessions/local-review/events.ndjson",
+          "appName": "com.apple.Preferences",
+          "appBundleId": "com.apple.Preferences",
+          "selection": {
+            "reason": "explicit-selector",
+            "source": "local",
+            "candidateCount": 1,
+            "bootOccurred": false
+          },
+          "startup": {
+            "durationMs": 3272,
+            "measuredAt": "2026-11-06T16:16:54.894Z",
+            "method": "open-command-roundtrip",
+            "appTarget": "com.apple.Preferences",
+            "appBundleId": "com.apple.Preferences"
+          },
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Agent Device Review Lifecycle",
+          "id": "CCB8D3A5-CC33-4D10-AE7F-C62F6CA6002E",
+          "device_udid": "CCB8D3A5-CC33-4D10-AE7F-C62F6CA6002E",
+          "ios_simulator_device_set": null,
+          "message": "Opened: com.apple.Preferences"
+        }
+      }
+    },
+    {
+      "name": "snapshot",
+      "result": {
+        "success": true,
+        "data": {
+          "nodes": [
+            {
+              "index": 0,
+              "type": "Other",
+              "role": "_TtC7SwiftUIP33_ACC2C5639A7D76F611E170E831FCA49118SwiftUIApplication",
+              "subrole": "UIApplication",
+              "label": "Settings",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 402,
+                "height": 874
+              },
+              "enabled": true,
+              "depth": 0,
+              "pid": 94912,
+              "hittable": false,
+              "ref": "e1",
+              "kind": "other"
+            },
+            {
+              "index": 1,
+              "parentIndex": 0,
+              "type": "NavigationBar",
+              "role": "SwiftUI.UIKitNavigationBar",
+              "subrole": "UINavigationBar",
+              "identifier": "Settings",
+              "rect": {
+                "x": 0,
+                "y": 62,
+                "width": 402,
+                "height": 106
+              },
+              "enabled": true,
+              "depth": 1,
+              "pid": 94912,
+              "hittable": true,
+              "ref": "e2",
+              "kind": "navigation-bar"
+            },
+            {
+              "index": 2,
+              "parentIndex": 0,
+              "type": "CollectionView",
+              "role": "SwiftUI.UpdateCoalescingCollectionView",
+              "subrole": "UICollectionView",
+              "rect": {
+                "x": 0,
+                "y": 116,
+                "width": 402,
+                "height": 672
+              },
+              "enabled": true,
+              "depth": 1,
+              "pid": 94912,
+              "hittable": true,
+              "hiddenContentBelow": true,
+              "ref": "e3",
+              "kind": "collection"
+            },
+            {
+              "index": 3,
+              "parentIndex": 2,
+              "type": "Image",
+              "role": "UIImageView",
+              "identifier": "AdditionalDimmingOverlay",
+              "rect": {
+                "x": 0,
+                "y": 738,
+                "width": 402,
+                "height": 50
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": false,
+              "ref": "e4",
+              "kind": "image"
+            },
+            {
+              "index": 4,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 168,
+                "width": 370,
+                "height": 90.33333333333331
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Apple Account",
+              "ref": "e5",
+              "kind": "cell"
+            },
+            {
+              "index": 5,
+              "parentIndex": 4,
+              "type": "Button",
+              "role": "SwiftUI.AccessibilityNode",
+              "subrole": "UIResponder",
+              "label": "Apple Account, Sign in to access your iCloud data, the App Store, Apple services, and more.",
+              "identifier": "com.apple.settings.primaryAppleAccount",
+              "rect": {
+                "x": 16,
+                "y": 168,
+                "width": 370,
+                "height": 90.33333333333331
+              },
+              "enabled": true,
+              "depth": 3,
+              "pid": 94912,
+              "hittable": true,
+              "ref": "e6",
+              "kind": "button"
+            },
+            {
+              "index": 6,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 293.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Ready for Apple Intelligence",
+              "identifier": "com.apple.settings.followUpItem.com.apple.icloud.gm",
+              "ref": "e7",
+              "kind": "cell"
+            },
+            {
+              "index": 7,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 380.33333333333337,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "General",
+              "identifier": "com.apple.settings.general",
+              "ref": "e8",
+              "kind": "cell"
+            },
+            {
+              "index": 8,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 432.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Accessibility",
+              "identifier": "com.apple.settings.accessibility",
+              "ref": "e9",
+              "kind": "cell"
+            },
+            {
+              "index": 9,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 484.3333333333333,
+                "width": 370,
+                "height": 51.99999999999994
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Action Button",
+              "identifier": "com.apple.settings.actionButton",
+              "ref": "e10",
+              "kind": "cell"
+            },
+            {
+              "index": 10,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 536.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Apple Intelligence & Siri",
+              "identifier": "com.apple.settings.siri",
+              "ref": "e11",
+              "kind": "cell"
+            },
+            {
+              "index": 11,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 588.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Camera",
+              "identifier": "com.apple.settings.camera",
+              "ref": "e12",
+              "kind": "cell"
+            },
+            {
+              "index": 12,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 640.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Home Screen & App Library",
+              "identifier": "com.apple.settings.homeScreen",
+              "ref": "e13",
+              "kind": "cell"
+            },
+            {
+              "index": 13,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 692.3333333333334,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "Search",
+              "identifier": "com.apple.settings.search",
+              "ref": "e14",
+              "kind": "cell"
+            },
+            {
+              "index": 14,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 744.3333333333334,
+                "width": 370,
+                "height": 43.66666666666663
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 94912,
+              "hittable": true,
+              "label": "StandBy",
+              "identifier": "com.apple.settings.standBy",
+              "ref": "e15",
+              "kind": "cell"
+            },
+            {
+              "index": 15,
+              "parentIndex": 0,
+              "type": "SearchField",
+              "role": "UISearchBarTextField",
+              "label": "Search",
+              "value": "Search",
+              "placeholder": "Search",
+              "rect": {
+                "x": 32.99999999999994,
+                "y": 803,
+                "width": 336,
+                "height": 38
+              },
+              "enabled": true,
+              "depth": 2,
+              "password": false,
+              "editable": true,
+              "pid": 94912,
+              "hittable": true,
+              "ref": "e16",
+              "kind": "search"
+            },
+            {
+              "index": 16,
+              "parentIndex": 15,
+              "type": "Button",
+              "role": "UIDictationSearchButton",
+              "label": "Dictate",
+              "identifier": "Dictate",
+              "rect": {
+                "x": 335.6666666666667,
+                "y": 811,
+                "width": 17.333333333333314,
+                "height": 22
+              },
+              "enabled": true,
+              "depth": 3,
+              "pid": 94912,
+              "hittable": true,
+              "ref": "e17",
+              "kind": "button"
+            },
+            {
+              "index": 17,
+              "parentIndex": 15,
+              "type": "Button",
+              "role": "UIDictationSearchButton",
+              "label": "Dictate",
+              "identifier": "Dictate",
+              "rect": {
+                "x": 335.6666666666667,
+                "y": 811,
+                "width": 17.333333333333314,
+                "height": 22
+              },
+              "enabled": true,
+              "depth": 3,
+              "pid": 94912,
+              "hittable": true,
+              "ref": "e18",
+              "kind": "button"
+            }
+          ],
+          "truncated": false,
+          "appName": "com.apple.Preferences",
+          "appBundleId": "com.apple.Preferences",
+          "visibility": {
+            "partial": true,
+            "visibleNodeCount": 18,
+            "totalNodeCount": 18,
+            "reasons": [
+              "scroll-hidden-below"
+            ]
+          },
+          "keyboard": {
+            "kind": "absent",
+            "treeBound": true
+          },
+          "viewport": {
+            "width": 402,
+            "height": 874
+          },
+          "presentedSurface": "absent",
+          "snapshotQualityNotes": [
+            {
+              "code": "regular-geometry-clipped",
+              "clippedNodeCount": 12,
+              "droppedNodeCount": 0
+            }
+          ],
+          "warnings": [
+            "The surface was still changing after open when this tree was read, so it may not match where the surface comes to rest: an element missing from it is not proof of absence."
+          ],
+          "snapshotDiagnostics": {
+            "stats": {
+              "count": 2,
+              "p50Ms": 101,
+              "p95Ms": 3841,
+              "maxMs": 3841,
+              "slowThresholdMs": 1500,
+              "platform": "ios",
+              "backends": {
+                "apple-runner": 1,
+                "simulator-ax-bridge": 1
+              }
+            }
+          },
+          "refsGeneration": 365197
+        }
+      }
+    },
+    {
+      "name": "close-shutdown",
+      "result": {
+        "success": true,
+        "data": {
+          "session": "local-review",
+          "shutdown": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          "message": "Closed: local-review"
+        }
+      }
+    },
+    {
+      "name": "close-native-state",
+      "result": {
+        "state": "Shutdown"
+      }
+    },
+    {
+      "name": "boot-for-standalone",
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Agent Device Review Lifecycle",
+          "id": "CCB8D3A5-CC33-4D10-AE7F-C62F6CA6002E",
+          "kind": "simulator",
+          "booted": true,
+          "selection": {
+            "reason": "explicit-selector",
+            "source": "local",
+            "candidateCount": 1,
+            "bootOccurred": true
+          },
+          "appleOs": "ios"
+        }
+      }
+    },
+    {
+      "name": "standalone-shutdown",
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Agent Device Review Lifecycle",
+          "id": "CCB8D3A5-CC33-4D10-AE7F-C62F6CA6002E",
+          "kind": "simulator",
+          "shutdown": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "",
+            "stderr": ""
+          },
+          "appleOs": "ios"
+        }
+      }
+    },
+    {
+      "name": "standalone-native-state",
+      "result": {
+        "state": "Shutdown"
+      }
+    }
+  ],
+  "cleanedUp": true
+}

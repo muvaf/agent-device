@@ -1,0 +1,8 @@
+PASS android created allocate-retained
+PASS android created boot
+PASS android created open
+PASS android created snapshot
+PASS android created close-shutdown
+PASS android created lease-already-released
+PASS android created owned-instance-terminated
+cleanup-instance android_euna_01m6rtd5mqfgvb021zz6kytphd

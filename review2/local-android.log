@@ -1,0 +1,13 @@
+PASS android boot
+PASS android connect-empty-provider
+PASS android unallocated-provider-shutdown
+PASS android unallocated-sdk-provider-shutdown
+PASS android local-survives-provider-shutdown
+PASS android disconnect-empty-provider
+PASS android open
+PASS android snapshot
+PASS android close-shutdown
+PASS android close-native-state
+PASS android boot-for-standalone
+PASS android standalone-shutdown
+PASS android standalone-native-state

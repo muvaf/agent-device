@@ -1,3 +1,5 @@
+Latest review follow-up: [b32b21848 checks and expanded live matrix](review2/README.md). The earlier evidence below retains its original source SHA.
+
 # Limrun instance lifecycle validation
 
 Source: `e28ba51b85266098a2ccf40fbbb4db83e89d789b`. Base: `a68693c72`. All published live results below were collected from the final source commit on November 6, 2026.

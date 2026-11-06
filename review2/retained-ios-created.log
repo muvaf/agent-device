@@ -1,0 +1,8 @@
+PASS ios created allocate-retained
+PASS ios created boot
+PASS ios created open
+PASS ios created snapshot
+PASS ios created close-shutdown
+PASS ios created lease-already-released
+PASS ios created owned-instance-terminated
+cleanup-instance ios_euna_01m6rtdfynebzsc4ebemenqyz4
