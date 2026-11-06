@@ -1,0 +1,36 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-android-parity-base
+
+x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/android-perf-runtime.test.ts > a live Android owner binds reads and rejects a lease lost after binding
+AssertionError: expected { available: false, …(2) } to deeply equal { available: true }
+
+- Expected
++ Received
+
+  {
+-   "available": true,
++   "available": false,
++   "hint": "Read element text from the captured snapshot.",
++   "reason": "unsupported-provider-mode",
+  }
+
+ ❯ packages/provider-limrun/src/android-perf-runtime.test.ts:42:49
+     40|     'perfMemorySnapshot',
+     41|   ] as const) {
+     42|     expect(binding.facts.operations[operation]).toEqual({ available: t…
+       |                                                 ^
+     43|     expect(binding.operations[operation]).toBeTypeOf('function');
+     44|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  15:21:33
+   Duration  830ms (transform 82%, import 16%, setup 1%, tests 1%)
+

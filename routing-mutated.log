@@ -1,0 +1,42 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-android-parity-base
+
+x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| src/sdk/limrun-android-performance.test.ts > Limrun performance reads use the provider ADB and collect heap artifacts
+AssertionError: expected { …(2) } to match object { …(2) }
+(9 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "metric": {
+-     "available": true,
+-     "totalPssKb": 52000,
+-     "totalRssKb": 100112,
++     "available": false,
+    },
+    "sampling": {
+      "method": "adb-shell-dumpsys-meminfo",
+    },
+  }
+
+ ❯ src/sdk/limrun-android-performance.test.ts:72:75
+     70|     providerRuntimeOwner('limrun', 'default'),
+     71|   );
+     72|   await expect(operations.perfMemorySample!({ appId: 'com.example.app'…
+       |                                                                           ^
+     73|     metric: { available: true, totalPssKb: 52000, totalRssKb: 100112 },
+     74|     sampling: { method: 'adb-shell-dumpsys-meminfo' },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  15:22:27
+   Duration  371ms (transform 47%, import 47%, tests 3%, setup 2%, worker 1%)
+

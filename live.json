@@ -1,0 +1,89 @@
+{
+  "sha": "be921a195914e10bca4f78440cc0406b1d91a0db",
+  "startedAt": "2026-11-06T12:12:02.158Z",
+  "platform": "Limrun Android 15 emulator",
+  "app": "com.agentdevice.installerreview",
+  "snapshotBackend": "android-helper",
+  "helperVersion": "0.21.37-dev",
+  "text": "INSTALLER REVIEW VERSION 3",
+  "fallbackDiagnostics": 0,
+  "memory": {
+    "available": true,
+    "totalPssKb": 19157,
+    "totalRssKb": 148480,
+    "measuredAt": "2026-11-06T12:12:06.011Z",
+    "method": "adb-shell-dumpsys-meminfo",
+    "topConsumers": [
+      {
+        "name": "Native Heap",
+        "pssKb": 6512
+      },
+      {
+        "name": ".art mmap",
+        "pssKb": 6125
+      },
+      {
+        "name": "Dalvik Other",
+        "pssKb": 1929
+      },
+      {
+        "name": ".so mmap",
+        "pssKb": 1357
+      },
+      {
+        "name": "Dalvik Heap",
+        "pssKb": 1305
+      }
+    ]
+  },
+  "frames": {
+    "available": true,
+    "totalFrameCount": 8,
+    "droppedFrameCount": 0,
+    "droppedFramePercent": 0,
+    "sampleWindowMs": 2176,
+    "frameDeadlineMs": 33.3,
+    "refreshRateHz": 30,
+    "windowStartedAt": "2026-11-06T12:12:03.937Z",
+    "windowEndedAt": "2026-11-06T12:12:06.114Z",
+    "timestampSource": "estimated-from-device-uptime",
+    "measuredAt": "2026-11-06T12:12:06.114Z",
+    "method": "adb-shell-dumpsys-gfxinfo-framestats",
+    "source": "android-gfxinfo-summary",
+    "relatedActions": [
+      {
+        "command": "open",
+        "at": "2026-11-06T12:12:03.993Z",
+        "offsetMs": 56,
+        "target": "com.agentdevice.installerreview"
+      },
+      {
+        "command": "snapshot",
+        "at": "2026-11-06T12:12:05.273Z",
+        "offsetMs": 1336
+      },
+      {
+        "command": "get",
+        "at": "2026-11-06T12:12:05.887Z",
+        "offsetMs": 1950,
+        "target": "INSTALLER REVIEW VERSION 3"
+      },
+      {
+        "command": "perf",
+        "at": "2026-11-06T12:12:06.012Z",
+        "offsetMs": 2075
+      }
+    ]
+  },
+  "heap": {
+    "bytes": 33521897,
+    "header": "JAVA PROFILE 1.0.3",
+    "downloadVerified": true
+  },
+  "cleanup": {
+    "sessionClosed": true,
+    "leaseReleased": true,
+    "daemonStopped": true,
+    "instanceDeleteExitCode": 0
+  }
+}

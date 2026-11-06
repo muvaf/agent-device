@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-android-parity-base
+
+·
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  15:22:03
+   Duration  640ms (transform 73%, import 24%, tests 2%, setup 1%)
+

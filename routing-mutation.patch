@@ -1,0 +1,13 @@
+diff --git a/src/sdk/limrun-runtime-dependencies.ts b/src/sdk/limrun-runtime-dependencies.ts
+index 5436c33fa..49c661c6d 100644
+--- a/src/sdk/limrun-runtime-dependencies.ts
++++ b/src/sdk/limrun-runtime-dependencies.ts
+@@ -25,7 +25,7 @@ export function createLimrunRuntimeDependencies(host: HostEnvironment): LimrunRu
+         const { createAndroidPerfOperations, withAndroidAdbProvider } =
+           await import('@agent-device/platform-android/mechanics');
+         const scopedHost = withMethodScope({ ...runtimeHost }, (task) =>
+-          runOnHost(() => withAndroidAdbProvider(adb, { serial: device.id }, task)),
++          runOnHost(task),
+         );
+         const { perfFrames, perfMemorySample, perfMemorySnapshot } =
+           await createAndroidPerfOperations({ device, owner, resolveHost: () => scopedHost });

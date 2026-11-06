@@ -1,0 +1,15 @@
+{
+  "includedInPR": false,
+  "testedPlatform": "Limrun Android 15 emulator",
+  "simpleperf": {
+    "result": "failed",
+    "event": "cpu-clock:u",
+    "stderr": "simpleperf E event_selection_set.cpp:262] Event type 'cpu-clock:u' is not supported on the device"
+  },
+  "perfetto": {
+    "result": "startup-timeout",
+    "timeoutMs": 30000,
+    "mode": "--background-wait"
+  },
+  "sharedReportFinding": "Stopping a Simpleperf capture deletes the remote trace, but the current report path tries to read that remote trace. A report should use the collected local artifact. The experimental fix is not included in this PR."
+}

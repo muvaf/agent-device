@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /Users/muvaf/github.com/callstack/agent-device-android-parity
+
+·
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  15:21:39
+   Duration  418ms (transform 61%, import 34%, setup 2%, tests 2%, worker 1%)
+
