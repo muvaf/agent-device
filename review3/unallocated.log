@@ -1,0 +1,8 @@
+PASS ios boot
+PASS ios headless-boot
+PASS ios open
+PASS ios shutdown
+PASS android boot
+PASS android headless-boot
+PASS android open
+PASS android shutdown

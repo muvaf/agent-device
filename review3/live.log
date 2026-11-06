@@ -1,0 +1,24 @@
+android connect 0 true 
+android shutdown-unallocated 1 false INVALID_ARGS
+android boot 0 true 
+android boot-reuse 0 true 
+android shutdown-delete 0 true 
+android boot-recreate 0 true 
+android open 0 true 
+android snapshot 0 true 
+android shutdown-active-refusal 1 false DEVICE_IN_USE
+android close-shutdown 0 true 
+android disconnect 0 true 
+android daemon-stop 0 true 
+ios connect 0 true 
+ios shutdown-unallocated 1 false INVALID_ARGS
+ios boot 0 true 
+ios boot-reuse 0 true 
+ios shutdown-delete 0 true 
+ios boot-recreate 0 true 
+ios open 0 true 
+ios snapshot 0 true 
+ios shutdown-active-refusal 1 false DEVICE_IN_USE
+ios close-shutdown 0 true 
+ios disconnect 0 true 
+ios daemon-stop 0 true 

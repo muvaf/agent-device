@@ -1,0 +1,111 @@
+$ node --experimental-strip-types scripts/check-affected/run.ts --run --head HEAD
+[receipt] /private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/receipt.json
+Selected 66 checks; FAIL-OPEN: full set (see receipt.plan.failOpenReasons).
+[skip] test-app-typecheck — GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)
+[skip] test-app-security — GitHub-authoritative (jobs: Test App Build Cache / Resolve native fingerprint)
+[skip] ios-snapshot-differential — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] unit-ci — GitHub-authoritative (jobs: Coverage, Integration Tests)
+[skip] coverage — GitHub-authoritative (jobs: Coverage)
+[skip] coverage-crap — GitHub-authoritative (jobs: Coverage)
+[skip] swift-runner-ios — GitHub-authoritative (jobs: Apple / Smoke Tests, Conformance Differential / iOS Conformance Differential, Perf Nightly / iOS Command Perf, XCTest Nightly / iOS Runner Full XCTest Suite (${{ matrix.leg.name }}))
+[skip] swift-runner-macos — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] android-helpers — GitHub-authoritative (jobs: Android / Smoke Tests, Perf Nightly / Android Command Perf)
+[skip] macos-helper — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] web-smoke — GitHub-authoritative (jobs: Apple / Smoke Tests, Integration Tests, Lint, Typecheck & Package, Perf Nightly / Android Command Perf, Perf Nightly / iOS Command Perf)
+[skip] freerange — GitHub-authoritative (jobs: Repo Guards & Compatibility)
+[skip] maestro-differential — GitHub-authoritative (jobs: Conformance Differential / iOS Conformance Differential)
+[skip] maestro-regenerate — GitHub-authoritative (jobs: Conformance Regenerate Verify / Regenerate & Verify Fixtures)
+[skip] fuzz-parsers — GitHub-authoritative (jobs: Replay Nightly / Parser Fuzz Lane)
+[skip] mutation — GitHub-authoritative (jobs: Mutation Harness Canary / Mutants (${{ matrix.name }}), Mutation Weekly / Mutants (${{ matrix.name }}))
+[skip] mutation-affected — GitHub-authoritative (jobs: Mutation Harness Canary / Select harness validation kernels)
+[skip] mutation-check — GitHub-authoritative (jobs: Mutation Weekly / Mutation score report)
+[skip] concurrency-torture — GitHub-authoritative (jobs: Concurrency Torture Nightly / Session/lease/lock torture sweep, Integration Tests)
+[skip] replay-ios — parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)
+[skip] replay-ios-device — parked, workflow_dispatch only (Replay Manual / iOS Replay Suite)
+[skip] replay-macos — GitHub-authoritative (jobs: Apple / Smoke Tests)
+[skip] replay-linux — GitHub-authoritative (jobs: Linux / Smoke Tests)
+[skip] linux-command-evidence — GitHub-authoritative (jobs: Linux / Smoke Tests)
+[skip] replay-android — parked, workflow_dispatch only (Replay Manual / Android Full Emulator Suite)
+[run] format; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/0.log
+[passed] format; exit=0
+[run] lint; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/1.log
+[passed] lint; exit=0
+[run] typecheck; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/2.log
+[passed] typecheck; exit=0
+[run] layering; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/5.log
+[running] layering 15s
+[passed] layering; exit=0
+[run] di-seams; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/6.log
+[passed] di-seams; exit=0
+[run] fallow; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/7.log
+[passed] fallow; exit=0
+[run] native-dupes; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/8.log
+[passed] native-dupes; exit=0
+[run] native-dupes-model; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/9.log
+[passed] native-dupes-model; exit=0
+[run] mcp-metadata; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/10.log
+[passed] mcp-metadata; exit=0
+[run] build; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/11.log
+[passed] build; exit=0
+[run] package; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/12.log
+[passed] package; exit=0
+[run] integration-node; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/13.log
+[running] integration-node 15s
+[passed] integration-node; exit=0
+[run] macos-coverage; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/14.log
+[passed] macos-coverage; exit=0
+[run] vitest-related; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/16.log
+[running] vitest-related 15s
+[running] vitest-related 30s
+[passed] vitest-related; exit=0
+[run] unit; log=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/17.log
+[running] unit 15s
+[running] unit 30s
+[running] unit 45s
+[running] unit 60s
+[running] unit 75s
+[running] unit 90s
+[running] unit 105s
+[running] unit 120s
+[running] unit 135s
+[running] unit 150s
+[failed] unit; exit=1
++   "forgetsEndedConnectionLease": true,
+    "holdsCloudDevice": true,
+    "leaseKind": "direct-device-provider",
+    "requiresAppAttachment": false,
+    "requiresRemoteDaemon": false,
+    "supportsArtifacts": false,
+
+ ❯ src/cli/connection/provider-policy.test.ts:20:10
+     18|
+     19| test('provider policy projects provider identity into semantic capabil…
+     20|   assert.deepEqual(connectionProviderCapabilities('limrun'), {
+       |          ^
+     21|     leaseKind: 'direct-device-provider',
+     22|     requiresAppAttachment: false,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1941 passed (1942)
+      Tests  1 failed | 17554 passed | 1 skipped (17556)
+   Start at  20:09:44
+   Duration  162.90s (tests 65%, import 26%, transform 6%, setup 3%, worker 1%)
+
+
+Slow-test gate: 7 test(s) over budget (within the 2x load-variance band, not failing):
+  4.49s (budget 2.5s)  packages/platform-android/src/__tests__/snapshot-helper-exit-result.test.ts :: a sensitive value never reaches the instrumentation detail or the log wherever the helper printed it
+  4.03s (budget 2.5s)  packages/provider-revyl/src/runtime.test.ts :: Revyl answers health with 503 until the worker attaches, and the start keeps polling
+  3.05s (budget 2.5s)  packages/daemon-client/src/__tests__/daemon-client-startup-budget.test.ts :: a child gone at the deadline without an observed exit and no live startup fails exited
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles short startup budget
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles retry deadline
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles admission timeout
+  3.01s (budget 2.5s)  src/core/interactors/limrun-ios-runner.test.ts :: a canceled run that keeps its slot handles caller cancellation
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.
+
+
+check:affected: unit failed.
+[failed] exactCommit=true; receipt=/private/tmp/agent-device-lifecycle-review/.tmp/validation/run-6dbCJ1/receipt.json
+[ELIFECYCLE] Command failed with exit code 1.

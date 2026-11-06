@@ -1,0 +1,64 @@
+{
+  "sha": "378f995d1e8ed21854911293986ad718a1c27ec8",
+  "udid": "5A81F66D-C6EB-49C7-8EDB-CC3E0C20E434",
+  "steps": [
+    {
+      "platform": "ios",
+      "name": "boot",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    },
+    {
+      "platform": "ios",
+      "name": "headless-boot",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    },
+    {
+      "platform": "ios",
+      "name": "open",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    },
+    {
+      "platform": "ios",
+      "name": "shutdown",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    },
+    {
+      "platform": "android",
+      "name": "boot",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    },
+    {
+      "platform": "android",
+      "name": "headless-boot",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    },
+    {
+      "platform": "android",
+      "name": "open",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    },
+    {
+      "platform": "android",
+      "name": "shutdown",
+      "code": "DEVICE_NOT_FOUND",
+      "reason": "provider_instance_unallocated",
+      "hint": "Allocate a lease with leases.allocate and pass its leaseId."
+    }
+  ],
+  "localDeviceSurvived": true,
+  "cleanedUp": true
+}

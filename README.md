@@ -1,4 +1,4 @@
-Latest review follow-up: [b32b21848 checks and expanded live matrix](review2/README.md). The earlier evidence below retains its original source SHA.
+Latest review follow-up: [378f995d1 checks, shared inventory refusal, and fresh live results](review3/README.md). Earlier evidence retains its original source SHA.
 
 # Limrun instance lifecycle validation
 

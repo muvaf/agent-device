@@ -1,0 +1,39 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-review3-base
+
+··········x···
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/daemon/src/sessions/handlers/__tests__/session-boot.test.ts > boot --headless preserves an unallocated provider refusal for an active session
+AssertionError: promise resolved "{ ok: false, error: { …(2) } }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "error": {
++     "code": "INVALID_ARGS",
++     "message": "boot --headless requires --device <avd-name> (or an Android emulator session target).",
++   },
++   "ok": false,
+  }
+
+ ❯ packages/daemon/src/sessions/handlers/__tests__/session-boot.test.ts:477:4
+    475|       bindDevice: mockBindDeviceRuntime,
+    476|     }),
+    477|   ).rejects.toMatchObject({
+       |    ^
+    478|     code: 'DEVICE_NOT_FOUND',
+    479|     details: {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 13 passed (14)
+   Start at  19:53:00
+   Duration  1.72s (transform 81%, import 18%, tests 1%)
+

@@ -1,0 +1,36 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lifecycle-review
+
+····x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/ios-runner-lifecycle.test.ts > a failed instance delete keeps only cleanup operations available until shutdown retries
+AssertionError: expected Error: Limrun session is unavailable { …(2) } to match object { code: 'UNSUPPORTED_OPERATION' }
+(2 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "UNSUPPORTED_OPERATION",
++ AppError {
++   "code": "DEVICE_NOT_FOUND",
+  }
+
+ ❯ packages/provider-limrun/src/ios-runner-lifecycle.test.ts:174:6
+    172|         execution: {},
+    173|       }),
+    174|     ).rejects.toMatchObject({ code: 'UNSUPPORTED_OPERATION' });
+       |      ^
+    175|     const close = narrowDeviceBinding(retry, closeApplicationRuntimeUs…
+    176|     await close.operations.finalizeApplicationClose({
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  20:23:44
+   Duration  609ms (transform 47%, import 36%, tests 16%, setup 1%)
+

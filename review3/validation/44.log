@@ -1,0 +1,11 @@
+$ vitest run --project unit-core test/repo-guards/command-doc-coverage.test.ts
+
+ RUN  v5.0.4 /private/tmp/agent-device-lifecycle-review
+
+············
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  20:30:34
+   Duration  275ms (transform 50%, import 42%, setup 4%, tests 3%, worker 1%)
+

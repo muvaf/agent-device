@@ -1,0 +1,10 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lifecycle-review
+
+·····
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  20:24:07
+   Duration  490ms (import 41%, transform 41%, tests 16%, setup 2%)
+

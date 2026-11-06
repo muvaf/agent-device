@@ -1,0 +1,44 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-lifecycle-review
+
+···············x
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/daemon/src/resources/__tests__/session-device-resolution.test.ts > an allocated proxy session keeps its emulator when multiple local devices are available
+Error: 2 devices match this request equally; select one explicitly.
+ ❯ withDeviceRetrySelectors packages/device-selection/src/device-selection-resolver.ts:245:10
+    243| ): unknown {
+    244|   if (!(error instanceof AppError) || error.code !== 'AMBIGUOUS_MATCH'…
+    245|   return new AppError(
+       |          ^
+    246|     error.code,
+    247|     error.message,
+ ❯ resolveInventoryDeviceSelection packages/device-selection/src/device-selection-resolver.ts:82:11
+ ❯ resolveInventorySelection packages/device-selection/src/dispatch-resolve.ts:34:10
+ ❯ packages/device-selection/src/dispatch-resolve.ts:157:25
+ ❯ withDiagnosticTimer packages/host-kit/src/internal/diagnostics.ts:222:20
+ ❯ resolveTargetDeviceSelection packages/device-selection/src/dispatch-resolve.ts:133:10
+ ❯ resolveTargetDevice packages/device-selection/src/dispatch-resolve.ts:110:11
+
+Caused by: Error: 2 devices match this request equally; select one explicitly.
+ ❯ throwAmbiguousDeviceSelection packages/kernel/src/device.ts:774:9
+ ❯ selectDefaultDevice packages/kernel/src/device.ts:764:29
+ ❯ resolveDevice packages/kernel/src/device.ts:627:10
+ ❯ resolveInventoryDeviceSelection packages/device-selection/src/device-selection-resolver.ts:79:26
+ ❯ resolveInventorySelection packages/device-selection/src/dispatch-resolve.ts:34:10
+ ❯ packages/device-selection/src/dispatch-resolve.ts:157:25
+ ❯ withDiagnosticTimer packages/host-kit/src/internal/diagnostics.ts:222:20
+ ❯ resolveTargetDeviceSelection packages/device-selection/src/dispatch-resolve.ts:133:10
+ ❯ resolveTargetDevice packages/device-selection/src/dispatch-resolve.ts:110:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'AMBIGUOUS_MATCH', details: { devices: [ { id: 'emulator-5554', name: 'Pixel A' }, { id: 'emulator-5556', name: 'Pixel B' } ], matches: 2, hint: 'Select the intended device explicitly, for example --serial emulator-5554 or --device "Pixel A". Run agent-device devices to list them.' } }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 15 passed (16)
+   Start at  20:07:11
+   Duration  437ms (transform 64%, import 30%, tests 4%, setup 2%, worker 1%)
+

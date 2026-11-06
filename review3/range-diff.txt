@@ -1,0 +1,47 @@
+ 1:  a73c1dde9 =  1:  2cd877a40 fix(cli): avoid allocating remote devices for shutdown
+ 2:  25b8e100a !  2:  fc2cb0e7d feat(limrun): map target shutdown to instance lease release
+    @@ packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts: async
+        session = sessionStore.resolveCurrent(ref) ?? session;
+     @@ packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts: async function runCloseTeardownAndRelease(params: {
+        sessionStore.retire(ref, { retainExecutionHost });
+    -   if (deviceClaimBlockingError) throw deviceClaimBlockingError;
+    +   if (closeError) throw closeError;
+        if (saveScriptError) throw saveScriptError;
+     -  return { kind: 'closed', providerData: leaseRelease.providerData, shutdownResult };
+     +  return {
+ 3:  e28ba51b8 =  3:  7e61386eb fix(limrun): keep pending instance cleanup retryable
+ 4:  0c064a501 !  4:  7f7a4c93d fix(limrun): preserve lifecycle recovery details and capabilities
+    @@ packages/provider-limrun/src/app-log-runtime.test.ts: test('refuses to start Lim
+     +);
+     
+      ## packages/provider-limrun/src/app-log-runtime.ts ##
+    -@@ packages/provider-limrun/src/app-log-runtime.ts: import {
+    -   type DeviceBinding,
+    -   providerRuntimeOwner,
+    -   sameRuntimeOwner,
+    -+  whenAdmitted,
+    - } from '@agent-device/contracts/platform-runtime';
+    - import type {
+    -   PlatformRuntimeHost,
+     @@ packages/provider-limrun/src/app-log-runtime.ts: function bindLimrunAppLogs(
+                  resolveOpenTarget: operations.resolveOpenTarget,
+                  closeApplication: operations.closeApplication,
+ 5:  6fa681f7c =  5:  e1fa6dfd3 fix(limrun): isolate shutdown from local targets and foreign sessions
+ 6:  7808146a9 !  6:  337564677 refactor(limrun): preserve native shutdown finalization
+    @@ packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts: async
+     +    platformResourceCleanup: params.platformResourceCleanup,
+     +  });
+        let session = sessionStore.requireCurrent(ref);
+    -   const leaseRelease = await releaseProviderLeaseForClose({
+    -     req,
+    +   // Each cleanup report is built where the session's fate is decided, so its diagnostic and hint
+    +   // describe what actually happened to the session. It is built even when a platform-close error
+     @@ packages/daemon/src/sessions/session-lifecycle/internal/session-close.ts: async function runCloseTeardownAndRelease(params: {
+        return {
+          kind: 'closed',
+ 7:  139db478b =  7:  108084ea6 test(limrun): exercise local shutdown refusal through a complete binding
+ 8:  b32b21848 =  8:  1b7aac55e test(limrun): preserve generic shutdown binding types
+ 9:  2fbc9027d =  9:  ad93a8311 fix(limrun): preserve lease guidance during headless boot
+10:  76ecb5f9d = 10:  27895d8e8 fix(providers): centralize inventory refusal and ended lease policy
+11:  7447ca678 = 11:  8e1489862 fix(devices): preserve allocated session target selection
+ -:  --------- > 12:  378f995d1 fix(limrun): preserve cleanup retry guidance after upstream close changes

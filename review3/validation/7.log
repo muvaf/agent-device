@@ -1,0 +1,85 @@
+$ fallow audit --base df8391a63ef2dc2be72a1ecc5208e1a9572109e9
+loaded config: /private/tmp/agent-device-lifecycle-review/.fallowrc.json
+   0.742477834s  WARN Graph cache decoded but not reused: resolver, entry points, or plugins changed
+   2.266506959s  WARN Skipped 2 package.json entry points outside project root or containing parent directory traversal: ./node_modules/oxfmt/bin/oxfmt (2x)
+Comparing against health baseline: /private/tmp/agent-device-lifecycle-review/fallow-baselines/health.json
+
+Audit scope: 45 changed files vs df8391a63ef2dc2be72a1ecc5208e1a9572109e9 (378f995d1..HEAD)
+
+── Duplication ────────────────────────────────────
+note: module wiring excluded from clones
+  (duplicates.ignoreImports: false to include it)
+
+⚠ 44 lines (0.0%) duplicated across 4 files (0.19s)
+
+── Complexity ─────────────────────────────────────
+■ Metrics: dead code 0 · complexity 1 (warn, max cyclomatic: 15) · duplication 2
+● Duplicates (2 clone groups)
+
+      7 lines  2 instances  spread 4  dup:75da1aa5
+    packages/provider-limrun/src/app-log-runtime.ts:95-101
+    packages/provider-revyl/src/platform-runtime.ts:41-47
+
+     23 lines  2 instances  spread 5  dup:790b30ad
+    packages/daemon/src/core/daemon-policy.ts:138-144
+    packages/device-selection/src/composed-inventory-gateways.ts:59-81
+
+  Duplicate code blocks
+  https://fallow.tools/docs/explanations/duplication/#clone-groups
+
+
+✗ 1 above threshold · 711 analyzed (0.01s)
+
+── Styling ────────────────────────────────────────
+■ Metrics: 12,621 LOC · avg cyclomatic 2.6 · p90 cyclomatic 6
+  Cyclomatic units: functions 711, module scopes 7, templates 0
+  Module scope: max cyclomatic 5; included in metrics, not function findings
+
+  Function size: 70% low · 16% medium · 11% high · 4% very high  (1-15 / 16-30 / 31-60 / >60 LOC)
+  Parameters:    92% low · 7% medium · 1% high · 0% very high  (0-2 / 3-4 / 5-6 / >=7 params)
+
+● Large functions (10 shown, 25 total)
+  packages/daemon/src/server/request-execution-scope.ts
+    :223 createRequestExecutionScope  332 lines
+  packages/device-selection/src/__tests__/composed-inventory-gateways.test.ts
+    :48 describe("composed device inventory gateway")  250 lines
+  packages/provider-limrun/src/app-log-runtime.ts
+    :138 bindLimrunAppLogs  138 lines
+  packages/daemon/src/server/request-execution-scope.ts
+    :378 runAdmitted  129 lines
+  packages/daemon/src/sessions/handlers/lease.ts
+    :66 handleLeaseCommands  127 lines
+  packages/daemon/src/server/request-execution-scope.ts
+    :842 createLeaseSessionEnd  124 lines
+  packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts
+    :31 scenario  110 lines
+  packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.ts
+    :38 runSessionCloseTeardown  103 lines
+  packages/daemon/src/server/request-execution-scope.ts
+    :684 prepareLockedRequestScope   96 lines
+  src/cli.ts
+    :150 runCliOnHost   94 lines
+  Functions exceeding 60 lines of code (very high risk)
+  https://fallow.tools/docs/explanations/health/#unit-size
+  use --top 25 to see all
+
+● High complexity functions (1)
+  src/cli.ts
+    :255 parseCliInputOrExit
+          15   cyclomatic   20 ! cognitive   70 lines
+  Functions exceeding cyclomatic, cognitive, or CRAP thresholds; ! marks the
+  dimension that breached
+  https://fallow.tools/docs/explanations/health/#complexity-metrics
+
+
+CSS health
+  Styling health: 85 B (CSS quality, scored separately from the code health score)
+  Deductions: dead surface -7.1 · structural -4.3 · token erosion -2.5 · duplication -1.3
+  4 stylesheets · 176 rules · 9.3% !important · 0 empty · max nesting 0
+  value sprawl: 43 distinct colors · 16 font sizes · 0 z-index values
+  value sprawl (cont.): 1 radius value · 9 line-heights (candidates; tokenize repeated values via custom properties)
+  custom properties: 73 defined, 38 unreferenced in CSS, 7 undefined (candidates; may be set from JS)
+  font sizes mix 3 units (9 rem, 2 em, 1 other; candidate, standardize unless intentional)
+  31 styling candidates (run `fallow health --css` for detail)
+⚠ complexity: 1 finding · duplication: 2 clone groups (warn) · 45 changed files (3.61s)
+  audit gate excluded 1 inherited finding (run with --gate all to enforce)
