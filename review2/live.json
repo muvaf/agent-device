@@ -1,0 +1,381 @@
+{
+  "sha": "3848d114b36d6de352ee20827fbb8e4cda9996c1",
+  "startedAt": "2026-11-06T16:05:09.291Z",
+  "steps": [
+    {
+      "name": "install",
+      "result": {
+        "app": "com.agentdevice.installerreview",
+        "appPath": "/private/tmp/agent-device-review2/android-live/fixtures/v3/installer-review.apk",
+        "platform": "android",
+        "appId": "com.agentdevice.installerreview",
+        "package": "com.agentdevice.installerreview",
+        "identifiers": {
+          "session": "parity-app",
+          "appId": "com.agentdevice.installerreview",
+          "package": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "name": "open",
+      "result": {
+        "session": "parity-app",
+        "sessionStateDir": "<evidence-dir>/state/sessions/limrun_parity-app",
+        "runnerLogPath": "<evidence-dir>/state/sessions/limrun_parity-app/runner.log",
+        "requestLogPath": "<evidence-dir>/state/sessions/limrun_parity-app/requests/b59c49e869ac286b.ndjson",
+        "eventLogPath": "<evidence-dir>/state/sessions/limrun_parity-app/events.ndjson",
+        "appName": "com.agentdevice.installerreview",
+        "appBundleId": "com.agentdevice.installerreview",
+        "appId": "com.agentdevice.installerreview",
+        "selection": {
+          "reason": "single-provider-device",
+          "source": "provider",
+          "candidateCount": 1,
+          "bootOccurred": false
+        },
+        "startup": {
+          "durationMs": 796,
+          "measuredAt": "2026-11-06T16:05:11.733Z",
+          "method": "open-command-roundtrip",
+          "appTarget": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        },
+        "device": {
+          "platform": "android",
+          "target": "mobile",
+          "id": "limrun:android:24d0cf00174580a052148bc027cc8d1f",
+          "name": "Limrun android attached",
+          "identifiers": {
+            "deviceId": "limrun:android:24d0cf00174580a052148bc027cc8d1f",
+            "deviceName": "Limrun android attached",
+            "serial": "limrun:android:24d0cf00174580a052148bc027cc8d1f"
+          },
+          "android": {
+            "serial": "limrun:android:24d0cf00174580a052148bc027cc8d1f"
+          }
+        },
+        "identifiers": {
+          "session": "parity-app",
+          "deviceId": "limrun:android:24d0cf00174580a052148bc027cc8d1f",
+          "deviceName": "Limrun android attached",
+          "serial": "limrun:android:24d0cf00174580a052148bc027cc8d1f",
+          "appId": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "name": "snapshot",
+      "result": {
+        "nodes": [
+          {
+            "index": 0,
+            "type": "android.widget.Button",
+            "label": "INSTALLER REVIEW VERSION 3",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.agentdevice.installerreview",
+            "rect": {
+              "x": 32,
+              "y": 64,
+              "width": 656,
+              "height": 91
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 0,
+            "ref": "e1",
+            "kind": "button"
+          }
+        ],
+        "truncated": false,
+        "appName": "com.agentdevice.installerreview",
+        "appBundleId": "com.agentdevice.installerreview",
+        "keyboard": {
+          "kind": "absent",
+          "treeBound": true
+        },
+        "viewport": {
+          "width": 720,
+          "height": 1616
+        },
+        "visibility": {
+          "partial": false,
+          "visibleNodeCount": 1,
+          "totalNodeCount": 1,
+          "reasons": []
+        },
+        "androidSnapshot": {
+          "backend": "android-helper",
+          "pixelDensity": 1.75,
+          "helperVersion": "0.21.37-dev",
+          "helperApiVersion": "2",
+          "helperTransport": "instrumentation",
+          "installReason": "missing",
+          "waitForIdleTimeoutMs": 500,
+          "waitForIdleQuietMs": 100,
+          "timeoutMs": 5000,
+          "maxDepth": 128,
+          "maxNodes": 5000,
+          "rootPresent": true,
+          "cacheInvalidated": true,
+          "captureMode": "interactive-windows",
+          "windowCount": 2,
+          "missingRootWindowTypes": [],
+          "nodeCount": 30,
+          "helperTruncated": false,
+          "elapsedMs": 114
+        },
+        "snapshotQuality": {
+          "state": "healthy",
+          "backend": "android-helper"
+        },
+        "snapshotDiagnostics": {
+          "stats": {
+            "count": 1,
+            "p50Ms": 1412,
+            "p95Ms": 1412,
+            "maxMs": 1412,
+            "slowThresholdMs": 1500,
+            "platform": "android",
+            "backends": {
+              "android-uiautomator": 1
+            }
+          }
+        },
+        "refsGeneration": 395688,
+        "identifiers": {
+          "session": "parity-app",
+          "appId": "com.agentdevice.installerreview",
+          "appBundleId": "com.agentdevice.installerreview"
+        }
+      }
+    },
+    {
+      "name": "get-text",
+      "result": {
+        "ref": "e1",
+        "text": "INSTALLER REVIEW VERSION 3",
+        "node": {
+          "index": 0,
+          "type": "android.widget.Button",
+          "label": "INSTALLER REVIEW VERSION 3",
+          "enabled": true,
+          "selected": false,
+          "editable": false,
+          "password": false,
+          "hintShowing": false,
+          "bundleId": "com.agentdevice.installerreview",
+          "rect": {
+            "x": 32,
+            "y": 64,
+            "width": 656,
+            "height": 91
+          },
+          "visibleToUser": true,
+          "hittable": true,
+          "depth": 0,
+          "ref": "e1",
+          "kind": "button"
+        }
+      }
+    },
+    {
+      "name": "memory",
+      "result": {
+        "session": "limrun:parity-app",
+        "platform": "android",
+        "device": "Limrun android attached",
+        "deviceId": "limrun:android:24d0cf00174580a052148bc027cc8d1f",
+        "metrics": {
+          "memory": {
+            "available": true,
+            "totalPssKb": 29025,
+            "totalRssKb": 158764,
+            "measuredAt": "2026-11-06T16:05:14.023Z",
+            "method": "adb-shell-dumpsys-meminfo",
+            "topConsumers": [
+              {
+                "name": "Native Heap",
+                "pssKb": 16996
+              },
+              {
+                "name": ".art mmap",
+                "pssKb": 6072
+              },
+              {
+                "name": "Dalvik Other",
+                "pssKb": 1913
+              },
+              {
+                "name": "Dalvik Heap",
+                "pssKb": 1264
+              },
+              {
+                "name": ".so mmap",
+                "pssKb": 1018
+              }
+            ]
+          }
+        },
+        "sampling": {
+          "memory": {
+            "method": "adb-shell-dumpsys-meminfo",
+            "description": "Memory snapshot from adb shell dumpsys meminfo <package>. Values are reported in kilobytes.",
+            "unit": "kB",
+            "topConsumerLimit": 5
+          }
+        }
+      }
+    },
+    {
+      "name": "frames",
+      "result": {
+        "session": "limrun:parity-app",
+        "platform": "android",
+        "device": "Limrun android attached",
+        "deviceId": "limrun:android:24d0cf00174580a052148bc027cc8d1f",
+        "metrics": {
+          "fps": {
+            "available": true,
+            "totalFrameCount": 9,
+            "droppedFrameCount": 1,
+            "droppedFramePercent": 11.1,
+            "sampleWindowMs": 2470,
+            "frameDeadlineMs": 33.3,
+            "refreshRateHz": 30,
+            "windowStartedAt": "2026-11-06T16:05:11.665Z",
+            "windowEndedAt": "2026-11-06T16:05:14.136Z",
+            "timestampSource": "estimated-from-device-uptime",
+            "measuredAt": "2026-11-06T16:05:14.136Z",
+            "method": "adb-shell-dumpsys-gfxinfo-framestats",
+            "source": "android-gfxinfo-summary",
+            "worstWindows": [
+              {
+                "startOffsetMs": 62,
+                "endOffsetMs": 67,
+                "startAt": "2026-11-06T16:05:11.727Z",
+                "endAt": "2026-11-06T16:05:11.733Z",
+                "missedDeadlineFrameCount": 1,
+                "worstFrameMs": 5.3
+              }
+            ],
+            "relatedActions": [
+              {
+                "command": "open",
+                "at": "2026-11-06T16:05:11.733Z",
+                "offsetMs": 68,
+                "target": "com.agentdevice.installerreview"
+              },
+              {
+                "command": "snapshot",
+                "at": "2026-11-06T16:05:13.214Z",
+                "offsetMs": 1549
+              },
+              {
+                "command": "get",
+                "at": "2026-11-06T16:05:13.889Z",
+                "offsetMs": 2224,
+                "target": "INSTALLER REVIEW VERSION 3"
+              },
+              {
+                "command": "perf",
+                "at": "2026-11-06T16:05:14.024Z",
+                "offsetMs": 2359
+              }
+            ]
+          }
+        },
+        "sampling": {
+          "fps": {
+            "method": "adb-shell-dumpsys-gfxinfo-framestats",
+            "description": "Rendered-frame health from the current adb shell dumpsys gfxinfo <package> framestats window. Dropped frames use Android gfxinfo janky-frame/frame-deadline data when available; this is not video recording FPS.",
+            "unit": "percent",
+            "primaryField": "droppedFramePercent",
+            "window": "since previous Android gfxinfo reset or app process start",
+            "resetsAfterRead": true,
+            "relatedActionsLimit": 12
+          }
+        }
+      }
+    },
+    {
+      "name": "heap",
+      "result": {
+        "session": "limrun:parity-app",
+        "platform": "android",
+        "device": "Limrun android attached",
+        "deviceId": "limrun:android:24d0cf00174580a052148bc027cc8d1f",
+        "artifact": {
+          "available": true,
+          "kind": "android-hprof",
+          "path": "<evidence-dir>/heap.hprof",
+          "sizeBytes": 33521774,
+          "measuredAt": "2026-11-06T16:05:35.539Z",
+          "method": "adb-shell-am-dumpheap",
+          "packageName": "com.agentdevice.installerreview",
+          "pid": 21242,
+          "remotePath": "/data/local/tmp/agent-device-com.agentdevice.installerreview-1793981114340.hprof"
+        },
+        "sampling": {
+          "snapshot": {
+            "method": "adb-shell-am-dumpheap",
+            "description": "Java heap dump captured with adb shell am dumpheap, pulled to a local artifact path.",
+            "defaultKind": "android-hprof",
+            "artifactOnly": true
+          }
+        },
+        "support": {
+          "platform": "android",
+          "defaultKind": "android-hprof",
+          "androidHprof": true,
+          "memgraph": false,
+          "heapprofd": false,
+          "heapprofdDecision": "Deferred until Android Perfetto/heapprofd plumbing is available in the perf trace slice."
+        }
+      }
+    },
+    {
+      "name": "close",
+      "result": {
+        "session": "parity-app",
+        "identifiers": {
+          "session": "parity-app"
+        }
+      }
+    },
+    {
+      "name": "release",
+      "result": {
+        "released": true,
+        "provider": {
+          "limrunInstanceId": "attached-f8432d8c19e3"
+        }
+      }
+    }
+  ],
+  "instanceId": "android_euna_01m6rspnbfebzrz7jw16q7fprv",
+  "heap": {
+    "bytes": 33521774,
+    "header": "JAVA PROFILE 1.0.3\u0000"
+  },
+  "instanceDeleted": true,
+  "getTextDiagnosticEventCount": 13,
+  "getTextDiagnosticPhases": [
+    "request_start",
+    "android_snapshot_helper_artifact_resolution",
+    "android_snapshot_helper_install",
+    "android_snapshot_helper_install_decision",
+    "android_snapshot_helper_session_capture",
+    "exec_command",
+    "android_snapshot_helper_capture",
+    "record_action",
+    "request_success"
+  ],
+  "interactionReadFallbackCount": 0,
+  "completedAt": "2026-11-06T16:05:36.444Z"
+}

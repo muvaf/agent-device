@@ -1,0 +1,36 @@
+
+ RUN  v5.0.4 /private/tmp/agent-device-review2-regression-base
+
+x·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| packages/provider-limrun/src/android-perf-runtime.test.ts > a live Android owner binds reads and rejects a lease lost after binding
+AssertionError: expected Error: Provider-owned clipboard read oper… { …(2) } to match object { code: 'DEVICE_NOT_FOUND' }
+(4 matching properties omitted from actual)
+
+- Expected
++ Received
+
+- {
+-   "code": "DEVICE_NOT_FOUND",
++ AppError {
++   "code": "UNSUPPORTED_OPERATION",
+  }
+
+ ❯ packages/provider-limrun/src/android-perf-runtime.test.ts:79:54
+     77|     binding.operations.readTextAtPoint!({ point: { x: 10, y: 20 } }),
+     78|   ).rejects.toMatchObject({ code: 'DEVICE_NOT_FOUND' });
+     79|   await expect(binding.operations.readClipboard!({})).rejects.toMatchO…
+       |                                                      ^
+     80|     code: 'DEVICE_NOT_FOUND',
+     81|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  19:05:58
+   Duration  391ms (transform 58%, import 36%, tests 3%, setup 2%, worker 1%)
+

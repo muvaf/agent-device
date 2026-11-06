@@ -1,3 +1,5 @@
+Latest review follow-up: [3848d114b validation and live results](review2/README.md). The earlier run below remains attributed to its source SHA.
+
 # Limrun Android shared reads
 
 Final source: `99be56862fdadcbbfa38aebbf48b2dbac7964dcc`. PR: [#4268](https://github.com/callstack/agent-device/pull/4268). All current live results and validation below were collected from this exact commit on November 6, 2026.
