@@ -1,0 +1,50 @@
+
+ RUN  v5.0.4 <base-checkout>
+
+xx·xx·
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |unit-core| src/cli/commands/connection-runtime-shutdown.test.ts > shutdown preserves the ios connection's unallocated lease without acquiring a device
+ FAIL  |unit-core| src/cli/commands/connection-runtime-shutdown.test.ts > shutdown preserves the android connection's unallocated lease without acquiring a device
+Error: unexpected call
+ ❯ Proxy.unexpectedCommandCall src/__tests__/remote-connection.fixtures.ts:17:9
+     15|
+     16| export const unexpectedCommandCall = async (): Promise<never> => {
+     17|   throw new Error('unexpected call');
+       |         ^
+     18| };
+     19|
+ ❯ allocateOrReuseLease src/cli/commands/connection-lease-transaction.ts:382:37
+ ❯ materializeLeaseForCommand src/cli/commands/connection-lease-transaction.ts:212:33
+ ❯ acquireConnectionLease src/cli/commands/connection-lease-transaction.ts:129:26
+ ❯ materializeRemoteConnectionForCommand src/cli/commands/connection-runtime.ts:105:22
+ ❯ src/cli/commands/connection-runtime-shutdown.test.ts:35:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  |unit-core| src/cli/commands/connection-runtime-shutdown.test.ts > shutdown preserves the ios connection's existing-lease lease without acquiring a device
+ FAIL  |unit-core| src/cli/commands/connection-runtime-shutdown.test.ts > shutdown preserves the android connection's existing-lease lease without acquiring a device
+Error: unexpected call
+ ❯ Proxy.unexpectedCommandCall src/__tests__/remote-connection.fixtures.ts:17:9
+     15|
+     16| export const unexpectedCommandCall = async (): Promise<never> => {
+     17|   throw new Error('unexpected call');
+       |         ^
+     18| };
+     19|
+ ❯ heartbeatOrAllocateLease src/cli/commands/connection-lease-transaction.ts:473:32
+ ❯ allocateOrReuseLease src/cli/commands/connection-lease-transaction.ts:363:28
+ ❯ materializeLeaseForCommand src/cli/commands/connection-lease-transaction.ts:212:33
+ ❯ acquireConnectionLease src/cli/commands/connection-lease-transaction.ts:129:26
+ ❯ materializeRemoteConnectionForCommand src/cli/commands/connection-runtime.ts:105:22
+ ❯ src/cli/commands/connection-runtime-shutdown.test.ts:35:22
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 2 passed (6)
+   Start at  17:12:34
+   Duration  763ms (transform 80%, import 17%, tests 2%, setup 1%)
+

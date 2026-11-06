@@ -1,0 +1,24 @@
+$ node --experimental-strip-types scripts/node-test-tmpdir.ts --experimental-strip-types --test scripts/di-seams/*.test.ts && node --experimental-strip-types scripts/di-seams/check.ts
+✔ findSeamMatches finds an unapproved optional typeof property with its line number (0.863209ms)
+✔ findSeamMatches ignores a required (non-optional) field (0.079333ms)
+✔ findSeamMatches finds a bare optional function parameter, not just object-type fields (0.075292ms)
+✔ findSeamMatches finds a declaration whose `?:` and `typeof` land on different lines (0.057333ms)
+✔ findSeamMatches attaches an immediately-preceding di-seam-approved comment (0.082584ms)
+✔ findSeamMatches joins a multi-line di-seam-approved comment block into one reason (0.069416ms)
+✔ findSeamMatches does not treat a marker on an earlier, unrelated field as approving this one (0.064458ms)
+✔ findSeamMatches requires the marker text itself, not just a nearby comment (0.051583ms)
+✔ findSeamMatches rejects a di-seam-approved marker with no reason text (0.06ms)
+✔ findSeamMatches rejects a di-seam-approved marker whose reason is only whitespace (0.08ms)
+✔ checkSeams flags a declaration whose only marker has no reason text (0.068792ms)
+✔ checkSeams passes an approved match and flags an unapproved one (0.05ms)
+✔ checkSeams flags a second, unmarked occurrence of an approved field/target pair (0.053542ms)
+✔ checkSeams stays passing when unrelated code is inserted above an approved declaration (0.078208ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 64.730375
+DI-seam guard: OK — 502 production src/ and daemon-package files scanned, 6 approved seam(s) found, no unapproved seams.

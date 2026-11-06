@@ -1,0 +1,1856 @@
+{
+  "sha": "e28ba51b85266098a2ccf40fbbb4db83e89d789b",
+  "startedAt": "2026-11-06T14:27:45.865Z",
+  "steps": [
+    {
+      "platform": "android",
+      "name": "connect",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "connected": true,
+          "session": "lifecycle-android",
+          "tenant": "limrun",
+          "runId": "cli-mw52jycd",
+          "leaseAllocated": false,
+          "leaseBackend": "android-instance",
+          "leaseProvider": "limrun",
+          "platform": "android",
+          "target": "mobile",
+          "remoteConfig": "<evidence-dir>/state-android/remote-connections/generated/limrun-0d3295d1060b71f8.json",
+          "remoteConfigHash": "7d8cc7205b3549d749713a2f7c715e597c0a0d38499ef21f286323bab06de655",
+          "liveSession": {
+            "status": "not-created"
+          },
+          "verification": {
+            "status": "verified",
+            "service": "Limrun",
+            "message": "Credentials and Android instance access verified."
+          },
+          "device": {
+            "status": "deferred",
+            "name": "Provider-selected Android emulator",
+            "platform": "android"
+          },
+          "app": {
+            "status": "missing",
+            "message": "Run apps to choose an uploaded asset before allocation."
+          },
+          "nextSteps": [
+            "agent-device apps --session lifecycle-android",
+            "agent-device open <uploaded-asset-name> --session lifecycle-android"
+          ],
+          "metro": {
+            "prepared": false
+          },
+          "leasePreparation": {
+            "status": "deferred",
+            "nextSteps": [
+              "agent-device apps --session lifecycle-android",
+              "agent-device open <uploaded-asset-name> --session lifecycle-android"
+            ],
+            "message": "No live device session has been created. Run apps to inspect uploaded assets without allocating; open <uploaded-asset-name> creates the instance."
+          },
+          "connectedAt": "2026-11-06T14:27:46.552Z",
+          "updatedAt": "2026-11-06T14:27:46.552Z"
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "shutdown-unallocated",
+      "exitCode": 1,
+      "result": {
+        "success": false,
+        "error": {
+          "code": "INVALID_ARGS",
+          "message": "tenant isolation requires lease id.",
+          "hint": "Allocate a lease with leases.allocate and pass its leaseId.",
+          "diagnosticId": "mw52jz1i-1dc20ae8",
+          "logPath": "<evidence-dir>/state-android/sessions/limrun_lifecycle-android/requests/ced8dfe4deaf2ed8.ndjson",
+          "diagnosticsRecord": {
+            "session": "limrun:lifecycle-android",
+            "requestId": "ced8dfe4deaf2ed8"
+          }
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "boot",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "android",
+          "target": "mobile",
+          "device": "Limrun android android_",
+          "id": "limrun:android:aef552f8ea018a4fe47a9b3e74ebe6b2",
+          "kind": "emulator",
+          "booted": true,
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          }
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "boot-reuse",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "android",
+          "target": "mobile",
+          "device": "Limrun android android_",
+          "id": "limrun:android:aef552f8ea018a4fe47a9b3e74ebe6b2",
+          "kind": "emulator",
+          "booted": true,
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          }
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "shutdown-delete",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "android",
+          "target": "mobile",
+          "device": "Limrun android android_",
+          "id": "limrun:android:aef552f8ea018a4fe47a9b3e74ebe6b2",
+          "kind": "emulator",
+          "shutdown": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "Released provider instance lease.",
+            "stderr": ""
+          },
+          "provider": {
+            "limrunInstanceId": "android_euna_01m6rm4c9jfgvas0tcwmmg37k2"
+          },
+          "endedLeases": [
+            {
+              "leaseId": "aef552f8ea018a4fe47a9b3e74ebe6b2",
+              "outcome": "released"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "boot-recreate",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "android",
+          "target": "mobile",
+          "device": "Limrun android android_",
+          "id": "limrun:android:791228de5b9d86ee4e173e5de351585d",
+          "kind": "emulator",
+          "booted": true,
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          }
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "open",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "session": "lifecycle-android",
+          "sessionStateDir": "<evidence-dir>/state-android/sessions/limrun_lifecycle-android",
+          "runnerLogPath": "<evidence-dir>/state-android/sessions/limrun_lifecycle-android/runner.log",
+          "requestLogPath": "<evidence-dir>/state-android/sessions/limrun_lifecycle-android/requests/d9e85b2943147a92.ndjson",
+          "eventLogPath": "<evidence-dir>/state-android/sessions/limrun_lifecycle-android/events.ndjson",
+          "appName": "com.android.settings",
+          "appBundleId": "com.android.settings",
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          },
+          "startup": {
+            "durationMs": 615,
+            "measuredAt": "2026-11-06T14:27:50.609Z",
+            "method": "open-command-roundtrip",
+            "appTarget": "com.android.settings",
+            "appBundleId": "com.android.settings"
+          },
+          "platform": "android",
+          "target": "mobile",
+          "device": "Limrun android android_",
+          "id": "limrun:android:791228de5b9d86ee4e173e5de351585d",
+          "serial": "limrun:android:791228de5b9d86ee4e173e5de351585d",
+          "message": "Opened: com.android.settings"
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "snapshot",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "nodes": [
+            {
+              "index": 0,
+              "type": "android.widget.ScrollView",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "com.android.settings:id/settings_homepage_container",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 94,
+                "width": 720,
+                "height": 1480
+              },
+              "visibleToUser": true,
+              "depth": 0,
+              "ref": "e1",
+              "kind": "scroll-area"
+            },
+            {
+              "index": 1,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "com.android.settings:id/search_action_bar",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 28,
+                "y": 108,
+                "width": 664,
+                "height": 126
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 1,
+              "parentIndex": 0,
+              "ref": "e2",
+              "kind": "group"
+            },
+            {
+              "index": 2,
+              "type": "android.widget.TextView",
+              "label": "Search Settings",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "com.android.settings:id/search_bar_title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 126,
+                "y": 147,
+                "width": 259,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 2,
+              "parentIndex": 1,
+              "ref": "e3",
+              "kind": "text"
+            },
+            {
+              "index": 3,
+              "type": "android.widget.ScrollView",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "com.android.settings:id/main_content_scrollable_container",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 262,
+                "width": 720,
+                "height": 1312
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 1,
+              "parentIndex": 0,
+              "hiddenContentBelow": true,
+              "ref": "e4",
+              "kind": "scroll-area"
+            },
+            {
+              "index": 4,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "com.android.settings:id/homepage_container",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 262,
+                "width": 720,
+                "height": 1312
+              },
+              "focused": true,
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 2,
+              "parentIndex": 3,
+              "ref": "e5",
+              "kind": "group"
+            },
+            {
+              "index": 5,
+              "type": "androidx.recyclerview.widget.RecyclerView",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "com.android.settings:id/recycler_view",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 262,
+                "width": 720,
+                "height": 1312
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 3,
+              "parentIndex": 4,
+              "hiddenContentAbove": true,
+              "ref": "e6",
+              "kind": "list"
+            },
+            {
+              "index": 6,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 262,
+                "width": 720,
+                "height": 137
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e7",
+              "kind": "group"
+            },
+            {
+              "index": 7,
+              "type": "android.widget.TextView",
+              "label": "Network & internet",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 290,
+                "width": 290,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 6,
+              "ref": "e8",
+              "kind": "text"
+            },
+            {
+              "index": 8,
+              "type": "android.widget.TextView",
+              "label": "Mobile, Wi‑Fi, hotspot",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 337,
+                "width": 237,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 6,
+              "ref": "e9",
+              "kind": "text"
+            },
+            {
+              "index": 9,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 399,
+                "width": 720,
+                "height": 165
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e10",
+              "kind": "group"
+            },
+            {
+              "index": 10,
+              "type": "android.widget.TextView",
+              "label": "Connected devices",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 427,
+                "width": 297,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 9,
+              "ref": "e11",
+              "kind": "text"
+            },
+            {
+              "index": 11,
+              "type": "android.widget.TextView",
+              "label": "Bluetooth, pairing",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 474,
+                "width": 194,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 9,
+              "ref": "e12",
+              "kind": "text"
+            },
+            {
+              "index": 12,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 564,
+                "width": 720,
+                "height": 137
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e13",
+              "kind": "group"
+            },
+            {
+              "index": 13,
+              "type": "android.widget.TextView",
+              "label": "Apps",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 592,
+                "width": 81,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 12,
+              "ref": "e14",
+              "kind": "text"
+            },
+            {
+              "index": 14,
+              "type": "android.widget.TextView",
+              "label": "Recent apps, default apps",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 639,
+                "width": 287,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 12,
+              "ref": "e15",
+              "kind": "text"
+            },
+            {
+              "index": 15,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 701,
+                "width": 720,
+                "height": 137
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e16",
+              "kind": "group"
+            },
+            {
+              "index": 16,
+              "type": "android.widget.TextView",
+              "label": "Notifications",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 729,
+                "width": 198,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 15,
+              "ref": "e17",
+              "kind": "text"
+            },
+            {
+              "index": 17,
+              "type": "android.widget.TextView",
+              "label": "Notification history, conversations",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 776,
+                "width": 376,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 15,
+              "ref": "e18",
+              "kind": "text"
+            },
+            {
+              "index": 18,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 838,
+                "width": 720,
+                "height": 137
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e19",
+              "kind": "group"
+            },
+            {
+              "index": 19,
+              "type": "android.widget.TextView",
+              "label": "Sound & vibration",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 866,
+                "width": 275,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 18,
+              "ref": "e20",
+              "kind": "text"
+            },
+            {
+              "index": 20,
+              "type": "android.widget.TextView",
+              "label": "Volume and vibration",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 913,
+                "width": 234,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 18,
+              "ref": "e21",
+              "kind": "text"
+            },
+            {
+              "index": 21,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 975,
+                "width": 720,
+                "height": 137
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e22",
+              "kind": "group"
+            },
+            {
+              "index": 22,
+              "type": "android.widget.TextView",
+              "label": "Modes",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 1003,
+                "width": 108,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 21,
+              "ref": "e23",
+              "kind": "text"
+            },
+            {
+              "index": 23,
+              "type": "android.widget.TextView",
+              "label": "Do Not Disturb, Sleeping",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 1050,
+                "width": 267,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 21,
+              "ref": "e24",
+              "kind": "text"
+            },
+            {
+              "index": 24,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 1112,
+                "width": 720,
+                "height": 137
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e25",
+              "kind": "group"
+            },
+            {
+              "index": 25,
+              "type": "android.widget.TextView",
+              "label": "Display",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 1140,
+                "width": 115,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 24,
+              "ref": "e26",
+              "kind": "text"
+            },
+            {
+              "index": 26,
+              "type": "android.widget.TextView",
+              "label": "Dark theme, font size, brightness",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 1187,
+                "width": 361,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 24,
+              "ref": "e27",
+              "kind": "text"
+            },
+            {
+              "index": 27,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 1249,
+                "width": 720,
+                "height": 165
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e28",
+              "kind": "group"
+            },
+            {
+              "index": 28,
+              "type": "android.widget.TextView",
+              "label": "Wallpaper",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 1277,
+                "width": 158,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 27,
+              "ref": "e29",
+              "kind": "text"
+            },
+            {
+              "index": 29,
+              "type": "android.widget.TextView",
+              "label": "Home, lock screen",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/summary",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 1324,
+                "width": 204,
+                "height": 34
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 27,
+              "ref": "e30",
+              "kind": "text"
+            },
+            {
+              "index": 30,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 1414,
+                "width": 720,
+                "height": 137
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e31",
+              "kind": "group"
+            },
+            {
+              "index": 31,
+              "type": "android.widget.TextView",
+              "label": "Storage",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "identifier": "android:id/title",
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 140,
+                "y": 1442,
+                "width": 121,
+                "height": 47
+              },
+              "visibleToUser": true,
+              "depth": 5,
+              "parentIndex": 30,
+              "ref": "e32",
+              "kind": "text"
+            },
+            {
+              "index": 32,
+              "type": "android.widget.LinearLayout",
+              "enabled": true,
+              "selected": false,
+              "editable": false,
+              "password": false,
+              "hintShowing": false,
+              "bundleId": "com.android.settings",
+              "rect": {
+                "x": 0,
+                "y": 1551,
+                "width": 720,
+                "height": 23
+              },
+              "visibleToUser": true,
+              "hittable": true,
+              "depth": 4,
+              "parentIndex": 5,
+              "ref": "e33",
+              "kind": "group"
+            }
+          ],
+          "truncated": false,
+          "appName": "com.android.settings",
+          "appBundleId": "com.android.settings",
+          "visibility": {
+            "partial": true,
+            "visibleNodeCount": 33,
+            "totalNodeCount": 33,
+            "reasons": [
+              "scroll-hidden-above",
+              "scroll-hidden-below"
+            ]
+          },
+          "keyboard": {
+            "kind": "absent",
+            "treeBound": true
+          },
+          "viewport": {
+            "width": 720,
+            "height": 1616
+          },
+          "androidSnapshot": {
+            "backend": "android-helper",
+            "pixelDensity": 1.75,
+            "helperVersion": "0.21.37-dev",
+            "helperApiVersion": "2",
+            "helperTransport": "instrumentation",
+            "installReason": "missing",
+            "waitForIdleTimeoutMs": 500,
+            "waitForIdleQuietMs": 100,
+            "timeoutMs": 5000,
+            "maxDepth": 128,
+            "maxNodes": 5000,
+            "rootPresent": true,
+            "cacheInvalidated": true,
+            "captureMode": "interactive-windows",
+            "windowCount": 2,
+            "missingRootWindowTypes": [],
+            "nodeCount": 151,
+            "helperTruncated": false,
+            "elapsedMs": 127
+          },
+          "snapshotQuality": {
+            "state": "healthy",
+            "backend": "android-helper"
+          },
+          "snapshotDiagnostics": {
+            "stats": {
+              "count": 1,
+              "p50Ms": 1476,
+              "p95Ms": 1476,
+              "maxMs": 1476,
+              "slowThresholdMs": 1500,
+              "platform": "android",
+              "backends": {
+                "android-uiautomator": 1
+              }
+            }
+          },
+          "refsGeneration": 371033
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "shutdown-active-refusal",
+      "exitCode": 1,
+      "result": {
+        "success": false,
+        "error": {
+          "code": "DEVICE_IN_USE",
+          "message": "Cannot shut down an active session device directly. Use close --shutdown to end the session and turn off the simulator/emulator.",
+          "hint": "Run agent-device close --shutdown --session limrun:lifecycle-android",
+          "diagnosticId": "mw52k38u-d6c88d82",
+          "logPath": "<evidence-dir>/state-android/sessions/limrun_lifecycle-android/requests/2b4f358411cf9983.ndjson",
+          "diagnosticsRecord": {
+            "session": "limrun:lifecycle-android",
+            "requestId": "2b4f358411cf9983"
+          },
+          "retriable": true,
+          "details": {
+            "session": "limrun:lifecycle-android",
+            "platform": "android",
+            "target": "mobile",
+            "device": "Limrun android android_",
+            "id": "limrun:android:791228de5b9d86ee4e173e5de351585d",
+            "kind": "emulator"
+          }
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "close-shutdown",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "session": "lifecycle-android",
+          "shutdown": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "Released provider instance lease.",
+            "stderr": ""
+          },
+          "provider": {
+            "limrunInstanceId": "android_euna_01m6rm4dyhfgv8yg5701jzfwpy"
+          },
+          "message": "Closed: lifecycle-android"
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "deletion-confirmed",
+      "instanceIds": [
+        "android_euna_01m6rm4c9jfgvas0tcwmmg37k2",
+        "android_euna_01m6rm4dyhfgv8yg5701jzfwpy"
+      ]
+    },
+    {
+      "platform": "android",
+      "name": "disconnect",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "connected": false,
+          "session": "lifecycle-android",
+          "released": false
+        }
+      }
+    },
+    {
+      "platform": "android",
+      "name": "daemon-stop",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "stopped": true,
+          "mode": "graceful",
+          "cleanupConfidence": "known",
+          "claimsReleased": [],
+          "claimsOrphaned": [],
+          "claimsSuperseded": [],
+          "claimsUnattributable": [],
+          "providerReleases": {
+            "status": "completed",
+            "released": [],
+            "pending": []
+          },
+          "warnings": [],
+          "clean": true
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "connect",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "connected": true,
+          "session": "lifecycle-ios",
+          "tenant": "limrun",
+          "runId": "cli-mw52k3xt",
+          "leaseAllocated": false,
+          "leaseBackend": "ios-instance",
+          "leaseProvider": "limrun",
+          "platform": "ios",
+          "target": "mobile",
+          "remoteConfig": "<evidence-dir>/state-ios/remote-connections/generated/limrun-b04fda6bf619490e.json",
+          "remoteConfigHash": "f4c6e5802a78eacdf118c7d212e6e884c9e42a77237bffad9926f83d92f371db",
+          "liveSession": {
+            "status": "not-created"
+          },
+          "verification": {
+            "status": "verified",
+            "service": "Limrun",
+            "message": "Credentials and iOS instance access verified."
+          },
+          "device": {
+            "status": "deferred",
+            "name": "Provider-selected iOS simulator",
+            "platform": "ios"
+          },
+          "app": {
+            "status": "missing",
+            "message": "Run apps to choose an uploaded asset before allocation."
+          },
+          "nextSteps": [
+            "agent-device apps --session lifecycle-ios",
+            "agent-device open <uploaded-asset-name> --session lifecycle-ios"
+          ],
+          "metro": {
+            "prepared": false
+          },
+          "leasePreparation": {
+            "status": "deferred",
+            "nextSteps": [
+              "agent-device apps --session lifecycle-ios",
+              "agent-device open <uploaded-asset-name> --session lifecycle-ios"
+            ],
+            "message": "No live device session has been created. Run apps to inspect uploaded assets without allocating; open <uploaded-asset-name> creates the instance."
+          },
+          "connectedAt": "2026-11-06T14:27:53.527Z",
+          "updatedAt": "2026-11-06T14:27:53.527Z"
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "shutdown-unallocated",
+      "exitCode": 1,
+      "result": {
+        "success": false,
+        "error": {
+          "code": "INVALID_ARGS",
+          "message": "tenant isolation requires lease id.",
+          "hint": "Allocate a lease with leases.allocate and pass its leaseId.",
+          "diagnosticId": "mw52k4ez-d36df0e5",
+          "logPath": "<evidence-dir>/state-ios/sessions/limrun_lifecycle-ios/requests/8637f59f77dfcb80.ndjson",
+          "diagnosticsRecord": {
+            "session": "limrun:lifecycle-ios",
+            "requestId": "8637f59f77dfcb80"
+          }
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "boot",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Limrun ios ios_euna",
+          "id": "limrun:ios:1d3b3c1c34b2bcdd7ed50f7fc2a739d4",
+          "kind": "simulator",
+          "booted": true,
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          },
+          "appleOs": "ios"
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "boot-reuse",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Limrun ios ios_euna",
+          "id": "limrun:ios:1d3b3c1c34b2bcdd7ed50f7fc2a739d4",
+          "kind": "simulator",
+          "booted": true,
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          },
+          "appleOs": "ios"
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "shutdown-delete",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Limrun ios ios_euna",
+          "id": "limrun:ios:1d3b3c1c34b2bcdd7ed50f7fc2a739d4",
+          "kind": "simulator",
+          "shutdown": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "Released provider instance lease.",
+            "stderr": ""
+          },
+          "appleOs": "ios",
+          "provider": {
+            "limrunInstanceId": "ios_euna_01m6rm4mjkest9fbw153eyrpnc"
+          },
+          "endedLeases": [
+            {
+              "leaseId": "1d3b3c1c34b2bcdd7ed50f7fc2a739d4",
+              "outcome": "released"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "boot-recreate",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Limrun ios ios_euna",
+          "id": "limrun:ios:39346a420e94169c6847ec0fca16828c",
+          "kind": "simulator",
+          "booted": true,
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          },
+          "appleOs": "ios"
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "open",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "session": "lifecycle-ios",
+          "sessionStateDir": "<evidence-dir>/state-ios/sessions/limrun_lifecycle-ios",
+          "runnerLogPath": "<evidence-dir>/state-ios/sessions/limrun_lifecycle-ios/runner.log",
+          "requestLogPath": "<evidence-dir>/state-ios/sessions/limrun_lifecycle-ios/requests/7a016a4a481a47bd.ndjson",
+          "eventLogPath": "<evidence-dir>/state-ios/sessions/limrun_lifecycle-ios/events.ndjson",
+          "appName": "com.apple.Preferences",
+          "appBundleId": "com.apple.Preferences",
+          "selection": {
+            "reason": "single-provider-device",
+            "source": "provider",
+            "candidateCount": 1,
+            "bootOccurred": false
+          },
+          "startup": {
+            "durationMs": 993,
+            "measuredAt": "2026-11-06T14:28:00.283Z",
+            "method": "open-command-roundtrip",
+            "appTarget": "com.apple.Preferences",
+            "appBundleId": "com.apple.Preferences"
+          },
+          "platform": "ios",
+          "target": "mobile",
+          "device": "Limrun ios ios_euna",
+          "id": "limrun:ios:39346a420e94169c6847ec0fca16828c",
+          "device_udid": "limrun:ios:39346a420e94169c6847ec0fca16828c",
+          "ios_simulator_device_set": null,
+          "message": "Opened: com.apple.Preferences"
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "snapshot",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "nodes": [
+            {
+              "index": 0,
+              "type": "Other",
+              "role": "_TtC7SwiftUIP33_ACC2C5639A7D76F611E170E831FCA49118SwiftUIApplication",
+              "subrole": "UIApplication",
+              "label": "Settings",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 402,
+                "height": 874
+              },
+              "enabled": true,
+              "depth": 0,
+              "pid": 92012,
+              "hittable": false,
+              "ref": "e1",
+              "kind": "other"
+            },
+            {
+              "index": 1,
+              "parentIndex": 0,
+              "type": "NavigationBar",
+              "role": "SwiftUI.UIKitNavigationBar",
+              "subrole": "UINavigationBar",
+              "identifier": "Settings",
+              "rect": {
+                "x": 0,
+                "y": 62,
+                "width": 402,
+                "height": 106
+              },
+              "enabled": true,
+              "depth": 1,
+              "pid": 92012,
+              "hittable": true,
+              "ref": "e2",
+              "kind": "navigation-bar"
+            },
+            {
+              "index": 2,
+              "parentIndex": 0,
+              "type": "CollectionView",
+              "role": "SwiftUI.UpdateCoalescingCollectionView",
+              "subrole": "UICollectionView",
+              "rect": {
+                "x": 0,
+                "y": 116,
+                "width": 402,
+                "height": 672
+              },
+              "enabled": true,
+              "depth": 1,
+              "pid": 92012,
+              "hittable": true,
+              "hiddenContentBelow": true,
+              "ref": "e3",
+              "kind": "collection"
+            },
+            {
+              "index": 3,
+              "parentIndex": 2,
+              "type": "Image",
+              "role": "UIImageView",
+              "identifier": "AdditionalDimmingOverlay",
+              "rect": {
+                "x": 0,
+                "y": 738,
+                "width": 402,
+                "height": 50
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": false,
+              "ref": "e4",
+              "kind": "image"
+            },
+            {
+              "index": 4,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 168,
+                "width": 370,
+                "height": 90.33333333333331
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Apple Account",
+              "ref": "e5",
+              "kind": "cell"
+            },
+            {
+              "index": 5,
+              "parentIndex": 4,
+              "type": "Button",
+              "role": "SwiftUI.AccessibilityNode",
+              "subrole": "UIResponder",
+              "label": "Apple Account, Sign in to access your iCloud data, the App Store, Apple services, and more.",
+              "identifier": "com.apple.settings.primaryAppleAccount",
+              "rect": {
+                "x": 16,
+                "y": 168,
+                "width": 370,
+                "height": 90.33333333333331
+              },
+              "enabled": true,
+              "depth": 3,
+              "pid": 92012,
+              "hittable": true,
+              "ref": "e6",
+              "kind": "button"
+            },
+            {
+              "index": 6,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 293.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "General",
+              "identifier": "com.apple.settings.general",
+              "ref": "e7",
+              "kind": "cell"
+            },
+            {
+              "index": 7,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 345.33333333333337,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Accessibility",
+              "identifier": "com.apple.settings.accessibility",
+              "ref": "e8",
+              "kind": "cell"
+            },
+            {
+              "index": 8,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 397.33333333333337,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Action Button",
+              "identifier": "com.apple.settings.actionButton",
+              "ref": "e9",
+              "kind": "cell"
+            },
+            {
+              "index": 9,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 449.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Apple Intelligence & Siri",
+              "identifier": "com.apple.settings.siri",
+              "ref": "e10",
+              "kind": "cell"
+            },
+            {
+              "index": 10,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 501.3333333333333,
+                "width": 370,
+                "height": 51.99999999999994
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Camera",
+              "identifier": "com.apple.settings.camera",
+              "ref": "e11",
+              "kind": "cell"
+            },
+            {
+              "index": 11,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 553.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Home Screen & App Library",
+              "identifier": "com.apple.settings.homeScreen",
+              "ref": "e12",
+              "kind": "cell"
+            },
+            {
+              "index": 12,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 605.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Search",
+              "identifier": "com.apple.settings.search",
+              "ref": "e13",
+              "kind": "cell"
+            },
+            {
+              "index": 13,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 657.3333333333333,
+                "width": 370,
+                "height": 52
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "StandBy",
+              "identifier": "com.apple.settings.standBy",
+              "ref": "e14",
+              "kind": "cell"
+            },
+            {
+              "index": 14,
+              "parentIndex": 2,
+              "type": "Cell",
+              "role": "SwiftUI.ListCollectionViewCell",
+              "subrole": "UICollectionViewListCell",
+              "rect": {
+                "x": 16,
+                "y": 744.3333333333334,
+                "width": 370,
+                "height": 43.66666666666663
+              },
+              "enabled": true,
+              "depth": 2,
+              "pid": 92012,
+              "hittable": true,
+              "label": "Screen Time",
+              "identifier": "com.apple.settings.screenTime",
+              "ref": "e15",
+              "kind": "cell"
+            },
+            {
+              "index": 15,
+              "parentIndex": 0,
+              "type": "SearchField",
+              "role": "UISearchBarTextField",
+              "label": "Search",
+              "value": "Search",
+              "placeholder": "Search",
+              "rect": {
+                "x": 32.99999999999994,
+                "y": 803,
+                "width": 336,
+                "height": 38
+              },
+              "enabled": true,
+              "depth": 2,
+              "password": false,
+              "editable": true,
+              "pid": 92012,
+              "hittable": true,
+              "ref": "e16",
+              "kind": "search"
+            },
+            {
+              "index": 16,
+              "parentIndex": 15,
+              "type": "Button",
+              "role": "UIDictationSearchButton",
+              "label": "Dictate",
+              "identifier": "Dictate",
+              "rect": {
+                "x": 335.6666666666667,
+                "y": 811,
+                "width": 17.333333333333314,
+                "height": 22
+              },
+              "enabled": true,
+              "depth": 3,
+              "pid": 92012,
+              "hittable": true,
+              "ref": "e17",
+              "kind": "button"
+            },
+            {
+              "index": 17,
+              "parentIndex": 15,
+              "type": "Button",
+              "role": "UIDictationSearchButton",
+              "label": "Dictate",
+              "identifier": "Dictate",
+              "rect": {
+                "x": 335.6666666666667,
+                "y": 811,
+                "width": 17.333333333333314,
+                "height": 22
+              },
+              "enabled": true,
+              "depth": 3,
+              "pid": 92012,
+              "hittable": true,
+              "ref": "e18",
+              "kind": "button"
+            }
+          ],
+          "truncated": false,
+          "appName": "com.apple.Preferences",
+          "appBundleId": "com.apple.Preferences",
+          "visibility": {
+            "partial": true,
+            "visibleNodeCount": 18,
+            "totalNodeCount": 18,
+            "reasons": [
+              "scroll-hidden-below"
+            ]
+          },
+          "keyboard": {
+            "kind": "absent",
+            "treeBound": true
+          },
+          "viewport": {
+            "width": 402,
+            "height": 874
+          },
+          "presentedSurface": "absent",
+          "snapshotQualityNotes": [
+            {
+              "code": "regular-geometry-clipped",
+              "clippedNodeCount": 12,
+              "droppedNodeCount": 0
+            }
+          ],
+          "snapshotDiagnostics": {
+            "stats": {
+              "count": 1,
+              "p50Ms": 16475,
+              "p95Ms": 16475,
+              "maxMs": 16475,
+              "slowThresholdMs": 1500,
+              "platform": "ios",
+              "backends": {
+                "simulator-ax-bridge": 1
+              }
+            }
+          },
+          "refsGeneration": 972714
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "shutdown-active-refusal",
+      "exitCode": 1,
+      "result": {
+        "success": false,
+        "error": {
+          "code": "DEVICE_IN_USE",
+          "message": "Cannot shut down an active session device directly. Use close --shutdown to end the session and turn off the simulator/emulator.",
+          "hint": "Run agent-device close --shutdown --session limrun:lifecycle-ios",
+          "diagnosticId": "mw52km9f-2753cea9",
+          "logPath": "<evidence-dir>/state-ios/sessions/limrun_lifecycle-ios/requests/2903c09099f5bbf5.ndjson",
+          "diagnosticsRecord": {
+            "session": "limrun:lifecycle-ios",
+            "requestId": "2903c09099f5bbf5"
+          },
+          "retriable": true,
+          "details": {
+            "session": "limrun:lifecycle-ios",
+            "platform": "ios",
+            "target": "mobile",
+            "device": "Limrun ios ios_euna",
+            "id": "limrun:ios:39346a420e94169c6847ec0fca16828c",
+            "kind": "simulator"
+          }
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "close-shutdown",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "session": "lifecycle-ios",
+          "shutdown": {
+            "success": true,
+            "exitCode": 0,
+            "stdout": "Released provider instance lease.",
+            "stderr": ""
+          },
+          "provider": {
+            "limrunInstanceId": "ios_euna_01m6rm4pb5estbrk6aytf2r9xd"
+          },
+          "message": "Closed: lifecycle-ios"
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "deletion-confirmed",
+      "instanceIds": [
+        "ios_euna_01m6rm4mjkest9fbw153eyrpnc",
+        "ios_euna_01m6rm4pb5estbrk6aytf2r9xd"
+      ]
+    },
+    {
+      "platform": "ios",
+      "name": "disconnect",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "connected": false,
+          "session": "lifecycle-ios",
+          "released": false
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "name": "daemon-stop",
+      "exitCode": 0,
+      "result": {
+        "success": true,
+        "data": {
+          "stopped": true,
+          "mode": "graceful",
+          "cleanupConfidence": "known",
+          "claimsReleased": [],
+          "claimsOrphaned": [],
+          "claimsSuperseded": [],
+          "claimsUnattributable": [],
+          "providerReleases": {
+            "status": "completed",
+            "released": [],
+            "pending": []
+          },
+          "warnings": [],
+          "clean": true
+        }
+      }
+    }
+  ]
+}

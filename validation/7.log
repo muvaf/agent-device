@@ -1,0 +1,79 @@
+$ fallow audit --base a68693c72e7cb5f640f4a64fea8e4441fa223e72
+loaded config: <checkout>/.fallowrc.json
+Comparing against health baseline: <checkout>/fallow-baselines/health.json
+
+Audit scope: 39 changed files vs a68693c72e7cb5f640f4a64fea8e4441fa223e72 (e28ba51b8..HEAD)
+
+── Duplication ────────────────────────────────────
+note: module wiring excluded from clones
+  (duplicates.ignoreImports: false to include it)
+
+■ Metrics: dead code 0 · complexity 1 (warn, max cyclomatic: 15) · duplication 1
+⚠ 25 lines (0.0%) duplicated across 2 files (0.15s)
+
+── Complexity ─────────────────────────────────────
+
+● Duplicates (1 clone groups)
+
+     13 lines  2 instances  spread 4  dup:ac4c6e2c
+    packages/provider-limrun/src/app-log-runtime.ts:91-102
+    packages/provider-revyl/src/platform-runtime.ts:41-53
+
+  Duplicate code blocks
+  https://fallow.tools/docs/explanations/duplication/#clone-groups
+
+■ Metrics: 11,792 LOC · avg cyclomatic 2.5 · p90 cyclomatic 6
+  Cyclomatic units: functions 686, module scopes 5, templates 0
+  Module scope: max cyclomatic 5; included in metrics, not function findings
+
+  Function size: 73% low · 15% medium · 9% high · 4% very high  (1-15 / 16-30 / 31-60 / >60 LOC)
+  Parameters:    90% low · 8% medium · 2% high · 0% very high  (0-2 / 3-4 / 5-6 / >=7 params)
+
+● Large functions (10 shown, 25 total)
+  packages/daemon/src/server/request-execution-scope.ts
+    :223 createRequestExecutionScope  332 lines
+  packages/platform-apple/src/runner-runtime.ts
+    :37 createAppleRunnerRuntime  183 lines
+  packages/provider-limrun/src/app-log-runtime.ts
+    :134 bindLimrunAppLogs  137 lines
+  packages/daemon/src/server/request-execution-scope.ts
+    :378 runAdmitted  129 lines
+  packages/daemon/src/sessions/handlers/lease.ts
+    :63 handleLeaseCommands  127 lines
+  packages/daemon/src/server/request-execution-scope.ts
+    :842 createLeaseSessionEnd  124 lines
+  packages/daemon/src/sessions/handlers/__tests__/session-provider-shutdown.test.ts
+    :28 scenario  109 lines
+  packages/daemon/src/sessions/session-lifecycle/internal/session-close-lifecycle-teardown.ts
+    :35 runSessionCloseTeardown  101 lines
+  packages/daemon/src/server/request-execution-scope.ts
+    :684 prepareLockedRequestScope   96 lines
+  src/cli.ts
+    :150 runCliOnHost   94 lines
+  Functions exceeding 60 lines of code (very high risk)
+  https://fallow.tools/docs/explanations/health/#unit-size
+  use --top 25 to see all
+
+● High complexity functions (1)
+  src/cli.ts
+    :255 parseCliInputOrExit
+          15   cyclomatic   20 ! cognitive   70 lines
+  Functions exceeding cyclomatic, cognitive, or CRAP thresholds; ! marks the
+  dimension that breached
+  https://fallow.tools/docs/explanations/health/#complexity-metrics
+
+
+CSS health
+  Styling health: 85 B (CSS quality, scored separately from the code health score)
+  Deductions: dead surface -7.1 · structural -4.3 · token erosion -2.5 · duplication -1.3
+  4 stylesheets · 176 rules · 9.3% !important · 0 empty · max nesting 0
+  value sprawl: 43 distinct colors · 16 font sizes · 0 z-index values
+  value sprawl (cont.): 1 radius value · 9 line-heights (candidates; tokenize repeated values via custom properties)
+  custom properties: 73 defined, 38 unreferenced in CSS, 7 undefined (candidates; may be set from JS)
+  font sizes mix 3 units (9 rem, 2 em, 1 other; candidate, standardize unless intentional)
+  31 styling candidates (run `fallow health --css` for detail)
+✗ 1 above threshold · 686 analyzed (0.01s)
+
+── Styling ────────────────────────────────────────
+⚠ complexity: 1 finding · duplication: 1 clone group (warn) · 39 changed files (3.77s)
+  audit gate excluded 1 inherited finding (run with --gate all to enforce)

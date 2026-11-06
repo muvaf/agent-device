@@ -1,0 +1,1528 @@
+{
+  "sha": "e28ba51b85266098a2ccf40fbbb4db83e89d789b",
+  "platform": "android",
+  "kind": "attached",
+  "steps": [
+    {
+      "name": "allocate-retained",
+      "result": {
+        "leaseId": "77decaafba89e333b150dd9356e08b28",
+        "tenantId": "limrun",
+        "runId": "lifecycle-attached",
+        "backend": "android-instance",
+        "leaseProvider": "limrun",
+        "retainOnClose": true,
+        "createdAt": 1793975337192,
+        "heartbeatAt": 1793975337519,
+        "expiresAt": 1793975397519,
+        "created": true
+      }
+    },
+    {
+      "name": "boot",
+      "result": {
+        "platform": "android",
+        "target": "mobile",
+        "device": "Limrun android attached",
+        "id": "limrun:android:77decaafba89e333b150dd9356e08b28",
+        "kind": "emulator",
+        "booted": true,
+        "selection": {
+          "reason": "single-provider-device",
+          "source": "provider",
+          "candidateCount": 1,
+          "bootOccurred": false
+        }
+      }
+    },
+    {
+      "name": "open",
+      "result": {
+        "session": "retained-test",
+        "sessionStateDir": "<evidence-dir>/state-android-attached/sessions/limrun_retained-test",
+        "runnerLogPath": "<evidence-dir>/state-android-attached/sessions/limrun_retained-test/runner.log",
+        "requestLogPath": "<evidence-dir>/state-android-attached/sessions/limrun_retained-test/requests/071a1761678f2fc5.ndjson",
+        "eventLogPath": "<evidence-dir>/state-android-attached/sessions/limrun_retained-test/events.ndjson",
+        "appName": "com.android.settings",
+        "appBundleId": "com.android.settings",
+        "appId": "com.android.settings",
+        "selection": {
+          "reason": "single-provider-device",
+          "source": "provider",
+          "candidateCount": 1,
+          "bootOccurred": false
+        },
+        "startup": {
+          "durationMs": 564,
+          "measuredAt": "2026-11-06T14:28:58.124Z",
+          "method": "open-command-roundtrip",
+          "appTarget": "com.android.settings",
+          "appBundleId": "com.android.settings"
+        },
+        "device": {
+          "platform": "android",
+          "target": "mobile",
+          "id": "limrun:android:77decaafba89e333b150dd9356e08b28",
+          "name": "Limrun android attached",
+          "identifiers": {
+            "deviceId": "limrun:android:77decaafba89e333b150dd9356e08b28",
+            "deviceName": "Limrun android attached",
+            "serial": "limrun:android:77decaafba89e333b150dd9356e08b28"
+          },
+          "android": {
+            "serial": "limrun:android:77decaafba89e333b150dd9356e08b28"
+          }
+        },
+        "identifiers": {
+          "session": "retained-test",
+          "deviceId": "limrun:android:77decaafba89e333b150dd9356e08b28",
+          "deviceName": "Limrun android attached",
+          "serial": "limrun:android:77decaafba89e333b150dd9356e08b28",
+          "appId": "com.android.settings",
+          "appBundleId": "com.android.settings"
+        }
+      }
+    },
+    {
+      "name": "snapshot",
+      "result": {
+        "nodes": [
+          {
+            "index": 0,
+            "type": "android.widget.TextView",
+            "label": "2:29",
+            "contentDescription": "2:29 PM",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.systemui:id/clock",
+            "bundleId": "com.android.systemui",
+            "rect": {
+              "x": 47,
+              "y": 32,
+              "width": 56,
+              "height": 29
+            },
+            "visibleToUser": true,
+            "depth": 0,
+            "systemBar": "status",
+            "ref": "e1",
+            "kind": "text"
+          },
+          {
+            "index": 1,
+            "type": "android.widget.ImageView",
+            "label": "Android System notification: ",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.systemui",
+            "rect": {
+              "x": 103,
+              "y": 0,
+              "width": 39,
+              "height": 94
+            },
+            "visibleToUser": true,
+            "depth": 0,
+            "systemBar": "status",
+            "ref": "e2",
+            "kind": "image"
+          },
+          {
+            "index": 2,
+            "type": "android.widget.ImageView",
+            "label": "Wifi signal full.",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.systemui:id/wifi_signal",
+            "bundleId": "com.android.systemui",
+            "rect": {
+              "x": 615,
+              "y": 33,
+              "width": 26,
+              "height": 26
+            },
+            "visibleToUser": true,
+            "depth": 0,
+            "systemBar": "status",
+            "ref": "e3",
+            "kind": "image"
+          },
+          {
+            "index": 3,
+            "type": "android.widget.LinearLayout",
+            "label": "Battery percentage unknown.",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.systemui:id/battery",
+            "bundleId": "com.android.systemui",
+            "rect": {
+              "x": 652,
+              "y": 35,
+              "width": 14,
+              "height": 23
+            },
+            "visibleToUser": true,
+            "depth": 0,
+            "systemBar": "status",
+            "ref": "e4",
+            "kind": "group"
+          },
+          {
+            "index": 4,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.systemui",
+            "rect": {
+              "x": 652,
+              "y": 35,
+              "width": 14,
+              "height": 23
+            },
+            "visibleToUser": true,
+            "depth": 1,
+            "parentIndex": 3,
+            "systemBar": "status",
+            "ref": "e5",
+            "kind": "image"
+          },
+          {
+            "index": 5,
+            "type": "android.widget.FrameLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 720,
+              "height": 1616
+            },
+            "visibleToUser": true,
+            "depth": 0,
+            "ref": "e6",
+            "kind": "group"
+          },
+          {
+            "index": 6,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 720,
+              "height": 1616
+            },
+            "visibleToUser": true,
+            "depth": 1,
+            "parentIndex": 5,
+            "ref": "e7",
+            "kind": "group"
+          },
+          {
+            "index": 7,
+            "type": "android.widget.FrameLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/content",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 720,
+              "height": 1616
+            },
+            "visibleToUser": true,
+            "depth": 2,
+            "parentIndex": 6,
+            "ref": "e8",
+            "kind": "group"
+          },
+          {
+            "index": 8,
+            "type": "android.widget.ScrollView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/settings_homepage_container",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 94,
+              "width": 720,
+              "height": 1480
+            },
+            "visibleToUser": true,
+            "depth": 3,
+            "parentIndex": 7,
+            "ref": "e9",
+            "kind": "scroll-area"
+          },
+          {
+            "index": 9,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/app_bar",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 94,
+              "width": 720,
+              "height": 168
+            },
+            "visibleToUser": true,
+            "depth": 4,
+            "parentIndex": 8,
+            "ref": "e10",
+            "kind": "group"
+          },
+          {
+            "index": 10,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/app_bar_container",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 94,
+              "width": 720,
+              "height": 168
+            },
+            "visibleToUser": true,
+            "depth": 5,
+            "parentIndex": 9,
+            "ref": "e11",
+            "kind": "group"
+          },
+          {
+            "index": 11,
+            "type": "androidx.cardview.widget.CardView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 28,
+              "y": 108,
+              "width": 664,
+              "height": 126
+            },
+            "visibleToUser": true,
+            "depth": 6,
+            "parentIndex": 10,
+            "ref": "e12",
+            "kind": "cardview"
+          },
+          {
+            "index": 12,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/search_action_bar",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 28,
+              "y": 108,
+              "width": 664,
+              "height": 126
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 7,
+            "parentIndex": 11,
+            "ref": "e13",
+            "kind": "group"
+          },
+          {
+            "index": 13,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/imageView",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 70,
+              "y": 150,
+              "width": 42,
+              "height": 42
+            },
+            "visibleToUser": true,
+            "depth": 8,
+            "parentIndex": 12,
+            "ref": "e14",
+            "kind": "image"
+          },
+          {
+            "index": 14,
+            "type": "android.widget.TextView",
+            "label": "Search Settings",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/search_bar_title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 126,
+              "y": 147,
+              "width": 259,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 8,
+            "parentIndex": 12,
+            "ref": "e15",
+            "kind": "text"
+          },
+          {
+            "index": 15,
+            "type": "android.widget.ScrollView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/main_content_scrollable_container",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 262,
+              "width": 720,
+              "height": 1312
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 4,
+            "parentIndex": 8,
+            "hiddenContentBelow": true,
+            "ref": "e16",
+            "kind": "scroll-area"
+          },
+          {
+            "index": 16,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/homepage_container",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 262,
+              "width": 720,
+              "height": 1312
+            },
+            "focused": true,
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 5,
+            "parentIndex": 15,
+            "ref": "e17",
+            "kind": "group"
+          },
+          {
+            "index": 17,
+            "type": "android.widget.FrameLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/main_content",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 262,
+              "width": 720,
+              "height": 1312
+            },
+            "visibleToUser": true,
+            "depth": 6,
+            "parentIndex": 16,
+            "ref": "e18",
+            "kind": "group"
+          },
+          {
+            "index": 18,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/container_material",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 262,
+              "width": 720,
+              "height": 1312
+            },
+            "visibleToUser": true,
+            "depth": 7,
+            "parentIndex": 17,
+            "ref": "e19",
+            "kind": "group"
+          },
+          {
+            "index": 19,
+            "type": "android.widget.FrameLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/list_container",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 262,
+              "width": 720,
+              "height": 1312
+            },
+            "visibleToUser": true,
+            "depth": 8,
+            "parentIndex": 18,
+            "ref": "e20",
+            "kind": "group"
+          },
+          {
+            "index": 20,
+            "type": "androidx.recyclerview.widget.RecyclerView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "com.android.settings:id/recycler_view",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 262,
+              "width": 720,
+              "height": 1312
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 9,
+            "parentIndex": 19,
+            "hiddenContentAbove": true,
+            "ref": "e21",
+            "kind": "list"
+          },
+          {
+            "index": 21,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 262,
+              "width": 720,
+              "height": 137
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e22",
+            "kind": "group"
+          },
+          {
+            "index": 22,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 295,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 21,
+            "ref": "e23",
+            "kind": "image"
+          },
+          {
+            "index": 23,
+            "type": "android.widget.TextView",
+            "label": "Network & internet",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 290,
+              "width": 290,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 21,
+            "ref": "e24",
+            "kind": "text"
+          },
+          {
+            "index": 24,
+            "type": "android.widget.TextView",
+            "label": "Mobile, Wi‑Fi, hotspot",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 337,
+              "width": 237,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 21,
+            "ref": "e25",
+            "kind": "text"
+          },
+          {
+            "index": 25,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 399,
+              "width": 720,
+              "height": 165
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e26",
+            "kind": "group"
+          },
+          {
+            "index": 26,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 432,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 25,
+            "ref": "e27",
+            "kind": "image"
+          },
+          {
+            "index": 27,
+            "type": "android.widget.TextView",
+            "label": "Connected devices",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 427,
+              "width": 297,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 25,
+            "ref": "e28",
+            "kind": "text"
+          },
+          {
+            "index": 28,
+            "type": "android.widget.TextView",
+            "label": "Bluetooth, pairing",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 474,
+              "width": 194,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 25,
+            "ref": "e29",
+            "kind": "text"
+          },
+          {
+            "index": 29,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 564,
+              "width": 720,
+              "height": 137
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e30",
+            "kind": "group"
+          },
+          {
+            "index": 30,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 597,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 29,
+            "ref": "e31",
+            "kind": "image"
+          },
+          {
+            "index": 31,
+            "type": "android.widget.TextView",
+            "label": "Apps",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 592,
+              "width": 81,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 29,
+            "ref": "e32",
+            "kind": "text"
+          },
+          {
+            "index": 32,
+            "type": "android.widget.TextView",
+            "label": "Recent apps, default apps",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 639,
+              "width": 287,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 29,
+            "ref": "e33",
+            "kind": "text"
+          },
+          {
+            "index": 33,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 701,
+              "width": 720,
+              "height": 137
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e34",
+            "kind": "group"
+          },
+          {
+            "index": 34,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 734,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 33,
+            "ref": "e35",
+            "kind": "image"
+          },
+          {
+            "index": 35,
+            "type": "android.widget.TextView",
+            "label": "Notifications",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 729,
+              "width": 198,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 33,
+            "ref": "e36",
+            "kind": "text"
+          },
+          {
+            "index": 36,
+            "type": "android.widget.TextView",
+            "label": "Notification history, conversations",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 776,
+              "width": 376,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 33,
+            "ref": "e37",
+            "kind": "text"
+          },
+          {
+            "index": 37,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 838,
+              "width": 720,
+              "height": 137
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e38",
+            "kind": "group"
+          },
+          {
+            "index": 38,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 871,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 37,
+            "ref": "e39",
+            "kind": "image"
+          },
+          {
+            "index": 39,
+            "type": "android.widget.TextView",
+            "label": "Sound & vibration",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 866,
+              "width": 275,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 37,
+            "ref": "e40",
+            "kind": "text"
+          },
+          {
+            "index": 40,
+            "type": "android.widget.TextView",
+            "label": "Volume and vibration",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 913,
+              "width": 234,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 37,
+            "ref": "e41",
+            "kind": "text"
+          },
+          {
+            "index": 41,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 975,
+              "width": 720,
+              "height": 137
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e42",
+            "kind": "group"
+          },
+          {
+            "index": 42,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 1008,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 41,
+            "ref": "e43",
+            "kind": "image"
+          },
+          {
+            "index": 43,
+            "type": "android.widget.TextView",
+            "label": "Modes",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1003,
+              "width": 108,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 41,
+            "ref": "e44",
+            "kind": "text"
+          },
+          {
+            "index": 44,
+            "type": "android.widget.TextView",
+            "label": "Do Not Disturb, Sleeping",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1050,
+              "width": 267,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 41,
+            "ref": "e45",
+            "kind": "text"
+          },
+          {
+            "index": 45,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 1112,
+              "width": 720,
+              "height": 137
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e46",
+            "kind": "group"
+          },
+          {
+            "index": 46,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 1145,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 45,
+            "ref": "e47",
+            "kind": "image"
+          },
+          {
+            "index": 47,
+            "type": "android.widget.TextView",
+            "label": "Display",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1140,
+              "width": 115,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 45,
+            "ref": "e48",
+            "kind": "text"
+          },
+          {
+            "index": 48,
+            "type": "android.widget.TextView",
+            "label": "Dark theme, font size, brightness",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1187,
+              "width": 361,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 45,
+            "ref": "e49",
+            "kind": "text"
+          },
+          {
+            "index": 49,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 1249,
+              "width": 720,
+              "height": 165
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e50",
+            "kind": "group"
+          },
+          {
+            "index": 50,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 1282,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 49,
+            "ref": "e51",
+            "kind": "image"
+          },
+          {
+            "index": 51,
+            "type": "android.widget.TextView",
+            "label": "Wallpaper",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1277,
+              "width": 158,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 49,
+            "ref": "e52",
+            "kind": "text"
+          },
+          {
+            "index": 52,
+            "type": "android.widget.TextView",
+            "label": "Home, lock screen",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1324,
+              "width": 204,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 49,
+            "ref": "e53",
+            "kind": "text"
+          },
+          {
+            "index": 53,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 1414,
+              "width": 720,
+              "height": 137
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e54",
+            "kind": "group"
+          },
+          {
+            "index": 54,
+            "type": "android.widget.ImageView",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/icon",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 56,
+              "y": 1447,
+              "width": 70,
+              "height": 70
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 53,
+            "ref": "e55",
+            "kind": "image"
+          },
+          {
+            "index": 55,
+            "type": "android.widget.TextView",
+            "label": "Storage",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/title",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1442,
+              "width": 121,
+              "height": 47
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 53,
+            "ref": "e56",
+            "kind": "text"
+          },
+          {
+            "index": 56,
+            "type": "android.widget.TextView",
+            "label": " ",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "identifier": "android:id/summary",
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 140,
+              "y": 1489,
+              "width": 6,
+              "height": 34
+            },
+            "visibleToUser": true,
+            "depth": 11,
+            "parentIndex": 53,
+            "ref": "e57",
+            "kind": "text"
+          },
+          {
+            "index": 57,
+            "type": "android.widget.LinearLayout",
+            "enabled": true,
+            "selected": false,
+            "editable": false,
+            "password": false,
+            "hintShowing": false,
+            "bundleId": "com.android.settings",
+            "rect": {
+              "x": 0,
+              "y": 1551,
+              "width": 720,
+              "height": 23
+            },
+            "visibleToUser": true,
+            "hittable": true,
+            "depth": 10,
+            "parentIndex": 20,
+            "ref": "e58",
+            "kind": "group"
+          }
+        ],
+        "truncated": false,
+        "appName": "com.android.settings",
+        "appBundleId": "com.android.settings",
+        "keyboard": {
+          "kind": "absent",
+          "treeBound": true
+        },
+        "viewport": {
+          "width": 720,
+          "height": 1616
+        },
+        "visibility": {
+          "partial": true,
+          "visibleNodeCount": 58,
+          "totalNodeCount": 58,
+          "reasons": [
+            "scroll-hidden-above",
+            "scroll-hidden-below"
+          ]
+        },
+        "androidSnapshot": {
+          "backend": "android-helper",
+          "pixelDensity": 1.75,
+          "helperVersion": "0.21.37-dev",
+          "helperApiVersion": "2",
+          "helperTransport": "instrumentation",
+          "installReason": "missing",
+          "waitForIdleTimeoutMs": 500,
+          "waitForIdleQuietMs": 100,
+          "timeoutMs": 5000,
+          "maxDepth": 128,
+          "maxNodes": 5000,
+          "rootPresent": true,
+          "cacheInvalidated": true,
+          "captureMode": "interactive-windows",
+          "windowCount": 2,
+          "missingRootWindowTypes": [],
+          "nodeCount": 151,
+          "helperTruncated": false,
+          "elapsedMs": 127
+        },
+        "snapshotQuality": {
+          "state": "healthy",
+          "backend": "android-helper"
+        },
+        "snapshotDiagnostics": {
+          "stats": {
+            "count": 1,
+            "p50Ms": 2335,
+            "p95Ms": 2335,
+            "maxMs": 2335,
+            "slowThresholdMs": 1500,
+            "platform": "android",
+            "backends": {
+              "android-uiautomator": 1
+            }
+          }
+        },
+        "refsGeneration": 461514,
+        "identifiers": {
+          "session": "retained-test",
+          "appId": "com.android.settings",
+          "appBundleId": "com.android.settings"
+        }
+      }
+    },
+    {
+      "name": "close-shutdown",
+      "result": {
+        "session": "retained-test",
+        "shutdown": {
+          "success": true,
+          "exitCode": 0,
+          "stdout": "Released provider instance lease.",
+          "stderr": ""
+        },
+        "identifiers": {
+          "session": "retained-test"
+        }
+      }
+    },
+    {
+      "name": "lease-already-released",
+      "result": {
+        "released": false
+      }
+    },
+    {
+      "name": "reattach",
+      "result": {
+        "leaseId": "b341601768be2b4e99a498084ec44008",
+        "tenantId": "limrun",
+        "runId": "lifecycle-attached",
+        "backend": "android-instance",
+        "leaseProvider": "limrun",
+        "retainOnClose": true,
+        "createdAt": 1793975340999,
+        "heartbeatAt": 1793975341400,
+        "expiresAt": 1793975401400,
+        "created": true
+      }
+    },
+    {
+      "name": "shutdown-detach",
+      "result": {
+        "platform": "android",
+        "target": "mobile",
+        "device": "Limrun android attached",
+        "id": "limrun:android:b341601768be2b4e99a498084ec44008",
+        "kind": "emulator",
+        "shutdown": {
+          "success": true,
+          "exitCode": 0,
+          "stdout": "Released provider instance lease.",
+          "stderr": ""
+        },
+        "provider": {
+          "limrunInstanceId": "attached-ac17481e9dbf"
+        },
+        "endedLeases": [
+          {
+            "leaseId": "b341601768be2b4e99a498084ec44008",
+            "outcome": "released"
+          }
+        ]
+      }
+    },
+    {
+      "name": "attached-instance-still-ready",
+      "result": {
+        "instanceId": "android_euna_01m6rm6fsreby9sbp4t4q4q40k",
+        "state": "ready"
+      }
+    }
+  ]
+}
